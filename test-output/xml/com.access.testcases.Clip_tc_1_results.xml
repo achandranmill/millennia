@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Default test"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="26.444">
+    <properties></properties>
+
+
+
+            <testcase
+                name="loginpage"
+                time="10.101"
+                classname="com.access.testcases.Clip_tc_1">
+            </testcase>
+            <testcase
+                name="Clipboard"
+                time="16.343"
+                classname="com.access.testcases.Clip_tc_1">
+            </testcase>
+</testsuite>
