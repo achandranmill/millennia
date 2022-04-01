@@ -26,7 +26,7 @@ public class Reports {
 	@CacheLookup
 	WebElement selectallwaitTimes;
 	
-	@FindBy(how = How.CSS, using = "body.app-footer-container-push.ng-scope:nth-child(2) main.container:nth-child(3) div.ng-scope reports.ng-scope.ng-isolate-scope div.row:nth-child(2) div.col-sm-3.hidden-print > button.form-control.date-picker.btn-default.pickerButton.ng-pristine.ng-valid.ng-binding.ng-isolate-scope.ng-not-empty.ng-touched:nth-child(1)")
+	@FindBy(how = How.XPATH, using = "//button[contains(text()]")
 	@CacheLookup
 	WebElement waitTimesDatepicker;
 	
@@ -102,8 +102,6 @@ public class Reports {
 	}
 	public void selectwaitTime()
 	{
-		waitTimesDatepicker.click();
-		DatepickerApply.click();
 		selectallwaitTimes.click();
 	}
 	public void appointmentTab()
