@@ -15,9 +15,10 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseClass 
 {
-public String baseURL="https://access-stage-b.jellyfishhealth.com.";
-public String email="user_test@mailinator.com";
-public String password="Imenso@test123";
+public String baseURL="https://access-stage-b.jellyfishhealth.com";
+public String email="a19@mailinator.com";
+		
+public String password="Random@123456788";
 
 public static WebDriver driver;
 

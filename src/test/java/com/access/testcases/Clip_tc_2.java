@@ -10,6 +10,7 @@ import java.util.Random;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 import com.aventstack.extentreports.utils.DateUtil;
 @Test
@@ -24,8 +25,8 @@ public class Clip_tc_2 extends BaseClass {
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
-
 		Clipboard addp=new Clipboard(driver);
+		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
 		addp.lname("Robin");

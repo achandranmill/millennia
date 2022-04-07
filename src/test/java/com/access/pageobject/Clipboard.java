@@ -15,6 +15,11 @@ public class Clipboard {
 		ldriver=rdriver;
 		PageFactory.initElements(rdriver, this);
 	}
+	
+	@FindBy(how=How.LINK_TEXT,using="Clipboard")
+	@CacheLookup
+	WebElement LinkClipboard;
+	
 	@FindBy(how = How.ID, using ="nameLast")
 	@CacheLookup
 	WebElement txtnameLast;
@@ -147,6 +152,129 @@ public class Clipboard {
 	@FindBy(how = How.XPATH, using ="//button[contains(text(),'Yes')]")
 	@CacheLookup
 	WebElement ConfirmUndoCheckIn;
+	
+	
+	//change
+	@FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[1]/li[1]/a")
+	@CacheLookup
+	WebElement LinkclickBoard;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/main/div[1]/clipboard1/div[1]/div/form/div[2]/div[3]/div/date-picker/div/input")
+	@CacheLookup
+	WebElement DOB;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"gender\"]")
+	@CacheLookup
+	WebElement Gender;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[7]/div/div[1]/time-picker/div/input")
+	@CacheLookup
+	WebElement Time;
+	
+	@FindBy(how=How.ID,using="seeing-dropdown")
+	@CacheLookup
+	WebElement Fillterprovider;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[4]/div/div/ul/li[3]/a/span")
+	@CacheLookup
+	WebElement provider;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"btn-append-to-single-button\"]")
+	@CacheLookup
+	WebElement Flag1;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"patientFlags\"]/div/div[2]/ul/li[2]/a/span")
+	@CacheLookup
+	WebElement FlagSelect;
+	
+	@FindBy(how=How.ID,using="ssn")
+	@CacheLookup
+	WebElement SSN;
+	
+	@FindBy(how=How.ID,using="appointmentContactNumber")
+	@CacheLookup
+	WebElement  appointmentContactNumber;
+	
+	
+	@FindBy(how=How.ID,using="mrn")
+	@CacheLookup
+	WebElement mrn;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointmentContactName\"]")
+	@CacheLookup
+	WebElement appointmentContactName;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[7]/div/div[2]/date-picker/div/input")
+	@CacheLookup
+	WebElement Date;
+	
+	public void Date(String d2)
+	{
+		Date.sendKeys(d2);
+	}
+	
+	
+	public void appointmentContactName(String n1)
+	{
+		appointmentContactName.sendKeys(n1);
+	}
+	
+	public void mrn(String m)
+	{
+		mrn.sendKeys(m);
+	}
+	
+	public void appointmentContactNumber(String n)
+	{
+		appointmentContactNumber.sendKeys(n);
+	}
+	
+	public void SSN(String s)
+	{
+		SSN.sendKeys(s);
+	}
+	
+	public void FlagSelect()
+	{
+		FlagSelect.click();
+	}
+	
+	public void Flag1() {
+		Flag1.click();
+	}
+	
+	public void Fillterprovider()
+	{
+		Fillterprovider.click();
+	}
+	
+	public void provider()
+	{
+		provider.click();
+	}
+	
+	public void Time(String t)
+	{
+		Time.sendKeys(t);
+	}
+	
+	
+	public void Gender(String g)
+	{
+		Gender.sendKeys(g);
+	}
+	public void textemail(String e)
+	{
+		txtemail.sendKeys(e);
+	}
+	public void DOB(String d)
+	{
+		DOB.sendKeys(d);
+	}
+	public void LinkclickBoard()
+	{
+		LinkclickBoard.click();
+	}
 	
 	
 	public void lname(String lname) {

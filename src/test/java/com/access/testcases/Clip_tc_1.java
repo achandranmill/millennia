@@ -27,6 +27,7 @@ public class Clip_tc_1 extends BaseClass
 		
 
 		Clipboard addp=new Clipboard(driver);
+		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
 		addp.lname("Robin");
