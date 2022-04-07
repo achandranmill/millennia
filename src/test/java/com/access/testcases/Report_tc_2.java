@@ -13,7 +13,11 @@ import org.openqa.selenium.support.ui.Select;
 import com.access.pageobject.Reports;
 import com.access.pageobject.loginpage;
 import com.access.testcases.BaseClass;
+<<<<<<< HEAD
+import com.aventstack.extentreports.utils.DateUtil;
+=======
 
+>>>>>>> 66b992c384895b3697a3b6897aba419bf92f7c3e
 @Test
 public class Report_tc_2 extends BaseClass  {
 	public void Reports() throws InterruptedException, IOException
@@ -33,5 +37,9 @@ public class Report_tc_2 extends BaseClass  {
 		select.selectallappointment();
 		Thread.sleep(2000);
 		select.selectallappointment();
+<<<<<<< HEAD
+	}}
+=======
 	}
 }
+>>>>>>> 66b992c384895b3697a3b6897aba419bf92f7c3e
