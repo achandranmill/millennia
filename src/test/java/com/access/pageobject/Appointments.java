@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -17,7 +18,7 @@ public class Appointments
 	public Appointments(WebDriver rdriver)
 	{
 		ldriver=rdriver;
-		PageFactory.initElements(rdriver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 10), this);
 	}
 	
 	@FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[1]/li[5]/a")
@@ -250,9 +251,128 @@ public class Appointments
 	@CacheLookup
 	WebElement FormsMakechange;
 	
-	@FindBy(how=How.NAME,using="First Name_formly_1_firstName_0_0, fname")
+	@FindBy(how=How.XPATH,using="//*[@id=\"formly_1_firstName_0_0\"]")
 	@CacheLookup
 	WebElement FormsFirstName;
+	
+	
+	
+	@FindBy(how=How.ID,using="formly_3_firstName_1_1")
+	@CacheLookup
+	WebElement FirstName2;
+	public void FirstName2(String fn)
+	{
+		FirstName2.sendKeys(fn);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_lastName_2_2")
+	@CacheLookup
+	WebElement LastName;
+	
+	public void LastName(String ln)
+	{
+		LastName.sendKeys(ln);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_middleName_3_3")
+	@CacheLookup
+	WebElement MidelName;
+	
+	public void MidelName(String m)
+	{
+		MidelName.sendKeys(m);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_streetAddress_4_4")
+	@CacheLookup
+	WebElement Address;
+	
+	public void Address(String add)
+	{
+		Address.sendKeys(add);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_input_5_5")
+	@CacheLookup
+	WebElement EmargencyN;
+	
+	public void EmargencyN(String n)
+	{
+		EmargencyN.sendKeys(n);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_streetAddress_6_6")
+	@CacheLookup
+	WebElement StreetAddress2;
+	
+	public void StreetAddress2(String s1)
+	{
+		StreetAddress2.sendKeys(s1);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_city_7_7")
+	@CacheLookup
+	WebElement City;
+	
+	public void City(String c)
+	{
+		City.sendKeys(c);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_state_8_8")
+	@CacheLookup
+	WebElement State;
+	
+	public void State(String st)
+	{
+		State.sendKeys(st);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_postalCode_9_9")
+	@CacheLookup
+	WebElement Pincode;
+	
+	public void Pincode(String P)
+	{
+		Pincode.sendKeys(P);
+	}
+	
+	@FindBy(how=How.NAME,using="Email Address_formly_3_email_10_10, email")
+	@CacheLookup
+	WebElement EmaileForms;
+	
+	public void EmaileForms(String email) 
+	{
+		EmaileForms.sendKeys(email);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_input_11_11")
+	@CacheLookup
+	WebElement PatientFullN;
+	
+	public void PatientFullN(String Fulln)
+	{
+		PatientFullN.sendKeys(Fulln);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_date_13_13")
+	@CacheLookup
+	WebElement PatientAdmitDate;
+	
+	public void PatientAdmitDate(String A)
+	{
+		PatientAdmitDate.sendKeys(A);
+	}
+	
+	@FindBy(how=How.ID,using="formly_3_date_14_14")
+	@CacheLookup
+	WebElement PatientDateBirth;
+	
+	public void PatientDateBirth(String b)
+	{
+		PatientDateBirth.sendKeys(b);
+	}
+	
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[3]/span/button")
 	@CacheLookup
@@ -262,7 +382,147 @@ public class Appointments
 	@CacheLookup
 	WebElement FormsCancel;
 	
+	@FindBy(how=How.ID,using="appointment-type-chooser")
+	@CacheLookup
+	WebElement AppointmentType;
 	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[1]/patient-details/form/div[3]/div[5]/div/div[2]/div/ul/li[5]/a")
+	@CacheLookup
+	WebElement Appointment1;
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[1]/patient-details/form/div[3]/div[5]/div/div[2]/div/ul/li[4]/a")
+	@CacheLookup
+	WebElement Visit;
+	public void Visit()
+	{
+	               
+		Visit.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/ul/li[4]/a")
+	@CacheLookup
+	WebElement MessageHistory;
+	
+	public void MessageHistory()
+	{
+		MessageHistory.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[4]/patient-message-history/div/div[2]/table/tbody[1]/tr[1]/td[1]/button")
+	@CacheLookup
+	WebElement CheckHistory;
+	
+	public void CheckHistory()
+	{
+		CheckHistory.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[3]/button[3]")
+	@CacheLookup
+	WebElement HistorySaveChange;
+	
+	
+	public void HistorySaveChange()
+	{
+		HistorySaveChange.click();
+		
+	}
+	
+	@FindBy(how=How.XPATH,using="//div[starts-with(@role,\"alert\")]")
+	@CacheLookup
+	WebElement HistorySaveChangeMessage;
+	
+	public void HistorySaveChangeMessage()
+	{
+		HistorySaveChangeMessage.click();
+	}
+	
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[3]/button[3]")
+	@CacheLookup
+	WebElement AppointmentTypeSave;
+	
+	@FindBy(how=How.LINK_TEXT,using="Conversations")
+	@CacheLookup
+	WebElement Conversations;
+	
+	public void Conversations()
+	{
+		Conversations.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div/div[1]/textarea")
+	@CacheLookup
+	WebElement StartMessage;
+	
+	public void StartMessage(String m)
+	{
+		StartMessage.sendKeys(m);
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div/div[2]/button")
+	@CacheLookup
+	WebElement SendMessage;
+	
+	public void SendMessage()
+	{
+		SendMessage.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div[2]/uib-accordion/div/div/div[1]")
+	@CacheLookup
+	WebElement Paneltitle;
+	
+	public void Paneltitle()
+	{
+		Paneltitle.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div[2]/uib-accordion/div/div/div[2]/div/div/div[1]/div[3]/span")
+	@CacheLookup
+	WebElement Reply;
+	
+	public void Reply()
+	{
+		Reply.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div[2]/uib-accordion/div/div/div[2]/div/div/div[1]/div[3]/div/div[1]/textarea")
+	@CacheLookup
+	WebElement MessageReply;
+	
+	public void MessageReply(String rp)
+	{
+		MessageReply.sendKeys(rp);
+	}
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div[2]/uib-accordion/div/div/div[2]/div/div/div[1]/div[3]/div/div[2]/button[2]")
+	@CacheLookup
+	WebElement ReplyHere;
+	
+	public void ReplyHere()
+	{
+		ReplyHere.click();
+	}
+	
+	
+	
+	public void AppointmentTypeSave()
+	{
+		AppointmentTypeSave.click();
+	}
+	
+	
+	public void Appointment1()
+	{
+		Appointment1.click();
+	}
+	
+	public void AppointmentType()
+	{
+		AppointmentType.click();
+	}
 	
 	public void FormsCancel()
 	{

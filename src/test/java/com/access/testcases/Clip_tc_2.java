@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
-import com.aventstack.extentreports.utils.DateUtil;
+
 @Test
 public class Clip_tc_2 extends BaseClass {
 	public void Clipboard() throws InterruptedException, IOException
@@ -25,6 +25,10 @@ public class Clip_tc_2 extends BaseClass {
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
+
+		  RegtPage r=new RegtPage(driver);
+		   r.clickRegistrationPage();
+		   Thread.sleep(3000);
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
@@ -35,7 +39,7 @@ public class Clip_tc_2 extends BaseClass {
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		driver.findElement(By.xpath("//body/main[1]/div[1]/clipboard1[1]/div[1]/div[1]/form[1]/div[2]/div[4]/div[1]/date-picker[1]/div[1]/input[1]")).sendKeys("10","15","1985");
+		driver.findElement(By.xpath("//body/main[1]/div[1]/clipboard1[1]/div[1]/div[1]/form[1]/div[2]/div[4]/div[1]/date-picker[1]/div[1]/input[1]")).sendKeys("10151985");
 		//User Enter PhoneNumber
 		addp.pnumber(".");
 		Thread.sleep(2000);

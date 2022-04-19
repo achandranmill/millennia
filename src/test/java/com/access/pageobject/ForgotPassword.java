@@ -5,13 +5,14 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 public class ForgotPassword
 {
 	WebDriver ldriver;
 	public ForgotPassword(WebDriver rdriver)
 	{
 		ldriver=rdriver;
-		PageFactory.initElements(rdriver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 20), this);
 		
 	}
 

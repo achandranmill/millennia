@@ -2,12 +2,30 @@ package com.access.pageobject;
 
 
 
-	 import org.openqa.selenium.WebDriver;
+	 
+
+
+
+
+
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 	import org.openqa.selenium.support.FindBy;
 	import org.openqa.selenium.support.How;
 	import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+
 
 
 
@@ -21,10 +39,10 @@ package com.access.pageobject;
 	public RegtPage(WebDriver rdriver)
 	{
 		ldriver=rdriver;
-		PageFactory.initElements(rdriver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 20), this);
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"registration\"]/navbar/header/div/div/div[2]/ul[1]/li[2]/a")
+	@FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[1]/li[2]/a")
 	@CacheLookup
 	WebElement linkRegistration;
 
@@ -127,9 +145,13 @@ package com.access.pageobject;
 	 @CacheLookup
 	 WebElement Editseeing;
 	 
-	 @FindBy(how=How.ID,using="provider-chooser")
+	 @FindBy(how=How.XPATH,using="//*[@id=\"provider-chooser\"]")
 	 @CacheLookup
 	 WebElement providerchooser;
+	 
+	 @FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/article/section[1]/article[2]/div[1]/div/ul/li[1]")
+	 @CacheLookup
+	 WebElement SelectDropdown;
 	 
 	 @FindBy(how=How.XPATH,using="//a[contains(text(),'Test_4, Provider')]")
 	 @CacheLookup
@@ -191,11 +213,11 @@ package com.access.pageobject;
 	 @CacheLookup
 	 WebElement Editcopay;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/article/section[1]/article[2]/div[6]/div/div/div[1]/copay-widget/div[1]/div/input")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/registration/section/article/section[1]/article[2]/div[6]/div/div/div[1]/copay-widget/div[1]/div/input")
 	 @CacheLookup
 	 WebElement txtcopay;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/article/section[1]/article[2]/div[6]/div/div/div[1]/copay-widget/div[1]/div/div/div")
+	 @FindBy(how=How.XPATH,using="//button[@class='btn btn-default dropdown-toggle']")
 	 @CacheLookup
 	 WebElement  searchmarkas;
 	 
@@ -296,7 +318,7 @@ package com.access.pageobject;
 	 @CacheLookup
 	 WebElement btnsmsCancel;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/article/section[4]/button[1]")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/registration/section/article/section[4]/button[1]")
 	 @CacheLookup
 	 WebElement Documents;
 	 
@@ -304,7 +326,7 @@ package com.access.pageobject;
 	 @CacheLookup
 	 WebElement Documentname;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"registration\"]/div[1]/div/div/patient-details-modal/div[3]/span/button")
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[2]/div/button")
 	 @CacheLookup
 	 WebElement Makechanges;
 	 
@@ -320,7 +342,7 @@ package com.access.pageobject;
 	 @CacheLookup
 	 WebElement HOLD;
 	 
-	 @FindBy(how=How.ID,using="send-to")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/registration/section/aside/div/span")
 	 @CacheLookup
 	 WebElement SENDTO;
 	 
@@ -328,7 +350,7 @@ package com.access.pageobject;
 	 @CacheLookup
 	 WebElement FLAGS;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"patientFlags\"]/div/div[2]/ul/li")
+	 @FindBy(how=How.XPATH,using="//*[@id=\"patientFlags\"]/div/div[2]/ul/li[2]/a")
 	 @CacheLookup
 	 WebElement Userselect;
 	 
@@ -340,7 +362,7 @@ package com.access.pageobject;
 	 @CacheLookup
 	 WebElement AccessCancel;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"registration\"]/div[1]/div/div/patient-details-modal/div[3]/button[1]")
+	 @FindBy(how=How.XPATH,using="//div[@class='modal-footer']//button[@type='button'and @class='btn btn-default pull-left']")
 	 @CacheLookup
 	 WebElement LockDoucumentModal;
 	 
@@ -407,7 +429,21 @@ package com.access.pageobject;
 	 
 	public void clickRegistrationPage()
 	{
-		linkRegistration.click();
+		
+		for(int i=0;i<=2;i++)
+		{
+			try
+			{
+				linkRegistration.click();
+				break;
+			}
+			catch(Exception e)
+			{
+				System.out.println("e.getMessage");
+			}
+			
+		}
+		
 		
 	}
 	public void clickredit( String nm,String ln,String mn)
@@ -472,12 +508,12 @@ package com.access.pageobject;
 		{
 			txtgender.clear();
 		}
-		public void Editseeing()
+		public void Editseeing() throws Exception
 		{
 			Editseeing.click();
+			Thread.sleep(3000);
 			providerchooser.click();
-			selectseeing.click();
-			
+			SelectDropdown.click();
 		}
 		public void Number(String arg)
 		{
@@ -514,10 +550,10 @@ package com.access.pageobject;
 		}
 		public void Copay(String a)
 		{
+	    	searchmarkas.click();
+			Unknown.click();
 			txtcopay.clear();
 			txtcopay.sendKeys(a);
-			searchmarkas.click();
-			Unknown.click();
 		}
 		
 			public void comment(String c)
@@ -584,7 +620,10 @@ package com.access.pageobject;
 		}
 		public void Document()
 		{
-			Documents.click();
+			 Actions builder = new Actions(ldriver);
+		        builder.moveToElement(Documents).click(Documents);
+		        builder.perform();
+		
 		}
 		public void txtDocument(String n)
 		{
@@ -611,8 +650,12 @@ package com.access.pageobject;
 			HOLD.click();
 		}
 		public void SENDTO()
+		
 		{
-			SENDTO.click();
+			
+			
+				SENDTO.click();
+			
 		}
 		public void FLAGS()
 		{
@@ -627,13 +670,18 @@ package com.access.pageobject;
 		
 		public void ClickLock(String arg) throws Exception
 		{
-			LockDoucumentModal.click();
-			Thread.sleep(3000);
+			try
+			{LockDoucumentModal.click();
+			Thread.sleep(2000);
 			Lock.click();
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			txtLockPassword.sendKeys(arg);
-			Thread.sleep(3000);
-			LockSubmit.click();
+			Thread.sleep(5000);
+			LockSubmit.click();}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
 			
 		}
 		
@@ -653,7 +701,13 @@ package com.access.pageobject;
 		
 		public void SendTo()
 		{
-			SendToDischarge.click();
+			try {
+				SendToDischarge.click();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
 			
 		}
 		
@@ -674,6 +728,7 @@ package com.access.pageobject;
 			
 	public void SendNew()
 	{
+		ldriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		SendToNew.click();
 	}
 	}

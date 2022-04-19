@@ -26,7 +26,7 @@ public class Reg_tc_5 extends BaseClass
 		   r.clickRegistrationPage();
 		   Thread.sleep(3000);
 		     r.search("praveen", "rajput");
-		     Thread.sleep(3000);
+		     Thread.sleep(5000);
 		   r.SendTo();
 		   Thread.sleep(3000);
 		    r.Dish();

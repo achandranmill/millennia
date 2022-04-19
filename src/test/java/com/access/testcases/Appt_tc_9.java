@@ -28,24 +28,19 @@ public class Appt_tc_9 extends BaseClass
        Appointments ap=new Appointments(driver);
 		
 		ap.linkAppointment();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		ap.AppointDATE();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		ap.AppointDATE1("20220401");
-	    ap.AppointDATE2("20220406");
+	    ap.AppointDATE2("20220418");
 	    Thread.sleep(3000);
 	    ap.AppointDATEAPPLY();
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 	    ap.ThreeDot();
-	    Thread.sleep(3000);
+	    Thread.sleep(10000);
 	    ap.EditAppointment();
 	    Thread.sleep(3000);
-	    ap.TreeDotEditCancel();
-	    Thread.sleep(3000);
-	    ap.ThreeDot();
-	    Thread.sleep(3000);
-	    ap.ThreeDotCancel();
-	    Thread.sleep(3000);
+	    
 
 	  
 	    

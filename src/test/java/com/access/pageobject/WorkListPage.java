@@ -7,6 +7,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class WorkListPage 
 {
@@ -15,7 +16,7 @@ public class WorkListPage
 	public WorkListPage(WebDriver rdriver)
 	{
 		ldriver=rdriver;
-		PageFactory.initElements(rdriver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 20), this);
 	}
 	
 	 @FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[1]/li[3]/a")
@@ -43,7 +44,7 @@ public class WorkListPage
 	 @CacheLookup
 	 WebElement WorklistSendto;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"send-to-button\"]")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[2]/table/tbody/tr[1]/td[8]/div/button")
 	 @CacheLookup
 	 WebElement WorklistSendto2;
 	 
@@ -92,7 +93,7 @@ public class WorkListPage
 	 @CacheLookup
 	 WebElement SortBy;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"worklist\"]/main/div[1]/worklist/div/div[1]/div/div[2]/div/ul/li[3]/a")
+	 @FindBy(how=How.XPATH,using="//a[contains(text(),'Name')]")
 	 @CacheLookup
 	 WebElement OneName;
 	 
@@ -296,9 +297,10 @@ public class WorkListPage
 	 
 	 
 	 
-	 public void SortBy()
+	 public void SortBy() throws Exception
 	 {
 		 SortBy.click();
+		 Thread.sleep(10000);
 		 OneName.click();
 	 }
 	 
@@ -320,9 +322,14 @@ public class WorkListPage
 	}
 		public void Discharge2() throws Exception
 		{
-			WorklistSendto2.click();
+			try{WorklistSendto2.click();
 			Thread.sleep(3000);
 			worklistDischarge2.click();
+			}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
 		}
 		
 		public void DischargeViwe()

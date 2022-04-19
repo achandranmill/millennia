@@ -6,6 +6,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class Dash {
 	WebDriver ldriver;
@@ -13,7 +14,7 @@ public class Dash {
 	public Dash(WebDriver rdriver)
 	{
 		ldriver=rdriver;
-		PageFactory.initElements(rdriver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 20), this);
 	}
 	
 	@FindBy(how = How.XPATH, using ="//a[contains(text(),'Dash')]")

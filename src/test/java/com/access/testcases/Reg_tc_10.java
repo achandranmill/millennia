@@ -24,9 +24,9 @@ public class Reg_tc_10  extends BaseClass
 		   
 		   RegtPage r=new RegtPage(driver);
 		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
+		   Thread.sleep(15000);
 		   r.Document();
-		   Thread.sleep(3000);
+		   Thread.sleep(10000);
 		
 		   r.makechanges();
 		   Thread.sleep(3000);

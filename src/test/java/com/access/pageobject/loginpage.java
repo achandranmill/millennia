@@ -1,18 +1,13 @@
 package com.access.pageobject;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Listeners;
-import org.testng.Reporter;
-import org.testng.annotations.Test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class loginpage {
 
@@ -21,7 +16,7 @@ public class loginpage {
 	public loginpage(WebDriver rdriver)
 	{
 		ldriver=rdriver;
-		PageFactory.initElements(rdriver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 20), this);
 	}
 	
 	@FindBy(name="email")

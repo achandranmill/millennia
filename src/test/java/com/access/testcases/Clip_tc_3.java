@@ -3,6 +3,7 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 @Test
 public class Clip_tc_3 extends BaseClass
@@ -18,6 +19,10 @@ public class Clip_tc_3 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2000);
 		
+
+		  RegtPage r=new RegtPage(driver);
+		   r.clickRegistrationPage();
+		   Thread.sleep(3000);
 	Clipboard addp=new Clipboard(driver);
 		Thread.sleep(5000);
 		addp.lname("Robin");

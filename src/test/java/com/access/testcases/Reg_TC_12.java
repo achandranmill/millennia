@@ -2,6 +2,7 @@ package com.access.testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.RegtPage;
@@ -23,7 +24,10 @@ public class Reg_tc_12  extends BaseClass
 		   
 		   RegtPage r=new RegtPage(driver);
 		   r.clickRegistrationPage();
+		   Reporter.log("clickRegistrationPage");
+		   Thread.sleep(3000);
 		   r.SENDTO();
+		   Reporter.log("SENDTO");
 		   Thread.sleep(3000);
 		   r.SendNew();
 		   Thread.sleep(3000);

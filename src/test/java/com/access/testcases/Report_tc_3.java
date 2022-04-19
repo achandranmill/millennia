@@ -6,14 +6,16 @@ import org.testng.Reporter;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import java.util.Date;
-import org.junit.Assert;
+
 import java.util.Random;
 import org.openqa.selenium.WebElement;																																																																																																																																																																																																																																																																																																																																																																																																													
 import org.openqa.selenium.support.ui.Select;
+
+import com.access.pageobject.RegtPage;
 import com.access.pageobject.Reports;
 import com.access.pageobject.loginpage;
 import com.access.testcases.BaseClass;																																																																																																																																																																																																																																																												
-import com.aventstack.extentreports.utils.DateUtil;
+
 @Test
 public class Report_tc_3   extends BaseClass {
 	public void Reports() throws InterruptedException, IOException
@@ -26,6 +28,10 @@ public class Report_tc_3   extends BaseClass {
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
+
+		  RegtPage r=new RegtPage(driver);
+		   r.clickRegistrationPage();
+		   Thread.sleep(3000);
 		Reports select  = new Reports(driver);
 		select.ReportClick();
 		select.usersTab();

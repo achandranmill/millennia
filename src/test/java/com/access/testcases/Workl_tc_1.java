@@ -25,9 +25,9 @@ public class Workl_tc_1 extends BaseClass
 		   Thread.sleep(5000);
 		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		   
-		   RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
+		  RegtPage r=new RegtPage(driver);
+		  r.clickRegistrationPage();
+		   Thread.sleep(5000);
 		   
 	   WorkListPage w = new WorkListPage(driver);
 		   

@@ -2,6 +2,7 @@ package com.access.testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.RegtPage;
@@ -42,20 +43,28 @@ public class Reg_tc_4 extends BaseClass
 		   r.gender("male");
 		   Thread.sleep(5000);
 		   r.Editseeing();
-		  
+		  Thread.sleep(3000);
            r.Number("7896509874");
-          
-           
-           r.Email("ravi@gmail.com");
-          
-           r.contactname("praveen");
-           r.contactnumber("7777777777");
-           r.Editcopay();
-           r.Copay("7000");
            Thread.sleep(3000);
-           
-           r.comment("complete");
+           r.Email("ravi@gmail.com");
+           Thread.sleep(3000);
+           r.contactname("praveen");
+           Thread.sleep(3000);
+           r.contactnumber("7777777777");
+           Thread.sleep(3000);
+           r.Editcopay();
+           Reporter.log("Editcopay");
+           Thread.sleep(3000);
+           r.Copay("7000");
+           Reporter.log("Copay");
+            Thread.sleep(3000);
+            
+             r.comment("complete");
+             Reporter.log("comment");
+             Thread.sleep(3000);
            r.FLAGS();
+           Reporter.log("FLAGS");
+           Thread.sleep(3000);
            
           
            

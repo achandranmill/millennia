@@ -1,9 +1,9 @@
 package com.access.testcases;
 
-import java.util.Random;
+
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
+
 import org.testng.annotations.Test;
 
 import com.access.pageobject.Appointments;
@@ -85,7 +85,7 @@ public class Appt_tc_8 extends BaseClass
 	Thread.sleep(5000);
 	ap.ThreeDot();
 	Thread.sleep(3000);
-	ap.TreeDotEditCancel();
+	ap.ThreeDotCancel();
 		
 }
 }

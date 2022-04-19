@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import java.util.Random;
 import com.access.pageobject.Clipboard;
-
+import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
 @Test
@@ -24,7 +24,10 @@ public class Clip_tc_1 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 		
-		
+
+		  RegtPage r=new RegtPage(driver);
+		   r.clickRegistrationPage();
+		   Thread.sleep(3000);
 
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();

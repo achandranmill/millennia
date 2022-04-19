@@ -29,6 +29,7 @@ public class Workl_tc_7  extends BaseClass
 	   WorkListPage w = new WorkListPage(driver);
 		   
 		   w.worklist();
+		   Thread.sleep(15000);
 		   w.Discharge2();
 	       Thread.sleep(3000);
 	       w.DischargeViwe();
