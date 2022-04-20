@@ -11,7 +11,7 @@ public class Clip_tc_4 extends BaseClass
 	public void Clipboard() throws InterruptedException, IOException
 	{	
 		//Clipboard addp = PageFactory.initElements(driver, Clipboard.class);
-		
+
 		driver.get(baseURL);
 		//User Check Successful login on valid email and password
 		loginpage lp= new loginpage(driver);
@@ -21,16 +21,17 @@ public class Clip_tc_4 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 
-		  RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
-			Clipboard addp=new Clipboard(driver);
-			Thread.sleep(5000);
-			addp.lname("Robin");
-			addp.fname("john");
-			Thread.sleep(5000);
-			addp.pdetails();
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+		Clipboard addp=new Clipboard(driver);
+		addp.LinkclickBoard();
+		Thread.sleep(5000);
+		addp.lname("Robin");
+		addp.fname("john");
+		Thread.sleep(5000);
+		
 		addp.UCheckIn();
-		addp.CUCheckIn();
-		}
+		
+	}
 }

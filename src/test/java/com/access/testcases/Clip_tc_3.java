@@ -18,22 +18,19 @@ public class Clip_tc_3 extends BaseClass
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2000);
-		
 
-		  RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
-	Clipboard addp=new Clipboard(driver);
+
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+		Clipboard addp=new Clipboard(driver);
+		addp.LinkclickBoard();
+
 		Thread.sleep(5000);
 		addp.lname("Robin");
 		addp.fname("john");
 		Thread.sleep(10000);
-//		addp.newClearButton();
-//		addp.lname("Robin");
-//		Thread.sleep(10000);
-//		addp.pdetails();
-//		addp.UCheckIn();
-//		addp.CUCheckIn();
-}	
+		
+	}	
 }
-	
+

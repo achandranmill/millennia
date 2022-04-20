@@ -18,7 +18,6 @@ import org.testng.annotations.Test;
 import com.access.pageobject.loginpage;
 import org.testng.annotations.Listeners;
 
-
 @Listeners 
 public class Login_tc_1 extends BaseClass
 {
@@ -27,7 +26,7 @@ public class Login_tc_1 extends BaseClass
 	public void loginpage()
 	{
 		driver.get(baseURL);
-// User Check Button disabled Till all Mandatory Fields are not filled  
+		// User Check Button disabled Till all Mandatory Fields are not filled  
 		loginpage lp= new loginpage(driver);
 		lp.setUserName(email);
 		//loginpage loginPg = PageFactory.initElements(driver, loginpage.class);
@@ -36,18 +35,10 @@ public class Login_tc_1 extends BaseClass
 			AssertJUnit.assertTrue(false);
 		else
 			AssertJUnit.assertTrue(true);
-		
+
 		lp.setPassword(password);
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
-	/*if(driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/user-location-modal[1]/div[1]/h4[1]")).isDisplayed())
-		{
-		Assert.assertTrue(true);
-	}
-	else
-	{
-		Assert.assertTrue(false);
-	}*/
-	}
-	}
+
+		}
+}

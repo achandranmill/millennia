@@ -22,10 +22,10 @@ public class Massm_tc_5  extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
-		 RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
+
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
 		UserTestPage u =new  UserTestPage(driver);
 		u.linkUserTest();
 		MassMessaging m = new MassMessaging(driver);
@@ -33,8 +33,5 @@ public class Massm_tc_5  extends BaseClass
 		m.SeeingFilter();
 		m.SeeingSelectAll();
 		Thread.sleep(3000);
-	
-		
-	
-}
+	}
 }

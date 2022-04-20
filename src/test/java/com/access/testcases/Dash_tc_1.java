@@ -16,7 +16,7 @@ import com.access.pageobject.loginpage;
 @Test
 public class Dash_tc_1 extends BaseClass
 {
-	
+
 	public void Dash() throws InterruptedException, IOException
 	{
 		driver.get(baseURL);
@@ -28,28 +28,27 @@ public class Dash_tc_1 extends BaseClass
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
-		
+
 		RegtPage r=new RegtPage(driver);
-		 r.clickRegistrationPage();
+		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Dash viewdetails  =new Dash(driver);
 		viewdetails.DashClick();
-		//driver.findElement(By.xpath("//a[contains(text(),'Dash')]")).click();
 		Thread.sleep(5000);
 		viewdetails.checkin();
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 		viewdetails.Registration();
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 		viewdetails.Discharge();
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 		viewdetails.ConnectCheckIn(); 
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 		viewdetails.Holding(); 
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 		viewdetails.Waiting();
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 		viewdetails.New();
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 	}
 }
 

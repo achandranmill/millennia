@@ -14,7 +14,7 @@ public class Clip_tc_1 extends BaseClass
 	public void Clipboard() throws InterruptedException, IOException
 	{	
 		//Clipboard addp = PageFactory.initElements(driver, Clipboard.class);
-		
+
 		driver.get(baseURL);
 		//User Check Successful login on valid email and password
 		loginpage lp= new loginpage(driver);
@@ -23,11 +23,11 @@ public class Clip_tc_1 extends BaseClass
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
-		
 
-		  RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
+
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
 
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();
@@ -39,28 +39,42 @@ public class Clip_tc_1 extends BaseClass
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		driver.findElement(By.xpath("//body/main[1]/div[1]/clipboard1[1]/div[1]/div[1]/form[1]/div[2]/div[4]/div[1]/date-picker[1]/div[1]/input[1]")).sendKeys("10","15","1985");
+		addp.DOB("01031993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(1000);
-		driver.findElement(By.id("email")).sendKeys("john"+ randomInt +"@mailinator.com");
+		addp.textemail("john@gmail.com");
+		addp.Gender("male");
+		addp.SSN("ww");
+		addp.appointmentContactNumber("9876540998");
+		addp.mrn("tt");
+		addp.appointmentContactName("6778889990");
+
 		//User Enter Appointment Time
-		addp.ptime("0815");
-		addp.searchdep("imenso");
-		addp.seeingdropdown("seeingname");
-		addp.flag();
-		addp.comments("Please Call Before Visting");
-		addp.reason("Routine Checkup");
-		addp.Appointment();
+
+		Thread.sleep(2000);
 		addp.copay("60");
-		addp.custom1("Hello Test");
+		Thread.sleep(2000);
+		addp.searchdep("imenso");
+		Thread.sleep(2000);
+		addp.Fillterprovider();
+		Thread.sleep(2000);
+		addp.provider();
+		Thread.sleep(2000);
+		addp.Flag1();
+		Thread.sleep(2000);
+		addp.FlagSelect();
+		Thread.sleep(2000);
+		addp.reason("Routine Checkup");
+		Thread.sleep(2000);
+		addp.Time("0830");
+		addp.Date("04072022");
+		Thread.sleep(2000);
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.printAccessPass();
 		addp.connect();
 		addp.relation();
 		addp.addcheckin();
-}}
+	}}

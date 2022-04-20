@@ -8,8 +8,6 @@ import com.access.pageobject.RegtPage;
 import com.access.pageobject.UserTestPage;
 import com.access.pageobject.loginpage;
 
-
-
 @Test
 public class Palkup_tc_4  extends BaseClass
 
@@ -24,15 +22,14 @@ public class Palkup_tc_4  extends BaseClass
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		UserTestPage u =new  UserTestPage(driver);
-		
+
 		// RegtPage r=new RegtPage(driver);
 		//   r.clickRegistrationPage();
 		//   Thread.sleep(3000);
-		   
+
 		u.linkUserTest();
 		Thread.sleep(3000);
 		u.patientLookup();
-	
 		u.Location();
 		Thread.sleep(3000);
 		u.Clinic();
@@ -41,7 +38,6 @@ public class Palkup_tc_4  extends BaseClass
 		u.daterangepicker_start("20220301");
 		u.daterangepicker_end("20220412");
 		u.DateApply();
-		
 		u.Search();
 		Thread.sleep(3000);
 		u.PatientRecord();
@@ -52,5 +48,5 @@ public class Palkup_tc_4  extends BaseClass
 		Thread.sleep(3000);
 		u.EmailCheckBox();
 		Thread.sleep(10000);
-}
+	}
 }

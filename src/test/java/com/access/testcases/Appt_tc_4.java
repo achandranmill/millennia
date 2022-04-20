@@ -25,15 +25,15 @@ public class Appt_tc_4 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
-		  RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
-		
+
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+
 		Appointments ap=new Appointments(driver);
-		
+
 		ap.linkAppointment();
-		
+
 		ap.Configurelist();
 		ap.EditDepartFillter();
 		ap.DepartFillterSelect();
@@ -64,12 +64,5 @@ public class Appt_tc_4 extends BaseClass
 		ap.AppointDATE2("20220406");
 		ap.AppointDATEAPPLY();
 		Thread.sleep(3000);
-
-
-		
-		
-	
-		
-		
-}
+	}
 }

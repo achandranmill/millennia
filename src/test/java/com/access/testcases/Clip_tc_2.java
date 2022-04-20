@@ -26,9 +26,9 @@ public class Clip_tc_2 extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 
-		  RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
@@ -39,7 +39,7 @@ public class Clip_tc_2 extends BaseClass {
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		driver.findElement(By.xpath("//body/main[1]/div[1]/clipboard1[1]/div[1]/div[1]/form[1]/div[2]/div[4]/div[1]/date-picker[1]/div[1]/input[1]")).sendKeys("10151985");
+		addp.DOB("01031993");
 		//User Enter PhoneNumber
 		addp.pnumber(".");
 		Thread.sleep(2000);
@@ -48,28 +48,30 @@ public class Clip_tc_2 extends BaseClass {
 		int randomInt = randomGenerator.nextInt(1000);
 		driver.findElement(By.id("email")).sendKeys("john"+ randomInt +"@mailinator.com");
 		//User Enter Appointment Time
-		addp.ptime("0815");
+		addp.Time("0830");
 		addp.searchdep("imenso");
-		addp.seeingdropdown("seeingname");
-		addp.flag();
-		addp.comments("Please Call Before Visting");
+		addp.Fillterprovider();
+
+		Thread.sleep(3000);
+		addp.provider();
+		Thread.sleep(3000);
+		addp.Flag1();
+		Thread.sleep(2000);
+		addp.FlagSelect();
+		Thread.sleep(2000);
+		//addp.comments("Please Call Before Visting");
 		addp.reason("Routine Checkup");
-		addp.Appointment();
+		//addp.Appointment();
+		Thread.sleep(3000);
+
 		addp.copay("60");
-		addp.custom1("Hello Test");
+		//addp.custom1("Hello Test");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.printAccessPass();
 		addp.addcheckin();	
-//		WebElement button = addp.addcheckin();
-//		if(btnaddcheckin.isEnabled())
-//			Assert.assertTrue(false);
-//		else
-//	Assert.assertTrue(True);
-//		btnaddcheckin.click();
-//		Thread.sleep(5000);
-//		
+		
 	}}
-	
+
 
 

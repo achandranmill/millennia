@@ -23,11 +23,11 @@ public class Palkup_tc_3 extends BaseClass
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		UserTestPage u =new  UserTestPage(driver);
-		
-		 RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
-		   
+
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+
 		u.linkUserTest();
 		Thread.sleep(3000);
 		u.patientLookup();
@@ -38,11 +38,10 @@ public class Palkup_tc_3 extends BaseClass
 		Thread.sleep(3000);
 		u.daterangepicker_start("200220301");
 		Thread.sleep(2000);
-	    u.daterangepicker_end("20220401");
-	    Thread.sleep(2000);
-	    u.DateApply();
-	    u.Search();
-	    Thread.sleep(3000);
-	
-}
+		u.daterangepicker_end("20220401");
+		Thread.sleep(2000);
+		u.DateApply();
+		u.Search();
+		Thread.sleep(3000);
+	}
 }

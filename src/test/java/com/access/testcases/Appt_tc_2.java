@@ -13,7 +13,7 @@ import com.access.pageobject.loginpage;
 public class Appt_tc_2 extends BaseClass
 
 {
-	
+
 	public void Appointments() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -22,13 +22,13 @@ public class Appt_tc_2 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+
 		RegtPage r=new RegtPage(driver);
-		 r.clickRegistrationPage();
+		r.clickRegistrationPage();
 		Thread.sleep(3000);
-		
+
 		Appointments Click =new Appointments(driver);
-	
+
 		Click.linkAppointment();
 		Thread.sleep(3000);
 		Click.AdvanceSearch();
@@ -43,6 +43,6 @@ public class Appt_tc_2 extends BaseClass
 		Thread.sleep(3000);
 		Click.Advance_Mrn("4000");
 		Click.Searchbtn();
-
 }
+	
 }

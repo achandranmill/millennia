@@ -17,27 +17,26 @@ public class Workl_tc_5 extends BaseClass
 	public void WorkListPage() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
-		   lp.setUserName(email);
-		   lp.setPassword(password);
-		   lp.clickSubmit();
-		   Thread.sleep(5000);
-		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		   
-		   RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
-		   
-	   WorkListPage w = new WorkListPage(driver);
-		   
-		   w.worklist();
-           w.Configure();
-           Thread.sleep(3000);
-           w.Department();
-           w.Checkin();
-           Thread.sleep(3000);
-           w.ConnectCheckin();
-           Thread.sleep(3000);
-           w.New();
-           w.BtnClose();
-}
+		lp.setUserName(email);
+		lp.setPassword(password);
+		lp.clickSubmit();
+		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+
+		WorkListPage w = new WorkListPage(driver);
+		w.worklist();
+		w.Configure();
+		Thread.sleep(3000);
+		w.Department();
+		w.Checkin();
+		Thread.sleep(3000);
+		w.ConnectCheckin();
+		Thread.sleep(3000);
+		w.New();
+		w.BtnClose();
+	}
 }

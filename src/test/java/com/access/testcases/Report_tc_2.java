@@ -8,8 +8,6 @@ import com.access.pageobject.RegtPage;
 import com.access.pageobject.Reports;
 import com.access.pageobject.loginpage;
 
-
-
 @Test
 public class Report_tc_2 extends BaseClass  {
 	public void Reports() throws InterruptedException, IOException
@@ -22,9 +20,9 @@ public class Report_tc_2 extends BaseClass  {
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
-		
+
 		RegtPage r=new RegtPage(driver);
-		 r.clickRegistrationPage();
+		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Reports select  = new Reports(driver);
 		select.ReportClick();
@@ -34,5 +32,5 @@ public class Report_tc_2 extends BaseClass  {
 		Thread.sleep(2000);
 		select.selectallappointment();
 
-}
+	}
 }

@@ -19,26 +19,25 @@ import org.openqa.selenium.WebDriver.Timeouts;
 import org.testng.annotations.Test;
 import com.access.pageobject.loginpage;
 
-
 public class Login_tc_3 extends BaseClass
 {
 	@Test
 	public void loginpage()
 	{
-	driver.get(baseURL);
-//User Check Validation on invalid email and password
-	loginpage lp= new loginpage(driver);
-	lp.setUserName(femail);
-	lp.setPassword(password);
-	lp.clickSubmit();
-	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	if(driver.findElement(By.xpath("//span[contains(text(),'Authentication Error: Username does not exist.')]")).isDisplayed())
-	{
-	AssertJUnit.assertTrue(true);
+		driver.get(baseURL);
+		//User Check Validation on invalid email and password
+		loginpage lp= new loginpage(driver);
+		lp.setUserName(femail);
+		lp.setPassword(password);
+		lp.clickSubmit();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		if(driver.findElement(By.xpath("//span[contains(text(),'Authentication Error: Username does not exist.')]")).isDisplayed())
+		{
+			AssertJUnit.assertTrue(true);
+		}
+		else
+		{
+			AssertJUnit.assertTrue(false);
+		}
 	}
-	else
-	{
-		AssertJUnit.assertTrue(false);
-	}
-}
 }

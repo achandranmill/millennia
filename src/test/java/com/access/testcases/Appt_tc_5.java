@@ -8,8 +8,6 @@ import com.access.pageobject.Appointments;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
-
-
 @Test
 public class Appt_tc_5 extends BaseClass	
 
@@ -22,13 +20,13 @@ public class Appt_tc_5 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
-		  RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
-		
+
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+
 		Appointments ap=new Appointments(driver);
-		
+
 		ap.linkAppointment();
 		Thread.sleep(2000);
 		ap.AppointDATE();
@@ -53,5 +51,5 @@ public class Appt_tc_5 extends BaseClass
 		Thread.sleep(1000);
 		ap.SENDDEMANDS();
 
-}
+	}
 }

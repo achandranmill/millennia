@@ -29,9 +29,9 @@ public class Report_tc_5 extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 
-		  RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
 		Reports select  = new Reports(driver);
 		select.ReportClick();
 		select.totalVisitTab();
@@ -43,4 +43,4 @@ public class Report_tc_5 extends BaseClass {
 		Thread.sleep(2000);
 		select.selectdepartment();
 		Thread.sleep(2000);
-}}
+	}}

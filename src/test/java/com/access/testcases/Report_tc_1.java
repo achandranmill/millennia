@@ -28,9 +28,9 @@ public class Report_tc_1  extends BaseClass
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
-		
+
 		RegtPage r=new RegtPage(driver);
-		 r.clickRegistrationPage();
+		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Reports select  = new Reports(driver);
 		select.ReportClick();
@@ -38,25 +38,6 @@ public class Report_tc_1  extends BaseClass
 		select.selectwaitTime();
 		Thread.sleep(2000);
 		select.selectwaitTime();
-		//Thread.sleep(2000);
-		//select.appointmentTab();
-		//select.selectallappointment();
-		//Thread.sleep(2000);
-		//select.selectallappointment();
-//		select.usersTab();
-//		select.selectallusers();
-//		Thread.sleep(2000);
-//		select.selectallusers();
-		//select.surveyTab();
-//		select.totalVisitTab();
-//		select.selectdepartmentVisitTab();
-//		Thread.sleep(2000);
-//		select.selectdepartmentVisitTab();
-//		Thread.sleep(2000);
-//		select.selectdepartment();
-//		Thread.sleep(2000);
-//		select.selectdepartment();
-//		Thread.sleep(2000);
 		select.exportsTab();
 		select.selectexportsTab();
 		Thread.sleep(2000);

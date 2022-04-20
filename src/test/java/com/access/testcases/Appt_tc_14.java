@@ -23,11 +23,11 @@ public class Appt_tc_14 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
-		  RegtPage r=new RegtPage(driver);
-		   r.clickRegistrationPage();
-		   Thread.sleep(3000);
-		
+
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(3000);
@@ -48,6 +48,6 @@ public class Appt_tc_14 extends BaseClass
 		ap.HistorySaveChange();
 		Thread.sleep(3000);
 		ap.HistorySaveChangeMessage();
-	    Thread.sleep(5000);
-}
+		Thread.sleep(5000);
+	}
 }
