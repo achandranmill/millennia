@@ -27,10 +27,11 @@ public class Login_tc_3 extends BaseClass
 		driver.get(baseURL);
 		//User Check Validation on invalid email and password
 		loginpage lp= new loginpage(driver);
-		lp.setUserName(femail);
+		lp.setUserName(email);
 		lp.setPassword(password);
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
 		if(driver.findElement(By.xpath("//span[contains(text(),'Authentication Error: Username does not exist.')]")).isDisplayed())
 		{
 			AssertJUnit.assertTrue(true);

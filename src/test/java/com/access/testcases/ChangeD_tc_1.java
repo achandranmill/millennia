@@ -30,7 +30,7 @@ public class ChangeD_tc_1  extends BaseClass
 
 		u.linkUserTest();
 		Thread.sleep(3000);
-		u.changedepartment();
+		u.changedepartment1();
 		Thread.sleep(3000);
 		u.Clinic1();
 		Thread.sleep(3000);

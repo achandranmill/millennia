@@ -1,18 +1,11 @@
 package com.access.pageobject;
 
-
-
-	 
-
-
-
-
-
-
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -24,16 +17,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-
-
-
-
-
-
-
-
-	public class RegtPage
+  public class RegtPage
 	{
 	    WebDriver ldriver;
 	public RegtPage(WebDriver rdriver)
@@ -620,11 +604,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 			
 			SENDbtn.click();
 		}
+		
+		
+		
 		public void Document()
 		{
-			 Actions builder = new Actions(ldriver);
-		        builder.moveToElement(Documents).click(Documents);
-		        builder.perform();
+			
+			Documents.click();
 		
 		}
 		public void txtDocument(String n)

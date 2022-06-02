@@ -27,7 +27,7 @@ public class ChangeD_tc_2 extends BaseClass
 
 		u.linkUserTest();
 		Thread.sleep(3000);
-		u.changedepartment();
+		u.changedepartment1();
 		Thread.sleep(3000);
 		u.ChangeDepartmentbtn();
 		Thread.sleep(3000);

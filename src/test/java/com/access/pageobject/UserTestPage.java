@@ -1,13 +1,8 @@
 package com.access.pageobject;
-
-
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -38,9 +33,68 @@ public class UserTestPage
 	@FindBy(how=How.XPATH,using="//*[@id=\"registration\"]/navbar/header/div/div/div[2]/ul[2]/li/ul/section/ol/span/li/a")
 	@CacheLookup
 	WebElement linkImenso;
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"registration\"]/navbar/header/div/div/div[2]/ul[2]/li/ul/section/li[1]/a")
 	@CacheLookup
 	WebElement changedepartment;
+
+
+	@FindBy(how=How.LINK_TEXT,using="Change Department")
+	@CacheLookup
+	WebElement changedepartment1;
+
+	public void changedepartment1()
+	{
+		changedepartment1.click();
+	}
+
+	@FindBy(how=How.TAG_NAME,using="span")
+	@CacheLookup
+	WebElement Clinic1;
+
+	public void Clinic1()
+	{
+		Clinic1.click();
+
+	}
+	@FindBy(how=How.TAG_NAME,using="span")
+	@CacheLookup
+	WebElement Emergency;
+
+	public void Emergency()
+	{
+		Actions action = new Actions(ldriver);
+
+		action.moveToElement(Emergency).click().perform();
+	}
+
+	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/div[1]/div/div/tree-modal/div[2]/ul/li[3]/div/a[2]/i")
+	@CacheLookup
+	WebElement Alpha;
+
+	public void Alpha()
+	{
+		Alpha.click();
+	}
+
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/tree-modal/div[3]/button[2]")
+	@CacheLookup
+	WebElement ChangeDepartmentbtn;
+
+	public void ChangeDepartmentbtn()
+	{
+		ChangeDepartmentbtn.click();
+	}
+
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/tree-modal/div[3]/button[1]")
+	@CacheLookup
+	WebElement DepartmentCancelbtn;
+
+	public void DepartmentCancelbtn()
+	{
+		DepartmentCancelbtn.click();
+	}
+
 
 	@FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[2]/li/ul/li[3]/a")
 	@CacheLookup
@@ -68,7 +122,11 @@ public class UserTestPage
 
 	@FindBy(how=How.NAME,using="lastName")
 	@CacheLookup
+
 	WebElement patientLookuplastName;
+
+	
+
 
 	public void patientLookuplastName(String l)
 	{
@@ -77,7 +135,11 @@ public class UserTestPage
 
 	@FindBy(how=How.NAME,using="firstName")
 	@CacheLookup
+
 	WebElement patientLookupfirstName;
+
+	
+
 
 	public void patientLookupfirstName(String f)
 	{
@@ -86,7 +148,10 @@ public class UserTestPage
 
 	@FindBy(how=How.NAME,using="visitCode")
 	@CacheLookup
+
 	WebElement patientLookupvisitCode;
+
+
 
 	public void patientLookupvisitCode(String v)
 	{
@@ -266,11 +331,27 @@ public class UserTestPage
 
 	}
 
+
 	public void clickchangeDepartment()
 	{
 		changedepartment.click();
 
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

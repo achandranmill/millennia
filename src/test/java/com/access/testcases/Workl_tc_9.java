@@ -28,12 +28,14 @@ public class Workl_tc_9 extends BaseClass
 
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
+		Thread.sleep(5000);
 		w.Discharge2();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.DischargeViwe();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.SendtoBack();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.SendBackWaiting();
+		Thread.sleep(5000);
 	}
 }
