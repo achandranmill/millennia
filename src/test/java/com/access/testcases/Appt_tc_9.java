@@ -28,8 +28,8 @@ public class Appt_tc_9 extends BaseClass
 		Thread.sleep(5000);
 		ap.AppointDATE();
 		Thread.sleep(4000);
-		ap.AppointDATE1("20220401");
-		ap.AppointDATE2("20220418");
+		ap.AppointDATE1("2022-04-01");
+		ap.AppointDATE2("2022-04-18");
 		Thread.sleep(3000);
 		ap.AppointDATEAPPLY();
 		Thread.sleep(5000);

@@ -36,9 +36,9 @@ public class Palkup_tc_3 extends BaseClass
 		u.UncheckAll();
 		u.Date();
 		Thread.sleep(3000);
-		u.daterangepicker_start("200220301");
+		u.daterangepicker_start("2022-03-01");
 		Thread.sleep(2000);
-		u.daterangepicker_end("20220401");
+		u.daterangepicker_end("2022-04-01");
 		Thread.sleep(2000);
 		u.DateApply();
 		u.Search();

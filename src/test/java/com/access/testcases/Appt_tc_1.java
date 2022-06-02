@@ -32,8 +32,8 @@ public class Appt_tc_1 extends BaseClass
 		Appointments ap=new Appointments(driver);
 
 		ap.linkAppointment();
-		ap.SearchLastName("Solanki");
-		Thread.sleep(3000);
+		ap.SearchLastName("Robin");
+		Thread.sleep(15000);
 		ap.SearchButton();
 
 	}

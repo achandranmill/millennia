@@ -33,16 +33,16 @@ public class Appt_tc_6 extends BaseClass
 		Thread.sleep(3000);
 		ap.AppointDATE();
 		Thread.sleep(3000);
-		ap.AppointDATE1("20220408");
+		ap.AppointDATE1("2022-04-08");
 		Thread.sleep(3000);
-		ap.AppointDATE2("20220406");
+		ap.AppointDATE2("2022-04-06");
 		Thread.sleep(3000);
 		ap.AppointDATEAPPLY();
 		Thread.sleep(7000);
 		ap.AppointDATE();
 		Thread.sleep(3000);
-		ap.AppointDATE1("20220405");
-		ap.AppointDATE2("20220329");
+		ap.AppointDATE1("2022-04-05");
+		ap.AppointDATE2("2022-03-29");
 		ap.AppointDATEAPPLY();
 		Thread.sleep(3000);
 

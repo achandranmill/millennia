@@ -60,8 +60,8 @@ public class Appt_tc_4 extends BaseClass
 		ap.ColumnsSaveChange();
 		Thread.sleep(5000);
 		ap.AppointDATE();
-		ap.AppointDATE1("20220301");
-		ap.AppointDATE2("20220406");
+		ap.AppointDATE1("2022-03-01");
+		ap.AppointDATE2("2022-04-06");
 		ap.AppointDATEAPPLY();
 		Thread.sleep(3000);
 	}

@@ -31,8 +31,8 @@ public class Massm_tc_3   extends BaseClass
 		m.MassMessaging();
 		m.Date();
 		Thread.sleep(3000);
-		m.Date1("20220301");
-		m.Date2("20220418");
+		m.Date1("2022-03-01");
+		m.Date2("2022-04-18");
 		m.Btn_Apply();
 		Thread.sleep(5000);
 		m.MessageHistory();

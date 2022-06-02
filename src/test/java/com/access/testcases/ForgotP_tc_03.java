@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 
 import com.access.pageobject.*;
 
-public class ForgotP_tc_03   extends BaseClass
+public class ForgotP_tc_03 extends BaseClass
 {
 
 	@Test

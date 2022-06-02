@@ -14,6 +14,7 @@ public class Appt_tc_7 extends BaseClass
 		lp.setPassword(password);
 		lp.clickSubmit();
 		Appointments ap=new Appointments(driver);
+		Thread.sleep(5000);
         ap.linkAppointment();
 	}
 }

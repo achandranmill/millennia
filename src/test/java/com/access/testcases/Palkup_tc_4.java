@@ -23,9 +23,9 @@ public class Palkup_tc_4  extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		UserTestPage u =new  UserTestPage(driver);
 
-		// RegtPage r=new RegtPage(driver);
-		//   r.clickRegistrationPage();
-		//   Thread.sleep(3000);
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
 
 		u.linkUserTest();
 		Thread.sleep(3000);
@@ -35,8 +35,8 @@ public class Palkup_tc_4  extends BaseClass
 		u.Clinic();
 		Thread.sleep(3000);
 		u.Date();
-		u.daterangepicker_start("20220301");
-		u.daterangepicker_end("20220412");
+		u.daterangepicker_start("2022-03-01");
+		u.daterangepicker_end("2022-04-12");
 		u.DateApply();
 		u.Search();
 		Thread.sleep(3000);
@@ -47,6 +47,6 @@ public class Palkup_tc_4  extends BaseClass
 		u.SMSCheckBox();
 		Thread.sleep(3000);
 		u.EmailCheckBox();
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 	}
 }

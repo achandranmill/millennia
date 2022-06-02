@@ -31,8 +31,8 @@ public class Palkup_tc_2  extends BaseClass
 		Thread.sleep(3000);
 		u.patientLookup();
 		u.Date();
-		u.daterangepicker_start("20220301");
-		u.daterangepicker_end("20220401");
+		u.daterangepicker_start("2022-03-01");
+		u.daterangepicker_end("2022-04-01");
 		u.DateApply();
 		u.Search();
   }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-06-01T19:46:04 IST" name="Default suite" finished-at="2022-06-01T19:47:18 IST" duration-ms="73830">
+    <groups>
+    </groups>
+    <test started-at="2022-06-01T19:46:04 IST" name="Default test" finished-at="2022-06-01T19:47:18 IST" duration-ms="73830">
+      <class name="com.access.testcases.Department_tc_33">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.access.testcases.Department_tc_33@2e6a8155]" started-at="2022-06-01T19:46:04 IST" name="setup" finished-at="2022-06-01T19:46:15 IST" duration-ms="10763" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="departments()[pri:0, instance:com.access.testcases.Department_tc_33@2e6a8155]" started-at="2022-06-01T19:46:15 IST" name="departments" finished-at="2022-06-01T19:47:18 IST" duration-ms="62744" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- departments -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.access.testcases.Department_tc_33@2e6a8155]" started-at="2022-06-01T19:47:18 IST" name="tearDown" finished-at="2022-06-01T19:47:18 IST" duration-ms="276" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.access.testcases.Department_tc_33 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

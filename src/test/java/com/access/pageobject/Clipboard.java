@@ -209,6 +209,10 @@ public class Clipboard {
 	@CacheLookup
 	WebElement Date;
 	
+	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/main/div[1]/clipboard1/div[2]/div[1]/div")
+	 @CacheLookup
+	 WebElement Undocheckin;
+	
 	public void Date(String d2)
 	{
 		Date.sendKeys(d2);
@@ -395,5 +399,10 @@ public class Clipboard {
 	{
 		ConfirmUndoCheckIn.click();
 	}
+	
+	 public void Undocheckinnew()
+	 {
+		 Undocheckin.click();
+	 }
 	
 }

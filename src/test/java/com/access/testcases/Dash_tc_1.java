@@ -36,19 +36,19 @@ public class Dash_tc_1 extends BaseClass
 		viewdetails.DashClick();
 		Thread.sleep(5000);
 		viewdetails.checkin();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		viewdetails.Registration();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		viewdetails.Discharge();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		viewdetails.ConnectCheckIn(); 
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		viewdetails.Holding(); 
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		viewdetails.Waiting();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		viewdetails.New();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 	}
 }
 

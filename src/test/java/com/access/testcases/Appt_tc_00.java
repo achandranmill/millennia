@@ -32,28 +32,28 @@ public class Appt_tc_00 extends BaseClass
 		Thread.sleep(3000);
 		ap.AppointDATE();
 		Thread.sleep(3000);
-		ap.AppointDATE1("20220330");
+		ap.AppointDATE1("2022-03-30");
 		Thread.sleep(3000);
-		ap.AppointDATE2("20220406");
-		Thread.sleep(2000);
+		ap.AppointDATE2("2022-04-06");
+		Thread.sleep(15000);
 		ap.AppointDATEAPPLY();
-		Thread.sleep(3000);
+		Thread.sleep(15000);
 		ap.Configurelist();
-		Thread.sleep(3000);
+		Thread.sleep(15000);
 		ap.EditStatusFilter();
-		Thread.sleep(3000);
+		Thread.sleep(15000);
 		ap.StatusUnconfirmed();
-		Thread.sleep(2000);
+		Thread.sleep(15000);
 		ap.StatusSave();
-		Thread.sleep(3000);
+		Thread.sleep(15000);
 		ap.ThreeDot();
-		Thread.sleep(2000);
+		Thread.sleep(15000);
 		ap.ThreDotSetConfirmed();
-		Thread.sleep(3000);
+		Thread.sleep(15000);
 		ap.ThreeDot();
-		Thread.sleep(3000);
+		Thread.sleep(20000);
 		ap.ThreDotSetUnconfirmed();
-		Thread.sleep(3000);
+		Thread.sleep(15000);
 
 	}
 }

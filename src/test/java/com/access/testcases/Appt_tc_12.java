@@ -30,12 +30,12 @@ public class Appt_tc_12 extends BaseClass
 		ap.linkAppointment();
 		Thread.sleep(3000);
 		//If data is not available on current date then we can set the date filter
-		//ap.AppointDATE();
-		//Thread.sleep(3000);
-		//	ap.AppointDATE1("20220301");
-		//  ap.AppointDATE2("20220408");
-		//   ap.AppointDATEAPPLY();
-		//   Thread.sleep(3000);
+		ap.AppointDATE();
+		Thread.sleep(3000);
+			ap.AppointDATE1("20220301");
+		  ap.AppointDATE2("20220408");
+		   ap.AppointDATEAPPLY();
+		   Thread.sleep(3000);
 		ap.ThreeDot();
 		Thread.sleep(3000);
 		ap.EditAppointment();

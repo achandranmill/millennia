@@ -427,6 +427,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 @CacheLookup
 	 WebElement SendToNew;
 	 
+	 
+	 
 	public void clickRegistrationPage()
 	{
 		
@@ -731,6 +733,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 		ldriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		SendToNew.click();
 	}
+	
+	
+	
 	}
 			
 		

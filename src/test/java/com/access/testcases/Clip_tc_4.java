@@ -30,7 +30,8 @@ public class Clip_tc_4 extends BaseClass
 		addp.lname("Robin");
 		addp.fname("john");
 		Thread.sleep(5000);
-		
+		addp.Undocheckinnew();
+		Thread.sleep(5000);
 		addp.UCheckIn();
 		
 	}
