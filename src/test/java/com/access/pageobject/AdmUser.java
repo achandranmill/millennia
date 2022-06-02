@@ -301,11 +301,11 @@ public class AdmUser
 	public void filterbtnclk()
 	{
 		
-		//filterbtnclk.click();
-		@SuppressWarnings("deprecation")
-		WebDriverWait wait = new WebDriverWait(ldriver, 10);
-		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class,'btn btn-primary pull-right') and text()='Filter']"))); 
-		((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", element);
+		filterbtnclk.click();
+		
+		//WebDriverWait wait = new WebDriverWait(ldriver, 10);
+		//WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class,'btn btn-primary pull-right') and text()='Filter']"))); 
+		//((JavascriptExecutor)ldriver).executeScript("arguments[0].click();", element);
 		
 	}
 	
