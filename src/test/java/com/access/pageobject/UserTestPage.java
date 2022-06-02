@@ -325,8 +325,8 @@ public class UserTestPage
 
 	public void linkUserTest()
 	{
-		WebDriverWait wait = new WebDriverWait(ldriver, 10);
-		WebElement linkUserTest = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/navbar/header/div/div/div[2]/ul[2]/li/a/span[1]")));
+		//WebDriverWait wait = new WebDriverWait(ldriver, 10);
+		//WebElement linkUserTest = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/navbar/header/div/div/div[2]/ul[2]/li/a/span[1]")));
 		linkUserTest.click();
 
 
