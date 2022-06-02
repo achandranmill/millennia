@@ -28,13 +28,16 @@ public class Workl_tc_8 extends BaseClass
 
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
+		Thread.sleep(10000);
 		w.Discharge2();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.DischargeViwe();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.SendtoBack();
+		Thread.sleep(10000);
 		w.SendBackNew();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.ReturnActivePatient();
+		Thread.sleep(10000);
 	}
 }

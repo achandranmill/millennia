@@ -32,8 +32,8 @@ public class Workl_tc_7  extends BaseClass
 		w.worklist();
 		Thread.sleep(15000);
 		w.Discharge2();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.DischargeViwe();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 	}
 }

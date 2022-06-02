@@ -4,10 +4,41 @@
   <test thread-count="5" name="Test">
     <classes>
     
-      <class name="com.access.testcases.Login_tc_2"/>
-      <class name="com.access.testcases.Login_tc_3"/>
-      <class name="com.access.testcases.Login_tc_1"/>
-      <class name="com.access.pageobject.loginpage"/>
+      
+      
+      
+      
+      
+      
+      <class name="com.access.testcases.Provider_tc_00"/>
+      <class name="com.access.testcases.Provider_tc_1"/>
+      <class name="com.access.testcases.Provider_tc_2"/>
+      <class name="com.access.testcases.Provider_tc_3"/>
+      <class name="com.access.testcases.Provider_tc_4"/>
+      <class name="com.access.testcases.Provider_tc_5"/>
+      <class name="com.access.testcases.Provider_tc_6"/>
+      <class name="com.access.testcases.Provider_tc_7"/>
+      <class name="com.access.testcases.Provider_tc_8"/>
+      <class name="com.access.testcases.Provider_tc_9"/>
+      <class name="com.access.testcases.Provider_tc_10"/>
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      
+      
+     
+      
+      
+
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
