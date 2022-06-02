@@ -1,5 +1,6 @@
 package com.access.testcases;
 
+<<<<<<< HEAD
 
 
 import java.awt.AWTException;
@@ -75,3 +76,8 @@ public class ScreenRecorderUtil extends ScreenRecorder {
 
 //}
 
+=======
+public class ScreenRecorderUtil {
+
+}
+>>>>>>> 62a12d711fedfe06f15fb562f27a24bcdd72039c

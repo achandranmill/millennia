@@ -77,11 +77,14 @@
 		</dependency>
 
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> 62a12d711fedfe06f15fb562f27a24bcdd72039c
 		<dependency>
 			<groupId>com.github.stephenc.monte</groupId>
 			<artifactId>monte-screen-recorder</artifactId>
