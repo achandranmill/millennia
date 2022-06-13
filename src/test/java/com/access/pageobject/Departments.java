@@ -3,6 +3,13 @@ package com.access.pageobject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
 import org.apache.xmlbeans.impl.xb.xsdschema.ListDocument.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -1016,7 +1023,7 @@ public class Departments
 
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[10]/header/a[1]")
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[4]/header/a[1]")
 	@CacheLookup  
 	WebElement clipboardclosebtn;
 
@@ -1459,6 +1466,660 @@ public void setdefaultvaluemsg()
 
 }
 
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/div[7]/a[2]")
+@CacheLookup  
+WebElement cancelsettings;
+public void cancelsettings()
+{
 
+	cancelsettings.click();
+	
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[2]/div/span")
+@CacheLookup  
+WebElement cancelsettingsmsg;
+public void cancelsettingsmsg()
+{
+
+	cancelsettingsmsg.getText();
+	System.out.println(cancelsettingsmsg.getText());
+	
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/ul/li[2]/a")
+@CacheLookup  
+WebElement appointmentfieldsclk;
+public void appointmentfieldsclk()
+{
+
+	appointmentfieldsclk.click();
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[2]/a")
+@CacheLookup  
+WebElement addmorebtnsecond;
+public void addmorebtnsecond()
+{
+
+	addmorebtnsecond.click();
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[2]/div/div[3]/header/a[2]")
+@CacheLookup  
+WebElement appointmentuparrowbtn;
+public void appointmentuparrowbtn()
+{
+
+	appointmentuparrowbtn.click();
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/div[7]/a[3]")
+@CacheLookup  
+WebElement clipbappointsave;
+public void clipbappointsave()
+{
+
+	clipbappointsave.click();
+
+}
+@FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[2]/div/div[3]/header/a[1]")
+@CacheLookup  
+WebElement closebtnchk;
+public void closebtnchk()
+{
+
+	closebtnchk.click();
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[2]/div/div[3]/div/div/div[1]/div[1]/select")
+@CacheLookup  
+WebElement seeing;
+public void seeing()
+{
+
+	Select drpdown = new Select(seeing);
+	drpdown.selectByValue("2");	
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"fieldSizeappointment1\"]")
+@CacheLookup  
+WebElement seeingfieldsize;
+public void seeingfieldsize()
+{
+
+	Select drpdown = new Select(seeingfieldsize);
+	drpdown.selectByIndex(2);	
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[2]/div/div[3]/div/div/div[1]/div[3]/input")
+@CacheLookup  
+WebElement seeingtitle;
+public void seeingtitle(String see)
+{
+
+	seeingtitle.clear();
+	seeingtitle.sendKeys(see);
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"placeholderappointment1\"]")
+@CacheLookup  
+WebElement seeingplaceholder;
+public void seeingplaceholder(String seeplace)
+{
+
+	seeingplaceholder.clear();
+	seeingplaceholder.sendKeys(seeplace);
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"requiredappointment1\"]")
+@CacheLookup  
+WebElement seeingrequired;
+public void seeingrequired()
+{
+
+	
+	seeingrequired.click();
+
+}
+
+
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[2]/div/div[3]/div/div/div[1]/div[1]/select")
+@CacheLookup  
+WebElement patientflag;
+public void patientflag()
+{
+
+	
+	//Select drpdown = new Select(patientflag);
+	//drpdown.selectByValue("3");
+	
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"fieldSizeappointment1\"]")
+@CacheLookup  
+WebElement patientflagfieldsize;
+public void patientflagfieldsize()
+{
+
+	Select drpdown = new Select(patientflagfieldsize);
+	drpdown.selectByIndex(3);	
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[2]/div/div[3]/div/div/div[1]/div[3]/input")
+@CacheLookup  
+WebElement patientflagttitle;
+public void patientflagttitle(String app)
+{
+
+	patientflagttitle.clear();
+	patientflagttitle.sendKeys(app);
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"placeholderappointment1\"]")
+@CacheLookup  
+WebElement patientflagplaceholder;
+public void patientflagplaceholder(String appplace)
+{
+
+	patientflagplaceholder.clear();
+	patientflagplaceholder.sendKeys(appplace);
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"requiredappointment1\"]")
+@CacheLookup  
+WebElement patientflagrequired;
+public void patientflagrequired()
+{
+
+	
+	patientflagrequired.click();
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/div[7]/a[1]")
+@CacheLookup  
+WebElement appsetdefaultval;
+public void appsetdefaultval()
+{
+
+	
+	appsetdefaultval.click();
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/div[7]/a[2]")
+@CacheLookup  
+WebElement appcancelbtn;
+public void appcancelbtn()
+{
+
+	
+	appcancelbtn.click();
+
+}
+
+@FindBy(how=How.XPATH,using="//a[contains(text(),'Dash')]")
+@CacheLookup  
+WebElement clkdashlink;
+public void clkdashlink()
+{
+
+	
+	clkdashlink.click();
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/h2")
+@CacheLookup  
+WebElement validatedashtitle;
+public void validatedashtitle()
+{
+
+	
+	validatedashtitle.getText();
+	System.out.println(validatedashtitle.getText());
+
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[1]/td[1]/div/label/input")
+@CacheLookup  
+WebElement dashcheckinclk;
+public void dashcheckinclk()
+{
+
+	
+	dashcheckinclk.click();
+}
+
+@FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[1]/td[3]/input")
+@CacheLookup  
+WebElement checkinordvalue;
+public void checkinordvalue(String val1)
+{
+
+	
+	checkinordvalue.clear();
+	checkinordvalue.sendKeys(val1);
+}
+
+@FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-departments/section/div/div[2]/dash/div/button[2]")
+@CacheLookup  
+WebElement dashsavebtn;
+public void dashsavebtn()
+{
+
+	
+	dashsavebtn.click();
+}
+@FindBy(how=How.XPATH,using="//*[@id=\"dash\"]/navbar/header/div/div/div[2]/ul[1]/li[1]/a")
+@CacheLookup  
+WebElement userclipboardlink;
+public void userclipboardlink()
+{
+
+	
+	userclipboardlink.click();
+}
+
+
+@FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[1]/li[4]/a")
+@CacheLookup  
+WebElement userdashlink;
+public void userdashlink()
+{
+
+	
+	userdashlink.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"dash\"]/main/div[1]/dash1/dash-item[1]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement checkinviewdetail;
+public void checkinviewdetail()
+{
+
+	
+	checkinviewdetail.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[2]/td[1]/div/label/input")
+@CacheLookup  
+WebElement checkregistration;
+public void checkregistration()
+{
+
+	
+	checkregistration.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[2]/td[3]/input")
+@CacheLookup  
+WebElement registrationorder;
+public void registrationorder( String regorder)
+{
+
+	
+	registrationorder.clear();
+	registrationorder.sendKeys(regorder);
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"dash\"]/main/div[1]/dash1/dash-item[1]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement registrationviewdtl;
+public void registrationviewdtl()
+{
+
+	
+	registrationviewdtl.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[3]/td[1]/div/label/input")
+@CacheLookup  
+WebElement discharge;
+public void discharge()
+{
+
+	
+	discharge.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[3]/td[3]/input")
+@CacheLookup  
+WebElement dischargeorder;
+public void dischargeorder(String discorder)
+{
+
+	
+	dischargeorder.clear();
+	dischargeorder.sendKeys(discorder);
+}
+//*[@id="dash"]/main/div[1]/dash1/dash-item[1]/section/div/section/article[2]/button
+@FindBy(how=How.XPATH,using="//*[@id=\"dash\"]/main/div[1]/dash1/dash-item[1]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement dischargeviewdtl;
+public void dischargeviewdtl()
+{
+
+	
+	dischargeviewdtl.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[4]/td[1]/div/label/input")
+@CacheLookup  
+WebElement connectcheckin;
+public void connectcheckin()
+{
+
+	
+	connectcheckin.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[4]/td[3]/input")
+@CacheLookup  
+WebElement ordervalue;
+public void ordervalue(String ordval)
+{
+
+	
+	ordervalue.clear();
+	ordervalue.sendKeys(ordval);
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"dash\"]/main/div[1]/dash1/dash-item[2]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement checkinviewdtl;
+public void checkinviewdtl()
+{
+
+	
+	checkinviewdtl.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[5]/td[1]/div/label/input")
+@CacheLookup  
+WebElement holding;
+public void holding()
+{
+
+	
+	holding.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[5]/td[3]/input")
+@CacheLookup  
+WebElement holdingordervalue;
+public void holdingordervalue(String ordval)
+{
+
+	
+	holdingordervalue.clear();
+	holdingordervalue.sendKeys(ordval);
+}
+
+@FindBy(how=How.XPATH,using="/html/body/main/div[1]/dash1/dash-item[3]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement holdingviewdtl;
+public void holdingviewdtl()
+{
+
+	
+	holdingviewdtl.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[7]/td[1]/div/label/input")
+@CacheLookup  
+WebElement parkinglot;
+public void parkinglot()
+{
+
+	
+	parkinglot.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[7]/td[3]/input")
+@CacheLookup  
+WebElement parkinglotordervalue;
+public void parkinglotordervalue(String ordval)
+{
+
+	
+	parkinglotordervalue.clear();
+	parkinglotordervalue.sendKeys(ordval);
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"dash\"]/main/div[1]/dash1/dash-item[6]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement parkinglotviewdtl;
+public void parkinglotviewdtl()
+{
+
+	
+	parkinglotviewdtl.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[8]/td[1]/div/label/input")
+@CacheLookup  
+WebElement filloutdocuments;
+public void filloutdocuments()
+{
+
+	
+	filloutdocuments.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[8]/td[3]/input")
+@CacheLookup  
+WebElement documentsordervalue;
+public void documentsordervalue(String ordval)
+{
+
+	
+	documentsordervalue.clear();
+	documentsordervalue.sendKeys(ordval);
+}
+@FindBy(how=How.XPATH,using="/html/body/main/div[1]/dash1/dash-item[7]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement documentsviewdtl;
+public void documentsviewdtl()
+{
+
+	
+	documentsviewdtl.click();
+}
+
+@FindBy(how=How.XPATH,using="//a[contains(text(),'Flags')]")
+@CacheLookup  
+WebElement flagsclk;
+public void flagsclk()
+{
+
+	
+	flagsclk.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/flags/jfh-add-flag/form/div/div/div[1]/jfh-simple-image-upload-cropper/div/div[2]/div[2]/label")
+@CacheLookup  
+WebElement choosefile;
+public void choosefile() throws AWTException
+{
+
+	
+	choosefile.click();
+	Robot rb=new Robot();
+	rb.delay(2000);
+	//copy to clipboard
+	StringSelection ss= new StringSelection("C:\\Users\\ATM\\Desktop\\deep.jpg");
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+	
+	//paste operation in clipboard
+	
+	rb.keyPress(KeyEvent.VK_CONTROL);
+	rb.keyPress(KeyEvent.VK_V);
+	
+	rb.keyRelease(KeyEvent.VK_CONTROL);
+	rb.keyRelease(KeyEvent.VK_V);
+	
+	//press enter key
+	
+	rb.keyPress(KeyEvent.VK_ENTER);
+	rb.keyRelease(KeyEvent.VK_ENTER);
+	
+	
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[1]/div/div/ui-cropper-modal/div[3]/button[2]")
+@CacheLookup  
+WebElement cropimage;
+public void cropimage()
+{
+
+	
+	cropimage.click();
+}
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[9]/td[1]/div/label/input")
+@CacheLookup  
+WebElement patientcomeinside;
+public void patientcomeinside()
+{
+
+	
+	patientcomeinside.click();
+}
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[9]/td[3]/input")
+@CacheLookup  
+WebElement patientcomeinsideord;
+public void patientcomeinsideord(String ordval)
+{
+
+	
+	patientcomeinsideord.clear();
+	patientcomeinsideord.sendKeys(ordval);
+}
+@FindBy(how=How.XPATH,using="//*[@id=\"dash\"]/main/div[1]/dash1/dash-item[7]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement patientcomedetail;
+public void patientcomedetail()
+{
+
+	
+	patientcomedetail.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[10]/td[1]/div/label/input")
+@CacheLookup  
+WebElement patientaddscreening;
+public void patientaddscreening()
+{
+
+	
+	patientaddscreening.click();
+}
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/section[1]/article/table/tbody/tr[10]/td[3]/input")
+@CacheLookup  
+WebElement patientaddscreeningord;
+public void patientaddscreeningord(String ordval)
+{
+
+	
+	patientaddscreeningord.clear();
+	patientaddscreeningord.sendKeys(ordval);
+}
+@FindBy(how=How.XPATH,using="/html/body/main/div[1]/dash1/dash-item[9]/section/div/section/article[2]/button")
+@CacheLookup  
+WebElement patientscreeningdetail;
+public void patientscreeningdetail()
+{
+
+	
+	patientscreeningdetail.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/dash/div/button[1]")
+@CacheLookup  
+WebElement chkundobutton;
+public void chkundobutton()
+{
+
+	
+	chkundobutton.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/flags/jfh-add-flag/form/div/div/div[2]/input")
+@CacheLookup  
+WebElement flaglabel;
+public void flaglabel(String ss)
+{
+
+	
+	flaglabel.sendKeys(ss);
+}
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/flags/jfh-add-flag/form/div/div/div[3]/div/label/input")
+@CacheLookup  
+WebElement persistant;
+public void persistant()
+{
+
+	
+	persistant.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/flags/jfh-add-flag/form/div/div/div[4]/button")
+@CacheLookup  
+WebElement addorgflag;
+public void addorgflag()
+{
+
+	
+	addorgflag.click();
+	
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[2]/div")
+@CacheLookup  
+WebElement addorgflagalert;
+public void addorgflagalert()
+{
+
+	
+	addorgflagalert.getText();
+	System.out.println(addorgflagalert.getText());
+	
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/flags/div[2]/div[1]/div/div[1]/jfh-flag-card/form/div")
+@CacheLookup  
+WebElement unassignedflag;
+public void unassignedflag()
+{
+
+	
+	unassignedflag.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/flags/div[2]/div[2]/div/div[1]/jfh-flag-card/form/div/div/div[1]")
+@CacheLookup  
+WebElement assignedflag;
+public void assignedflag()
+{
+
+	
+	assignedflag.click();
+}
 
 }

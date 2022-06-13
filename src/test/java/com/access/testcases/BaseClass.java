@@ -14,15 +14,16 @@ public class BaseClass {
 		public String email="123er@mailinator.com";
 
 		//public String password="Random@123456788";
-		public String password="Random@123456789";
+		public String password="Random@12345678";
 		public String femail="a19e@mailinator.com";
 		
 		public static WebDriver driver;
 
-
+		
 		@BeforeClass
 		public  void setup()
 		{
+			
 			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe");
 			driver=new ChromeDriver();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

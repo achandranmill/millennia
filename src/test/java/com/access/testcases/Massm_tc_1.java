@@ -27,12 +27,19 @@ public class Massm_tc_1  extends BaseClass
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
 		m.LastName("rajput");
+		Thread.sleep(2000);
 		m.FirstName("praveen");
+		Thread.sleep(2000);
 		m.Initial("kumar");
+		Thread.sleep(2000);
 		m.PhoneNumber("9989593479");
+		Thread.sleep(2000);
 		m.Email("praveen@gmail.com");
+		Thread.sleep(2000);
 		m.DOB("19920406");
+		Thread.sleep(2000);
 		m.MRN("000024");
+		Thread.sleep(2000);
 		m.Search1();
 		Thread.sleep(3000);
 	}
