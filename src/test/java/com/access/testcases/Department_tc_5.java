@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_5 extends BaseClass {
-	
+	//Validate that click on appointment type link Appointment type page open
 	@Test
 	public void departments() throws InterruptedException 
 	{

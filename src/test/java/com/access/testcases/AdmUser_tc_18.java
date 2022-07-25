@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 public class AdmUser_tc_18 extends BaseClass
 {
 	
-	
+	//Validate that Admin able to close the filter by click on close button
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{

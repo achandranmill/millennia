@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_36 extends BaseClass {
-	
+	//Validate that click on up arrow of Appointment time it display in 1st position in the clipboard based on setting
 	@Test
 	public void departments() throws InterruptedException 
 	{

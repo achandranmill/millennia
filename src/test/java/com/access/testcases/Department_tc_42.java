@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_42 extends BaseClass {
-	
+	//Validate that click on Dash link it open Dash page
 	@Test
 	public void departments() throws InterruptedException 
 	{

@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 
 public class Audit_tc_7 extends BaseClass
 {
-	
+	//Validate that user not  able to search patient audit details by entering  invalid MRN
 	@Test
 	public void audit() throws InterruptedException 
 	{

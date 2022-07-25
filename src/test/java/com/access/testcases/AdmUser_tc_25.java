@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 public class AdmUser_tc_25 extends BaseClass
 {
 	
-	
+	//Validate  that pagination working properly
 	@SuppressWarnings("deprecation")
 	@Test
 	public void AdmUser() throws InterruptedException 

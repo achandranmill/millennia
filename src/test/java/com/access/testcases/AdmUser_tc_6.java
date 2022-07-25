@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_6 extends BaseClass
 {
-	
+	//Validate that cancel button of create user page works properly
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{
@@ -23,9 +23,9 @@ public class AdmUser_tc_6 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		//ad.userlocation();
+		//Thread.sleep(5000);
+		//ad.okbutton();
 		Thread.sleep(5000);
 		ad.admprofile();
 		Thread.sleep(5000);

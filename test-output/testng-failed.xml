@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.access.testcases.Department_tc_63">
+      <class name="com.access.testcases.Appt_tc_20">
         <methods>
-          <include name="departments"/>
           <include name="setup"/>
           <include name="tearDown"/>
+          <include name="Appointments"/>
         </methods>
-      </class> <!-- com.access.testcases.Department_tc_63 -->
+      </class> <!-- com.access.testcases.Appt_tc_20 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

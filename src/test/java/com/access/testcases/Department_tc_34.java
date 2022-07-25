@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_34 extends BaseClass {
-	
+	//Validate that user able to  cancel setting and as per configuration field display in clipboard
 	@Test
 	public void departments() throws InterruptedException 
 	{

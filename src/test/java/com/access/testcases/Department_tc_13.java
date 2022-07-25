@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_13 extends BaseClass {
-	
+	//Validate that when user check Show SMS Checkbox  and save then Show SMS Checkbox  display in clipboard page
 	@Test
 	public void departments() throws InterruptedException 
 	{

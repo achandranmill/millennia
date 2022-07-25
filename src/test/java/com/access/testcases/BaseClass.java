@@ -10,6 +10,8 @@ public class BaseClass {
 	
 	//public String baseURL="https://access-stage-b.jellyfishhealth.com";
 		public String baseURL="https://access-staging-a.jellyfishhealth.com";
+		//public String baseURL="http://devaccess.imenso.in/#/";
+		//http://devaccess.imenso.in/#/
 		//public String email="a19@mailinator.com";
 		public String email="123er@mailinator.com";
 

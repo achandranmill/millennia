@@ -1955,6 +1955,154 @@ public class Organization
     	 PatientIntakePaymentSave.click();
      }
      
+   //  ----------------------
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[1]/a[9]")
+     @CacheLookup
+     WebElement newappointmenttype;
+     
+     public void newappointmenttype()
+     {
+    	 newappointmenttype.click();
+     }
+     
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/appointment-types/section/div[2]/div/table/tbody/tr[2]/td[4]/button")
+     @CacheLookup
+     WebElement editvisitbtn;
+     
+     public void editvisitbtn()
+     {
+    	 editvisitbtn.click();
+     }
+     
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/appointment-types/appointment-type-editor/section/form/div[4]/div/div[2]/div[1]/form-item/div/div[3]/i")
+     @CacheLookup
+     WebElement removeforms;
+     
+     public void removeforms()
+     {
+    	 removeforms.click();
+     }
+     
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/appointment-types/appointment-type-editor/section/form/div[6]/div/div/button[2]")
+     @CacheLookup
+     WebElement formsave;
+     
+     public void formsave()
+     {
+    	 formsave.click();
+     }
+     
+     @FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[2]/li/a")
+     @CacheLookup
+     WebElement orgadminprofile;
+     
+     public void orgadminprofile()
+     {
+    	 orgadminprofile.click();
+     }
+     
+     @FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[2]/li/ul/section[3]/li/a")
+     @CacheLookup
+     WebElement orgreturntoaccess;
+     
+     public void orgreturntoaccess()
+     {
+    	 orgreturntoaccess.click();
+     }
+     //-------
+     
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/appointment-types/appointment-type-editor/section/form/div[4]/div/div[2]/div[2]/form-item/div/div[3]/i")
+     @CacheLookup
+     WebElement removeforms1;
+     
+     public void removeforms1()
+     {
+    	 removeforms1.click();
+     }
+     
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/appointment-types/appointment-type-editor/section/form/div[4]/div/div[1]/button")
+     @CacheLookup
+     WebElement addforms;
+     
+     public void addforms()
+     {
+    	 addforms.click();
+     }
+     
+     @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/add-form/div[2]/div/form/div/select")
+     @CacheLookup
+     WebElement addformsclick;
+     
+     public void addformsclick()
+     {
+    	 Select drpdown = new Select(addformsclick);
+ 		drpdown.selectByIndex(1);
+     }
+     @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/add-form/div[3]/button[2]")
+     @CacheLookup
+     WebElement createforms;
+     
+     public void createforms()
+     {
+    	 createforms.click();
+     }
+    //----
+     @FindBy(how=How.XPATH,using="//a[contains(text(),'Documents') and @id=\"orgDetails\"]")
+     @CacheLookup
+     WebElement orgdocument;
+     
+     public void orgdocument()
+     {
+    	 orgdocument.click();
+     }
+    
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/documents/div/div[1]/document-list/div/ul/li[1]/button/i")
+     @CacheLookup
+     WebElement editorgdocument;
+     
+     public void editorgdocument()
+     {
+    	 editorgdocument.click();
+     }
+    
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/documents/div/div[1]/document-list/document-editor/section/form/div[1]/input")
+     @CacheLookup
+     WebElement cleartitle;
+     
+     public void cleartitle()
+     {
+    	 cleartitle.clear();
+     }
+    
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/documents/div/div[1]/document-list/document-editor/section/div[2]/div/button[3]")
+     @CacheLookup
+     WebElement orgsave;
+     
+     public void orgsave()
+     {
+    	 orgsave.click();
+     }
+    
+     @FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-organization/div/div[2]/documents/div/div[1]/document-list/div/header/div/button[1]")
+     @CacheLookup
+     WebElement addnewform;
+     
+     public void addnewform()
+     {
+    	 addnewform.click();
+     }
+    
+     
+     @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/add-form-modal/div[3]/button[2]")
+     @CacheLookup
+     WebElement continueclick;
+     
+     public void continueclick()
+     {
+    	 continueclick.click();
+     }
+     
+     }
      
      
      
@@ -1966,4 +2114,4 @@ public class Organization
      
      
      
-}
+     

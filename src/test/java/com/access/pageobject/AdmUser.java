@@ -24,7 +24,7 @@ public class AdmUser
 		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 10), this);
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"userLocation\"]")
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/user-location-modal/div[2]/div[2]/div/input")
 	@CacheLookup
 	WebElement userlocation;
 	

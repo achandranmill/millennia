@@ -13,7 +13,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_64 extends BaseClass {
-	
+	//Validate that user able to unassigned flags
 	@Test
 	public void departments() throws InterruptedException, AWTException 
 	{

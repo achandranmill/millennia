@@ -12,7 +12,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_49 extends BaseClass {
-	
+	//Validate that if user unhide connect check in dash and save the setting then it's refelection display in Dash from user access
 	@Test
 	public void departments() throws InterruptedException 
 	{

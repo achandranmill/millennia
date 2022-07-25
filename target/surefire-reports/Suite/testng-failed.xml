@@ -3,41 +3,188 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="Test(failed)" verbose="0">
     <classes>
-      <class name="com.access.testcases.Audit_tc_3">
+      <class name="com.access.testcases.Department_tc_31">
         <methods>
+          <include name="departments"/>
           <include name="setup"/>
-          <include name="audit"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.access.testcases.Audit_tc_3 -->
-      <class name="com.access.testcases.Audit_tc_5">
+      </class> <!-- com.access.testcases.Department_tc_31 -->
+      <class name="com.access.testcases.Department_Loc_tc_74">
         <methods>
           <include name="setup"/>
-          <include name="audit"/>
+          <include name="departments"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.access.testcases.Audit_tc_5 -->
-      <class name="com.access.testcases.Audit_tc_4">
-        <methods>
-          <include name="setup"/>
-          <include name="audit"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.access.testcases.Audit_tc_4 -->
-      <class name="com.access.testcases.Audit_tc_2">
-        <methods>
-          <include name="setup"/>
-          <include name="audit"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.access.testcases.Audit_tc_2 -->
-      <class name="com.access.testcases.Audit_tc_1">
+      </class> <!-- com.access.testcases.Department_Loc_tc_74 -->
+      <class name="com.access.testcases.Department_tc_62">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="audit"/>
+          <include name="departments"/>
         </methods>
-      </class> <!-- com.access.testcases.Audit_tc_1 -->
+      </class> <!-- com.access.testcases.Department_tc_62 -->
+      <class name="com.access.testcases.Department_pop_tc_72">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_pop_tc_72 -->
+      <class name="com.access.testcases.Department_pop_tc_67">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="departments"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_pop_tc_67 -->
+      <class name="com.access.testcases.Department_tc_2">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_2 -->
+      <class name="com.access.testcases.Department_Reg_tc_93">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_Reg_tc_93 -->
+      <class name="com.access.testcases.Department_pop_tc_65">
+        <methods>
+          <include name="departments"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_pop_tc_65 -->
+      <class name="com.access.testcases.Department_tc_49">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_49 -->
+      <class name="com.access.testcases.Department_tc_55">
+        <methods>
+          <include name="departments"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_55 -->
+      <class name="com.access.testcases.Department_tc_6">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_6 -->
+      <class name="com.access.testcases.Department_Reg_tc_82">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="departments"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_Reg_tc_82 -->
+      <class name="com.access.testcases.Department_Reg_tc_81">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="departments"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_Reg_tc_81 -->
+      <class name="com.access.testcases.Department_pop_tc_68">
+        <methods>
+          <include name="departments"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_pop_tc_68 -->
+      <class name="com.access.testcases.Department_tc_3">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_3 -->
+      <class name="com.access.testcases.Department_tc_36">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_36 -->
+      <class name="com.access.testcases.Department_tc_41">
+        <methods>
+          <include name="departments"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_41 -->
+      <class name="com.access.testcases.Department_pop_tc_71">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_pop_tc_71 -->
+      <class name="com.access.testcases.Department_Reg_tc_87">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_Reg_tc_87 -->
+      <class name="com.access.testcases.Department_Loc_tc_73">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_Loc_tc_73 -->
+      <class name="com.access.testcases.Department_tc_44">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_44 -->
+      <class name="com.access.testcases.Department_tc_37">
+        <methods>
+          <include name="setup"/>
+          <include name="departments"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_37 -->
+      <class name="com.access.testcases.Department_tc_33">
+        <methods>
+          <include name="departments"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_33 -->
+      <class name="com.access.testcases.Department_tc_53">
+        <methods>
+          <include name="departments"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_53 -->
+      <class name="com.access.testcases.Department_tc_52">
+        <methods>
+          <include name="departments"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_tc_52 -->
+      <class name="com.access.testcases.Department_Loc_tc_75">
+        <methods>
+          <include name="departments"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.access.testcases.Department_Loc_tc_75 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 public class AdmUser_tc_21 extends BaseClass
 {
 	
-	
+	//Validate  that cancel button of edit user page works properly
 	@SuppressWarnings("deprecation")
 	@Test
 	public void AdmUser() throws InterruptedException 
@@ -38,7 +38,6 @@ public class AdmUser_tc_21 extends BaseClass
 		ad.edituser();
 		Thread.sleep(5000);
 		ad.editusername("deotest");
-		
 		Thread.sleep(5000);
 		ad.editusercancel();
 		Thread.sleep(5000);

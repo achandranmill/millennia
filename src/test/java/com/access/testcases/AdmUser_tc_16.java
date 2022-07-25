@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 public class AdmUser_tc_16 extends BaseClass
 {
 	
-	
+	//Validate that user able to filter record by applying Role  filter
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{

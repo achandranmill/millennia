@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_37 extends BaseClass {
-	
+	//Validate  that when user click on close button of appointment time field and save the setting then that field not display in clipboard
 	@Test
 	public void departments() throws InterruptedException 
 	{
@@ -44,7 +44,7 @@ public class Department_tc_37 extends BaseClass {
 		dept.addmorebtnsecond();
 		Thread.sleep(3000);
 		dept.closebtnchk();		
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 		dept.clipbappointsave();
 		Thread.sleep(3000);
 		dept.adminprofileclk();

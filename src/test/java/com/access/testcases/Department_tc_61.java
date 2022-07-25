@@ -12,7 +12,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_61 extends BaseClass {
-	
+	//Validate that if user click on undo button and save the setting then it's reflection display in dash from user access
 	@Test
 	public void departments() throws InterruptedException 
 	{

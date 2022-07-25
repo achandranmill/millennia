@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_5 extends BaseClass
 {
-	
+	//Validate  that Admin able to create user
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{
@@ -23,9 +23,9 @@ public class AdmUser_tc_5 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		//ad.userlocation();
+		//Thread.sleep(5000);
+		//ad.okbutton();
 		Thread.sleep(5000);
 		ad.admprofile();
 		Thread.sleep(5000);
@@ -33,7 +33,7 @@ public class AdmUser_tc_5 extends BaseClass
 		Thread.sleep(5000);
 		ad.adduser();
 		Thread.sleep(3000);
-		ad.adduseremail("testdt@gmail.com");
+		ad.adduseremail("testdeep@mailinator.com");
 		Thread.sleep(3000);
 		ad.adduseremailchk();
 		Thread.sleep(3000);

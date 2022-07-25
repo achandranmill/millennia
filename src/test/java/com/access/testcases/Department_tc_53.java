@@ -12,7 +12,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_53 extends BaseClass {
-	
+	//Validate that if user unhide Waiting in the Parking Lot dash and save the setting then it's refelection display in Dash from user access
 	@Test
 	public void departments() throws InterruptedException 
 	{

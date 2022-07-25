@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 public class AdmUser_tc_17 extends BaseClass
 {
 	
-	
+	//Validate  that user able to filter record by applying Lastname, firstname, email address and role filter
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{
@@ -27,7 +27,7 @@ public class AdmUser_tc_17 extends BaseClass
 		//ad.userlocation();
 		//Thread.sleep(5000);
 		//ad.okbutton();
-		//Thread.sleep(5000);
+		Thread.sleep(5000);
 		ad.registration();
 		ad.admprofile();
 		Thread.sleep(5000);

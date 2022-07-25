@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_35 extends BaseClass {
-	
+	//Validate that user able to click on Appointment field tab
 	@Test
 	public void departments() throws InterruptedException 
 	{

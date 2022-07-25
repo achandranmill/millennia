@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_1 extends BaseClass {
-	
+	//Validate that admin user able to click on Department link
 	@Test
 	public void departments() throws InterruptedException 
 	{

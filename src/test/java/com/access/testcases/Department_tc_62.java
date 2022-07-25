@@ -13,7 +13,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_62 extends BaseClass {
-	
+	//Validate that user able to upload file and able to add new organizational flag
 	@Test
 	public void departments() throws InterruptedException, AWTException 
 	{

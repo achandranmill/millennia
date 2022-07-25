@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_12 extends BaseClass
 {
-	
+	//Validate that user able to filter record by applying Firstname filter
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{

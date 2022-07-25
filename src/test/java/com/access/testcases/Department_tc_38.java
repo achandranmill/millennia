@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_38 extends BaseClass {
-	
+	//Validate that user able to configure seeing Field and as per configuration field display in clipboard
 	@Test
 	public void departments() throws InterruptedException 
 	{
@@ -47,9 +47,9 @@ public class Department_tc_38 extends BaseClass {
 		Thread.sleep(4000);
 		dept.seeingfieldsize();
 		Thread.sleep(4000);
-		dept.seeingtitle("Seeing");
+		dept.seeingtitle("seeing");
 		Thread.sleep(3000);
-		dept.seeingplaceholder("Seeing1");
+		dept.seeingplaceholder("seeing1");
 		Thread.sleep(3000);
 		dept.seeingrequired();
 		Thread.sleep(3000);

@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 
 public class Audit_tc_1 extends BaseClass
 {
-	
+	//Validate that Admin user able to click on Audit tab
 	@Test
 	public void audit() throws InterruptedException 
 	{
