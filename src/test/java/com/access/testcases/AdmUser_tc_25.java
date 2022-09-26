@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 public class AdmUser_tc_25 extends BaseClass
 {
 	
-	
+	//Validate  that pagination working properly
 	@SuppressWarnings("deprecation")
 	@Test
 	public void AdmUser() throws InterruptedException 
@@ -25,16 +25,16 @@ public class AdmUser_tc_25 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+		//ad.userlocation();
+		//Thread.sleep(5000);
+		//ad.okbutton();
+		//Thread.sleep(5000);
 		ad.registration();
 		Thread.sleep(5000);
 		ad.admprofile();
 		Thread.sleep(5000);
 		ad.admlink();
-		Thread.sleep(20000);
+		Thread.sleep(5000);
 		ad.pagination();
 		Thread.sleep(5000);
 		ad.paginationnew();

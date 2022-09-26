@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_12 extends BaseClass {
-	
+	//Validate that when user uncheck Show email Checkbox  and save then Show email Checkbox not display in clipboard page
 	@Test
 	public void departments() throws InterruptedException 
 	{

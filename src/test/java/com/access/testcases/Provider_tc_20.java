@@ -12,7 +12,6 @@ public class Provider_tc_20 extends BaseClass
 
 {
 
-	//To Verify that  Schedules tab works properly
 	
 	public void Provider() throws Exception
 	{

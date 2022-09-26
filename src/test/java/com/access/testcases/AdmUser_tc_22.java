@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 public class AdmUser_tc_22 extends BaseClass
 {
 	
-	
+	//Validate  that user able to disable the account
 	@SuppressWarnings("deprecation")
 	@Test
 	public void AdmUser() throws InterruptedException 
@@ -25,10 +25,10 @@ public class AdmUser_tc_22 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+		//ad.userlocation();
+		//Thread.sleep(5000);
+		//ad.okbutton();
+		//Thread.sleep(5000);
 		ad.registration();
 		Thread.sleep(5000);
 		ad.admprofile();

@@ -4,8 +4,6 @@ import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import java.util.Random;
-
-import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -25,11 +23,9 @@ public class Clip_tc_1 extends BaseClass
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
-		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-        RegtPage r=new RegtPage(driver);
+
+
+		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 
@@ -49,18 +45,18 @@ public class Clip_tc_1 extends BaseClass
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("john@gmail.com");
-	//	addp.Gender("male");
-	//	addp.SSN("ww");
-	//	addp.appointmentContactNumber("9876540998");
-	//	addp.mrn("tt");
-	//	addp.appointmentContactName("6778889990");
+		addp.Gender("male");
+		addp.SSN("ww");
+		addp.appointmentContactNumber("9876540998");
+		addp.mrn("tt");
+		addp.appointmentContactName("6778889990");
 
 		//User Enter Appointment Time
 
 		Thread.sleep(2000);
-	//	addp.copay("60");
+		addp.copay("60");
 		Thread.sleep(2000);
-	//	addp.searchdep("imenso");
+		addp.searchdep("imenso");
 		Thread.sleep(2000);
 		addp.Fillterprovider();
 		Thread.sleep(2000);
@@ -70,8 +66,8 @@ public class Clip_tc_1 extends BaseClass
 		Thread.sleep(2000);
 		addp.FlagSelect();
 		Thread.sleep(2000);
-	//	addp.reason("Routine Checkup");
-	//	Thread.sleep(2000);
+		addp.reason("Routine Checkup");
+		Thread.sleep(2000);
 		addp.Time("0830");
 		addp.Date("04072022");
 		Thread.sleep(2000);

@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_2 extends BaseClass
 {
-	
+	//Validate that user able to click on profile dropdown
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{
@@ -23,12 +23,12 @@ public class AdmUser_tc_2 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-	//	ad.userlocation();
-	//	Thread.sleep(5000);
-	//	ad.okbutton();
+		//ad.userlocation();
+		//Thread.sleep(5000);
+		//ad.okbutton();
 		Thread.sleep(5000);
 		ad.admprofile();
-		
+		Thread.sleep(5000);
 		
 	}
 

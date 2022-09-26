@@ -1,19 +1,27 @@
-
-
-
-<suite name = "Suite1"  parallel = "classes">
-  <test  thread-countname="Test">
+  XmlSuite suite = new XmlSuite();
+    List<String> listeners = Arrays.asList(getProject().getProperty("listeners"));
+    suite.setListeners(listeners);
+    suite.setSuiteFiles(testSuiteNames);
+        try {
+        stringToDom(suite.toXml(), get_testNgXmlFile()); <-- Should suite.toXml() prepend this?
+            } catch (SAXException | ParserConfigurationException
+                    | TransformerException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+         }
+<suite parallel="false" name="Suite">
+  <test name="Test">
     <classes>
-      <class name="class Provider_tc_1 extends BaseClass"/>
-      <class name="class Provider_tc_2 extends BaseClass"/>
-      <class name="class Provider_tc_3 extends BaseClass"/>
-      <class name="class Provider_tc_4 extends BaseClass"/>
-      <class name="class Provider_tc_5 extends BaseClass"/>
-      <class name="class Provider_tc_6 extends BaseClass"/>
-      <class name="class Provider_tc_7 extends BaseClass"/>
-      <class name="class Provider_tc_8 extends BaseClass"/>
-      <class name="class Provider_tc_9 extends BaseClass"/>
-      <class name="class Provider_tc_10 extends BaseClass"/>
+      <class name="class Reg_tc_1 extends BaseClass"/>
+      <class name="class Reg_tc_2 extends BaseClass"/>
+      <class name="class Reg_tc_3 extends BaseClass"/>
+      <class name="class Reg_tc_4 extends BaseClass"/>
+      <class name="class Reg_tc_5 extends BaseClass"/>
+      <class name="class Reg_tc_6 extends BaseClass"/>
+      <class name="class Reg_tc_7 extends BaseClass"/>
+      <class name="class Reg_tc_8 extends BaseClass"/>
+      <class name="class Reg_tc_9 extends BaseClass"/>
+     
       
     </classes>
   </test> <!-- Test -->

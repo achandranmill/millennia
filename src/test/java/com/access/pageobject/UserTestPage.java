@@ -4,7 +4,6 @@ package com.access.pageobject;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -112,19 +111,18 @@ public class UserTestPage
 		UncheckAll.click();
 	}
 
-	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/patient-lookup/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/ul/li[5]/a")
+	@FindBy(how=How.XPATH,using="//*[@id=\"patientLookup\"]/main/div[1]/patient-lookup/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/ul/li[4]/a/span[2]")
 	@CacheLookup
-	private WebElement Nextnode;
+	private WebElement Clinic;
 
-	public void Nextnode()
+	public void Clinic()
 	{
-		if(!Nextnode.isSelected()) {
-			JavascriptExecutor j = (JavascriptExecutor)ldriver;
-			j.executeScript("arguments[0].click", Nextnode);
-			if(!Nextnode.isSelected()) {
-				Nextnode.click();
-			}
-		}
+		this.Clinic.isDisplayed();
+		this.Clinic.click();         // when clicked, button should swap into btnTurnOn
+		this.Clinic.isDisplayed();
+		this.Clinic.click();         // when clicked, button should swap into btnTurnOff
+		this.Clinic.isDisplayed();   // throws an exception
+		return ;
 	}
 
 	@FindBy(how=How.XPATH,using="//*[@id=\"patientLookup\"]/main/div[1]/patient-lookup/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/ul/li[1]/a")

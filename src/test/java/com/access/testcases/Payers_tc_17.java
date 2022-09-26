@@ -11,10 +11,6 @@ import com.access.pageobject.loginpage;
 public class Payers_tc_17 extends BaseClass
 
 {
-	
-	
-	//To verify that User  able to click on Payers tab and Bucket Settings Functions work properly 
-	
 	 public void Payers() throws Exception
 		{
 			loginpage lp=new loginpage(driver);

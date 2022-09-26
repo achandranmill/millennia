@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_4 extends BaseClass {
-	
+	//Validate that without filling mandatory field and click on save department details saved
 	@Test
 	public void departments() throws InterruptedException 
 	{

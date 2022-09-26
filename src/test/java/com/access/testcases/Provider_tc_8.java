@@ -13,8 +13,6 @@ public class Provider_tc_8 extends BaseClass
 
 {
 
-	//To verify that Send Email Message Check box of Details page works properly
-	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

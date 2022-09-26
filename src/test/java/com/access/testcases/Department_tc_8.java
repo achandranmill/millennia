@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_8 extends BaseClass {
-	
+	//Validate that click on Back to Appointment type link it navigate to Appointment type page
 	@Test
 	public void departments() throws InterruptedException 
 	{

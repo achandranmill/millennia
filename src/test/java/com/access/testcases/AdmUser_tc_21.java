@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 public class AdmUser_tc_21 extends BaseClass
 {
 	
-	
+	//Validate  that cancel button of edit user page works properly
 	@SuppressWarnings("deprecation")
 	@Test
 	public void AdmUser() throws InterruptedException 
@@ -25,10 +25,10 @@ public class AdmUser_tc_21 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+		//ad.userlocation();
+		//Thread.sleep(5000);
+		//ad.okbutton();
+		//Thread.sleep(5000);
 		ad.registration();
 		Thread.sleep(5000);
 		ad.admprofile();
@@ -38,7 +38,6 @@ public class AdmUser_tc_21 extends BaseClass
 		ad.edituser();
 		Thread.sleep(5000);
 		ad.editusername("deotest");
-		
 		Thread.sleep(5000);
 		ad.editusercancel();
 		Thread.sleep(5000);

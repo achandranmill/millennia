@@ -13,9 +13,6 @@ public class Provider_tc_11 extends BaseClass
 
 {
 
-	
-	//To verify that Gender DropDown Select option in Male of Details page works properly
-	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

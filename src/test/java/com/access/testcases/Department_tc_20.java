@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_20 extends BaseClass {
-	
+	//Validate that when user check Combine "Add Patient" and "Check In" Buttons and save then Combine "Add Patient" and "Check In" Buttons display in clipboard page
 	@Test
 	public void departments() throws InterruptedException 
 	{

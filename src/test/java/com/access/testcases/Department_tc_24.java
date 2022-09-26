@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_24 extends BaseClass {
-	
+	//Validate that when user click on close button of clipboard field setting then in clipboard that field not display
 	@Test
 	public void departments() throws InterruptedException 
 	{

@@ -11,11 +11,6 @@ import com.access.pageobject.loginpage;
 public class Provider_tc_22 extends BaseClass
 
 {
-	
-	
-	
-	//To Verify that  Schedules tab All  Functions works properly
-	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

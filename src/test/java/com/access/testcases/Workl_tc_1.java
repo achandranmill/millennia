@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
-import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.loginpage;
 import com.access.pageobject.WorkListPage;
@@ -22,11 +21,7 @@ public class Workl_tc_1 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(5000);
@@ -38,13 +33,14 @@ public class Workl_tc_1 extends BaseClass
 		w.Department();
 		w.Regi();
 		w.BtnClose();
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		w.Configure();
 		w.Provider();
 		Thread.sleep(3000);
 		Clipboard c =new Clipboard(driver);
 		c.LinkclickBoard();
-     	UserTestPage u =new UserTestPage(driver);
+
+		UserTestPage u =new UserTestPage(driver);
 		u.linkUserTest();
 		u.Logout();
 	}

@@ -11,9 +11,6 @@ import com.access.pageobject.loginpage;
 public class Provider_tc_12  extends BaseClass
 
 {
-	
-	//To verify that Gender DropDown Select option in Female  of Details page works properly
-	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

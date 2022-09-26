@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_9 extends BaseClass {
-	
+	//Validate that cancel button of add appointment works
 	@Test
 	public void departments() throws InterruptedException 
 	{

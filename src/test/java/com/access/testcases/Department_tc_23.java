@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_23 extends BaseClass {
-	
+	//Validate that click on Add more button user able to add new field
 	@Test
 	public void departments() throws InterruptedException 
 	{

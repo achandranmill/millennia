@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 
 public class Audit_tc_4 extends BaseClass
 {
-	
+	//Validate that user able to search patient audit details by entering first name
 	@Test
 	public void audit() throws InterruptedException 
 	{

@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_6 extends BaseClass {
-	
+	//Validate that admin user able to create appointment
 	@Test
 	public void departments() throws InterruptedException 
 	{

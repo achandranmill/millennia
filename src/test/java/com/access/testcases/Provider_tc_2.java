@@ -11,10 +11,6 @@ public class Provider_tc_2  extends BaseClass
 
 {
 
-	
-	
-	//To verify that Admin able to click on Search button
-	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

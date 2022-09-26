@@ -12,7 +12,6 @@ public class Provider_tc_19 extends BaseClass
 
 {
 
-	//To Verify that Display Name of Details page works properly
 	
 	public void Provider() throws Exception
 	{

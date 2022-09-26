@@ -11,9 +11,6 @@ import com.access.pageobject.loginpage;
 public class Payers_tc_4 extends BaseClass
 
 {
-	
-	//To verify that User  able to click on Payers tab and IN radio button works properly 
-	
 	 public void Payers() throws Exception
 		{
 			loginpage lp=new loginpage(driver);

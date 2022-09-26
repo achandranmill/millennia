@@ -6,7 +6,6 @@ import com.access.pageobject.loginpage;
 
 import org.testng.annotations.Test;
 
-import com.access.pageobject.AdmUser;
 import com.access.pageobject.Organization;
 
 
@@ -15,10 +14,6 @@ import com.access.pageobject.Organization;
 public class Org_tc_1 extends BaseClass
 
 {
-	
-	//To verify that admin able to click on Organization tab and  Create Details tab  pages
-	
-	
 	public void Organization() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -26,10 +21,7 @@ public class Org_tc_1 extends BaseClass
 		lp.setPassword(password);
 		lp.clickSubmit();
 		Thread.sleep(3000);
-		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);

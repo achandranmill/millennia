@@ -1,7 +1,6 @@
 package com.access.pageobject;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -99,13 +98,14 @@ public void Date()
 	public void SelectAll()
 	{
 		 
-	if(!SelectAll.isSelected()) {
-		JavascriptExecutor as = (JavascriptExecutor)ldriver;
-		as.executeScript("arguments[0].click", SelectAll);
-		if(!SelectAll.isSelected()) {
-			SelectAll.click();
-		}
-	}
+		this.SelectAll.isDisplayed();
+	
+		    this.SelectAll.click();  
+		    // when clicked, button should swap into btnTurnOn
+		    this.SelectAll.isDisplayed();
+		    this.SelectAll.click();      // when clicked, button should swap into btnTurnOff
+		    this.SelectAll.isDisplayed() ;  // throws an exception
+		    return ;
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"9b0eb0a4-edc5-40c9-ae10-7d19ed0e7f25\"]")
@@ -114,13 +114,12 @@ public void Date()
 	
 	public void Clinic()
 	{
-		if(!Clinic.isSelected()) {
-			JavascriptExecutor g = (JavascriptExecutor)ldriver;
-			g.executeScript("arguments[0].click", Clinic);
-			if(!Clinic.isSelected()) {
-				Clinic.click();
-			}
-		}
+		this.Clinic.isDisplayed();
+		this.Clinic.click();
+		this.Clinic.isDisplayed();
+		this.Clinic.click();
+		this.Clinic.isDisplayed();
+		return;
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/div[1]/div/div/department-filter/div[3]/button[2]")
@@ -140,7 +139,7 @@ public void Date()
 		DepartmentCancel.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[1]/div[1]/form/div[1]/button[2]")
+	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/main/div[1]/mass-messaging/div/div/div[1]/div[1]/form/div[1]/button[2]")
 	@CacheLookup
 	WebElement SeeingFilter;
 	
@@ -154,13 +153,12 @@ public void Date()
 	
 	public void SeeingSelectAll()
 	{
-		if(!SeeingSelectAll.isSelected()) {
-			JavascriptExecutor g = (JavascriptExecutor)ldriver;
-			g.executeScript("arguments[0].click", SeeingSelectAll);
-			if(!SeeingSelectAll.isSelected()) {
-				SeeingSelectAll.click();
-			}
-		}
+		this.SeeingSelectAll.isDisplayed();
+		this.SeeingSelectAll.click();
+		this.SeeingSelectAll.isDisplayed();
+		this.SeeingSelectAll.click();
+		this.SeeingSelectAll.isDisplayed();
+		return;
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/div[1]/div/div/seeing-filter/div[2]/input")
@@ -195,14 +193,12 @@ public void Date()
 	
 	public void StatusFilterSelect()
 	{
-	  if(!StatusFilterSelect.isSelected()) {
-		  JavascriptExecutor j = (JavascriptExecutor)ldriver;
-		  j.executeScript("arguments[0].click", StatusFilterSelect);
-		  if(!StatusFilterSelect.isSelected())
-		  {
-			  StatusFilterSelect.click();
-		  }
-	  }
+	  this.StatusFilterSelect.isDisplayed();
+	  this.StatusFilterSelect.click();
+	  this.StatusFilterSelect.isDisplayed();
+	  this.StatusFilterSelect.click();
+	  this.StatusFilterSelect.isDisplayed();
+	  return;
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/div[1]/div/div/status-filter/div[3]/button[2]")

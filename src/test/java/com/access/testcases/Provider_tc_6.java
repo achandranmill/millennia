@@ -12,8 +12,6 @@ public class Provider_tc_6 extends BaseClass
 
 {
 	
-	//To verify that cancel button of Details page works properly
-	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
