@@ -12,6 +12,9 @@ public class Provider_tc_15 extends BaseClass
 
 {
 
+	
+	//To Verify that Provider Search DorpDown of Details page works properly
+	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_17 extends BaseClass {
-	//Validate that when user uncheck Show Print Access Pass Option and save then Show Print Access Pass Option not display in clipboard page
+	
 	@Test
 	public void departments() throws InterruptedException 
 	{

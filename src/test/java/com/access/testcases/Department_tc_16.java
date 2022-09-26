@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_16 extends BaseClass {
-	//Validate that when user check Show Voice Checkbox  and save then Show Voice Checkbox display in clipboard page
+	
 	@Test
 	public void departments() throws InterruptedException 
 	{

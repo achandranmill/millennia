@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.loginpage;
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.RegtPage;
 
 @Test
@@ -20,10 +21,14 @@ public class Reg_tc_1  extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		Thread.sleep(5000);
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 
 		r.StartPatient();
 		Thread.sleep(3000);

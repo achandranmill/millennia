@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_22 extends BaseClass {
-	//Validate that click on up arrow of First name, first name display in the 1st position of page
+	
 	@Test
 	public void departments() throws InterruptedException 
 	{

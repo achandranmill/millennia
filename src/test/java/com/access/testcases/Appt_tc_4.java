@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Appointments;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -25,7 +26,11 @@ public class Appt_tc_4 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		Thread.sleep(5000);
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -36,16 +41,17 @@ public class Appt_tc_4 extends BaseClass
 
 		ap.Configurelist();
 		ap.EditDepartFillter();
+		Thread.sleep(10000);
 		ap.DepartFillterSelect();
 		Thread.sleep(3000);
 		ap.Departmentsavechange();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		ap.Configurelist();
 		ap.EditSeeingFillter();
 		ap.RemoveProvider();
 		Thread.sleep(3000);
 		ap.CloseBtnSeeing();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		ap.Configurelist();
 		ap.EditListColumns();
 		Thread.sleep(3000);
@@ -60,8 +66,8 @@ public class Appt_tc_4 extends BaseClass
 		ap.ColumnsSaveChange();
 		Thread.sleep(5000);
 		ap.AppointDATE();
-		ap.AppointDATE1("2022-03-01");
-		ap.AppointDATE2("2022-04-06");
+		ap.AppointDATE1("2022-09-01");
+		ap.AppointDATE2("2022-09-06");
 		ap.AppointDATEAPPLY();
 		Thread.sleep(3000);
 	}

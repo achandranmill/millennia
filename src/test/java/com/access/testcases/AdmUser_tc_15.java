@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_15 extends BaseClass
 {
-	//Validate that user not able to filter records by applying invalid Email Address
+	
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{

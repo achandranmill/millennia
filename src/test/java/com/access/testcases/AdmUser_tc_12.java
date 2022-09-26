@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_12 extends BaseClass
 {
-	//Validate that user able to filter record by applying Firstname filter
+	
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{
@@ -34,7 +34,7 @@ public class AdmUser_tc_12 extends BaseClass
 		ad.admlink();
 		Thread.sleep(5000);
 		ad.clkfilterbtn();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		ad.filterbyfname("deo");
 		Thread.sleep(5000);
 		ad.filterbtnclk();

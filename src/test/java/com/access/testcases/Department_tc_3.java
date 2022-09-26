@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_3 extends BaseClass {
-	//Validate that admin user able to enter and save department details
+	
 	@Test
 	public void departments() throws InterruptedException 
 	{
@@ -42,9 +42,9 @@ public class Department_tc_3 extends BaseClass {
 		Thread.sleep(5000);
 		dept.selectdepartmentnew();
 		Thread.sleep(5000);
-		dept.deptname("Nextnode 2");
+		dept.deptname("TestDepartment");
 		Thread.sleep(2000);
-		dept.deptshortname("Nnode2");
+		dept.deptshortname("TDepartment");
 		Thread.sleep(2000);
 		dept.phonenumber("9712367123");
 		Thread.sleep(2000);

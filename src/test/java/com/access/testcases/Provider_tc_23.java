@@ -10,6 +10,10 @@ import com.access.pageobject.loginpage;
 @Test
 public class Provider_tc_23 extends BaseClass 
 {
+	
+	
+	//To Verify that  Schedules tab  Functions works properly
+	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_19 extends BaseClass {
-	//Validate that when user uncheck Combine "Add Patient" and "Check In" Buttons and save then Combine "Add Patient" and "Check In" Buttons not display in clipboard page
+	
 	@Test
 	public void departments() throws InterruptedException 
 	{

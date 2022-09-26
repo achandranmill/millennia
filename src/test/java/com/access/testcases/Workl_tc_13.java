@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.WorkListPage;
 import com.access.pageobject.loginpage;
@@ -21,7 +22,10 @@ public class Workl_tc_13 extends BaseClass
 		lp.clickSubmit();
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 
@@ -37,12 +41,12 @@ public class Workl_tc_13 extends BaseClass
 		w.Threshold();
 		Thread.sleep(3000);
 		w.ThresholdStarttime();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.ThresholdStatus();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.ThresholdWaittime();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		w.ThredsholdSave();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 	}
 }

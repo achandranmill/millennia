@@ -11,6 +11,9 @@ import com.access.pageobject.loginpage;
 public class Provider_tc_30 extends BaseClass
 
 {
+	
+	
+	//To Verify that  Schedules tab, Sunday  Functions works properly
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

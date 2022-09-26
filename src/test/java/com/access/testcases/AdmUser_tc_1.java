@@ -11,7 +11,6 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_1 extends BaseClass
 {
-	//Validate that user able to select location from location input popup
 	
 	@Test
 	public void AdmUser() throws InterruptedException 
@@ -27,7 +26,7 @@ public class AdmUser_tc_1 extends BaseClass
 		ad.userlocation();
 		Thread.sleep(5000);
 		ad.okbutton();
-		Thread.sleep(5000);
+		
 		
 	}
 

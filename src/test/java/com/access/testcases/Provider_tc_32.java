@@ -12,6 +12,9 @@ public class Provider_tc_32 extends BaseClass
 
 {
 	
+	
+	//To Verify that  Edit Schedules tab All  Functions works properly
+	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -36,13 +39,15 @@ public class Provider_tc_32 extends BaseClass
 		Thread.sleep(3000);
 		pd.EditSchedule();
 		Thread.sleep(2000);
+		pd.EditADDSchedule();
+		Thread.sleep(2000);
 		pd.EditScheduleTitle("old");
 		Thread.sleep(2000);
 		pd.EditStartDate("09042022");
 		Thread.sleep(2000);
 		pd.EditEndDate("06052022");
          Thread.sleep(2000);
-         pd.EditDepartment2();
+         pd.EditDepartmentnull();
          Thread.sleep(2000);
          pd.EditLocation();
          Thread.sleep(2000);

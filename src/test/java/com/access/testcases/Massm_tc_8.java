@@ -35,7 +35,7 @@ public class Massm_tc_8   extends BaseClass
 		m.Clinic();
 		Thread.sleep(3000);
 		m.DepartmentSave();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		m.SeeingFilter();
 		Thread.sleep(2000);
 		m.SeeingSelectAll();

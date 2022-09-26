@@ -11,6 +11,9 @@ import com.access.pageobject.loginpage;
 public class Provider_tc_14 extends BaseClass
 
 {
+	
+	//To verify that Require password change on next login chex box of Details page works properly
+	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

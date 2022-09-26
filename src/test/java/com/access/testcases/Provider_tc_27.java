@@ -12,6 +12,8 @@ public class Provider_tc_27  extends BaseClass
 
 {
 	
+	//To Verify that  Schedules tab, Thursday  Functions works properly
+	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

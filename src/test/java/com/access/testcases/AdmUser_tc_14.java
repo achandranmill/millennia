@@ -10,9 +10,8 @@ import com.access.pageobject.loginpage;
 import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_14 extends BaseClass
-
 {
-	//Validate that user able to filter record by applying Email Address filter
+	
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{

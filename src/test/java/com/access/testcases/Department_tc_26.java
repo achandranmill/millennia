@@ -11,7 +11,7 @@ import com.access.pageobject.Departments;
 import com.access.pageobject.loginpage;
 
 public class Department_tc_26 extends BaseClass {
-	//Validate that user able to configure cell number Field and as per configuration field display in clipboard
+	
 	@Test
 	public void departments() throws InterruptedException 
 	{

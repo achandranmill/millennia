@@ -12,6 +12,9 @@ public class Provider_tc_3 extends BaseClass
 
 {
 
+	
+	//To verify that Admin able to Find Provider Filed
+	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

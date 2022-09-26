@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.UserTestPage;
 import com.access.pageobject.loginpage;
@@ -21,6 +22,11 @@ public class Palkup_tc_2  extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		Thread.sleep(5000);
 		UserTestPage u =new  UserTestPage(driver);
 
 		RegtPage r=new RegtPage(driver);
@@ -31,8 +37,8 @@ public class Palkup_tc_2  extends BaseClass
 		Thread.sleep(3000);
 		u.patientLookup();
 		u.Date();
-		u.daterangepicker_start("2022-03-01");
-		u.daterangepicker_end("2022-04-01");
+		u.daterangepicker_start("2022-09-01");
+		u.daterangepicker_end("2022-09-14");
 		u.DateApply();
 		u.Search();
   }

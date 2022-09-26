@@ -1,7 +1,13 @@
 package com.access.pageobject;
 
+import java.awt.Desktop.Action;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -17,11 +23,11 @@ public class Clipboard {
 		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 20), this);
 	}
 	
-	@FindBy(how=How.LINK_TEXT,using="Clipboard")
+	@FindBy(how=How.XPATH,using="//a[contains(text(),'Clipboard')]")
 	@CacheLookup
 	WebElement LinkClipboard;
 	
-	@FindBy(how = How.ID, using ="nameLast")
+	@FindBy(how = How.XPATH, using ="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[2]/div[1]/div/div/input")
 	@CacheLookup
 	WebElement txtnameLast;
 
@@ -84,9 +90,15 @@ public class Clipboard {
 	@FindBy(how = How.XPATH, using ="//body/main[1]/div[1]/clipboard1[1]/div[1]/div[1]/form[1]/div[3]/div[5]/div[1]/jfh-patient-flags[1]/div[1]/div[1]/div[2]/span[1]/span[1]")
 	@CacheLookup
 	WebElement txtflag;
-	@FindBy(how = How.XPATH, using ="//span[contains(text(),'Admin')]")
+	
+	@FindBy(how = How.XPATH, using ="//span[contains(text(),'covisit')]")
 	@CacheLookup
 	WebElement flagselect;
+	
+	@FindBy(how = How.XPATH, using ="//span[contains(text(),'Admin')]")
+	@CacheLookup
+	WebElement flagselect1;
+	
 
 	@FindBy(how = How.ID, using ="comments")
 	@CacheLookup
@@ -160,7 +172,7 @@ public class Clipboard {
 	@CacheLookup
 	WebElement LinkclickBoard;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/main/div[1]/clipboard1/div[1]/div/form/div[2]/div[3]/div/date-picker/div/input")
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[2]/div[4]/div/date-picker/div/input")
 	@CacheLookup
 	WebElement DOB;
 	
@@ -274,6 +286,8 @@ public class Clipboard {
 	}
 	public void DOB(String d)
 	{
+		DOB.click();
+		DOB.clear();
 		DOB.sendKeys(d);
 	}
 	public void LinkclickBoard()
@@ -405,4 +419,313 @@ public class Clipboard {
 		 Undocheckin.click();
 	 }
 	
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[2]/div/div/time-picker/div/input")
+	 @CacheLookup
+	 WebElement Clip_AppointTime;
+	 
+	 public void Clip_AppointTime(String at)
+	 {
+		 Clip_AppointTime.click();
+		 Clip_AppointTime.clear();
+		 Clip_AppointTime.sendKeys(at);
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[3]/div/div/button")
+	 @CacheLookup
+	 WebElement Clip_Location;
+	 
+	 public void Clip_Location()
+	 {
+		 Clip_Location.click();
+	 }
+	 
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[3]/div/div/ul/li/a")
+	 @CacheLookup
+	 WebElement Clip_Location_option;
+	 
+	 public void Clip_Location_option()
+	 {
+		 Clip_Location_option.click();
+	 }
+	 
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[4]/div/div/button")
+	 @CacheLookup
+	 WebElement Clip_Appointment_Type;
+	 
+	 public void Clip_Appointment_Type()
+	 {
+		 Clip_Appointment_Type.click();
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[4]/div/div/ul/li[2]/a")
+	 @CacheLookup
+	 WebElement Clip_Appointment_option;
+	 
+	 public void Clip_Appointment_option()
+	 {
+		 Clip_Appointment_option.click();
+	 }
+	 
+	 @FindBy(how=How.ID,using="seeing-dropdown")
+	 @CacheLookup
+	 WebElement Clip_Seeing;
+	 
+	 public void Clip_Seeing()
+	 {
+		 Clip_Seeing.click();
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[4]/div/div/ul/li[2]/a")
+	 @CacheLookup
+	 WebElement Clip_Thoms;
+	 
+	 public void Clip_Thoms()
+	 {
+		 Clip_Thoms.click();
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[6]/div/div/input")
+	 @CacheLookup
+	 WebElement Clip_Comment;
+	 
+	 public void Clip_Comment(String cc)
+	 {
+		 Clip_Comment.click();
+		 Clip_Comment.clear();
+		 Clip_Comment.sendKeys(cc);
+	 }
+	 
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[8]/div/div/input")
+	 @CacheLookup
+	 WebElement Clip_Reason;
+	 
+	 public void Clip_Reason(String cr)
+	 {
+		 Clip_Reason.click();
+		 Clip_Reason.clear();
+		 Clip_Reason.sendKeys(cr);
+	 }
+	 
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[9]/div/div/input")
+	 @CacheLookup
+	 WebElement Clip_Copay;
+	 
+	 public void Clip_Copay(String cc)
+	 {
+		 Clip_Copay.click();
+		 Clip_Copay.clear();
+		 Clip_Copay.sendKeys(cc);
+	 }
+	 
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Add Patient')]")
+	@CacheLookup
+	WebElement Clip_Addpatient;
+	
+	public void Clip_Addpatient()
+	{
+		Clip_Addpatient.click();
+	}
+	 
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[5]/div/jfh-patient-flags/div/div/div[2]/span")
+	@CacheLookup
+	WebElement Clip_Flag;
+	
+	public void Clip_Flag()
+	{
+		Clip_Flag.click();
+	}
+	 
+	
+	@FindBy(how=How.XPATH,using=" //a//span[contains(text(),'covisit')]")
+	@CacheLookup
+	WebElement Clip_Flag_Option;
+	
+	public void Clip_Flag_Option()
+	
+	{
+		Clip_Flag_Option.click();
+	}
+	
+	@FindBy(how=How.XPATH,using=" //a//span[contains(text(),' dlj')]")
+	@CacheLookup
+	WebElement Clip_Flag_Option1;
+	
+public void Clip_Flag_Option1()
+	
+	{
+	Clip_Flag_Option1.click();
+	}
+	
+	
+
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Check In')]")
+	@CacheLookup
+	WebElement Clip_Checkin;
+	
+	public void Clip_Checkin()
+	{
+		Clip_Checkin.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/check-in-modal/div[3]/button")
+	@CacheLookup
+	WebElement Alert_ok;
+	
+	public void Alert_ok()
+	{
+		Alert_ok.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[5]/div/button[1]")
+	@CacheLookup
+	WebElement Clip_LinkConnectAccount;
+	
+	public void Clip_LinkConnectAccount()
+	{
+		Clip_LinkConnectAccount.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[5]/div/div/div/button")
+	@CacheLookup
+	WebElement Clip_Linkpatient;
+	
+	public void Clip_Linkpatient()
+	{
+		Clip_Linkpatient.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[5]/div/div/div/button")
+	@CacheLookup
+	WebElement Clip_LinkSelfoption;
+	
+	public void Clip_LinkSelfoption()
+	{
+		Clip_LinkSelfoption.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'Patient is Self')]")
+	@CacheLookup
+	WebElement Clip_LinkSelf;
+	
+	public void Clip_LinkSelf()
+	{
+		Clip_LinkSelf.click();
+	}
+	
+	@FindBy(how=How.XPATH,using= "/html/body/main/div[1]/clipboard1/div[1]/div/form/div[5]/div/div/div/ul/li[2]/a")
+	@CacheLookup
+	WebElement Clip_LinkChildoption;
+	
+	public void Clip_LinkChildoption()
+	{
+		Clip_LinkChildoption.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'Patient is my Parent')]")
+	@CacheLookup
+	WebElement Clip_LinkPatientismyParent;
+	
+	public void Clip_LinkPatientismyParent()
+	{
+		Clip_LinkPatientismyParent.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'I am the guardian of the Patient')]")
+	@CacheLookup
+	WebElement Clip_LinkIamthe_guardianofthe_Patient;
+	
+	public void Clip_LinkIamthe_guardianofthe_Patient()
+	{
+		Clip_LinkIamthe_guardianofthe_Patient.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'Patient is my Grandparent')]")
+	@CacheLookup
+	WebElement Clip_Link_PatientismyGrandparent;
+	
+	public void Clip_Link_PatientismyGrandparent()
+	{
+		Clip_Link_PatientismyGrandparent.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'Patient is my Grandchild')]")
+	@CacheLookup
+	WebElement Clip_Link_PatientismyGrandchild;
+	
+	public void Clip_Link_PatientismyGrandchild()
+	{
+		Clip_Link_PatientismyGrandchild.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'Patient is my Great Grandchild')]")
+	@CacheLookup
+	WebElement Clip_Link_PatientismyGreatGrandchild;
+	
+	public void Clip_Link_PatientismyGreatGrandchild()
+	{
+		Clip_Link_PatientismyGreatGrandchild.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'Patient is my Great Grandparent')]")
+	@CacheLookup
+	WebElement Clip_Link_PatientismyGreatGrandparent;
+	
+	public void Clip_Link_PatientismyGreatGrandparent()
+	{
+		Clip_Link_PatientismyGreatGrandparent.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/check-in-modal/div[2]/h1")
+	@CacheLookup
+	WebElement Display_message;
+	
+	public void Display_message()
+	{
+		String act = Display_message.getText();
+		System.out.println("Matching Message is: "+ act);
+	}
+	
+	
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Close')]")
+	@CacheLookup
+	WebElement Accesssprint_close;
+	
+	public void Accesssprint_close()
+	{
+		Accesssprint_close.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[2]/div/div/h4")
+	@CacheLookup
+	WebElement patient_namefound;
+	
+	public void patient_namefound()
+	{
+		String act = patient_namefound.getText();
+		System.out.println("Matching Message is: "+ act);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+	 
 }

@@ -12,6 +12,8 @@ public class Provider_tc_9 extends BaseClass
 
 {
 
+	//To verify that Send Text Message Check box of Details page works properly
+	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

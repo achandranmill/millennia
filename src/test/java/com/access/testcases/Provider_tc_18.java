@@ -12,6 +12,8 @@ public class Provider_tc_18 extends BaseClass
 
 {
 	
+	//To Verify that Departments of Details page works properly
+	
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);

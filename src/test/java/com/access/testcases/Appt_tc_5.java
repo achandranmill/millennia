@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Appointments;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -20,7 +21,11 @@ public class Appt_tc_5 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		Thread.sleep(5000);
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -30,7 +35,7 @@ public class Appt_tc_5 extends BaseClass
 		ap.linkAppointment();
 		Thread.sleep(2000);
 		ap.AppointDATE();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		ap.AppointDATE1("2022-03-01");
 		Thread.sleep(3000);
 		ap.AppointDATE2("2022-04-04");

@@ -12,7 +12,7 @@ import com.access.pageobject.AdmUser;
 
 public class Audit_tc_16 extends BaseClass
 {
-	//Validate that user able to search audit details by entering Event type
+	
 	@Test
 	public void audit() throws InterruptedException 
 	{

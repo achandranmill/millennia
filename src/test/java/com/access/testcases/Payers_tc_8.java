@@ -10,6 +10,10 @@ import com.access.pageobject.loginpage;
 @Test
 public class Payers_tc_8 extends BaseClass
 {
+	
+	
+	//To verify that User  able to click on Payers tab and Click on Days to run Drop-Down and Select 1st of the month Field
+	
 	 public void Payers() throws Exception
 		{
 			loginpage lp=new loginpage(driver);

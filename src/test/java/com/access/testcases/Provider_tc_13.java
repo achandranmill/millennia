@@ -13,6 +13,9 @@ import com.access.pageobject.loginpage;
 public class Provider_tc_13 extends BaseClass
 
 {
+	
+	
+	//To verify that Generate Password button of Details page works properly
 
 	public void Provider() throws Exception
 	{

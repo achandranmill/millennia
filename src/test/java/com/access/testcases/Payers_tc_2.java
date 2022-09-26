@@ -11,6 +11,10 @@ import com.access.pageobject.loginpage;
 public class Payers_tc_2 extends BaseClass
 
 {
+	
+	
+	//To verify that User  able to click on Payers tab and Filter Payers ID works properly 
+	
 	 public void Payers() throws Exception
 		{
 			loginpage lp=new loginpage(driver);

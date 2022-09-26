@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_7 extends BaseClass
 {
-     //Validate if invalid password entered as per password criteria then password field not accepts it	
+	
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{
@@ -23,9 +23,9 @@ public class AdmUser_tc_7 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
+	//	ad.userlocation();
+	//	Thread.sleep(5000);
+	//	ad.okbutton();
 		Thread.sleep(5000);
 		ad.admprofile();
 		Thread.sleep(5000);
@@ -45,7 +45,7 @@ public class AdmUser_tc_7 extends BaseClass
 		Thread.sleep(3000);
 		ad.userlname("Gates");
 		Thread.sleep(3000);
-		ad.userpswd("Jackgates@1");
+		ad.userpswd("Jackgates@123");
 		Thread.sleep(3000);
 		
 		

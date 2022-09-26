@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_3 extends BaseClass
 {
-	//Validate  that user able to select Admin option from profile dropdown
+	
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{
@@ -28,7 +28,7 @@ public class AdmUser_tc_3 extends BaseClass
 		//ad.okbutton();
 		Thread.sleep(5000);
 		ad.admprofile();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		ad.admlink();
 		Thread.sleep(5000);
 		

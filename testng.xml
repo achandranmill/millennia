@@ -3,117 +3,14 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.access.pageobject.Departments">
-      
-      <methods>
-      <exclude name="com.access.testcases.Audit_tc_1"/> 
-      </methods>
-      </class>
-      <class name="com.access.testcases.Department_tc_1"/>
-      <class name="com.access.testcases.Department_tc_2"/>
-      <class name="com.access.testcases.Department_tc_3"/>
-      <class name="com.access.testcases.Department_tc_4"/>
-      <class name="com.access.testcases.Department_tc_5"/>
-      <class name="com.access.testcases.Department_tc_6"/>
-      <class name="com.access.testcases.Department_tc_7"/>
-      <class name="com.access.testcases.Department_tc_8"/>
-      <class name="com.access.testcases.Department_tc_9"/>
-      <class name="com.access.testcases.Department_tc_10"/>
-      <class name="com.access.testcases.Department_tc_11"/>
-      <class name="com.access.testcases.Department_tc_12"/>
-      <class name="com.access.testcases.Department_tc_13"/>
-      <class name="com.access.testcases.Department_tc_14"/>
-      <class name="com.access.testcases.Department_tc_15"/>
-      <class name="com.access.testcases.Department_tc_16"/>
-      <class name="com.access.testcases.Department_tc_17"/>
-      <class name="com.access.testcases.Department_tc_18"/>
-      <class name="com.access.testcases.Department_tc_19"/>
-      <class name="com.access.testcases.Department_tc_20"/>
-      <class name="com.access.testcases.Department_tc_21"/>
-      <class name="com.access.testcases.Department_tc_22"/>
-      <class name="com.access.testcases.Department_tc_23"/>
-      <class name="com.access.testcases.Department_tc_24"/>
-      <class name="com.access.testcases.Department_tc_25"/>
-      <class name="com.access.testcases.Department_tc_26"/>
-      <class name="com.access.testcases.Department_tc_27"/>
-      <class name="com.access.testcases.Department_tc_28"/>
-      <class name="com.access.testcases.Department_tc_29"/>
-      <class name="com.access.testcases.Department_tc_30"/>
-      <class name="com.access.testcases.Department_tc_31"/>
-      <class name="com.access.testcases.Department_tc_32"/>
-      <class name="com.access.testcases.Department_tc_33"/>
-      <class name="com.access.testcases.Department_tc_34"/>
-      <class name="com.access.testcases.Department_tc_35"/>
-      <class name="com.access.testcases.Department_tc_36"/>
-      <class name="com.access.testcases.Department_tc_37"/>
-      <class name="com.access.testcases.Department_tc_38"/>
-      <class name="com.access.testcases.Department_tc_39"/>
-      <class name="com.access.testcases.Department_tc_40"/>
-      <class name="com.access.testcases.Department_tc_41"/>
-      <class name="com.access.testcases.Department_tc_42"/>
-      <class name="com.access.testcases.Department_tc_43"/>
-      <class name="com.access.testcases.Department_tc_44"/>
-      <class name="com.access.testcases.Department_tc_45"/>
-      <class name="com.access.testcases.Department_tc_46"/>
-      <class name="com.access.testcases.Department_tc_47"/>
-      <class name="com.access.testcases.Department_tc_48"/>
-      <class name="com.access.testcases.Department_tc_49"/>
-      <class name="com.access.testcases.Department_tc_50"/>
-      <class name="com.access.testcases.Department_tc_51"/>
-      <class name="com.access.testcases.Department_tc_52"/>
-      <class name="com.access.testcases.Department_tc_53"/>
-      <class name="com.access.testcases.Department_tc_54"/>
-      <class name="com.access.testcases.Department_tc_55"/>
-      <class name="com.access.testcases.Department_tc_56"/>
-      <class name="com.access.testcases.Department_tc_57"/>
-      <class name="com.access.testcases.Department_tc_58"/>
-      <class name="com.access.testcases.Department_tc_59"/>
-      <class name="com.access.testcases.Department_tc_60"/>
-      <class name="com.access.testcases.Department_tc_61"/>
-      <class name="com.access.testcases.Department_tc_62"/>
-      <class name="com.access.testcases.Department_tc_63"/>
-      <class name="com.access.testcases.Department_tc_64"/>
-      <class name="com.access.testcases.Department_pop_tc_65"/>
-      <class name="com.access.testcases.Department_pop_tc_66"/>
-      <class name="com.access.testcases.Department_pop_tc_67"/>
-      <class name="com.access.testcases.Department_pop_tc_68"/>
-      <class name="com.access.testcases.Department_pop_tc_69"/>
-      <class name="com.access.testcases.Department_pop_tc_70"/>
-      <class name="com.access.testcases.Department_pop_tc_71"/>
-      <class name="com.access.testcases.Department_pop_tc_72"/>
-      <class name="com.access.testcases.Department_Loc_tc_73"/>
-      <class name="com.access.testcases.Department_Loc_tc_74"/>
-      <class name="com.access.testcases.Department_Loc_tc_75"/>
-      <class name="com.access.testcases.Department_Loc_tc_76"/>
-      <class name="com.access.testcases.Department_Loc_tc_77"/>
-      <class name="com.access.testcases.Department_Reg_tc_78"/>
-      <class name="com.access.testcases.Department_Reg_tc_79"/>
-      <class name="com.access.testcases.Department_Reg_tc_80"/>
-      <class name="com.access.testcases.Department_Reg_tc_81"/>
-      <class name="com.access.testcases.Department_Reg_tc_82"/>
-      <class name="com.access.testcases.Department_Reg_tc_83"/>
-      <class name="com.access.testcases.Department_Reg_tc_84"/>
-      <class name="com.access.testcases.Department_Reg_tc_85"/>
-      <class name="com.access.testcases.Department_Reg_tc_86"/>
-      <class name="com.access.testcases.Department_Reg_tc_87"/>
-      <class name="com.access.testcases.Department_Reg_tc_88"/>
-      <class name="com.access.testcases.Department_Reg_tc_89"/>
-      <class name="com.access.testcases.Department_Reg_tc_90"/>
-      <class name="com.access.testcases.Department_Reg_tc_91"/>
-      <class name="com.access.testcases.Department_Reg_tc_92"/>
-      <class name="com.access.testcases.Department_Reg_tc_93"/>
-      <class name="com.access.testcases.Department_Reg_tc_94"/>
-      <class name="com.access.testcases.Department_Reg_tc_95"/>
-      <class name="com.access.testcases.Department_Reg_tc_96"/>
-      <class name="com.access.testcases.Department_Reg_tc_97"/>
-      <class name="com.access.testcases.Department_Algo_tc_98"/>
-      <class name="com.access.testcases.Department_Algo_tc_99"/>
-      <class name="com.access.testcases.Department_Algo_tc_100"/>
-      <class name="com.access.testcases.Department_Algo_tc_101"/>
-      <class name="com.access.testcases.Department_Algo_tc_102"/>
-          
-       
-     </classes>
     
+      <class name="com.access.testcases.Audit_tc_1"/>
+      <class name="com.access.testcases.Audit_tc_2"/>
+      <class name="com.access.testcases.Audit_tc_3"/>
+      <class name="com.access.testcases.Audit_tc_4"/>
+      <class name="com.access.testcases.Audit_tc_5"/>
+      
+      <class name="com.access.pageobject.Audit"/>
+    </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
