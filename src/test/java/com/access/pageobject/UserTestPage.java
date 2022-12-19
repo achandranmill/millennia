@@ -4,6 +4,7 @@ package com.access.pageobject;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -111,18 +112,19 @@ public class UserTestPage
 		UncheckAll.click();
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"patientLookup\"]/main/div[1]/patient-lookup/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/ul/li[4]/a/span[2]")
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/patient-lookup/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/ul/li[5]/a")
 	@CacheLookup
-	private WebElement Clinic;
+	private WebElement Nextnode;
 
-	public void Clinic()
+	public void Nextnode()
 	{
-		this.Clinic.isDisplayed();
-		this.Clinic.click();         // when clicked, button should swap into btnTurnOn
-		this.Clinic.isDisplayed();
-		this.Clinic.click();         // when clicked, button should swap into btnTurnOff
-		this.Clinic.isDisplayed();   // throws an exception
-		return ;
+		if(!Nextnode.isSelected()) {
+			JavascriptExecutor j = (JavascriptExecutor)ldriver;
+			j.executeScript("arguments[0].click", Nextnode);
+			if(!Nextnode.isSelected()) {
+				Nextnode.click();
+			}
+		}
 	}
 
 	@FindBy(how=How.XPATH,using="//*[@id=\"patientLookup\"]/main/div[1]/patient-lookup/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div/ul/li[1]/a")
@@ -163,7 +165,7 @@ public class UserTestPage
 		daterangepicker_end.sendKeys(d2);
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"patientLookup\"]/div[2]/div[3]/div/button[1]")
+	@FindBy(how=How.XPATH,using="/html/body/div[3]/div[3]/div/button[1]")
 	@CacheLookup
 	WebElement DateApply;
 

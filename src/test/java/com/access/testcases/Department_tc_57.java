@@ -25,10 +25,10 @@ public class Department_tc_57 extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
-		//Thread.sleep(5000);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		Thread.sleep(5000);
 		ad.registration();
 		Thread.sleep(5000);
 		ad.admprofile();
@@ -41,7 +41,7 @@ public class Department_tc_57 extends BaseClass {
 		dept.clkdashlink();
 		Thread.sleep(5000);
 		dept.validatedashtitle();
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		dept.patientcomeinside();
 		Thread.sleep(2000);
 		dept.patientcomeinsideord("8");

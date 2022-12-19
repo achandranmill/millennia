@@ -1,5 +1,6 @@
 package com.access.pageobject;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -19,9 +20,18 @@ public class WorkListPage
 		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 20), this);
 	}
 	
-	 @FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[1]/li[3]/a")
+	 @FindBy(how=How.XPATH,using="//a[@ui-sref=\"worklist\"]")
       @CacheLookup
 	 WebElement Worklisttab;
+	 
+	 @FindBy(how=How.XPATH,using="//*[@id=\"worklist\"]/navbar/header/div/div/div[2]/ul[1]/li[3]")
+	 @CacheLookup
+	 WebElement Worklisttab2;
+	 
+	 public void Worklisttab2()
+	 {
+		 Worklisttab2.click();
+	 }
 	 
 	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[1]/div/button[1]")
 	 @CacheLookup
@@ -44,7 +54,7 @@ public class WorkListPage
 	 @CacheLookup
 	 WebElement WorklistSendto;
 	 
-	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[2]/table/tbody/tr[1]/td[8]/div/button")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[2]/table/tbody/tr[2]/td[14]/div/button")
 	 @CacheLookup
 	 WebElement WorklistSendto2;
 	 
@@ -68,11 +78,28 @@ public class WorkListPage
 	 @CacheLookup
 	 WebElement EditDepartment;
 	 
-	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/location-filter/div[2]/div/div[1]/div[5]/label/input")
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/location-filter/div[2]/div/div[2]/div[3]/label/input")
 	 @CacheLookup
-	 WebElement Registration;
+	 WebElement Testing1;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"worklist\"]/div[1]/div/div/location-filter/div[3]/button")
+	 public void Testing1()
+	 {
+		if(!Testing1.isSelected())
+		{
+			
+			System.out.println("Testing Check box is Not Selected");
+		}
+		if(Testing1.isSelected()) 
+		{
+			System.out.println("Testing Check box is Selected");
+			
+		}
+		else {
+			Testing1.click();
+		}
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="//button[contains(text(),'Close')]")
 	 @CacheLookup
 	 WebElement BtnClose;
 	 
@@ -80,28 +107,74 @@ public class WorkListPage
 	 @CacheLookup
 	 WebElement EditSeeing;
 	 
+	 public void EditSeeing()
+	 {
+		 EditSeeing.click();
+	 }
+	 
 	 @FindBy(how=How.XPATH,using="//*[@id=\"worklist\"]/div[1]/div/div/seeing-filter/div[2]/div[3]/label/input")
 	 @CacheLookup
 	 WebElement Provider;
+	 
+	 @FindBy(how=How.XPATH,using="//*[@id=\"worklist\"]/div[1]/div/div/seeing-filter/div[2]/div[2]/label/input")
+	 @CacheLookup
+	 WebElement Provider_checkBox_1;
+	 
+	 public void Provider_checkBox_1()
+	 {
+		 if(!Provider_checkBox_1.isSelected())
+		 {
+			 System.out.println("Provider_checkBox_1 is Selected");
+		 }
+		 if(Provider_checkBox_1.isSelected())
+		 {
+			 System.out.println("Provider_checkBox_1 is Not Selected");
+		 }
+		 else
+		 {
+			 Provider_checkBox_1.click();
+		 }
+	 }
+	 
 	 
 	 
 	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/seeing-filter/div[3]/button")
 	 @CacheLookup
 	 WebElement BtnClose2;
 	 
+	 public void BtnClose2()
+	 {
+		 BtnClose2.click();
+	 }
+	 
 	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[1]/div/div[2]/div/button")
 	 @CacheLookup
 	 WebElement SortBy;
 	 
-	 @FindBy(how=How.XPATH,using="//a[contains(text(),'Name')]")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[1]/div/div[2]/div/ul")
+	 @CacheLookup
+	 WebElement SortBy_Code;
+	 
+	 public void SortBy_Code()
+	 {
+		 String code = SortBy_Code.getText();
+		 System.out.println("SORT BY LIST IS :" +code);
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[1]/div/div[2]/div/ul/li[3]/a")
 	 @CacheLookup
 	 WebElement OneName;
+	 
+	 public void OneName()
+	 {
+		 OneName.click();
+	 }
 	 
 	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/location-filter/div[2]/div/div[1]/div[6]/label/input")
 	 @CacheLookup
 	 WebElement Waiting;
 	 
-	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/location-filter/div[2]/div/div[1]/div[6]/label/input")
+	 @FindBy(how=How.XPATH,using="//*[@id=\"worklist\"]/div[1]/div/div/location-filter/div[2]/div/div[1]/div[6]/label/input")
 	 @CacheLookup
 	 WebElement Waiting2;
 	 
@@ -129,11 +202,11 @@ public class WorkListPage
 	 @CacheLookup
 	 WebElement SendtoBack;
 	 
-	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[3]/table/tbody/tr/td[8]/div/ul/li[3]/a")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[3]/table/tbody/tr/td[23]/div/ul/li[3]/a")
 	 @CacheLookup
 	 WebElement SendBackNew;
 	 
-	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[3]/table/tbody/tr/td[8]/div/ul/li[2]/a")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[3]/table/tbody/tr/td[23]/div/ul/li[2]/a")
 	 @CacheLookup
 	 WebElement SendBackWaiting;
 	 
@@ -148,6 +221,15 @@ public class WorkListPage
 	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[1]/div/div[1]/div/ul/li[3]/a")
 	 @CacheLookup
 	 WebElement EditListColumns;
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-list/div[3]/button[1]")
+	 @CacheLookup
+	 WebElement Columns_SettoDefaults;
+	 
+	 public void Columns_SettoDefaults()
+	 {
+		 Columns_SettoDefaults.click();
+	 }
 	 
 	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-list/div[2]/patient-lists/section/div/ul/li[2]/a")
 	 @CacheLookup
@@ -181,6 +263,23 @@ public class WorkListPage
 	 @CacheLookup
 	 WebElement ThredsholdSave;
 	 
+	 @FindBy(how=How.XPATH,using="//*[@id=\"worklist\"]/div[1]/div/div/patient-list/div[3]/button[1]")
+	 @CacheLookup
+	 WebElement Discharge_Setdefault;
+	 
+	 public void Discharge_Setdefault()
+	 {
+		 Discharge_Setdefault.click();
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="//*[@id=\"patient-lists-component\"]/div/ul/li[3]/a")
+	 @CacheLookup
+	 WebElement EditColumns_Discharge;
+	 
+	 public void EditColumns_Discharge()
+	 {
+		 EditColumns_Discharge.click();
+	 }
 	 
 	 
 	 
@@ -292,6 +391,16 @@ public class WorkListPage
 		 Waiting.click();
 		
 	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/location-filter/div[3]/button")
+	 @CacheLookup
+	 WebElement Waiting2_Close_Btn;
+	 
+	 public void Waiting2_Close_Btn()
+	 {
+		 Waiting2_Close_Btn.click();
+	 }
+	 
 	 public void BtnClose()
 	 {
 		 BtnClose.click();
@@ -350,11 +459,7 @@ public class WorkListPage
 			
 		}
 		
-		public void Regi()
-		{
-			Registration.click();
-			
-		}
+	
 		public void Provider()
 		{
 			EditSeeing.click();
@@ -371,4 +476,100 @@ public class WorkListPage
 			worklistLN.sendKeys(l);
 			worklistFstN.sendKeys(f);
 		}
-}
+		
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/search-modal/div[1]/button/span")
+		@CacheLookup
+		WebElement search_cross;
+		
+		public void search_cross()
+		{
+			search_cross.click();
+		}
+		
+		@FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[2]/table/tbody/tr[30]/td[10]/div/button")
+		@CacheLookup
+		WebElement work_Send_to;
+		
+		public void work_Send_to()
+		{
+			work_Send_to.click();
+		}
+		
+		@FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[2]/table/tbody/tr[30]/td[10]/div/ul/li[3]/a")
+		@CacheLookup
+		WebElement work_Discharg;
+		
+		public void work_Discharg()
+		{
+			work_Discharg.click();
+		}
+		
+		
+		@FindBy(how=How.XPATH,using="//button[contains(text(),'View Discharged Patients')]")
+		@CacheLookup
+		WebElement work_ViewDischargedPatients;
+		
+		public void work_ViewDischargedPatients()
+		{
+			work_ViewDischargedPatients.click();
+		}
+		
+		@FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[3]/table/tbody/tr[1]/td[10]/div/button")
+		@CacheLookup
+		WebElement work_sendbacktobutton;
+		
+		public void work_sendbacktobutton()
+		{
+			work_sendbacktobutton.click();
+		}
+		
+		
+		@FindBy(how=How.XPATH,using="/html/body/main/div[1]/worklist/div/div[3]/table/tbody/tr[1]/td[10]/div/ul/li[2]/a")
+		@CacheLookup
+		WebElement work_PatientoComeInside;
+		
+		public void work_PatientoComeInside()
+		{
+			work_PatientoComeInside.click();
+		}
+		
+		@FindBy(how=How.XPATH,using="//button[contains(text(),'Return to Active Patients')]")
+		@CacheLookup
+		WebElement work_ReturntoActivePatients;
+		
+		public void work_ReturntoActivePatients()
+		{
+			work_ReturntoActivePatients.click();
+		}
+		
+		
+        @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/search-modal/div[2]/div[1]/div[2]/input")
+        @CacheLookup
+        WebElement Search_lastname;
+        
+    	public void Searchl(String l)
+		{
+			Search_lastname.sendKeys(l);
+			
+		}
+		
+			
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/search-modal/div[2]/div[1]/div[3]/input")
+		@CacheLookup
+		WebElement Search_firstname;
+		
+		public void Searchf(String f)
+		{
+			Search_firstname.sendKeys(f);
+			
+		}
+		
+		
+		
+		
+		
+		
+}	
+		
+		
+

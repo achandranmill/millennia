@@ -2,6 +2,7 @@ package com.access.testcases;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Organization;
 import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
@@ -20,7 +21,10 @@ public class Org_tc_12 extends BaseClass
 		lp.setPassword(password);
 		lp.clickSubmit();
 		Thread.sleep(3000);
-		
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);

@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Appointments;
+import com.access.pageobject.Clipboard;
 import com.access.pageobject.Departments;
 import com.access.pageobject.Organization;
 import com.access.pageobject.RegtPage;
@@ -25,35 +26,26 @@ public class Forms_tc_06 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-		//RegtPage r=new RegtPage(driver);
-		//r.clickRegistrationPage();
-		//Thread.sleep(3000);
-		
-		AdmUser ad=new AdmUser(driver);
-		
-		ad.registration();
+        AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
 		Thread.sleep(5000);
-		Appointments ap=new Appointments(driver);
-		ap.linkAppointment();
+		ad.okbutton();
 		Thread.sleep(5000);
-		ap.threedotclick();
+		Clipboard clip=new Clipboard(driver);
 		Thread.sleep(5000);
-		ap.formsclick1();
+		clip.clkclipboardlink();
 		Thread.sleep(5000);
-		ap.covidscreeningforms();
+		clip.clkappointmentlink();
 		Thread.sleep(5000);
-		ap.leftcountry();
+		clip.appointmentthreedots();
 		Thread.sleep(5000);
-		ap.difficultybreathing();
+		//clip.appointmentforms();
+		//Thread.sleep(5000);
+		clip.appointmentformslinkclk();
 		Thread.sleep(5000);
-		ap.carnberries();
+		clip.covidscreeningformsclk();
 		Thread.sleep(5000);
-		ap.covidstatus();
-		Thread.sleep(5000);
-		ap.choosefile();
-		Thread.sleep(5000);
-		ap.covidscreeningformssave();
+		clip.clkprintoption();
 		Thread.sleep(5000);
 		
 	}

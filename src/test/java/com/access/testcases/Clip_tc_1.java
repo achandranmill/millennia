@@ -4,6 +4,8 @@ import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import java.util.Random;
+
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -23,7 +25,10 @@ public class Clip_tc_1 extends BaseClass
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
-
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
 
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
@@ -70,7 +75,7 @@ public class Clip_tc_1 extends BaseClass
 		Thread.sleep(2000);
 		addp.Time("0830");
 		addp.Date("04072022");
-		Thread.sleep(2000);
+    	Thread.sleep(2000);
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.printAccessPass();

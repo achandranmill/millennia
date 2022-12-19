@@ -1,4 +1,10 @@
 package com.access.pageobject;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -325,7 +331,7 @@ public class Provider
 		Savebtn.click();
 	}
 
-	@FindBy(how=How.ID,using="statusDropdown")
+	@FindBy(how=How.XPATH,using="//*[@id=\"statusDropdown\"]")
 	@CacheLookup
 	WebElement ProviderSearch;
 
@@ -351,7 +357,43 @@ public class Provider
 	{
 		ProviderId.sendKeys(pid);
 	}
-	@FindBy(how=How.XPATH,using="//*[@id=\"addProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[4]/div/button")
+	
+	@FindBy(how=How.ID,using="providerNPI")
+	@CacheLookup
+	WebElement NationalProviderIdentifier_NPI;
+	
+	public void NationalProviderIdentifier_NPI(String b)
+	{
+		NationalProviderIdentifier_NPI.click();
+		NationalProviderIdentifier_NPI.clear();
+		NationalProviderIdentifier_NPI.sendKeys("b");
+	}
+	
+	
+	@FindBy(how=How.ID,using="providerTIN")
+	@CacheLookup
+	WebElement TaxpayerIdentificationNumber_TIN;
+	
+	public void TaxpayerIdentificationNumber_TIN(String d)
+	{
+		TaxpayerIdentificationNumber_TIN.click();
+		TaxpayerIdentificationNumber_TIN.clear();
+		TaxpayerIdentificationNumber_TIN.sendKeys("d");
+	}
+	
+	@FindBy(how=How.ID,using="fhirProviderId")
+	@CacheLookup
+	WebElement FHIRProvider_ID;
+	
+	public void FHIRProvider_ID(String h)
+	{
+		FHIRProvider_ID.click();
+		FHIRProvider_ID.clear();
+		FHIRProvider_ID.sendKeys("h");
+	}
+	
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[6]/div/button")
 	@CacheLookup
 	WebElement Departments;
 
@@ -360,7 +402,7 @@ public class Provider
 		Departments.click();
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"addProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[4]/div/ul/li[1]/a")
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[6]/div/ul/li[1]/a")
 	@CacheLookup
 	WebElement CheckAll;
 
@@ -369,7 +411,7 @@ public class Provider
 		CheckAll.click();
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"addProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[4]/div/ul/li[2]/a")
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[6]/div/ul/li[2]/a")
 	@CacheLookup
 	WebElement UncheckAll;
 
@@ -453,6 +495,15 @@ public class Provider
 	{
 		DisplayName.sendKeys(dn);
 	}
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Save')]")
+	@CacheLookup
+	WebElement Provider_Save;
+	
+	public void Provider_Save()
+	{
+		Provider_Save.click();
+	}
 
 	@FindBy(how=How.ID,using="scheduleTab")
 	@CacheLookup
@@ -501,8 +552,54 @@ public class Provider
 		EndDate.clear();
 		EndDate.sendKeys(D2);
 	}
-
-	@FindBy(how=How.XPATH,using="//div[@class='col-xs-12']//p[@class='add-span']//span[@class='glyphicon glyphicon-plus' ]")
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[1]/select")
+    @CacheLookup
+    WebElement  Schedule_Department;
+	
+	
+	public void Schedule_Department()
+	{
+		Select d = new Select(Schedule_Department);
+		d.selectByIndex(1);
+	}
+    
+    
+    @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[2]/select")
+    @CacheLookup
+    WebElement Schedule_Location;
+    
+    public void Schedule_Location()
+    {
+    	Select g = new Select(Schedule_Location);
+    	g.selectByIndex(1);
+    }
+    
+    
+    @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[3]/select")
+    @CacheLookup
+    WebElement Schedule_Appointment_Type;
+    
+    
+    public void Schedule_Appointment_Type1()
+    {
+    	Select a = new Select(Schedule_Appointment_Type);
+    	a.selectByVisibleText( "Appointment 1");
+    }
+    
+    public void Schedule_Appointment_Type_Followup()
+    {
+    	Select a2 = new Select(Schedule_Appointment_Type);
+    	a2.selectByVisibleText("Followup");
+    }
+    
+    public void Schedule_Appointment_Type()
+    {
+    	Select a3 = new Select(Schedule_Appointment_Type);
+    	a3.selectByVisibleText("Followup session");
+    }
+    
+    @FindBy(how=How.XPATH,using="//div[@class='col-xs-12']//p[@class='add-span']//span[@class='glyphicon glyphicon-plus' ]")
 	@CacheLookup
 	WebElement Monday;
 
@@ -527,14 +624,14 @@ public class Provider
 		MondayFrom.sendKeys(t);
 
 	}
-	 
+
 	public void MondayFrom2(String f)
 	{
 		MondayFrom2.click();
 		MondayFrom2.clear();
 		MondayFrom2.sendKeys(f);
 	}
-	
+
 
 	@FindBy(how=How.XPATH,using="//td[@class='uib-time am-pm' or  ng-show='showMeridian']//button[@type='button'  or  class='btn btn-default text-center ng-binding']")
 	@CacheLookup 
@@ -559,7 +656,7 @@ public class Provider
 		MondayTo.clear();
 		MondayTo.sendKeys(ft);
 	}
-	
+
 	public void MondayTo2(String ft2)
 	{
 		MondayTo2.click();
@@ -632,10 +729,10 @@ public class Provider
 		ExceptionFrom.click();
 		ExceptionFrom.clear();
 		ExceptionFrom.sendKeys(f);
-		
-		
-		}
-	
+
+
+	}
+
 	public void ExeptionFrom00(String f)
 	{
 		ExeptionFrom00.click();
@@ -662,7 +759,7 @@ public class Provider
 		ExceptionTo.clear();
 		ExceptionTo.sendKeys(t);
 	}
-	
+
 	public void ExceptionTo0(String t)
 	{
 		ExceptionTo0.click();
@@ -670,8 +767,8 @@ public class Provider
 		ExceptionTo0.sendKeys(t);
 		ExceptionToAMPM.click();
 	}
-	
-	
+
+
 
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[7]/div/label/div/input")
 	@CacheLookup
@@ -684,7 +781,7 @@ public class Provider
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[7]/div/label/div/input")
 	@CacheLookup
 	WebElement ShowFullschedule2;
-	
+
 	public void ShowFullschedule2()
 	{
 		if(!ShowFullschedule2.isDisplayed()) {
@@ -694,14 +791,14 @@ public class Provider
 				ShowFullschedule2.click();
 			}
 		}
-		
+
 	}
 
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[8]/div[2]/div[1]/div/div[1]/input")
 	@CacheLookup
 	WebElement Immediately;
 
-    public void Immediately()
+	public void Immediately()
 
 	{
 		Immediately.click();
@@ -714,8 +811,8 @@ public class Provider
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[8]/div[2]/div[1]/div/div[2]/div/div[2]/input")
 	@CacheLookup
 	WebElement DaysFromCurrentDateTEXT;
-	
-	
+
+
 	public void DaysFromCurrentDate(String d)
 	{
 		DaysFromCurrentDate.click();
@@ -727,147 +824,147 @@ public class Provider
 	@FindBy(how=How.XPATH,using="//*[@id=\"accordiongroup-200-4366-panel\"]/div/div[3]/div[4]/button")
 	@CacheLookup
 	WebElement RemoveSchedule;
-	
+
 	public void RemoveSchedule()
 	{
 		RemoveSchedule.click();
 	}
-	
+
 	@FindBy(how=How.NAME,using="314")
 	@CacheLookup
 	WebElement ScheduleEnd;
-	
+
 	public void ScheduleEnd()
 	{
 		ScheduleEnd.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[2]/div[2]/div/div/p")
 	@CacheLookup
 	WebElement Tuesday;
-	
+
 	public void Tuesday()
 	{
 		Tuesday.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[2]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement TuesdayFrom;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[2]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement TuesdayFrom2;
-	
+
 	public void TuesdayFrom(String tf)
 	{
 		TuesdayFrom.click();
 		TuesdayFrom.clear();
 		TuesdayFrom.sendKeys(tf);
-		
+
 	}
-	
+
 	public void TuesdayFrom2(String tf)
 	{
 		TuesdayFrom2.click();
 		TuesdayFrom2.clear();
 		TuesdayFrom2.sendKeys(tf);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//button[contains(text(),'AM')]")
 	@CacheLookup
 	WebElement TuesdayAM;
-	
+
 	@FindBy(how=How.XPATH,using="//button[contains(text(),'PM')]")
 	@CacheLookup
 	WebElement TuesdayPM;
-	
+
 	public void AMPM()
 	{
-		
+
 		if(!TuesdayAM.isSelected())
 		{
 			System.out.println("is AM selected");
 		}
-			else
-			{
-				System.out.println("is PM selected");
-			}
-		
+		else
+		{
+			System.out.println("is PM selected");
 		}
-	
+
+	}
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[2]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement TuesdayTO;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[2]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement TuesdayTO2;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[2]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement TuesdayTOPMAM;
-	
+
 	public void TuesdayTO(String t)
 	{
 		TuesdayTO.click();
 		TuesdayTO.clear();
 		TuesdayTO.sendKeys(t);
-		
+
 	}
-	
+
 	public void TuesdayTO2(String t)
 	{
 		TuesdayTO2.click();
 		TuesdayTO2.clear();
 		TuesdayTO2.sendKeys(t);
 	}
-	
+
 	public void TuesdayTOPMAM()
 	{
 		TuesdayTOPMAM.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[2]/div[2]/div[1]/div[3]/input")
 	@CacheLookup
 	WebElement TuesdayCapacity;
-	
+
 	public void TuesdayCapacity(String tc)
 	{
 		TuesdayCapacity.sendKeys(tc);
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[3]/div[2]/div/div/p")
 	@CacheLookup
 	WebElement WednesdayAddspan;
-	
+
 	public void WednesdayAddspan()
 	{
 		WednesdayAddspan.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[3]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement WednesdayFrom;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[3]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement Wednesdayf00;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[3]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement WednesdayFromPMAM;
-	
+
 	public void WednesdayFrom(String wf)
 	{
 		WednesdayFrom.click();
 		WednesdayFrom.clear();
 		WednesdayFrom.sendKeys(wf);
 	}
-	
+
 	public void Wednesdayf00(String wf)
 	{
 		Wednesdayf00.click();
@@ -875,27 +972,27 @@ public class Provider
 		Wednesdayf00.sendKeys(wf);
 		WednesdayFromPMAM.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[3]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement WednesdayTo;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[3]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement WednesdayTo0;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[3]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement WednesdayPMAM;
-	
+
 	public void WednesdayTo(String wt)
 	{
 		WednesdayTo.click();
 		WednesdayTo.clear();
 		WednesdayTo.sendKeys(wt);
 	}
-	
+
 	public void WednesdayTo0(String wt)
 	{
 		WednesdayTo0.click();
@@ -903,45 +1000,45 @@ public class Provider
 		WednesdayTo0.sendKeys(wt);
 		WednesdayPMAM.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[3]/div[2]/div[1]/div[3]/input")
 	@CacheLookup
 	WebElement WednesdayCapacity;
-	
+
 	public void WednesdayCapacity(String wc)
 	{
 		WednesdayCapacity.sendKeys(wc);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[4]/div[2]/div/div/p")
 	@CacheLookup
 	WebElement ThursdayADDspan;
-	
+
 	public void ThursdayADDspan()
 	{
 		ThursdayADDspan.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[4]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement ThursdayFrom;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[4]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement ThursdayFrom0;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[4]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement ThursdayAMPM;
-	
-	
+
+
 	public void ThursdayFrom(String tf)
 	{
 		ThursdayFrom.click();
 		ThursdayFrom.clear();
 		ThursdayFrom.sendKeys(tf);
 	}
-	
+
 	public void ThursdayFrom0(String tt)
 	{
 		ThursdayFrom0.click();
@@ -949,29 +1046,29 @@ public class Provider
 		ThursdayFrom0.sendKeys(tt);
 		ThursdayAMPM.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[4]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement ThursdayTo;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[4]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement ThursdayTo0;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[4]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement ThursdayPMAM;
-	
-	
+
+
 	public void ThursdayTo(String tt)
 	{
 		ThursdayTo.click();
 		ThursdayTo.clear();
 		ThursdayTo.sendKeys(tt);
-		
+
 	}
-	
+
 	public void ThursdayTo0(String tt)
 	{
 		ThursdayTo0.click();
@@ -979,49 +1076,49 @@ public class Provider
 		ThursdayTo0.sendKeys(tt);
 		ThursdayPMAM.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[4]/div[2]/div[1]/div[3]/input")
 	@CacheLookup
 	WebElement ThursdayCapacity;
-	
+
 	public void ThursdayCapacity(String tc)
 	{
 		ThursdayCapacity.click();
 		ThursdayCapacity.sendKeys(tc);
 	}
-	
-	
-	
+
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[5]/div[2]/div/div/p")
 	@CacheLookup
 	WebElement FridayAddspan;
-	
+
 	public void FridayAddspan()
 	{
 		FridayAddspan.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[5]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement FridayFrom;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[5]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement FridayFrom0;
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[5]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement FridayFromPMAM;
-	
+
 	public void FridayFrom(String ff)
 	{
 		FridayFrom.click();
 		FridayFrom.clear();
 		FridayFrom.sendKeys(ff);
 	}
-	
+
 	public void FridayFrom0(String ff)
 	{
 		FridayFrom0.click();
@@ -1029,27 +1126,27 @@ public class Provider
 		FridayFrom0.sendKeys(ff);
 		FridayFromPMAM.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[5]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement FridayTo;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[5]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement FridayTo0;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[5]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement FridayPMAM;
-	
-	
+
+
 	public void FridayTo(String ft)
 	{
 		FridayTo.click();
 		FridayTo.clear();
 		FridayTo.sendKeys(ft);
 	}
-	
+
 	public void FridayTo0(String ft)
 	{
 		FridayTo0.click();
@@ -1057,47 +1154,47 @@ public class Provider
 		FridayTo0.sendKeys(ft);
 		FridayPMAM.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[5]/div[2]/div[1]/div[3]/input")
 	@CacheLookup
 	WebElement FridayCapacity;
-	
+
 	public void FridayCapacity(String fc)
 	{
 		FridayCapacity.sendKeys(fc);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[6]/div[2]/div/div/p")
 	@CacheLookup
 	WebElement SaturdayAddspan;
-	
+
 	public void SaturdayAddspan()
 	{
 		SaturdayAddspan.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[6]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement SaturdayFrom;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[6]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement SaturdayFrom0;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[6]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement SaturdayFromPMAM;
-	
-	
+
+
 	public void SaturdayFrom(String sf)
 	{
 		SaturdayFrom.click();
 		SaturdayFrom.clear();
 		SaturdayFrom.sendKeys(sf);
 	}
-	
+
 	public void SaturdayFrom0(String sf)
 	{
 		SaturdayFrom0.click();
@@ -1105,26 +1202,26 @@ public class Provider
 		SaturdayFrom0.sendKeys(sf);
 		SaturdayFromPMAM.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[6]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement  SaturdayTo;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[6]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement SaturdayTo0;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[6]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement SaturdayToPMAM;
-	
+
 	public void SaturdayTo(String st)
 	{
 		SaturdayTo.click();
 		SaturdayTo.clear();
 		SaturdayTo.sendKeys(st);
 	}
-	
+
 	public void SaturdayTo0(String st)
 	{
 		SaturdayTo0.click();
@@ -1132,46 +1229,46 @@ public class Provider
 		SaturdayTo0.sendKeys(st);
 		SaturdayToPMAM.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[6]/div[2]/div[1]/div[3]/input")
 	@CacheLookup
 	WebElement SaturdayCapacity;
-	
+
 	public void SaturdayCapacity(String sc)
 	{
 		SaturdayCapacity.click();
 		SaturdayCapacity.sendKeys(sc);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[7]/div[2]/div/div/p")
 	@CacheLookup
 	WebElement SundayAddspan;
-	
+
 	public void SundayAddspan()
 	{
 		SundayAddspan.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[7]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement SundayFrom;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[7]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement SundayFrom0;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[7]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement SundayFromAMPM;
-	
+
 	public void SundayFrom(String sf)
 	{
 		SundayFrom.click();
 		SundayFrom.clear();
 		SundayFrom.sendKeys(sf);
-		
+
 	}
-	
+
 	public void SundayFrom0(String sf)
 	{
 		SundayFrom0.click();
@@ -1179,19 +1276,19 @@ public class Provider
 		SundayFrom0.sendKeys(sf);
 		SundayFromAMPM.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[7]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement SundayTo;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[7]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement SundayTo0;
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[7]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement SundayToPMAM;
-	
+
 	public void SundayTo(String st)
 	{
 		SundayTo.click();
@@ -1199,7 +1296,7 @@ public class Provider
 		SundayTo.sendKeys(st);
 		SundayToPMAM.click();
 	}
-	
+
 	public void SundayTo0(String st)
 	{
 		SundayTo0.click();
@@ -1207,495 +1304,759 @@ public class Provider
 		SundayTo0.sendKeys(st);
 		SundayToPMAM.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[7]/div[2]/div[1]/div[3]/input")
 	@CacheLookup
 	WebElement SundayCapacity;
-	
+
 	public void SundayCapacity(String sc)
 	{
 		SundayCapacity.click();
 		SundayCapacity.sendKeys(sc);
 	}
-	
-	   
+
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"addProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[2]/button")
 	@CacheLookup
 	WebElement AddSchedule2;
-	
+
 	public void AddSchedule2()
 	{
 		AddSchedule2.click();
 	}
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[4]/div[2]/div/button[2]")
+	@CacheLookup
+	WebElement Schedule_save;
+	
+	public void Schedule_save()
+	{
+		Schedule_save.click();
+	}
 	
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"providers\"]/main/div[1]/providers/section/div[2]/div[2]/table/tbody/tr[1]/td[5]/div/button/span")
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/providers/section/div[2]/div[2]/table/tbody/tr[1]/td[5]/div/button")
 	@CacheLookup
 	WebElement EditProvider;
-	
+
 	public void EditProvider()
 	{
 		EditProvider.click();
 	}
-	
+
 	@FindBy(how=How.ID,using="firstName")
 	@CacheLookup
 	WebElement EditfirstName;
-	
+
 	public void EditfirstName(String ef)
 	{
 		EditfirstName.clear();
 		EditfirstName.sendKeys(ef);
 	}
-	
+
 	@FindBy(how=How.ID,using="middleName")
 	@CacheLookup
 	WebElement EditmiddleName;
-	
+
 	public void EditmiddleName(String em)
 	{
 		EditmiddleName.clear();
 		EditmiddleName.sendKeys(em);
 	}
-	
+
 	@FindBy(how=How.ID,using="lastName")
 	@CacheLookup
 	WebElement EditlastName;
-	
+
 	public void EditlastName(String el)
 	{
-		
+
 		EditlastName.clear();
 		EditlastName.sendKeys(el);
 	}
-	
-	
+
+
 	@FindBy(how=How.ID,using="credentials")
 	@CacheLookup
 	WebElement Editcredentials;
-	
+
 	public void Editcredentials(String ec)
 	{
 		Editcredentials.clear();
 		Editcredentials.sendKeys(ec);
 	}
-	
+
 	@FindBy(how=How.ID,using="emailAddress")
 	@CacheLookup
 	WebElement EditemailAddress;
-	
+
 	public void EditemailAddress(String ee)
 	{
 		EditemailAddress.clear();
 		EditemailAddress.sendKeys(ee);
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[1]/div/div[5]/div/span/input")
 	@CacheLookup
 	WebElement EditSendMessage;
-	
+
 	public void EditSendMessage()
 	{
 		EditSendMessage.click();
 	}
-	
+
 	@FindBy(how=How.ID,using="phoneNumber")
 	@CacheLookup
 	WebElement EditphoneNumber;
-	
+
 	public void EditphoneNumber(String ep)
 	{
 		EditphoneNumber.sendKeys(ep);
 	}
-	
+
 	@FindBy(how=How.ID,using="genderDropdown")
 	@CacheLookup
 	WebElement EditgenderDropdown;
-	
+
 	public void EditgenderDropdown()
 	{
 		EditgenderDropdown.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[1]/div/div[7]/div/ul/li[1]/a")
 	@CacheLookup
 	WebElement EditMale;
-	
+
 	public void EditMale()
 	{
 		EditMale.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[1]/div/div[7]/div/ul/li[2]/a/span")
 	@CacheLookup
 	WebElement  EditFemale;
-	
+
 	public void EditFemale()
 	{
 		EditFemale.click();
 	}
-	
+
 	@FindBy(how=How.NAME,using="file")
 	@CacheLookup
 	WebElement EditFile;
-	
+
 	public void EditFile(String ef)
 	{
 		EditFile.sendKeys(ef);
 	}
-		
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/div[1]/div/div/ui-cropper-modal/div[3]/button[2]")
 	@CacheLookup
 	WebElement EditFileCrop;
-	
+
 	public void EditFileCrop()
 	{
 		EditFileCrop.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[1]/div/div[8]/image-upload-cropper/div/div[2]/div[2]/button")
 	@CacheLookup
 	WebElement EditFileDelete;
-	
+
 	public void EditFileDelete()
 	{
 		EditFileDelete.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.ID,using="statusDropdown")
 	@CacheLookup
 	WebElement EditPublished;
-	
-	
+
+
 	public void EditPublished()
 	{
 		EditPublished.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[1]/div/ul/li/a")
 	@CacheLookup
 	WebElement EditUnpublished;
-	
+
 	public void EditUnpublished()
 	{
 		EditUnpublished.click();
 	}
-	
+
 	@FindBy(how=How.NAME,using="providerId")
 	@CacheLookup
 	WebElement EditproviderId;
-	
+
 	public void EditproviderId(String ep)
 	{
 		EditproviderId.clear();
 		EditproviderId.sendKeys(ep);
 	}
-	
+
 	@FindBy(how=How.ID,using="providerNPI")
 	@CacheLookup
 	WebElement EditproviderNPI;
-	
+
 	public void EditproviderNPI(String enpi)
 	{
 		EditproviderNPI.clear();
 		EditproviderNPI.sendKeys(enpi);
 	}
-	
-	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[4]/div/button")
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[6]/div/button")
 	@CacheLookup
 	WebElement EditDepartment;
-	
+
 	public void EditDepartment()
 	{
 		EditDepartment.click();
 	}
-	
-	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[4]/div/ul/li[1]/a")
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[6]/div/ul/li[1]/a")
 	@CacheLookup
 	WebElement EditCheckAll;
-	
+
 	public void EditCheckAll()
 	{
 		EditCheckAll.click();
 	}
-	
-	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[4]/div/ul/li[2]/a")
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[6]/div/ul/li[2]/a")
 	@CacheLookup
 	WebElement EditUncheckAll;
-	
+
 	public void EditUncheckAll()
 	{
 		EditUncheckAll.click();
 	}
-	
+
 	@FindBy(how=How.NAME,using="display-name")
 	@CacheLookup
 	WebElement EditDisplayName;
-	
+
 	public void EditDisplayName(String edn)
 	{
 		EditDisplayName.clear();
 		EditDisplayName.sendKeys(edn);
 	}
-	
+
 	@FindBy(how=How.NAME,using="passwordOnNextLogin")
 	@CacheLookup
 	WebElement EditpasswordOnNextLogin;
-	
+
 	public void EditpasswordOnNextLogin()
 	{
 		EditpasswordOnNextLogin.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/button")
 	@CacheLookup
 	WebElement EditChangePassword;
-	
+
 	public void EditChangePassword()
 	{
 		EditChangePassword.click();
 	}
-	
+
 	@FindBy(how=How.NAME,using="passwordInput")
 	@CacheLookup
 	WebElement EditpasswordInput;
-	
+
 	public void EditpasswordInput(String Ep)
 	{
 		EditpasswordInput.clear();
 		EditpasswordInput.sendKeys(Ep);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/div[1]/div/div/password-change-modal/div[2]/div/form/div[2]/button")
 	@CacheLookup
 	WebElement EditGeneratePassword;
-	
+
 	public void EditGeneratePassword()
 	{
 		EditGeneratePassword.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/div[1]/div/div/password-change-modal/div[2]/div/form/div[3]/input")
 	@CacheLookup
 	WebElement EditConfirmPassword;
-	
+
 	public void EditConfirmPassword(String Ecp)
 	{
 		EditConfirmPassword.clear();
 		EditConfirmPassword.sendKeys(Ecp);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/div[1]/div/div/password-change-modal/div[3]/button[2]")
 	@CacheLookup
 	WebElement EditDone;
-	
+
 	public void EditDone()
 	{
 		EditDone.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="//*[@id=\"editProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[4]/div/div/button[2]")
 	@CacheLookup
 	WebElement EditSave;
-	
+
 	public void EditSave()
 	{
 		EditSave.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/ul/li[2]/a")
 	@CacheLookup
 	WebElement EditSchedule;
-	
+
 	public void EditSchedule()
 	{
 		EditSchedule.click();
 	}
-	
-	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[1]/div/div/input")
+
+	@FindBy(how=How.XPATH,using="//input[@placeholder=\"New Schedule\"]")
 	@CacheLookup
 	WebElement EditScheduleTitle;
-	
+
 	public void EditScheduleTitle(String st)
 	{
 		EditScheduleTitle.click();
 		EditScheduleTitle.clear();
 		EditScheduleTitle.sendKeys(st);
 	}
+
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[3]/button")
+	@CacheLookup
+	WebElement EditADDSchedule;
+	
+	public void EditADDSchedule()
+	{
+		EditADDSchedule.click();
+	}
+	
 	
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[2]/div[1]/div/input")
 	@CacheLookup
 	WebElement EditStartDate;
-	
+
 	public void EditStartDate(String ed)
 	{
 		EditStartDate.click();
 		EditStartDate.clear();
 		EditStartDate.sendKeys(ed);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[2]/div[2]/div/input")
 	@CacheLookup
 	WebElement EditEndDate;
-	
+
 	public void EditEndDate(String eed)
 	{
 		EditEndDate.click();
 		EditEndDate.clear();
 		EditEndDate.sendKeys(eed);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[1]/select")
 	@CacheLookup
-	WebElement EditDepartment2;
-	
-	public void EditDepartment2()
+	WebElement EditDepartmentnull;
+
+	public void EditDepartmentnull()
 	{
-		Select drop = new Select(EditDepartment2);
+		Select drop = new Select(EditDepartmentnull);
 		drop.selectByIndex(1);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[2]/select")
 	@CacheLookup
 	WebElement EditLocation;
-	
+
 	public void EditLocation()
 	{
 		Select location = new Select(EditLocation);
-		location.selectByIndex(2);
+		location.selectByIndex(1);
 	}
-	
-	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[3]/select")
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[3]/div/button")
 	@CacheLookup
 	WebElement    EditAppointmentType;
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[3]/div/ul/li[1]/a")
+	@CacheLookup
+	WebElement EditAppointment_Add_All;
+	
 	
 	public void EditAppointmentType()
 	{
-		Select Appointment = new Select(EditAppointmentType);
-		Appointment.selectByIndex(2);
+		EditAppointmentType.click();
+		EditAppointment_Add_All.click();
+		
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[1]/div[2]/div/div/p")
 	@CacheLookup
 	WebElement EditMonaday;
-	
+
 	public void EditMonaday()
 	{
 		EditMonaday.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[1]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement EditMondayFrom;
-	
+
 	public void EditMondayFrom(String ef)
 	{
 		EditMondayFrom.click();
 		EditMondayFrom.clear();
 		EditMondayFrom.sendKeys(ef);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[1]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement EditMondayFrom0;
-	
+
 	public void EditMondayFrom0(String ef)
 	{
 		EditMondayFrom0.click();
 		EditMondayFrom0.clear();
 		EditMondayFrom0.sendKeys(ef);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[1]/div[2]/div[1]/div[1]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement EditMondayFromAMPM;
-	
+
 	public void EditMondayFromAMPM()
 	{
 		EditMondayFromAMPM.click();
 	}
-	
-	
+
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[1]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[1]/input")
 	@CacheLookup
 	WebElement EditMondayTo;
-	
+
 	public void EditMondayTo(String et)
 	{
 		EditMondayTo.click();
 		EditMondayTo.clear();
 		EditMondayTo.sendKeys(et);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[1]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[3]/input")
 	@CacheLookup
 	WebElement EditMondayTo0;
-	
+
 	public void EditMondayTo0(String et)
 	{
 		EditMondayTo0.click();
 		EditMondayTo0.clear();
 		EditMondayTo0.sendKeys(et);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[1]/div[2]/div[1]/div[2]/div/table/tbody/tr[2]/td[6]/button")
 	@CacheLookup
 	WebElement EditMondayToAMPM;
-	
+
 	public void EditMondayToAMPM()
 	{
 		EditMondayToAMPM.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[1]/div[2]/div[1]/div[3]/input")
 	@CacheLookup
 	WebElement EditMondayCapacity;
-	
+
 	public void EditMondayCapacity(String ec)
 	{
 		EditMondayCapacity.click();
 		EditMondayCapacity.clear();
 		EditMondayCapacity.sendKeys(ec);
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[5]/div[2]/p")
 	@CacheLookup
 	WebElement EditException;
-	
+
 	public void EditException()
 	{
 		EditException.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[5]/ul/li/div[2]/div/div/span/input")
 	@CacheLookup
 	WebElement EditExceptionAllday;
-	
+
 	public void EditExceptionAllday()
 	{
 		EditExceptionAllday.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[7]/div/label/div/input")
 	@CacheLookup
 	WebElement  EditShowFullschedule;
-	
+
 	public void EditShowFullschedule()
 	{
 		EditShowFullschedule.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[4]/div/div/button[2]")
 	@CacheLookup
 	WebElement EditSave2;
-	
+
 	public void EditSave2() {
 		EditSave2.click();
 	}
-	
+
+
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[1]/div/div[11]/image-upload-cropper/div/div[2]/div[2]")
+	@CacheLookup
+	WebElement Provider_Choosefile;
+
+	public void Provider_Choosefile() throws AWTException
+	{
+
+		Provider_Choosefile.click();
+		Robot rb=new Robot();
+		rb.delay(2000);
+		
+		StringSelection ss= new StringSelection("C:\\Users\\ATM\\Desktop\\sher.jpg");
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+		
+
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);
+
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+
+		//press enter key
+
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+
+
+	}
+
+
+
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/ui-cropper-modal/div[3]/button[2]")
+	@CacheLookup
+	WebElement Provider_cropimage;
+	public void Provider_cropimage()
+	{
+
+		Provider_cropimage.click();
+	}
+
+
+ @FindBy(how=How.XPATH,using="//a[contains(text(),'Matching Algorithm')]")
+ @CacheLookup
+WebElement Provider_MatchingAlgo;
+ 
+ public void Provider_MatchingAlgo()
+ {
+	 Provider_MatchingAlgo.click();
+ }
+ 
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[4]/eligibility-radio/table/tbody/tr/td[3]/div/label/input")
+ @CacheLookup
+ WebElement Provider_MatchingFirstname;
+ 
+ public void Provider_MatchingFirstname()
+ 
+ {
+	 Provider_MatchingFirstname.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[4]/eligibility-radio/table/tbody/tr/td[2]/div/label/input")
+ @CacheLookup
+ WebElement Provider_MatchingFirstIN;
+ 
+ public void Provider_MatchingFirstIN()
+ {
+	 Provider_MatchingFirstIN.click();
+ }
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[5]/eligibility-radio/table/tbody/tr/td[3]/div/label/input")
+ @CacheLookup
+ WebElement Provider_MatchingLastout;
+ 
+ public void Provider_MatchingLastout()
+ {
+	 Provider_MatchingLastout.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[5]/eligibility-radio/table/tbody/tr/td[3]/div/label/input")
+ @CacheLookup
+ WebElement Provider_MatchingLastin;
+ 
+ public void Provider_MatchingLastin()
+ {
+	 Provider_MatchingLastin.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[6]/eligibility-radio/table/tbody/tr/td[2]/div/label/input")
+ @CacheLookup
+ WebElement Provider_MatchingNewFieldin;
+ 
+ 
+  public void Provider_MatchingNewFieldin()
+ 
+  {
+	  Provider_MatchingNewFieldin.click();
+  }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[6]/eligibility-radio/table/tbody/tr/td[3]/div/label/input")
+ @CacheLookup
+ WebElement Provider_MatchingNewFieldout;
+ 
+ public void Provider_MatchingNewFieldout()
+ {
+	 Provider_MatchingNewFieldout.click();
+ }
+ 
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[4]/div/div/button[2]")
+ @CacheLookup
+ WebElement Provider_MatchingSave;
+ 
+ public void Provider_MatchingSave()
+ {
+	 Provider_MatchingSave.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[4]/div/div/button[1]")
+ @CacheLookup
+ WebElement Provider_MatchingCancel;
+ 
+ public void Provider_MatchingCancel()
+ {
+	 Provider_MatchingCancel.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="//a[contains(text(),'Matching Algorithm')]")
+ @CacheLookup
+ WebElement Edit_MatchingAlgorithm;
+ 
+ public void Edit_MatchingAlgorithm()
+ {
+	 Edit_MatchingAlgorithm.click();
+ }
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[2]/eligibility-radio/table/tbody/tr/td[3]/div/label/input")
+ @CacheLookup
+ WebElement Edit_Matching_Firstname_out;
+ 
+ 
+ public void Edit_Matching_Firstname_out()
+ {
+	 Edit_Matching_Firstname_out.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[2]/eligibility-radio/table/tbody/tr/td[2]/div/label/input")
+ @CacheLookup
+ WebElement Edit_Matching_Firstname_in;
+ 
+ public void Edit_Matching_Firstname_in()
+ {
+	 Edit_Matching_Firstname_in.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[3]/eligibility-radio/table/tbody/tr/td[3]/div/label/input")
+ @CacheLookup
+ WebElement Edit_Matching_Lastname_out;
+ 
+ public void Edit_Matching_Lastname_out()
+ {
+	 Edit_Matching_Lastname_out.click();
+ }
+ 
+
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[3]/eligibility-radio/table/tbody/tr/td[2]/div/label/input")
+ @CacheLookup
+ WebElement Edit_Matching_Lastname_in;
+ 
+ public void Edit_Matching_Lastname_in()
+ {
+	 Edit_Matching_Lastname_in.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[5]/eligibility-radio/table/tbody/tr/td[3]/div/label/input")
+ @CacheLookup
+ WebElement Edit_Matching_Newfield_out;
+ 
+ public void Edit_Matching_Newfield_out()
+ {
+	 Edit_Matching_Newfield_out.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[3]/questionnaire-eligibility/section/form/div[5]/eligibility-radio/table/tbody/tr/td[2]/div/label/input")
+ @CacheLookup
+ WebElement Edit_Matching_Newfield_in;
+ 
+ public void Edit_Matching_Newfield_in()
+ {
+	 Edit_Matching_Newfield_in.click();
+ }
+ 
+ @FindBy(how=How.XPATH,using="//button[contains(text(),'Save')]")
+ @CacheLookup
+ WebElement Edit_Matching_save;
+ 
+ public void Edit_Matching_save()
+ {
+	 Edit_Matching_save.click();
+ }
+ 
+ 
+ @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[4]/div/div/button[1]")
+ @CacheLookup
+ WebElement Edit_Matching_cancel;
+ 
+ public void Edit_Matching_cancel()
+ {
+	 Edit_Matching_cancel.click();
+ }
+ 
+ 
+ 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

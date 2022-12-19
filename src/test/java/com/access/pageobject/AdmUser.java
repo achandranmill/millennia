@@ -1,8 +1,6 @@
 package com.access.pageobject;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.ListDocument.List;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -10,9 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdmUser 
 {
@@ -24,7 +19,7 @@ public class AdmUser
 		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 10), this);
 	}
 	
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/user-location-modal/div[2]/div[2]/div/input")
+	@FindBy(how=How.XPATH,using="//*[@id=\"userLocation\"]")
 	@CacheLookup
 	WebElement userlocation;
 	
@@ -61,7 +56,7 @@ public class AdmUser
 		
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"registration\"]/navbar/header/div/div/div[2]/ul[2]/li/ul/section[3]/li/a")
+	@FindBy(how=How.XPATH,using="//a[contains(text(),'Admin')]")
 	@CacheLookup
 	WebElement admlink;
 	public void admlink()
@@ -272,7 +267,7 @@ public class AdmUser
 		
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"users\"]/main/div[1]/users/section/div[1]/div[1]/div/button")
+	@FindBy(how=How.XPATH,using=" //  button[contains(text(),'Filter Users')]")
 	@CacheLookup
 	WebElement clkfilterbtn;
 	public void clkfilterbtn()
@@ -309,7 +304,7 @@ public class AdmUser
 		
 	}
 	
-	@FindBy(how=How.ID,using="firstname")
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/filter/div[2]/form/div/div[1]/div[2]/input")
 	@CacheLookup
 	WebElement filterbyfname;
 	
@@ -345,7 +340,7 @@ public class AdmUser
 		
 	}
 	
-	@FindBy(how=How.XPATH,using="//input[@id='email']")
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/filter/div[2]/form/div/div[2]/div[1]/input")
 	@CacheLookup
 	WebElement filterbyemail;
 	

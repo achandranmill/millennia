@@ -4,7 +4,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Appointments;
+import com.access.pageobject.Departments;
+import com.access.pageobject.Organization;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.WorkListPage;
 import com.access.pageobject.loginpage;
@@ -22,35 +25,34 @@ public class Forms_tc_01 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-		RegtPage r=new RegtPage(driver);
-		r.clickRegistrationPage();
-		Thread.sleep(3000);
-
-		Appointments ap=new Appointments(driver);
-		ap.linkAppointment();
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
 		Thread.sleep(5000);
-		ap.apptdaterange();
+		ad.okbutton();
 		Thread.sleep(5000);
-		ap.apptdaterangestartdate("2022-01-01");
+		//RegtPage r=new RegtPage(driver);
+		//r.clickRegistrationPage();
+		//Thread.sleep(3000);
+		
+		//AdmUser ad=new AdmUser(driver);
+		
+		//ad.registration();
+		//Thread.sleep(5000);
+		//AdmUser ad=new AdmUser(driver);
+		ad.registration();
 		Thread.sleep(5000);
-		ap.apptdaterangeenddate("2022-06-30");
+		ad.admprofile();
 		Thread.sleep(5000);
-		ap.applybtnclk();
+		ad.admlink();
 		Thread.sleep(5000);
-		ap.threedotclk();
+		Organization og = new Organization(driver);
+		og.Organization();
 		Thread.sleep(5000);
-		ap.editappointmentclk();
+		og.orgdocument();
 		Thread.sleep(5000);
-		ap.appointmentfuturedate();
+		og.addnewform();
 		Thread.sleep(5000);
-		ap.selectfuturedate("10/01/2022");
-		Thread.sleep(5000);
-		ap.changeappointmenttype();
-		Thread.sleep(5000);
-		ap.chooseappointmenttype();
-		Thread.sleep(5000);
-		ap.savefutureappointment();
+		og.continueclick();
 		Thread.sleep(5000);
 	}
 }

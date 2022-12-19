@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Appointments;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -14,6 +15,7 @@ import com.access.pageobject.loginpage;
 public class Appt_tc_11 extends BaseClass
 {
 
+	//----------Appointment Type (Forms)-------------------------------
 	public void Appointments() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -22,11 +24,24 @@ public class Appt_tc_11 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		try {
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		System.out.println("USER LOCATION IS PRESENT");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("USER LOCATION IS PRESENT");
+			
+		}
+		Thread.sleep(5000);
+		//-----------------------REGISTRATION PAGE-----------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-
+        //----------------------APPOINTMENT PAGE------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(3000);
@@ -37,6 +52,7 @@ public class Appt_tc_11 extends BaseClass
 		//    ap.AppointDATE2("20220408");
 		//   ap.AppointDATEAPPLY();
 		//  Thread.sleep(3000);
+		//-----------------------THREE DOT---------------------------------
 		ap.ThreeDot();
 		Thread.sleep(3000);
 		ap.EditAppointment();
