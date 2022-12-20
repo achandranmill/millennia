@@ -97,7 +97,7 @@ public class Clip_tc_6 extends BaseClass
 		Thread.sleep(1000);
 		of.Sign_Email("user_test@mailinator.com");
 		Thread.sleep(1000);
-		of.Sign_Password("Imenso@test123");
+		of.Sign_Password("Random@123456789");
 		Thread.sleep(1000);
 		of.Sign_Submit(); 
 		Thread.sleep(15000);

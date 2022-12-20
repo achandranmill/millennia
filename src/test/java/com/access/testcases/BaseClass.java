@@ -16,7 +16,7 @@ public class BaseClass {
 		//public String email  =   "ravi12@gmail.com";
 		//public String password="Random@123456788";
 	//	public String password="Random@123456789";
-		public String femail="a19e@mailinator.com";
+		//public String femail="a19e@mailinator.com";
 		  
 		//user
 	//	public String email="imesnojay@imenso.com";

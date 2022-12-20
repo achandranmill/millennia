@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.Get_In_Line;
+import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
@@ -25,81 +27,72 @@ public class Document_tc_1 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
+		try
+		{
 		ad.userlocation();
 		Thread.sleep(5000);
 		ad.okbutton();
+		System.out.println("USER LOCATION IS PRESENT");
+    	}
+    	catch(Exception e) 
+    	{
+    		System.out.println("USER LOCATION IS Not PRESENT");
+    		
+    	}
 		RegtPage r=new RegtPage(driver);
+		Thread.sleep(10000);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-
-		Clipboard addp=new Clipboard(driver);
-		addp.LinkclickBoard();
+		Provider pd = new Provider(driver);
+//		pd.LocationPopup("Florida");
+		Thread.sleep(10000);
+		pd.UserAdmin();
+		Thread.sleep(3000);
+		pd.Admin();
+		Thread.sleep(3000);
+		Get_In_Line of = new Get_In_Line(driver);
+		of.Department_Link();
+		Thread.sleep(3000);
+		of.Get_in_line_link();
+		Thread.sleep(3000);
+		of.Getin_line_link2();
+		Thread.sleep(20000);
+		//of.Getin_Next();
+		//Thread.sleep(10000);
+		of.Email("ram@gmail.com");
+		Thread.sleep(3000);
+		of.Password("R@am1234");
+		Thread.sleep(3000);
+		of.Confirm_Password("R@am1234");
+		Thread.sleep(3000);
+		of.First_name("Ram");
+		Thread.sleep(3000);
+		of.Location1("Yadav");
+		Thread.sleep(3000);
+		of.SSN("09-07-1998");
+		Thread.sleep(3000);
+		of.Male();
+		Thread.sleep(3000);
+		of.Phone("8888888888");
+		Thread.sleep(3000);
+		of.Location2("newyork");
+		Thread.sleep(3000);
+		of.Last4ofSSNTITLE("1998");
+		Thread.sleep(3000);
+		of.Text_Message();
+		Thread.sleep(3000);
+		of.Send_Email();
+		Thread.sleep(3000);
+		of.Send_Voice();
+		Thread.sleep(3000);
+		of.Terms();
 		Thread.sleep(5000);
-		//User Enter lastName
-		addp.lname("Rohan");
-		//User Enter FirstName
-		addp.fname("yadav");
-		//User Enter MiddleName
-		addp.mname("kumar");
-		//User Enter Birthdate
-		addp.DOB("01091999");
-		//User Enter PhoneNumber
-		addp.pnumber("7777777777");
-		Thread.sleep(2000);
-		//User Enter Email
-		addp.textemail("rohan@gmail.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_Type();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_option();
-		//Thread.sleep(2000);
-		//addp.Clip_Seeing();
-		addp.Clip_Flag();
-		addp.clipflag1();
-		Thread.sleep(2000);
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
-		addp.sendSmsMessages();
-		addp.sendEmailMessages();
-		Thread.sleep(10000);
-		addp.Clip_Addpatient();
-		Thread.sleep(10000);
-		addp.Clip_Checkin();
-		Thread.sleep(10000);
-		addp.Alert_ok();
-		r.clickRegistrationPage();
-		Thread.sleep(2000);
-		r.search("yadav", "rohan");
-		Thread.sleep(10000);
-		List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody/tr[1]"));
-		System.out.println(list.size());
-		
-		for(int i=0;i<list.size();i++)
-		{
-			String listitem=list.get(i).getText();
-			
-			if(listitem.contains("yadav rohan"))
-			{
-				list.get(i).click();
-				break;
-			}
-		}
-		Thread.sleep(20000);
-		r.FormsOnDemand();
-		Thread.sleep(10000);
-		r.FormsOnDemand_Select();
-		r.FormsOnDemand_Select_checkAll();
-		r.Appointment_Type();
-		r.Appointment_Type_CheckAll();
-		Thread.sleep(10000);
-		r.Forms_on_Demand_send();
-		Thread.sleep(20000);
-		r.Document();
-		Thread.sleep(10000);
-	  //r.RCB_Report();
+		of.Robot();
+		Thread.sleep(3000);
+	    of.REGISTERANDGET_LINE();
+	    Thread.sleep(20000);
+        of.My_Documents();
+       //r.RCB_Report();
 		r.RCB_FirstName("vivek");
 		r.RCB_LastName("roy");
 		r.RCB_Dob("09081994");
@@ -113,9 +106,9 @@ public class Document_tc_1 extends BaseClass
 		Thread.sleep(3000);
 		r.RCB_save();
 		Thread.sleep(20000);
-		WebElement complete = driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul/li[2]/a/div"));
-		String ExpectedText = "COMPLETE";
-		Assert.assertEquals(ExpectedText, complete.getText());
+		WebElement complete = driver.findElement(By.xpath(" //span[contains(text(),'COMPLETE')]"));
+		String ExpectedText2 = "COMPLETE";
+		Assert.assertEquals(ExpectedText2, complete.getText());
 		System.out.println("COMPLETE text is a expected – Assert passed");
 		Thread.sleep(5000);
 		

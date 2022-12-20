@@ -912,7 +912,7 @@ public class Get_In_Line
 		Terms.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]")
+	@FindBy(how=How.XPATH,using="//div[@class=\"recaptcha-checkbox-border\"]")
 	@CacheLookup
 	WebElement Robot;
 	

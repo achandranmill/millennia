@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.Clipboard;
@@ -11,10 +12,9 @@ import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
 @Test
-public class Forms_tc_19 extends BaseClass
+public class Forms_tc_20 extends BaseClass
 
 {
-
 	public void Forms() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -53,7 +53,7 @@ public class Forms_tc_19 extends BaseClass
 		//addp.Clip_Seeing();
 		//Thread.sleep(1000);
 		//addp.Clip_Thoms();
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
 		addp.Clip_Comment("Nill");
 		//addp.Clip_Reason("only checkup");
 		//addp.Clip_Copay("10000");
@@ -86,29 +86,21 @@ public class Forms_tc_19 extends BaseClass
 			}
 		}
 		Thread.sleep(10000);
-		
 		r.Document();
 		Thread.sleep(3000);
 		r.MRISafetyQuestionnaire();
-		Thread.sleep(2000);
-		r.MRI_Doyouvape_no();
-		Thread.sleep(2000);
-		r.MRI_AreyouMRIready_no();
 		Thread.sleep(3000);
-		r.MRI_Selectthefollowingconditions_pain();
-		Thread.sleep(5000);
-		r.MRI_Ifotherpleasedescribe_formly_2_input_4_4search("hello");
-		Thread.sleep(2000);
 		r.MRI_signatureConsent_5();
 		Thread.sleep(3000);
 		r.MRI_signatureConsent_sign();
-		Thread.sleep(10000);
-		r.MRI_Dob("02041997");
 		Thread.sleep(3000);
 		r.MRI_save();
 		Thread.sleep(3000);
-		
-		
-	
+		r.COVID_SAVE_Message();
+		Reporter.log("Error: Please check the highlighted form fields and try again");
+		Thread.sleep(3000);
+		r.Doc_Print();
+		Thread.sleep(5000);
 	}
+	
 }

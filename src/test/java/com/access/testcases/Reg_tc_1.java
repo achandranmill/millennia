@@ -47,7 +47,7 @@ public class Reg_tc_1  extends BaseClass
 		r.NEXT();
 		Thread.sleep(10000);
 		boolean Start_Button = driver.findElement(By.xpath("/html/body/main/div[1]/registration/section/aside/button[3]")).isEnabled();
-		Assert.assertFalse(Start_Button,"Start button is Disabled");
+		Assert.assertFalse(Start_Button,"Start button is Enabled");
 		System.out.println("START BUTTON IS DISABLED---PASS");
 	}
 }

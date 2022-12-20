@@ -70,13 +70,13 @@ public class Appt_tc_19 extends BaseClass
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.Clip_Addpatient();
-		Thread.sleep(10000);
+		Thread.sleep(15000);
         //--------------------------APPOINTMENT PAGE-------------------------
         Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		ap.SearchLastName("Yadav");
 		ap.SearchButton();
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		ap.ThreeDot();
 		Thread.sleep(10000);
 		ap.ThreDotSetConfirmed();

@@ -1,7 +1,10 @@
 package com.access.testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 
@@ -46,7 +49,19 @@ public class Workl_tc_4 extends BaseClass
 		w.Configure();
 		Thread.sleep(3000);
 		w.Department();
+		Thread.sleep(5000);
 		w.SelectAll();
-		w.BtnClose();
+		Thread.sleep(5000);
+	    w.BtnClose();
+	    Thread.sleep(20000);
+	    List<WebElement>SellectAllStatus = (List<WebElement>) driver.findElement(By.xpath("//table[contains(@class,'table table-striped table-shadow')]//tbody"));
+	    for(WebElement ele:SellectAllStatus )
+	    {
+	    	String value =ele.getText();
+	    	System.out.println("Value");
+	    }
+	    
+	    
+	    
 	}
 }
