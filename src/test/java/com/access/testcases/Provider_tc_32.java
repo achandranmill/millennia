@@ -36,13 +36,23 @@ public class Provider_tc_32 extends BaseClass
 		Thread.sleep(3000);
 		pd.EditSchedule();
 		Thread.sleep(2000);
+		try
+		{
+		pd.EditADDSchedule();
+		System.out.println("ADD Schedule is present");
+		}
+		catch(Exception e)
+		{
+			System.out.println("ADD Schedule is not present");
+		}
+		
 		pd.EditScheduleTitle("old");
 		Thread.sleep(2000);
 		pd.EditStartDate("09042022");
 		Thread.sleep(2000);
 		pd.EditEndDate("06052022");
          Thread.sleep(2000);
-         pd.EditDepartment2();
+         pd.EditDepartmentnull();
          Thread.sleep(2000);
          pd.EditLocation();
          Thread.sleep(2000);
