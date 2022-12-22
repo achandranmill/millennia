@@ -13,7 +13,7 @@ public class BaseClass {
 		//public String baseURL="http://devaccess.imenso.in/#/";
 		//http://devaccess.imenso.in/#/
 		//public String email="a19@mailinator.com";
-		public String email="123er@mailinator.com";
+		public String email="user_test@mailinator.com";
 
 		//public String password="Random@123456788";
 		public String password="Random@123456789";
