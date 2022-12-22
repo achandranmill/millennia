@@ -16,7 +16,7 @@ public class BaseClass {
 		public String email="123er@mailinator.com";
 
 		//public String password="Random@123456788";
-		public String password="Random@12345678";
+		public String password="Random@123456789";
 		public String femail="a19e@mailinator.com";
 		
 		public static WebDriver driver;
