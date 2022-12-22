@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.MassMessaging;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.UserTestPage;
@@ -21,7 +22,10 @@ public class Massm_tc_3   extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -31,8 +35,8 @@ public class Massm_tc_3   extends BaseClass
 		m.MassMessaging();
 		m.Date();
 		Thread.sleep(3000);
-		m.Date1("2022-03-01");
-		m.Date2("2022-04-18");
+		m.Date1("2022-08-01");
+		m.Date2("2022-09-18");
 		m.Btn_Apply();
 		Thread.sleep(5000);
 		m.MessageHistory();

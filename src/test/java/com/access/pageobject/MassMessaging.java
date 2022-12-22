@@ -1,6 +1,7 @@
 package com.access.pageobject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -35,6 +36,15 @@ WebElement MessageHistory;
 public void MessageHistory()
 {
 	MessageHistory.click();
+}
+
+@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/main/div[1]/mass-messaging/div/div/div[1]/div[1]/div/button[2]")
+@CacheLookup
+WebElement MessageHistory_Displays;
+
+public void MessageHistory_Displays()
+{
+	MessageHistory_Displays.isDisplayed();
 }
 
 @FindBy(how=How.ID,using="massMessaging")
@@ -74,7 +84,7 @@ public void Date()
 		Date2.sendKeys(d2);
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/div[2]/div[3]/div/button[1]")
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Apply')]")
 	@CacheLookup
 	WebElement Btn_Apply;
 	
@@ -98,14 +108,13 @@ public void Date()
 	public void SelectAll()
 	{
 		 
-		this.SelectAll.isDisplayed();
-	
-		    this.SelectAll.click();  
-		    // when clicked, button should swap into btnTurnOn
-		    this.SelectAll.isDisplayed();
-		    this.SelectAll.click();      // when clicked, button should swap into btnTurnOff
-		    this.SelectAll.isDisplayed() ;  // throws an exception
-		    return ;
+	if(!SelectAll.isSelected()) {
+		JavascriptExecutor as = (JavascriptExecutor)ldriver;
+		as.executeScript("arguments[0].click", SelectAll);
+		if(!SelectAll.isSelected()) {
+			SelectAll.click();
+		}
+	}
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"9b0eb0a4-edc5-40c9-ae10-7d19ed0e7f25\"]")
@@ -113,13 +122,15 @@ public void Date()
 	WebElement Clinic;
 	
 	public void Clinic()
-	{
-		this.Clinic.isDisplayed();
-		this.Clinic.click();
-		this.Clinic.isDisplayed();
-		this.Clinic.click();
-		this.Clinic.isDisplayed();
-		return;
+	{		
+		if(!Clinic.isSelected()) {
+
+			JavascriptExecutor g = (JavascriptExecutor)ldriver;
+			g.executeScript("arguments[0].click", Clinic);
+			if(!Clinic.isSelected()) {
+				Clinic.click();
+			}
+		}
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/div[1]/div/div/department-filter/div[3]/button[2]")
@@ -139,7 +150,7 @@ public void Date()
 		DepartmentCancel.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/main/div[1]/mass-messaging/div/div/div[1]/div[1]/form/div[1]/button[2]")
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[1]/div[1]/form/div[1]/button[2]")
 	@CacheLookup
 	WebElement SeeingFilter;
 	
@@ -153,12 +164,13 @@ public void Date()
 	
 	public void SeeingSelectAll()
 	{
-		this.SeeingSelectAll.isDisplayed();
-		this.SeeingSelectAll.click();
-		this.SeeingSelectAll.isDisplayed();
-		this.SeeingSelectAll.click();
-		this.SeeingSelectAll.isDisplayed();
-		return;
+		if(!SeeingSelectAll.isSelected()) {
+			JavascriptExecutor g = (JavascriptExecutor)ldriver;
+			g.executeScript("arguments[0].click", SeeingSelectAll);
+			if(!SeeingSelectAll.isSelected()) {
+				SeeingSelectAll.click();
+			}
+		}
 	}
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/div[1]/div/div/seeing-filter/div[2]/input")
@@ -193,15 +205,17 @@ public void Date()
 	
 	public void StatusFilterSelect()
 	{
-	  this.StatusFilterSelect.isDisplayed();
-	  this.StatusFilterSelect.click();
-	  this.StatusFilterSelect.isDisplayed();
-	  this.StatusFilterSelect.click();
-	  this.StatusFilterSelect.isDisplayed();
-	  return;
+	  if(!StatusFilterSelect.isSelected()) {
+		  JavascriptExecutor j = (JavascriptExecutor)ldriver;
+		  j.executeScript("arguments[0].click", StatusFilterSelect);
+		  if(!StatusFilterSelect.isSelected())
+		  {
+			  StatusFilterSelect.click();
+		  }
+	  }
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/div[1]/div/div/status-filter/div[3]/button[2]")
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/status-filter/div[3]/button[2]")
 	@CacheLookup
 	WebElement StatusFilterSave;
 	
@@ -358,4 +372,81 @@ public void Date()
 	{
 		Eligible.click();
 	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[2]/div[2]/div/div[1]/table/thead/tr/th[1]/label/input")
+	@CacheLookup
+	WebElement Eligible_SelectAll;
+	
+	public void Eligible_SelectAll()
+	{
+		 
+		Eligible_SelectAll.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[2]/div[2]/div/div[1]/table/tbody/tr[1]/td[1]/div/input")
+	@CacheLookup
+	WebElement patient1_select;
+	
+	public void patient1_select()
+	{
+		patient1_select.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[2]/div[2]/div/div[1]/table/tbody/tr[2]/td[1]/div/input")
+	@CacheLookup
+	WebElement patient2_select;
+	
+	public void patient2_select()
+	{
+		patient2_select.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[2]/div[2]/div/div[1]/table/tbody/tr[3]/td[1]/div/input")
+	@CacheLookup
+	WebElement patient3_select;
+	
+	public void patient3_select()
+	{
+		patient3_select.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[2]/div[2]/div/div[1]/table/tbody/tr[4]/td[1]/div/input")
+	@CacheLookup
+	WebElement patient4_select;
+	
+	public void patient4_select()
+	{
+		patient4_select.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[2]/div[2]/div/div[1]/table/tbody/tr[5]/td[1]/div/input")
+	@CacheLookup
+	WebElement patient5_select;
+	
+	public void patient5_select()
+	{
+		patient5_select.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/mass-messaging/div/div/div[1]/div[2]/div[3]/div[2]/button")
+	@CacheLookup
+	WebElement Send_Message_to_patient;
+	
+	public void Send_Message_to_patient()
+	{
+		Send_Message_to_patient.isDisplayed();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -1,39 +1,32 @@
 package com.access.pageobject;
 
-
-
-	 
-
-
-
-
-
-
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
-	import org.openqa.selenium.support.FindBy;
-	import org.openqa.selenium.support.How;
-	import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-
-
-
-
-
-
-
-
-	public class RegtPage
+public class RegtPage
 	{
 	    WebDriver ldriver;
 	public RegtPage(WebDriver rdriver)
@@ -42,11 +35,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver, 20), this);
 	}
 
-	@FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[1]/li[2]/a")
+	@FindBy(how=How.XPATH,using="//a[@ui-sref='registration'  or @ ui-sref= 'selected']")
 	@CacheLookup
 	WebElement linkRegistration;
 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/article/header/div/h1/a/span")
+	 
+	@FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/article/header/div/h1/a/span")
 	 @CacheLookup 
 	  WebElement Nameedit;
 	 @FindBy(how=How.XPATH,using="//*[@id=\"last-name\"]")
@@ -246,11 +240,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 @CacheLookup
 	 WebElement Search;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"registration\"]/div[1]/div/div/search-modal/div[2]/div[1]/div[2]/input")
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/search-modal/div[2]/div[1]/div[2]/input")
 	 @CacheLookup
 	 WebElement searchlastname;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"registration\"]/div[1]/div/div/search-modal/div[2]/div[1]/div[3]/input")
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/search-modal/div[2]/div[1]/div[3]/input")
 	 @CacheLookup
 	 WebElement searchfirst;
 	 
@@ -259,7 +253,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 WebElement ClickSearchPatient;
 	 		
 	 
-	 @FindBy(how=How.CLASS_NAME,using="list-group-item")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/registration/section/aside/button[3]")
 	 @CacheLookup
 	 WebElement StartPatient;
 	 
@@ -274,6 +268,35 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 @FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/aside/button[6]")
 	 @CacheLookup
 	 WebElement PatientHoldList;
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/div[2]/div/span")
+	 @CacheLookup
+	 WebElement Hold_Patient_Message;
+	 
+	 public void Hold_Patient_Message()
+	 {
+		 String act = Hold_Patient_Message.getText();
+		 System.out.println("Hold Patient Message is: "+act);
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="//td[@ng-click=\"$ctrl.returnPatient(patient)\"]")
+	 @CacheLookup
+	 WebElement Remove_HoldList;
+	 
+	 public void Remove_HoldList()
+	 {
+		 Remove_HoldList.click();
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/div[2]/div/span")
+	 @CacheLookup
+	 WebElement Remove_Hodlist_Message;
+	 
+	 public void Remove_Hodlist_Message()
+	 {
+		 String act = Remove_Hodlist_Message.getText();
+		 System.out.println("Remove Patient Message is: "+act);
+	 }
 	 @FindBy(how=How.CLASS_NAME,using="ng-scope")
 	 @CacheLookup
 	 WebElement ClickPatientlist;
@@ -338,7 +361,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 @CacheLookup
 	 WebElement DOCUMENTcancel;
 	 
-	 @FindBy(how=How.CLASS_NAME,using="list-group-item")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/registration/section/aside/button[4]")
 	 @CacheLookup
 	 WebElement HOLD;
 	 
@@ -346,13 +369,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 @CacheLookup
 	 WebElement SENDTO;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"patientFlags\"]/div/div[2]/span")
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/registration/section/article/section[2]/div/span/jfh-patient-flags/div/div/div[2]/span")
 	 @CacheLookup
 	 WebElement FLAGS;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"patientFlags\"]/div/div[2]/ul/li[2]/a")
+	 @FindBy(how=How.XPATH,using="//a //span[contains(text(),'covisit')]")
 	 @CacheLookup
 	 WebElement Userselect;
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/main/div[1]/registration/section/article/section[2]/div/span/jfh-patient-flags/div/div/div[2]/span")
+	 @CacheLookup
+	 WebElement FLAGS1;
+	 
+	 @FindBy(how=How.XPATH,using="//a //span[contains(text(),'dlj')]")
+	 @CacheLookup
+	 WebElement Userselect1;
+	 
+	 public void FLAGS1()
+	 {
+		 FLAGS1.click();
+		 Userselect1.click();
+	 }
+	 
 	 
 	 @FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/article/section[4]/button[3]")
 	 @CacheLookup
@@ -387,7 +425,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 @CacheLookup
 	 WebElement LockSubmit;
 	 
-	 @FindBy(how=How.XPATH,using="//*[@id=\"reg-card\"]/article/section[3]/div/button")
+	 @FindBy(how=How.XPATH,using="//button[contains(text(),'Forms On Demand')]")
 	 @CacheLookup
 	 WebElement Formsondemand;
 	 
@@ -419,7 +457,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 @CacheLookup
 	 WebElement AccessDownload;
 	 
-	 @FindBy(how=How.XPATH,using="/html/body/pdf-viewer//viewer-toolbar//div/div[3]/cr-icon-button[1]//div/iron-icon")
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[2]/button")
 	 @CacheLookup 
 	 WebElement AccessPrint;
 	 
@@ -427,27 +465,88 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 	 @CacheLookup
 	 WebElement SendToNew;
 	 
+	 @FindBy(how=How.XPATH,using="//button[contains(text(),'Go to Patient Details')]")
+	 @CacheLookup
+	 WebElement GotopatientDetails;
 	 
+	 public void GotopatientDetails()
+	 {
+		 GotopatientDetails.click();
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[1]/patient-details/form/div[1]/div[2]/input")
+	 @CacheLookup
+	 WebElement Gotopatient_first;
+	 
+	 public void Gotopatient_first(String g)
+	 {
+		 
+		 Gotopatient_first.sendKeys(g);
+	 }
+	 
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[3]/button[3]")
+	 @CacheLookup
+	 WebElement Gotopatient_save;
+	 
+	 public void Gotopatient_save()
+	 {
+		 Gotopatient_save.click();
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="//a[contains(text(),'Coverage')]")
+	 @CacheLookup
+	 WebElement coverage;
+	 
+	 public void coverage()
+	 {
+		 coverage.click();
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="//button[contains(text(),'Make Changes')]")
+	 @CacheLookup
+	 WebElement makechanges;
+	 
+	 public void coverage_makechanges()
+	 {
+		 makechanges.click();
+	 }
+	 
+	 @FindBy(how=How.ID,using="payer-name")
+	 @CacheLookup
+	 WebElement coverage_payername;
+	 
+	 public void coverage_payername(String pn)
+	 {
+		 
+		 coverage_payername.sendKeys(pn);
+	 }
+	 
+	 @FindBy(how=How.XPATH,using="/html/body/navbar/header/div/div/div[2]/ul[1]/li[2]/a")
+	 @CacheLookup
+	 WebElement Regit_payers;
+	 
+	 public void Regit_payers()
+	 {
+		 Regit_payers.click();
+	 }
 	 
 	public void clickRegistrationPage()
 	{
 		
-		for(int i=0;i<=2;i++)
-		{
-			try
-			{
-				linkRegistration.click();
-				break;
-			}
-			catch(Exception e)
-			{
-				System.out.println("e.getMessage");
-			}
-			
-		}
-		
+		linkRegistration.click();
 		
 	}
+	
+	@FindBy(how=How.XPATH,using="//li//a[contains(text(),'Registration')]")
+	@CacheLookup
+	WebElement Registration;
+	
+	public void Registration()
+	{
+		Registration.click();
+	}
+	
 	public void clickredit( String nm,String ln,String mn)
 	{
 		Nameedit.click();
@@ -567,15 +666,40 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 			btncommentapply.click();
 			
 	}
-		public void search(String n,String l)
+		public void search(String n,String l) throws InterruptedException
 		{
 			Search.click();
+			
+			Thread.sleep(5000);
 			
 			searchlastname.sendKeys(n);
 			
 			searchfirst.sendKeys(l);
 			ClickSearchPatient.click();
 		}
+		
+		
+		@FindBy(how=How.XPATH,using="//table[@class='table table-striped']//tbody//tr")
+		@CacheLookup
+		List<WebElement>  search_click;
+		
+		public void search_click()
+		{
+			System.out.println(search_click.size());
+			
+			for(int i=0;i<search_click.size();i++)
+			{
+				String listitem=search_click.get(i).getText();
+				if(listitem.contains("Ravi Mishra"))
+				{
+					search_click.get(i).click();
+					break;
+				}
+			}
+			
+		}
+		
+		
 		
 		public void StartPatient()
 		{
@@ -622,9 +746,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 		}
 		public void Document()
 		{
-			 Actions builder = new Actions(ldriver);
-		        builder.moveToElement(Documents).click(Documents);
-		        builder.perform();
+			 Documents.click();
 		
 		}
 		public void txtDocument(String n)
@@ -639,6 +761,444 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 		{
 			DOCUMENTcancel.click();
 		}
+		
+		@FindBy(how=How.XPATH,using="//input[@name='First Name 1_formly_1_firstName_0_0, fname']")
+		@CacheLookup
+		WebElement Document_firstname;
+		
+		public void Document_firstname(String f)
+		{
+			
+			Document_firstname.sendKeys(f);
+		}
+		
+		
+		@FindBy(how=How.XPATH,using="//input[@name='Last Name_formly_1_firstName_1_1, fname']")
+		@CacheLookup
+		WebElement Document_lastname;
+		
+		public void Document_lastname(String l)
+		{
+			
+			Document_lastname.sendKeys(l);
+		}
+		
+		
+		@FindBy(how=How.XPATH,using="//input[@name='Middle Name_formly_1_input_2_2, search']")
+		@CacheLookup
+		WebElement Document_middlename;
+		
+		public void Document_middlename(String m)
+		{
+			Document_middlename.click();
+			Document_middlename.clear();
+			Document_middlename.sendKeys(m);
+		}
+		
+		@FindBy(how=How.XPATH,using="//input[@name='New Field_formly_1_date_3_3']")
+		@CacheLookup
+		WebElement Document_Dob;
+		
+		public void Document_Dob(String d)
+		{
+			
+			Document_Dob.sendKeys(d);
+		}
+		
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[3]/span/button")
+		@CacheLookup
+		WebElement Document_Saveform;
+		
+		public void Document_Saveform()
+		{
+			Document_Saveform.click();
+		}
+		
+		@FindBy(how=How.XPATH,using="//span[contains(text(),'COVID Screening Form')]")
+		@CacheLookup
+		WebElement COVIDScreeningForm;
+		
+		public void COVIDScreeningForm()
+		{
+			COVIDScreeningForm.click();
+		}
+		
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[1]/div/div/div/div/div[1]/label/input")
+		@CacheLookup
+		WebElement COVID_19SymptomsPresent;
+		
+		public void COVID_19SymptomsPresent()
+		{
+			COVID_19SymptomsPresent.click();
+		}
+		
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[3]/div/div[1]/div/select")
+		@CacheLookup
+		WebElement COVID_Whenwasthelasttimeyouleftthecountry;
+		
+		public void COVID_Whenwasthelasttimeyouleftthecountry()
+		{
+			Select ab = new Select(COVID_Whenwasthelasttimeyouleftthecountry);
+			ab.selectByVisibleText("Within the last 2 years");
+		}
+		
+		
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[2]/div/div/div/div/div[1]/label/input")
+		@CacheLookup
+		WebElement COVID_Haveyouhadanycranberries;
+		
+		public void COVID_Haveyouhadanycranberries()
+		{
+			COVID_Haveyouhadanycranberries.click();
+		}
+		
+		
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[6]/div/div[1]/div/select")
+		@CacheLookup
+		WebElement COVID_DoyouhaveCOVID19;
+		
+		public void COVID_DoyouhaveCOVID19()
+		{
+			Select ad = new Select(COVID_DoyouhaveCOVID19);
+			ad.selectByVisibleText("Not Sure");
+		}
+		
+		
+		
+		
+		
+		
+		
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[3]/div/div/div/div/div[1]/label/input")
+		@CacheLookup
+		WebElement COVID_Doyouhavedifficultybreathing;
+		
+		public void COVID_Doyouhavedifficultybreathing()
+		{
+			COVID_Doyouhavedifficultybreathing.click();
+		}
+		
+		@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[3]/span/button")
+		@CacheLookup
+		WebElement COVID_save;
+		
+		public void COVID_save()
+		{
+			COVID_save.click();
+		}
+		
+		
+		@FindBy(how=How.XPATH,using="//label[@for='file-3']")
+		@CacheLookup
+		WebElement COVID_images1;
+		
+		public void COVID_images1() throws AWTException
+		{
+			COVID_images1.click();
+			Robot rb=new Robot();
+			rb.delay(2000);
+			//copy to clipboard
+			StringSelection ss= new StringSelection("C:\\Users\\ATM\\Downloads\\sherry.jpg");
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+			//paste operation in clipboard
+
+			rb.keyPress(KeyEvent.VK_CONTROL);
+			rb.keyPress(KeyEvent.VK_V);
+
+			rb.keyRelease(KeyEvent.VK_CONTROL);
+			rb.keyRelease(KeyEvent.VK_V);
+
+			//press enter key
+
+			rb.keyPress(KeyEvent.VK_ENTER);
+			rb.keyRelease(KeyEvent.VK_ENTER);
+
+
+
+		}
+		
+		
+		@FindBy(how=How.XPATH,using="//label[@for='file-4' ]")
+		@CacheLookup
+		WebElement COVID_images2;
+		
+		public void COVID_images2() throws AWTException
+		{
+			COVID_images2.click();
+			Robot rb=new Robot();
+			rb.delay(2000);
+			//copy to clipboard
+			StringSelection ss= new StringSelection("C:\\Users\\ATM\\Downloads\\sherry.jpg");
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+			//paste operation in clipboard
+
+			rb.keyPress(KeyEvent.VK_CONTROL);
+			rb.keyPress(KeyEvent.VK_V);
+
+			rb.keyRelease(KeyEvent.VK_CONTROL);
+			rb.keyRelease(KeyEvent.VK_V);
+
+			//press enter key
+
+			rb.keyPress(KeyEvent.VK_ENTER);
+			rb.keyRelease(KeyEvent.VK_ENTER);
+
+			
+		}
+		
+		
+        @FindBy(how=How.XPATH,using="//div[@class='alert alert-danger doc-alert ng-binding ng-scope']")
+        @CacheLookup
+        WebElement COVID_SAVE_Message;
+        
+        public void COVID_SAVE_Message()
+        {
+        	String act = COVID_SAVE_Message.getText();
+    		System.out.println("Error message is: "+ act);
+        }
+		
+		@FindBy(how=How.XPATH,using="//i[contains(text(),'print')]")
+		@CacheLookup
+		WebElement COVID_print;
+		
+		public void COVID_print()
+		{
+			COVID_print.click();
+		}
+		
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'MRI Safety Questionnaire')]")
+	@CacheLookup
+	WebElement MRISafetyQuestionnaire;
+	
+	public void MRISafetyQuestionnaire()
+	{
+		MRISafetyQuestionnaire.click();
+	}
+		
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[2]/div/div/div/div/div[2]/label/input")
+	@CacheLookup
+	WebElement MRI_Doyouvape_no;
+	
+	public void MRI_Doyouvape_no()
+	{
+		MRI_Doyouvape_no.click();
+	}
+		
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[3]/div/div/div/div/div[1]/label/input")
+	@CacheLookup
+	WebElement MRI_AreyouMRIready_no ;
+	
+	public void MRI_AreyouMRIready_no()
+	{
+		MRI_AreyouMRIready_no.click();
+		
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[4]/div/div/div/div/div[2]/label/input")
+	@CacheLookup
+	WebElement MRI_Selectthefollowingconditions_pain;
+	
+	public void MRI_Selectthefollowingconditions_pain()
+	{
+		MRI_Selectthefollowingconditions_pain.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[5]/div/div/div/input")
+	@CacheLookup
+	WebElement MRI_Ifotherpleasedescribe_formly_2_input_4_4search;
+	
+	public void MRI_Ifotherpleasedescribe_formly_2_input_4_4search(String g)
+	{
+		MRI_Ifotherpleasedescribe_formly_2_input_4_4search.click();
+		MRI_Ifotherpleasedescribe_formly_2_input_4_4search.sendKeys("hi");
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[6]/div/div[1]/div/div/div/div[1]/label/input")
+	@CacheLookup
+	WebElement MRI_signatureConsent_5;
+	
+	public void MRI_signatureConsent_5()
+	{
+		MRI_signatureConsent_5.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//canvas[@id='canvas_5']")
+	@CacheLookup
+	WebElement MRI_signatureConsent_sign;
+
+	
+	
+	public void MRI_signatureConsent_sign()
+	{
+		Actions builder = new Actions(ldriver);
+		Action signature= builder.contextClick(MRI_signatureConsent_sign)                       
+                .clickAndHold()
+                .moveToElement(MRI_signatureConsent_sign,20,-50)
+                .moveByOffset(50, 50)
+                .moveByOffset(80,-50)
+                .moveByOffset(100,50)
+                .release(MRI_signatureConsent_sign)
+                 .build();                       
+         signature.perform();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[7]/div/div/div/div/input")
+	@CacheLookup
+	WebElement MRI_Dob;
+	
+	public void MRI_Dob(String t)
+	{
+		
+		MRI_Dob.sendKeys("t");
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[3]/span/button")
+	@CacheLookup
+	WebElement MRI_save;
+	
+	public void MRI_save()
+	{
+		MRI_save.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'RBC Report')]")
+	@CacheLookup
+	WebElement RCB_Report;
+	
+	public void RCB_Report()
+	{
+		RCB_Report.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[1]/div/div/div/input")
+	@CacheLookup
+	WebElement RCB_FirstName;
+	
+	public void RCB_FirstName(String s)
+	{
+		RCB_FirstName.click();
+		RCB_FirstName.sendKeys(s);
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[2]/div/div/div/input")
+	@CacheLookup
+	WebElement RCB_LastName;
+	
+	public void RCB_LastName(String l)
+	{
+		RCB_LastName.click();
+		RCB_LastName.sendKeys(l);
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[3]/div/div/div/div/input")
+	@CacheLookup
+	WebElement RCB_Dob;
+	
+	public void RCB_Dob(String d)
+	{
+		RCB_Dob.click();
+		RCB_Dob.sendKeys(d);
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[4]/div/div[1]/div/div/input")
+	@CacheLookup
+	WebElement RCB_Ssn;
+	
+	public void RCB_Ssn(String ssn)
+	{
+		RCB_Ssn.click();
+		RCB_Ssn.sendKeys(ssn);
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[5]/div/div[1]/div/input")
+	@CacheLookup
+	WebElement RCB_PatientStreetAddress;
+	
+	public void RCB_PatientStreetAddress(String d)
+	{
+		RCB_PatientStreetAddress.click();
+		RCB_PatientStreetAddress.sendKeys(d);
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[6]/div/div[1]/div/input")
+	@CacheLookup
+	WebElement RCB_ZipCode;
+	
+	public void RCB_ZipCode(String z)
+	{
+		RCB_ZipCode.click();
+		RCB_ZipCode.sendKeys(z);
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="//input[@name='signatureConsent_6']")
+	@CacheLookup
+	WebElement RCB_Signature ;
+	
+	public void RCB_Signature()
+	{
+		RCB_Signature.click();
+	}
+	
+    @FindBy(how=How.XPATH,using="//canvas[@id='canvas_6']")
+    @CacheLookup
+    WebElement RCB_Signature2;
+    
+    public void RCB_Signature2()
+    {
+    	Actions builder = new Actions(ldriver);
+		Action signature= builder.contextClick(RCB_Signature2)                       
+                .clickAndHold()
+                .moveToElement(RCB_Signature2,20,-50)
+                .moveByOffset(50, 50)
+                .moveByOffset(80,-50)
+                .moveByOffset(100,50)
+                .release(RCB_Signature2)
+                 .build();                       
+         signature.perform();
+    }
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[3]/span/button")
+	@CacheLookup
+	WebElement RCB_save;
+	
+	public void RCB_save()
+	{
+		RCB_save.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/pdf-viewer//viewer-toolbar//div/div[3]/cr-icon-button[2]//div/iron-icon")
+	@CacheLookup
+	WebElement PDF_threedot;
+	
+	
+	public void PDF_threedot()
+	{
+		
+		PDF_threedot.click();
+	    
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/pdf-viewer//viewer-toolbar//cr-action-menu/button[4]")
+	@CacheLookup
+	WebElement PDF_document;
+	
+	public void PDF_document()
+	{
+		PDF_document.click();
+	}
+	
 		
 		public void makechanges()
 		{
@@ -734,9 +1294,255 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 		SendToNew.click();
 	}
 	
+	@FindBy(how=How.XPATH,using="//button//i[contains(text(),'print')]")
+	@CacheLookup
+	WebElement Print;
+	
+	public void Doc_Print()
+	{
+		Print.click();
+		
+	    }
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/ul/li[2]/a")
+	@CacheLookup
+	WebElement Gotopatient_Forms;
+	
+	public void Gotopatient_Forms()
+	{
+		Gotopatient_Forms.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'COVID Screening Form')]")
+	@CacheLookup
+	WebElement Gotopatient_Forms_Symptoms ;
+	
+	public void Gotopatient_Forms_Symptoms()
+	{
+		Gotopatient_Forms_Symptoms.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[3]/div/div[1]/div/select")
+	@CacheLookup
+	WebElement Gotopatient_Forms_When ;
+	
+	public void Gotopatient_Forms_When()
+	{
+		Select ab =  new Select(Gotopatient_Forms_When);
+		ab.selectByIndex(1);
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[4]/div/div/div/div/div[1]/label/input")
+	@CacheLookup
+	WebElement Gotopatient_Forms_breathing;
+	
+	public void Gotopatient_Forms_breathing()
+	{
+		Gotopatient_Forms_breathing.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[5]/div/div/div/div/div[1]/label/input")
+	@CacheLookup
+	WebElement Gotopatient_Forms_cherries;
+	
+	public void Gotopatient_Forms_cherries()
+	{
+		Gotopatient_Forms_cherries.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[6]/div/div[1]/div/select")
+	@CacheLookup
+	WebElement Gotopatient_Forms_COVID19;
+	
+	public void Gotopatient_Forms_COVID19()
+	{
+		Select v = new Select(Gotopatient_Forms_COVID19);
+		v.selectByIndex(1);
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[7]/div/div/div/div/div/div/label")
+	@CacheLookup
+	WebElement Gotopatient_Forms_image1;
+	
+	public void Gotopatient_Forms_image1() throws AWTException
+	
+	{
+		
+	
+	Gotopatient_Forms_image1.click();
+	Robot rb=new Robot();
+	rb.delay(2000);
+	//copy to clipboard
+	StringSelection ss= new StringSelection("C:\\Users\\ATM\\Downloads\\sherry.jpg");
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+	//paste operation in clipboard
+
+	rb.keyPress(KeyEvent.VK_CONTROL);
+	rb.keyPress(KeyEvent.VK_V);
+
+	rb.keyRelease(KeyEvent.VK_CONTROL);
+	rb.keyRelease(KeyEvent.VK_V);
+
+	//press enter key
+
+	rb.keyPress(KeyEvent.VK_ENTER);
+	rb.keyRelease(KeyEvent.VK_ENTER);
+
+	}
+
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[8]/div/div/div/div/div/div/label")
+	@CacheLookup
+	WebElement Gotopatient_Forms_image2;
+	
+	public void Gotopatient_Forms_image2() throws AWTException
+	{
+
+		Gotopatient_Forms_image2.click();
+		Robot rb=new Robot();
+		rb.delay(2000);
+		//copy to clipboard
+		StringSelection ss= new StringSelection("C:\\Users\\ATM\\Downloads\\sherry.jpg");
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+		//paste operation in clipboard
+
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);
+
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+
+		//press enter key
+
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[3]/span/button")
+	@CacheLookup
+	WebElement Gotopatient_Forms_save;
+	
+	public void Gotopatient_Forms_save()
+	{
+		Gotopatient_Forms_save.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[1]/button")
+	@CacheLookup
+	WebElement Gotopatient_Forms_Cancel;
+	
+	public void Gotopatient_Forms_Cancel()
+	{
+		Gotopatient_Forms_Cancel.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[2]/div/div/div/div/div[2]/label/input")
+	@CacheLookup
+	WebElement Gotopatient_Forms_disable;
+	
+	public void Gotopatient_Forms_disable()
+	{
+		Gotopatient_Forms_disable.isDisplayed();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul/li[2]/a/div")
+	@CacheLookup
+	WebElement Gotopatient_Forms_incomplete;
+	
+	public  void Gotopatient_Forms_incomplete()
+	{
+		Gotopatient_Forms_incomplete.click();
+	}
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/registration/section/article/section[1]/article[2]/div[3]")
+	@CacheLookup
+	WebElement WaitTime;
+	public void WaitTime()
+    {
+    	String act = WaitTime.getText();
+		System.out.println("Time message is: "+ act);
+    }
+	
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[1]/button")
+	@CacheLookup
+	WebElement Back_to_registration;
+	
+	public void Back_to_registration()
+	{
+		Back_to_registration.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Forms On Demand')]")
+	@CacheLookup
+	WebElement FormsOnDemand;
+	
+	public void FormsOnDemand()
+	{
+		FormsOnDemand.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/forms-on-demand/div/div[2]/div[2]/div[1]/div/button")
+	@CacheLookup
+	WebElement FormsOnDemand_Select;
+	
+	public void FormsOnDemand_Select()
+	{
+		FormsOnDemand_Select.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/forms-on-demand/div/div[2]/div[2]/div[1]/div/ul/li[1]/a")
+	@CacheLookup
+	WebElement FormsOnDemand_Select_checkAll;
+	
+	public void FormsOnDemand_Select_checkAll()
+	{
+		FormsOnDemand_Select_checkAll.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/forms-on-demand/div/div[2]/div[2]/div[2]/div/button")
+	@CacheLookup
+	WebElement Appointment_Type;
+	
+	public void Appointment_Type()
+	{
+		Appointment_Type.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/forms-on-demand/div/div[2]/div[2]/div[2]/div/ul/li[1]/a")
+	@CacheLookup
+	WebElement Appointment_Type_CheckAll;
+	
+	public void Appointment_Type_CheckAll()
+	{
+		Appointment_Type_CheckAll.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Send')]")
+	@CacheLookup
+	WebElement Forms_on_Demand_send;
+	
+	public void Forms_on_Demand_send()
+	{
+		Forms_on_Demand_send.click();
+	}
+	
+	
+	
+	
+	
 	
 	
 	}
+	
+
+	
 			
 		
 		

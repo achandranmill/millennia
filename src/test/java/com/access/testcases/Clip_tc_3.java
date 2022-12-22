@@ -2,6 +2,8 @@ package com.access.testcases;
 import java.io.IOException;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
+
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -18,7 +20,10 @@ public class Clip_tc_3 extends BaseClass
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(2000);
-
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
 
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();

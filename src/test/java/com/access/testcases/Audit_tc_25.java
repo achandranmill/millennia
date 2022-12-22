@@ -16,7 +16,7 @@ public class Audit_tc_25 extends BaseClass
 	@Test
 	public void audit() throws Exception 
 	{
-		ScreenRecorderUtil.startRecord("audit");
+		//ScreenRecorderUtil.startRecord("audit");
 		loginpage lp=new loginpage(driver);
 		lp.setUserName(email);
 		lp.setPassword(password);
@@ -25,10 +25,10 @@ public class Audit_tc_25 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
-		//Thread.sleep(5000);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		Thread.sleep(5000);
 		ad.registration();
 		Thread.sleep(5000);
 		ad.admprofile();
@@ -46,7 +46,7 @@ public class Audit_tc_25 extends BaseClass
 		Thread.sleep(5000);
 		au.usersearchbtn();
 		Thread.sleep(12000);
-		ScreenRecorderUtil.stopRecord();
+		//ScreenRecorderUtil.stopRecord();
 		
 		
 		

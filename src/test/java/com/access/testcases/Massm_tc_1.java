@@ -18,7 +18,10 @@ public class Massm_tc_1  extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);

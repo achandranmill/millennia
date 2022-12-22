@@ -2,6 +2,7 @@ package com.access.testcases;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Payer;
 import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
@@ -18,7 +19,10 @@ public class Payers_tc_7 extends BaseClass
 			lp.setPassword(password);
 			lp.clickSubmit();
 			Thread.sleep(3000);
-			
+			AdmUser ad=new AdmUser(driver);
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
 			RegtPage r=new RegtPage(driver);
 			r.clickRegistrationPage();
 			Thread.sleep(3000);
@@ -31,7 +35,7 @@ public class Payers_tc_7 extends BaseClass
 			p.payers();
 			Thread.sleep(2000);
 			p.DaysToRun();
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 			p.DaysToRun10numberofDays();
 			Thread.sleep(5000);
 			

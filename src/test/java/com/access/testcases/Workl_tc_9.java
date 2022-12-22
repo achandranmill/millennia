@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 
 
 import com.access.pageobject.*;
-import com.access.pageobject.RegtPage;
-import com.access.pageobject.loginpage;
 
 public class Workl_tc_9 extends BaseClass
 {
@@ -21,7 +19,21 @@ public class Workl_tc_9 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		 try
+		 {
+		  ad.userlocation();
+		  Thread.sleep(5000);
+		  ad.okbutton();
+		  Thread.sleep(5000);
+		  System.out.println("USER LOCATION IS PRESENT");
+		  }
+		  catch(Exception e) 
+		  {
+		  System.out.println("USER LOCATION IS Not PRESENT");
+		    		
+		  }
+       //-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -33,7 +45,7 @@ public class Workl_tc_9 extends BaseClass
 		w.DischargeViwe();
 		Thread.sleep(3000);
 		w.SendtoBack();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.SendBackWaiting();
 	}
 }

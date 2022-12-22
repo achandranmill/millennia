@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
@@ -21,7 +22,21 @@ public class Reg_tc_4 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		System.out.println("USER LOCATION IS PRESENT");
+        }
+        catch(Exception e) 
+       {
+	   System.out.println("USER LOCATION IS Not PRESENT");
+	
+       }
+//-----------------REGISTRATION PAGE ------------------------------
+		Thread.sleep(5000);
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -51,8 +66,7 @@ public class Reg_tc_4 extends BaseClass
 		r.Copay("7000");
 		Reporter.log("Copay");
 		Thread.sleep(3000);
-
-		r.comment("complete");
+        r.comment("complete");
 		Reporter.log("comment");
 		Thread.sleep(3000);
 		r.FLAGS();

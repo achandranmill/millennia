@@ -17,7 +17,10 @@ public class Provider_tc_1 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		
-		
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
 		
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();

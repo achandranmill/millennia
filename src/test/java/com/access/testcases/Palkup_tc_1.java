@@ -20,13 +20,15 @@ public class Palkup_tc_1 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		AdmUser ad=new AdmUser(driver);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
 		UserTestPage u =new  UserTestPage(driver);
-
-		RegtPage r=new RegtPage(driver);
+        RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-
-		u.linkUserTest();
+        u.linkUserTest();
 		Thread.sleep(3000);
 		u.patientLookup();
 		u.patientLookuplastName("rajput");
@@ -34,13 +36,12 @@ public class Palkup_tc_1 extends BaseClass
 		u.patientLookupvisitCode("03");
 		u.Location();
 		Thread.sleep(3000);
-		u.Clinic();
+		u.CheckAll();
 		u.Date();
 		u.daterangepicker_start("2022-04-01");
 		u.daterangepicker_end("2022-04-12");
 		u.DateApply();
-
-		u.Search();
+        u.Search();
 		Thread.sleep(3000);
 	}
 }

@@ -1,6 +1,6 @@
 package com.access.pageobject;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.ListDocument.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -69,7 +69,7 @@ public class Audit {
 		clkapplydate.click();
 	}	
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"resultButton\"]")
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/div/div/jf-com-audit/div[1]/div[2]/div/button")
 	@CacheLookup
 	WebElement clksearchbtn;
 	public void clksearchbtn()
@@ -105,7 +105,7 @@ public class Audit {
 		searchbyMRN.sendKeys(fname);
 	}	
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"dobInput\"]")
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/div/div/jf-com-audit/div[1]/div[1]/div[5]/input")
 	@CacheLookup
 	WebElement searchbydob;
 	public void searchbydob(String dob)

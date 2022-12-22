@@ -101,7 +101,7 @@ public class Payer
 	   DaysToRun1stofthemonth.click();
    }
    
-   @FindBy(how=How.XPATH,using="//li[@class=\"ng-scope\"]//a[contains(text(),'16 Number of Days')]")
+   @FindBy(how=How.XPATH,using="//li[@class=\"ng-scope\"]//a[contains(text(),'5 Number of Days')]")
    @CacheLookup
    WebElement DaysToRun10numberofDays;
    

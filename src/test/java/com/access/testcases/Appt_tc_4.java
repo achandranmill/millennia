@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Appointments;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -13,10 +14,11 @@ import com.access.pageobject.loginpage;
 @Test
 public class Appt_tc_4 extends BaseClass
 
-
+     
 
 {
 
+	//-------------------------Configure List-------------------------------
 	public void Appointments() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -25,16 +27,27 @@ public class Appt_tc_4 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
+		AdmUser ad=new AdmUser(driver);
+		try {
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		Thread.sleep(5000);
+		System.out.println("USER LOCATION IS PRESENT");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("USER LOCATION IS PRESENT");
+			
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-
+        //-------------------APPOINTMENT PAGE------------------------------
 		Appointments ap=new Appointments(driver);
-
-		ap.linkAppointment();
-
-		ap.Configurelist();
+        ap.linkAppointment();
+        ap.Configurelist();
 		ap.EditDepartFillter();
 		ap.DepartFillterSelect();
 		Thread.sleep(3000);

@@ -26,10 +26,10 @@ public class Department_Reg_tc_78 extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 		AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
-		//Thread.sleep(5000);
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		Thread.sleep(5000);
 		ad.registration();
 		Thread.sleep(5000);
 		ad.admprofile();
