@@ -24,9 +24,19 @@ public class Document_tc_9 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
@@ -69,18 +79,18 @@ public class Document_tc_9 extends BaseClass
 		addp.Clip_Addpatient();
 		Thread.sleep(10000);
 		addp.Clip_Checkin();
-		 Thread.sleep(10000);
-		 addp.Alert_ok();
-		 Thread.sleep(2000);
-		 addp.lname("s");
-		 Thread.sleep(10000);
+		Thread.sleep(10000);
+		addp.Alert_ok();
+		Thread.sleep(2000);
+		addp.lname("s");
+		Thread.sleep(10000);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
 		r.search("Mishra", "ravi");
 		Thread.sleep(30000);
 		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
 		System.out.println(list.size());
-		
+
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
@@ -114,10 +124,10 @@ public class Document_tc_9 extends BaseClass
 		r.RCB_Signature2();
 		Thread.sleep(3000);
 		r.RCB_save();
-	    Thread.sleep(10000);
+		Thread.sleep(10000);
 		r.Print();
 		Thread.sleep(3000);
-		
-		
+
+
 	}
 }

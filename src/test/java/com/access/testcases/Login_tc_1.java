@@ -40,5 +40,5 @@ public class Login_tc_1 extends BaseClass
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-		}
+	}
 }

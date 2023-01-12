@@ -8,7 +8,7 @@ import com.access.pageobject.loginpage;
 @Test
 public class Appt_tc_7 extends BaseClass
 {
-	
+
 	//------------------------Page loads in 3 seconds or less----------------------------
 	public void Appointments() throws Exception
 	{
@@ -19,20 +19,19 @@ public class Appt_tc_7 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
-		//----------------------------APPOINTMENT PAGE-----------------
+		//-----------------REGISTRATION PAGE ------------------------------
 		Appointments ap=new Appointments(driver);
 		Thread.sleep(5000);
-        ap.linkAppointment();
+		ap.linkAppointment();
 	}
 }

@@ -2,6 +2,8 @@ package com.access.testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -21,13 +23,26 @@ public class Reg_tc_13 extends BaseClass
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
+		boolean ACCESSPASS1 = driver.findElement(By.xpath("//button[contains(text(),'Access Pass')]")).isDisplayed();
+		Assert.assertTrue(ACCESSPASS1, "Access Pass button not displayed");
+		boolean ACCESSPASS = driver.findElement(By.xpath("//button[contains(text(),'Access Pass')]")).isEnabled();
+		Assert.assertTrue(ACCESSPASS, "Access Pass button disabled");
 		r.ACCESSPASS();
 	}
 }

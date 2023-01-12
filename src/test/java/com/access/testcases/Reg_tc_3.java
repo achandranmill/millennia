@@ -26,18 +26,17 @@ public class Reg_tc_3 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
-    	}
-    	catch(Exception e) 
-    	{
-    		System.out.println("USER LOCATION IS Not PRESENT");
-    		
-    	}
-    	//-----------------REGISTRATION PAGE ------------------------------
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -45,7 +44,7 @@ public class Reg_tc_3 extends BaseClass
 		Thread.sleep(3000);
 		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
 		System.out.println(list.size());
-		
+
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
@@ -53,7 +52,7 @@ public class Reg_tc_3 extends BaseClass
 			{
 				list.get(i).click();
 				break;
-		
+
 			}
 		}
 		Thread.sleep(10000);

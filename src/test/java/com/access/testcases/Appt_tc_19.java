@@ -2,6 +2,9 @@ package com.access.testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -26,17 +29,17 @@ public class Appt_tc_19 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		System.out.println("USER LOCATION IS PRESENT");
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
-		//-----------------------REGISTRATION PAGE-----------------------
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -45,7 +48,7 @@ public class Appt_tc_19 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("chandke");
+		addp.lname("Dodwe");
 		//User Enter FirstName
 		addp.fname("Umesh");
 		//User Enter MiddleName
@@ -66,26 +69,32 @@ public class Appt_tc_19 extends BaseClass
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
-        addp.Clip_Comment("Nill");
+		addp.Clip_Comment("Routine checkup");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.Clip_Addpatient();
 		Thread.sleep(15000);
-        //--------------------------APPOINTMENT PAGE-------------------------
-        Appointments ap=new Appointments(driver);
+		//--------------------------APPOINTMENT PAGE-------------------------
+		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
-		ap.SearchLastName("Yadav");
+		ap.SearchLastName("Dodwe");
 		ap.SearchButton();
 		Thread.sleep(15000);
 		ap.ThreeDot();
 		Thread.sleep(10000);
 		ap.ThreDotSetConfirmed();
 		Thread.sleep(10000);
+		ap.Patient_Displayed();
 		ap.ThreeDot();
 		Thread.sleep(10000);
 		ap.ThreDotSetUnconfirmed();
 		Thread.sleep(10000);
-		
-		
+		WebElement UNCONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'UNCONFIRMED'\"]"));
+		String UNCONFIRM_EXPECTED = "UNCONFIRMED";
+		Assert.assertEquals(UNCONFIRM_PATIENT.getText(), UNCONFIRM_EXPECTED);
+		System.out.println("UNCONFIRMED status displayed");
+		Thread.sleep(10000);
+        ap.Patient_Displayed();
+
 	}
 }

@@ -15,7 +15,7 @@ import com.access.pageobject.loginpage;
 public class Self_Scedule_tc_4 extends BaseClass
 
 {
-	
+
 	public void Clipboard() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -24,9 +24,19 @@ public class Self_Scedule_tc_4 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
@@ -35,11 +45,11 @@ public class Self_Scedule_tc_4 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("jadhav");
+		addp.lname("Jadhav");
 		//User Enter FirstName
-		addp.fname("ravi");
+		addp.fname("Ravi");
 		//User Enter MiddleName
-		addp.mname("kumar");
+		addp.mname("Kumar");
 		//User Enter Birthdate
 		addp.DOB("01091999");
 		//User Enter PhoneNumber
@@ -53,16 +63,16 @@ public class Self_Scedule_tc_4 extends BaseClass
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
-	//	Thread.sleep(10000);
-	//	addp.Clip_Seeing();
-	//	Thread.sleep(1000);
-	//	addp.Clip_Thoms();
+		Thread.sleep(10000);
+		addp.Clip_Seeing();
+		Thread.sleep(1000);
+		addp.Clip_Thoms();
 		Thread.sleep(3000);
 		addp.Clip_Flag();
 		addp.Clip_Flag_Option();
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
+		addp.Clip_Comment("Comment");
+		addp.Clip_Reason("only checkup");
+		addp.Clip_Copay("10000");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.printAccessPass();
@@ -71,7 +81,6 @@ public class Self_Scedule_tc_4 extends BaseClass
 		Thread.sleep(3000);
 		addp.Clip_LinkSelfoption();
 		Thread.sleep(3000);
-
 		addp.Clip_Link_PatientismyGrandparent();
 		Thread.sleep(3000);
 		addp.Clip_Addpatient();
@@ -79,19 +88,19 @@ public class Self_Scedule_tc_4 extends BaseClass
 		addp.Clip_Checkin();
 		Thread.sleep(5000);
 		addp.Accesssprint_close();
-		 addp.lname("s");
-		 Thread.sleep(10000);
+		addp.lname("s");
+		Thread.sleep(10000);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
-		r.search("jadhav", "ravi");
+		r.search("Jadhav", "Ravi");
 		Thread.sleep(10000);
 		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
 		System.out.println(list.size());
-		
+
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
-			if(listitem.contains("jadhav ravi"))
+			if(listitem.contains("Jadhav Ravi"))
 			{
 				list.get(i).click();
 				break;
@@ -101,11 +110,11 @@ public class Self_Scedule_tc_4 extends BaseClass
 		Thread.sleep(10000);
 		r.GotopatientDetails();
 		Thread.sleep(10000);
-		r.Gotopatient_first("vijay");
+		r.Gotopatient_first("Vijay");
 		r.Gotopatient_save();
 		Thread.sleep(5000);
-		
-	
+
+
 	}
 
 }

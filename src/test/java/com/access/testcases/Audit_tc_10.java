@@ -22,12 +22,21 @@ public class Audit_tc_10 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		ad.registration();
 		Thread.sleep(5000);
 		ad.admprofile();
@@ -45,13 +54,12 @@ public class Audit_tc_10 extends BaseClass
 		Thread.sleep(5000);
 		au.searchbyMRN("MRN12345");
 		Thread.sleep(5000);
-		
 		au.searchbydob("1990-10-12");
 		//au.searchbyMRN("");
 		Thread.sleep(10000);
 		au.clksearchbtn();
 		Thread.sleep(8000);
 
-}
+	}
 }
 

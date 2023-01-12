@@ -13,7 +13,7 @@ import com.access.pageobject.loginpage;
 public class Appt_tc_5 extends BaseClass	
 
 {
-	
+
 	//--------------------Forms on Demand------------------------
 	public void Appointments() throws Exception
 	{
@@ -26,28 +26,26 @@ public class Appt_tc_5 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
 		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-        //-------------------APPOINTMENT PAGE------------------------------
+		//-------------------APPOINTMENT PAGE------------------------------
 		Appointments ap=new Appointments(driver);
-        ap.linkAppointment();
+		ap.linkAppointment();
 		Thread.sleep(2000);
 		//------------------DATE RANGE------------------------------------
 		ap.AppointDATE();
-		Thread.sleep(3000);
 		ap.AppointDATE1("2022-03-01");
 		Thread.sleep(3000);
 		ap.AppointDATE2("2022-04-04");

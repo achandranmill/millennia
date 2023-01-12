@@ -60,7 +60,7 @@ public class Provider
 		UserAdmin.click();
 	}
 
-	@FindBy(how=How.LINK_TEXT,using="Admin")
+	@FindBy(how=How.XPATH,using="//a[contains(text(),'Admin')]")
 	@CacheLookup
 	WebElement Admin;
 

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -22,7 +23,20 @@ public class Forms_tc_19 extends BaseClass
 		lp.setPassword(password);
 		lp.clickSubmit();
 		Thread.sleep(10000);
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
 
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
@@ -63,18 +77,18 @@ public class Forms_tc_19 extends BaseClass
 		addp.Clip_Addpatient();
 		Thread.sleep(10000);
 		addp.Clip_Checkin();
-		 Thread.sleep(10000);
-		 addp.Alert_ok();
-		 Thread.sleep(2000);
-		 addp.lname("s");
-		 Thread.sleep(10000);
+		Thread.sleep(10000);
+		addp.Alert_ok();
+		Thread.sleep(2000);
+		addp.lname("s");
+		Thread.sleep(10000);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
 		r.search("mishra", "mohit");
 		Thread.sleep(10000);
 		List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody"));
 		System.out.println(list.size());
-		
+
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
@@ -86,7 +100,7 @@ public class Forms_tc_19 extends BaseClass
 			}
 		}
 		Thread.sleep(10000);
-		
+
 		r.Document();
 		Thread.sleep(3000);
 		r.MRISafetyQuestionnaire();
@@ -107,8 +121,8 @@ public class Forms_tc_19 extends BaseClass
 		Thread.sleep(3000);
 		r.MRI_save();
 		Thread.sleep(3000);
-		
-		
-	
+
+
+
 	}
 }

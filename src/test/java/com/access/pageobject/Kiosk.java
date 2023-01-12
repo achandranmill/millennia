@@ -1021,15 +1021,7 @@ public class Kiosk
 
 	public void Kiosk_Skip()
 	{
-		if(!Kiosk_Skip.isSelected()) {
-			
-			JavascriptExecutor r = (JavascriptExecutor)ldriver;
-			r.executeScript("arguments[0].click", Kiosk_Skip);
-			if(!Kiosk_Skip.isSelected()) {
-				Kiosk_Skip.click();
-			}
-			
-		}	
+		Kiosk_Skip.click();
 	}
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,13 +1,20 @@
 package com.access.testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
+import com.access.pageobject.MassMessaging;
 import com.access.pageobject.Organization;
 import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
+import com.access.pageobject.UserTestPage;
 import com.access.pageobject.loginpage;
 
 @Test
@@ -23,39 +30,58 @@ public class Massm_tc_17 extends BaseClass
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-		//	pd.LocationPopup("Florida");
-			Thread.sleep(3000);
-			pd.UserAdmin();
-			Thread.sleep(3000);
-			pd.Admin();
-			Thread.sleep(3000);
-			Organization og = new Organization(driver);
-			og.Organization();
-			Thread.sleep(3000);
-			og.Messages();
-			Thread.sleep(2000);
-			og.MessageEdit();
-			Thread.sleep(10000);
-			og.MessageEdit_Title("New Message");
-			Thread.sleep(10000);
-			og.MessageEdit_Category();
-			Thread.sleep(10000);
-			og.MessageEdit_Trriger();
-			Thread.sleep(10000);
-			og.MessageEdit_Limits();
-			Thread.sleep(10000);
-			og.MessageEdit_CheckAll();
-			Thread.sleep(10000);
-			og.MessageEdit_Save();
-			Thread.sleep(10000);
-			
+		Thread.sleep(3000);
+		pd.UserAdmin();
+		Thread.sleep(3000);
+		pd.Admin();
+		Thread.sleep(3000);
+		Organization og = new Organization(driver);
+		og.Organization();
+		Thread.sleep(3000);
+		r.Attributes();
+		Thread.sleep(15000);
+		List<WebElement>Free_text = driver.findElements(By.id("editButton"));
+		System.out.println(Free_text.size());
+		Free_text.get(50).click();
+		Thread.sleep(5000);
+		r.Attributes_Value("true");
+		r.Attribute_Save();
+		Thread.sleep(2000);
+		pd.UserAdmin();
+		Thread.sleep(1000);
+		r.Returnto_Access();
+		Thread.sleep(1000);
+		UserTestPage u =new  UserTestPage(driver);
+		u.linkUserTest();
+		MassMessaging m = new MassMessaging(driver);
+		m.MassMessaging();
+		Thread.sleep(5000);
+		WebElement Select =driver.findElement(By.xpath("//*[@id=\"messages\"]"));
+		JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].scrollIntoView();", Select);
+		m.Select_Message();
+		m.Select_Message_option1();
+		boolean Message_Edit = driver.findElement(By.id("mass-message")).isEnabled();
+		Assert.assertTrue(Message_Edit);
+		m.Message_to_Send("Hello");
+		
 
-}
+	}
 }

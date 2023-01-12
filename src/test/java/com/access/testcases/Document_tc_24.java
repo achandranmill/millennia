@@ -18,7 +18,7 @@ import com.access.pageobject.loginpage;
 public class Document_tc_24 extends BaseClass
 
 {
-	
+
 	public void Forms() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -30,17 +30,17 @@ public class Document_tc_24 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		System.out.println("USER LOCATION IS PRESENT");
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
-		//-----------------------REGISTRATION PAGE-----------------------
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -70,13 +70,13 @@ public class Document_tc_24 extends BaseClass
 		Thread.sleep(10000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(10000);
-        addp.Clip_Comment("Nill");
+		addp.Clip_Comment("Nill");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.Clip_Addpatient();
 		Thread.sleep(10000);
-        //--------------------------APPOINTMENT PAGE-------------------------
-        Appointments ap=new Appointments(driver);
+		//--------------------------APPOINTMENT PAGE-------------------------
+		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		ap.SearchLastName("chandke");
 		ap.SearchButton();
@@ -101,8 +101,7 @@ public class Document_tc_24 extends BaseClass
 		WebElement complete = driver.findElement(By.xpath("//span[contains(text(),'COMPLETE')]"));
 		String ExpectedText = "COMPLETE";
 		Assert.assertEquals(ExpectedText, complete.getText());
-		System.out.println("COMPLETE text is a expected – Assert passed");
-		Thread.sleep(5000);
+        Thread.sleep(5000);
 		r.makechanges();
 		r.RCB_FirstName("vivek");
 		r.RCB_LastName("roy");
@@ -114,11 +113,11 @@ public class Document_tc_24 extends BaseClass
 		Thread.sleep(10000);
 		List<WebElement> list = driver.findElements(By.xpath(""));
 		System.out.println(list.size());
-		
+
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
-			
+
 			if(listitem.contains("roy vivek"))
 			{
 				list.get(i).click();
@@ -131,9 +130,9 @@ public class Document_tc_24 extends BaseClass
 		WebElement R_RCB_complete = driver.findElement(By.xpath("//span[contains(text(),'COMPLETE')]"));
 		String R_RCB_ExpectedText = "COMPLETE";
 		Assert.assertEquals(R_RCB_ExpectedText, R_RCB_complete.getText());
-		System.out.println("COMPLETE text is a expected – Assert passed");
+		System.out.println("Test case Passed");
 		Thread.sleep(5000);
-		
 
-}
+
+	}
 }

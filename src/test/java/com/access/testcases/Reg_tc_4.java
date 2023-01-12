@@ -2,6 +2,9 @@ package com.access.testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -25,22 +28,22 @@ public class Reg_tc_4 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		System.out.println("USER LOCATION IS PRESENT");
-        }
-        catch(Exception e) 
-       {
-	   System.out.println("USER LOCATION IS Not PRESENT");
-	
-       }
-//-----------------REGISTRATION PAGE ------------------------------
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		Thread.sleep(5000);
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-		r.clickredit("rajput", "praveen", "kumar");
+		r.clickredit("Rajput", "Praveen", "Kumar");
 		Thread.sleep(3000);
 		r.Editdate();
 		r.txtdate("03122022");
@@ -48,7 +51,7 @@ public class Reg_tc_4 extends BaseClass
 		r.txtEditAPPTTIME("09:45");
 		r.AMPM();
 		r.APPLIAM();
-		r.gender("male");
+		r.gender("Male");
 		Thread.sleep(5000);
 		r.Editseeing();
 		Thread.sleep(3000);
@@ -56,21 +59,24 @@ public class Reg_tc_4 extends BaseClass
 		Thread.sleep(3000);
 		r.Email("ravi@gmail.com");
 		Thread.sleep(3000);
-		r.contactname("praveen");
+		r.contactname("Praveen");
 		Thread.sleep(3000);
 		r.contactnumber("7777777777");
 		Thread.sleep(3000);
 		r.Editcopay();
-		Reporter.log("Editcopay");
 		Thread.sleep(3000);
 		r.Copay("7000");
-		Reporter.log("Copay");
 		Thread.sleep(3000);
-        r.comment("complete");
-		Reporter.log("comment");
+		r.comment("Routine checkup");
 		Thread.sleep(3000);
 		r.FLAGS();
-		Reporter.log("FLAGS");
 		Thread.sleep(3000);
+		r.Previous();
+		Thread.sleep(1000);
+		r.NEXT();
+		Thread.sleep(5000);
+		WebElement Patient_Name = driver.findElement(By.xpath("//span[contains(text(),'Rajput, Praveen')]"));
+		Assert.assertTrue(Patient_Name.isDisplayed(), "Patient not displayed");
+		
 	}
 }

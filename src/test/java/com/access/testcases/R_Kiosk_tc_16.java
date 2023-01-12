@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Kiosk;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -22,10 +23,20 @@ public class R_Kiosk_tc_16 extends BaseClass
 		lp.setPassword(password);
 		lp.clickSubmit();
 		Thread.sleep(10000);
-		//AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -41,7 +52,7 @@ public class R_Kiosk_tc_16 extends BaseClass
 		WebElement DOB_FORMAT = driver.findElement(By.xpath("//span[contains(text(),'mm/dd/yyyy')]"));
 		String Expected = "mm/dd/yyyy";
 		Assert.assertEquals(DOB_FORMAT.getText(), Expected);
-		System.out.println("MM/DD/YYYY Format is Display - PASSED");
+		System.out.println("MM/DD/YYYY Format displayed");
 		Thread.sleep(1000);
 		k.Kiosk_DOB();
 		Thread.sleep(1000);

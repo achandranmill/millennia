@@ -24,9 +24,19 @@ public class Massm_tc_18 extends BaseClass
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
@@ -59,6 +69,6 @@ public class Massm_tc_18 extends BaseClass
 		ab.Advance_Firstname("rakesh");
 		Thread.sleep(10000);
 		ab.Searchbtn();
-	
-}
+
+	}
 }

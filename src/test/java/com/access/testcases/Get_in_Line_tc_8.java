@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Get_In_Line;
 import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
@@ -24,10 +25,20 @@ public class Get_in_Line_tc_8 extends BaseClass
 	lp.setPassword(password);
 	lp.clickSubmit();
 	Thread.sleep(3000);
-	//AdmUser ad=new AdmUser(driver);
-	//ad.userlocation();
-	//Thread.sleep(5000);
-	//ad.okbutton();
+	AdmUser ad=new AdmUser(driver);
+	try
+	{
+	ad.userlocation();
+	Thread.sleep(5000);
+	ad.okbutton();
+	 System.out.println("User location is present");
+    }
+    catch(Exception e) 
+    {
+    System.out.println("User location is not present");
+    		
+    }
+   //-----------------REGISTRATION PAGE ------------------------------
 	RegtPage r=new RegtPage(driver);
 	r.clickRegistrationPage();
 	Thread.sleep(3000);
@@ -75,15 +86,15 @@ public class Get_in_Line_tc_8 extends BaseClass
 	Thread.sleep(30000);
 	WebElement Name=driver.findElement(By.xpath("// span [contains(text(),'1-chirag gayke')]"));
 	Assert.assertEquals(true, Name.isDisplayed());
-	System.out.println("Visit Code IS Displayed- Assert PASS");
+	System.out.println("Visit code displayed");
 	Thread.sleep(1000);
 	WebElement connect=driver.findElement(By.xpath("//span[@ng-switch-when='Status']//span[contains(text(),'Connect Check In')]"));
 	Assert.assertEquals(true, connect.isDisplayed());
-	System.out.println("Status is Displayed- Assert PASS");
+	System.out.println("Status  displayed");
 	Thread.sleep(1000);
 	WebElement DOB=driver.findElement(By.xpath("//span[contains(text(),'09/09/1999')]"));
 	Assert.assertEquals(true, DOB.isDisplayed());
-	System.out.println("DOB is Displayed- Assert Pass");
+	System.out.println("DOB displayed");
 	
 	
 }

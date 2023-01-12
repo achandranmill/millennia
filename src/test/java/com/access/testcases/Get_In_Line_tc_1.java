@@ -32,11 +32,14 @@ public class Get_In_Line_tc_1 extends BaseClass
 	ad.userlocation();
 	Thread.sleep(5000);
 	ad.okbutton();
-	}
-	catch(Exception e)
-	{
-		System.out.println("User Location is not Display");
-	}
+	 System.out.println("User location is present");
+    }
+    catch(Exception e) 
+    {
+    System.out.println("User location is not present");
+    		
+    }
+   //-----------------REGISTRATION PAGE ------------------------------
 	RegtPage r=new RegtPage(driver);
 	r.clickRegistrationPage();
 	Thread.sleep(3000);
@@ -60,7 +63,7 @@ public class Get_In_Line_tc_1 extends BaseClass
 	Thread.sleep(20000);
     WebElement Register=driver.findElement(By.xpath("//label[@for=\"register-acc\"]"));
 	Assert.assertEquals(true, Register.isDisplayed());
-	System.out.println("Register is Displayed- ASSERT PASS");
+	System.out.println("Register Displayed-  Passed");
 	of.Register();
 	
 	

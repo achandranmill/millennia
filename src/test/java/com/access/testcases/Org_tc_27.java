@@ -11,37 +11,46 @@ import com.access.pageobject.loginpage;
 @Test
 public class Org_tc_27 extends BaseClass
 {
-	 public void Organization() throws Exception
+	public void Organization() throws Exception
+	{
+		loginpage lp=new loginpage(driver);
+		lp.setUserName(email);
+		lp.setPassword(password);
+		lp.clickSubmit();
+		Thread.sleep(3000);
+		AdmUser ad=new AdmUser(driver);
+		try
 		{
-			loginpage lp=new loginpage(driver);
-			lp.setUserName(email);
-			lp.setPassword(password);
-			lp.clickSubmit();
-			Thread.sleep(3000);
-			AdmUser ad=new AdmUser(driver);
 			ad.userlocation();
 			Thread.sleep(5000);
 			ad.okbutton();
-			RegtPage r=new RegtPage(driver);
-			r.clickRegistrationPage();
-			Thread.sleep(3000);
-			Provider pd = new Provider(driver);
-		//	pd.LocationPopup("Florida");
-			Thread.sleep(3000);
-			pd.UserAdmin();
-			Thread.sleep(3000);
-			pd.Admin();
-			Thread.sleep(3000);
-			Organization og = new Organization(driver);
-			og.Organization();
-			Thread.sleep(3000);
-			og.Documents();
-			Thread.sleep(2000);
-			og.DocumentSelectSelfPayForm();
-			Thread.sleep(2000);
-			og.DocumentSelectSelfPayForm1();
-			Thread.sleep(2000);
-			og.DocumentSelfPayFormSave();
-			Thread.sleep(2000);
-}
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+		Provider pd = new Provider(driver);
+		Thread.sleep(3000);
+		pd.UserAdmin();
+		Thread.sleep(3000);
+		pd.Admin();
+		Thread.sleep(3000);
+		Organization og = new Organization(driver);
+		og.Organization();
+		Thread.sleep(3000);
+		og.Documents();
+		Thread.sleep(2000);
+		og.DocumentSelectSelfPayForm();
+		Thread.sleep(2000);
+		og.DocumentSelectSelfPayForm1();
+		Thread.sleep(2000);
+		og.DocumentSelfPayFormSave();
+		Thread.sleep(2000);
+	}
 }

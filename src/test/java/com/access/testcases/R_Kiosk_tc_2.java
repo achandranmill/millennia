@@ -1,6 +1,7 @@
 package com.access.testcases;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,8 @@ import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.Kiosk;
+import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.WorkListPage;
 import com.access.pageobject.loginpage;
@@ -16,7 +19,7 @@ import com.access.pageobject.loginpage;
 public class R_Kiosk_tc_2 extends BaseClass
 
 {
-	
+
 	public void Kiosk() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -25,75 +28,84 @@ public class R_Kiosk_tc_2 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
-
-		Clipboard addp=new Clipboard(driver);
-		addp.LinkclickBoard();
-		Thread.sleep(5000);
-		//User Enter lastName
-		addp.lname("Mishra");
-		//User Enter FirstName
-		addp.fname("mohit");
-		//User Enter MiddleName
-		addp.mname("kumar");
-		//User Enter Birthdate
-		addp.DOB("01091999");
-		//User Enter PhoneNumber
-		addp.pnumber("7777777777");
-		Thread.sleep(2000);
-		//User Enter Email
-		addp.textemail("mishra@gmail.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_Type();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_option();
+		Provider pd = new Provider(driver);
+//		pd.LocationPopup("Florida");
 		Thread.sleep(10000);
-		//addp.Clip_Seeing();
-		//Thread.sleep(1000);
-		//addp.Clip_Thoms();
+		pd.UserAdmin();
 		Thread.sleep(3000);
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
-		addp.sendSmsMessages();
-		addp.sendEmailMessages();
-		Thread.sleep(20000);
-		addp.Clip_Addpatient();
+		pd.Admin();
+		Thread.sleep(3000);
+		Kiosk k = new Kiosk(driver);
+		k.Department_Link();
+		Thread.sleep(1000);
+		k.Kiosk();
 		Thread.sleep(10000);
-		addp.Clip_Checkin();
-		 Thread.sleep(10000);
-		 addp.Alert_ok();
-		 Thread.sleep(20000);
-		 WorkListPage w = new WorkListPage(driver);
-			w.worklist();
-			Thread.sleep(10000);			
-			w.Searchworklist();
-			w.Searchl("mishra");
-			w.Searchf("mohit");
-			Thread.sleep(20000);
-			List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody"));
-			System.out.println(list.size());
-			
-			for(int i=0;i<list.size();i++)
-			{
-				String listitem=list.get(i).getText();
-				if(listitem.contains("mishra mohit"))
-					Thread.sleep(3000);
-				{
-					list.get(i).click();
-					break;
-				}
-			}
-			Thread.sleep(10000);
-		 
-		 
+		k.Kiosk_Skip();
+		Thread.sleep(1000);
+		k.Kiosk_Savebutton();
+		Thread.sleep(10000);
+        driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
+		Thread.sleep(10000);
+		k.Press_HereTo_Start();
+		Thread.sleep(10000);
+		k.FirstName("Awdesh");
+		Thread.sleep(1000);
+		k.LastName("Jain");
+		Thread.sleep(1000);
+		k.CHECK_IN();
+		Thread.sleep(10000);
+		//driver.get("https://access-staging-a.jellyfishhealth.com");
+		driver.get(baseURL);
+		Thread.sleep(10000);
+		//User Check Successful login on valid email and password
+        k.Login_email("user_test@mailinator.com");
+		Thread.sleep(10000);
+		k.Login_password("Imenso@test123");
+		Thread.sleep(10000);
+		k.Login_submit();
+		Thread.sleep(10000);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+       // r.clickRegistrationPage();
+	   //Thread.sleep(5000);
+        WorkListPage w = new WorkListPage(driver);
+		w.worklist();
+		Thread.sleep(10000);
+		w.Searchworklist();
+		w.Searchl("jain");
+		w.Searchf("Awdesh");
+		//List<WebElement>list= driver.findElement(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody"));
+		//System.out.println(list.size());
+		
+		//for(int i=0;i<list.size();i++)
+		//{
+		//	String listitem=list.get(i).getText();
+		//if(listitem.matches("jain , Awdesh"));
+		//{
+		//	list.get(i).click();
+		//	break;
+		//}
+		//}
+		Thread.sleep(10000);
+		
+		
+
+
 	}
 
 }

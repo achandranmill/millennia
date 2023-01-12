@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import com.access.pageobject.*;
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.Get_In_Line;
@@ -18,7 +19,7 @@ import com.access.pageobject.loginpage;
 public class Document_tc_1 extends BaseClass
 
 {
-	
+
 	public void Document() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -29,22 +30,23 @@ public class Document_tc_1 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		System.out.println("USER LOCATION IS PRESENT");
-    	}
-    	catch(Exception e) 
-    	{
-    		System.out.println("USER LOCATION IS Not PRESENT");
-    		
-    	}
-		RegtPage r=new RegtPage(driver);
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		Thread.sleep(10000);
+		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-//		pd.LocationPopup("Florida");
+		//		pd.LocationPopup("Florida");
 		Thread.sleep(10000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -59,13 +61,13 @@ public class Document_tc_1 extends BaseClass
 		Thread.sleep(20000);
 		//of.Getin_Next();
 		//Thread.sleep(10000);
-		of.Email("yash@mailinator.com");
+		of.Email("ram@gmail.com");
 		Thread.sleep(3000);
-		of.Password("R@avi1234");
+		of.Password("R@am1234");
 		Thread.sleep(3000);
-		of.Confirm_Password("R@avi1234");
+		of.Confirm_Password("R@am1234");
 		Thread.sleep(3000);
-		of.First_name("Yash");
+		of.First_name("Ram");
 		Thread.sleep(3000);
 		of.Location1("Yadav");
 		Thread.sleep(3000);
@@ -86,34 +88,41 @@ public class Document_tc_1 extends BaseClass
 		of.Send_Voice();
 		Thread.sleep(3000);
 		of.Terms();
-		Thread.sleep(1000);
-		of.Guest_Robot();
-		Thread.sleep(1000);
-	    of.REGISTERANDGET_LINE();
-	    Thread.sleep(20000);
-        of.My_Documents();
-       //r.RCB_Report();
-		r.RCB_FirstName("vivek");
-		r.RCB_LastName("roy");
-		r.RCB_Dob("09081994");
+		Thread.sleep(5000);
+		of.Robot();
 		Thread.sleep(3000);
-		r.RCB_Ssn("777777777");
-		Thread.sleep(3000);
-		r.RCB_PatientStreetAddress("india");
-		r.RCB_ZipCode("451010");
-		r.RCB_Signature();
-		r.RCB_Signature2();
-		Thread.sleep(3000);
-		r.RCB_save();
+		of.REGISTERANDGET_LINE();
 		Thread.sleep(20000);
+        of.My_Documents();
+		Document d  =  new Document(driver);
+		d.RCB_edit();
+		Thread.sleep(1000);
+		d.RCB_First_Name("Ujjawal");
+		d.RCB_Last_Name("yadav");
+		d.RCB_DOB("01091999");
+		d.RCB_SSN("123456789");
+		d.RCB_PATIENT("48,Road");
+		d.RCB_SIGNATURE1();
+		d.RCB_Signature2();
+		d.RCB_DONE();
+		Thread.sleep(5000);
 		WebElement complete = driver.findElement(By.xpath(" //span[contains(text(),'COMPLETE')]"));
 		String ExpectedText2 = "COMPLETE";
 		Assert.assertEquals(ExpectedText2, complete.getText());
-		System.out.println("COMPLETE text is a expected – Assert passed");
+		System.out.println("Test case Passed");
 		Thread.sleep(5000);
-		
-		
+		WebElement e = driver.findElement(By.xpath("//span[@class=\"label status-label ng-binding label-success\"]"));
+		String back_color = e.getCssValue("background-color");
+		System.out.println(back_color);
+		String hex_back_color = Color.fromString(back_color).asHex();
+		System.out.println(hex_back_color);
+		if(hex_back_color.equals("#2ECC71"))
+			System.out.println("Test case passed");
+		else
+			System.out.println("Test case failed");
+
+
 	}
-	
+
 
 }

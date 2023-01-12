@@ -16,7 +16,7 @@ import com.access.pageobject.loginpage;
 public class Document_tc_17 extends BaseClass
 
 {
-	
+
 
 	public void Document() throws Exception
 	{
@@ -26,9 +26,19 @@ public class Document_tc_17 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -69,16 +79,16 @@ public class Document_tc_17 extends BaseClass
 		Thread.sleep(10000);
 		addp.Clip_Checkin();
 		addp.Alert_ok();
-		 Thread.sleep(10000);
-		 addp.lname("s");
-		 Thread.sleep(10000);
+		Thread.sleep(10000);
+		addp.lname("s");
+		Thread.sleep(10000);
 		r.Registration();
 		Thread.sleep(2000);
 		r.search("mahajan", "rohan");
 		Thread.sleep(10000);
 		List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody"));
 		System.out.println(list.size());
-		
+
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
@@ -103,10 +113,10 @@ public class Document_tc_17 extends BaseClass
 		WebElement INcomplete = driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul/li[1]/a/div"));
 		String ExpectedText = "INCOMPLETE";
 		Assert.assertEquals(ExpectedText, INcomplete.getText());
-		System.out.println("INCOMPLETE text is a expected – Assert passed");
+		System.out.println("Test case passed");
 		Thread.sleep(5000);
-		
-		
+
+
 	}
 
 }

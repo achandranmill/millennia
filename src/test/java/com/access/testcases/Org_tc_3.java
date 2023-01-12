@@ -13,7 +13,7 @@ import com.access.pageobject.loginpage;
 public class Org_tc_3 extends BaseClass
 
 {
-	
+
 	public void Organization() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -22,14 +22,23 @@ public class Org_tc_3 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-	//	pd.LocationPopup("Florida");
 		Thread.sleep(3000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -42,11 +51,11 @@ public class Org_tc_3 extends BaseClass
 		Thread.sleep(2000);
 		og.AttributesAddAttribute();
 		Thread.sleep(2000);
-		og.AttributeName("software");
+		og.AttributeName("Software");
 		Thread.sleep(2000);
-		og.AttributeValue("addd");
+		og.AttributeValue("Add");
 		Thread.sleep(2000);
 		og.AttributeCancelButton();
 
-}
+	}
 }

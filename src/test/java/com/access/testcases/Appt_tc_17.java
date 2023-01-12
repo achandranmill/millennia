@@ -29,17 +29,17 @@ public class Appt_tc_17 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		System.out.println("USER LOCATION IS PRESENT");
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
-		//-----------------------REGISTRATION PAGE-----------------------
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -48,7 +48,7 @@ public class Appt_tc_17 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("chandke");
+		addp.lname("Mahveer");
 		//User Enter FirstName
 		addp.fname("Umesh");
 		//User Enter MiddleName
@@ -63,34 +63,50 @@ public class Appt_tc_17 extends BaseClass
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Location();
 		Thread.sleep(2000);
+		addp.Clip_Seeing();
+		addp.Clip_Thoms();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
-        addp.Clip_Comment("Nill");
+		addp.Clip_Comment("Routine checkup");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.Clip_Addpatient();
 		Thread.sleep(10000);
-        //--------------------------APPOINTMENT PAGE-------------------------
+		//--------------------------APPOINTMENT PAGE-------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
-		WebElement UNCONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'UNCONFIRMED'\"]"));
-		String UNCONFIRM_EXPECTED = "UNCONFIRMED";
-		Assert.assertEquals(UNCONFIRM_PATIENT.getText(), UNCONFIRM_EXPECTED);
-		System.out.println("UNCONFIRM_STATUS IS DISPLAYED---PASSED");
-		Thread.sleep(10000);
+		Thread.sleep(15000);
+		
 		//-------------------------------CONFIGURE LIST---------------------
 		ap.Configurelist();
 		Thread.sleep(10000);
 		ap.EditStatusFilter();
-		Thread.sleep(3000);
-		ap.StatusUnconfirmed();
 		Thread.sleep(2000);
-		ap.StatusConfirmed();
+		WebElement SelectAll = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		if(SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(2000);
+		ap.StatusUnconfirmed();
 		Thread.sleep(2000);
 		ap.StatusSave();
 		Thread.sleep(10000);
+		ap.SearchLastName("Mahveer");
+		ap.SearchButton();
+		Thread.sleep(15000);
+		WebElement UNCONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'UNCONFIRMED'\"]"));
+		String UNCONFIRM_EXPECTED = "UNCONFIRMED";
+		Assert.assertEquals(UNCONFIRM_PATIENT.getText(), UNCONFIRM_EXPECTED);
+		System.out.println("Unconfirmed status is displayed---Passed");
+		Thread.sleep(10000);
+		ap.Patient_Displayed();
 
 	}
 

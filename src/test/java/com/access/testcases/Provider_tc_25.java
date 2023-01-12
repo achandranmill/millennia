@@ -12,7 +12,7 @@ import com.access.pageobject.loginpage;
 public class Provider_tc_25 extends BaseClass
 
 {
-	
+
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -21,14 +21,23 @@ public class Provider_tc_25 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-		//pd.LocationPopup("Florida");
 		Thread.sleep(3000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -50,19 +59,19 @@ public class Provider_tc_25 extends BaseClass
 		Thread.sleep(3000);
 		pd.Tuesday();
 		Thread.sleep(3000);
-        pd.TuesdayFrom("05");
-        Thread.sleep(3000);
-        pd.TuesdayFrom2("00");
-        Thread.sleep(3000);
-        pd.AMPM();
-        Thread.sleep(3000);
-        pd.TuesdayTO("09");
-        Thread.sleep(2000);
-        pd.TuesdayTO2("00");
-        Thread.sleep(3000);
-        pd.TuesdayTOPMAM();
-        Thread.sleep(2000);
-        pd.TuesdayCapacity("5");
-        
-}
+		pd.TuesdayFrom("05");
+		Thread.sleep(3000);
+		pd.TuesdayFrom2("00");
+		Thread.sleep(3000);
+		pd.AMPM();
+		Thread.sleep(3000);
+		pd.TuesdayTO("09");
+		Thread.sleep(2000);
+		pd.TuesdayTO2("00");
+		Thread.sleep(3000);
+		pd.TuesdayTOPMAM();
+		Thread.sleep(2000);
+		pd.TuesdayCapacity("5");
+
+	}
 }

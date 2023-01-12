@@ -22,19 +22,27 @@ public class Palkup_tc_6 extends BaseClass
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		UserTestPage u =new  UserTestPage(driver);
 
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-
 		u.linkUserTest();
 		Thread.sleep(3000);
 		u.patientLookup();
-
 		u.Location();
 		Thread.sleep(3000);
 		u.CheckAll();
@@ -43,7 +51,6 @@ public class Palkup_tc_6 extends BaseClass
 		u.daterangepicker_start("2022-09-01");
 		u.daterangepicker_end("2022-10-12");
 		u.DateApply();
-
 		u.Search();
 		Thread.sleep(3000);
 	}

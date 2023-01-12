@@ -1,9 +1,13 @@
 package com.access.testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.Kiosk;
+import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
@@ -20,54 +24,56 @@ public class R_Kiosk_tc_1 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
+		try
+		{
 		ad.userlocation();
 		Thread.sleep(5000);
 		ad.okbutton();
+		 System.out.println("User location is present");
+	    }
+	    catch(Exception e) 
+	    {
+	    System.out.println("User location is not present");
+	    		
+	    }
+	   //-----------------REGISTRATION PAGE ------------------------------
 		
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
-
-		Clipboard addp=new Clipboard(driver);
-		addp.LinkclickBoard();
+		Provider pd = new Provider(driver);
+//		pd.LocationPopup("Florida");
 		Thread.sleep(10000);
-		//User Enter lastName
-		addp.lname("Mishra");
-		//User Enter FirstName
-		addp.fname("mohit");
-		//User Enter MiddleName
-		addp.mname("kumar");
-		//User Enter Birthdate
-		addp.DOB("01091999");
-		//User Enter PhoneNumber
-		addp.pnumber("7777777777");
-		Thread.sleep(2000);
-		//User Enter Email
-		addp.textemail("mishra@gmail.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_Type();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_option();
-		Thread.sleep(10000);
-		//addp.Clip_Seeing();
-		//Thread.sleep(1000);
-		//addp.Clip_Thoms();
+		pd.UserAdmin();
 		Thread.sleep(3000);
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
-		addp.sendSmsMessages();
-		addp.sendEmailMessages();
-		Thread.sleep(20000);
-		addp.Clip_Addpatient();
+		pd.Admin();
+		Thread.sleep(3000);
+		Kiosk k = new Kiosk(driver);
+		k.Department_Link();
+		Thread.sleep(1000);
+		k.Kiosk();
 		Thread.sleep(10000);
-		addp.Clip_Checkin();
-		 Thread.sleep(10000);
-		 addp.Alert_ok();
-		 Thread.sleep(2000);
-		 
+		WebElement SAKIP =driver.findElement(By.xpath("//*[@id=\"skip-results\"]"));
+		if(SAKIP.isSelected())
+		{
+			System.out.println("Selected");
+		}
+		else
+		{
+			SAKIP.click();
+		}
+		Thread.sleep(1000);
+		k.Kiosk_Savebutton();
+		Thread.sleep(10000);
+        driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
+		Thread.sleep(10000);
+		k.Press_HereTo_Start();
+		Thread.sleep(10000);
+		k.FirstName("Awdesh");
+		Thread.sleep(1000);
+		k.LastName("Jain");
+		Thread.sleep(1000);
+		k.CHECK_IN();
 		 
 	}
 }

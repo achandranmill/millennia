@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_17 extends BaseClass
 {
-	
+
 	//Validate  that user able to filter record by applying Lastname, firstname, email address and role filter
 	@Test
 	public void AdmUser() throws InterruptedException 
@@ -22,12 +22,21 @@ public class AdmUser_tc_17 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+
 		AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
-		Thread.sleep(5000);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		ad.registration();
 		ad.admprofile();
 		Thread.sleep(5000);
@@ -45,7 +54,7 @@ public class AdmUser_tc_17 extends BaseClass
 		Thread.sleep(5000);
 		ad.filterbtnclk();
 		Thread.sleep(5000);
-		
+
 	}
 
 }

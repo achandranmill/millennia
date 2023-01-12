@@ -25,9 +25,19 @@ public class Self_Schedule_tc_15 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
@@ -54,16 +64,16 @@ public class Self_Schedule_tc_15 extends BaseClass
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
-		//Thread.sleep(10000);
-		//addp.Clip_Seeing();
-		//Thread.sleep(1000);
-		//addp.Clip_Thoms();
+		Thread.sleep(10000);
+		addp.Clip_Seeing();
+		Thread.sleep(1000);
+		addp.Clip_Thoms();
 		addp.Clip_Flag();
 		addp.Clip_Flag_Option();
 		Thread.sleep(3000);
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
+		addp.Clip_Comment("Routine checkup");
+		addp.Clip_Reason("only checkup");
+		addp.Clip_Copay("10000");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.printAccessPass();
@@ -73,21 +83,21 @@ public class Self_Schedule_tc_15 extends BaseClass
 		addp.Clip_LinkSelfoption();
 		Thread.sleep(3000);
 		addp.Clip_LinkPatientismyParent();
-        Thread.sleep(3000);
+		Thread.sleep(3000);
 		addp.Clip_Addpatient();
 		Thread.sleep(3000);
 		addp.Clip_Checkin();
 		Thread.sleep(5000);
 		addp.Accesssprint_close();
-		 addp.lname("s");
-		 Thread.sleep(10000);
+		addp.lname("s");
+		Thread.sleep(10000);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
 		r.search("jadhav", "raja");
 		Thread.sleep(20000);
 		List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody/tr[1]"));
 		System.out.println(list.size());
-		
+
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
@@ -108,7 +118,7 @@ public class Self_Schedule_tc_15 extends BaseClass
 		r.Forms_on_Demand_send();
 		Thread.sleep(10000);
 		r.GotopatientDetails();
-        Thread.sleep(10000);
+		Thread.sleep(10000);
 		r.Gotopatient_Forms();
 		Thread.sleep(5000);
 		r.COVIDScreeningForm();
@@ -157,9 +167,9 @@ public class Self_Schedule_tc_15 extends BaseClass
 		String ExpectedTitle = "COMPLETE";
 		Assert.assertEquals(COMPLETE.getText(), ExpectedTitle);
 		Thread.sleep(10000);
-		
+
 	}
-	
-	
-	
+
+
+
 }

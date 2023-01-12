@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.Kiosk;
+import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
@@ -11,7 +13,7 @@ import com.access.pageobject.loginpage;
 public class R_Kiosk_tc_3 extends BaseClass
 
 {
-	
+
 	public void Kiosk() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -20,37 +22,46 @@ public class R_Kiosk_tc_3 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------		
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
-
-		Clipboard addp=new Clipboard(driver);
-		addp.LinkclickBoard();
-		Thread.sleep(5000);
-		//User Enter lastName
-		addp.lname("Mishra");
-		//User Enter FirstName
-		addp.fname("mohit");
-		//User Enter MiddleName
-		addp.mname("kumar");
-		//User Enter Birthdate
-		addp.DOB("01091999");
-		//User Enter PhoneNumber
-		addp.pnumber("7777777777");
-		Thread.sleep(2000);
-		//User Enter Email
-		addp.textemail("mishra@gmail.com");
-	    addp.sendSmsMessages();
-		addp.sendEmailMessages();
-		Thread.sleep(20000);
-		addp.Clip_Addpatient();
+		Provider pd = new Provider(driver);
 		Thread.sleep(10000);
-		addp.Clip_Checkin();
-		 Thread.sleep(10000);
-		 addp.Alert_ok();
-		 Thread.sleep(20000);
+		pd.UserAdmin();
+		Thread.sleep(3000);
+		pd.Admin();
+		Thread.sleep(3000);
+		Kiosk k = new Kiosk(driver);
+		k.Department_Link();
+		Thread.sleep(1000);
+		k.Kiosk();
+		Thread.sleep(10000);
+		k.Kiosk_Skip();
+		Thread.sleep(1000);
+		k.Kiosk_Savebutton();
+		Thread.sleep(10000);
+		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
+		Thread.sleep(10000);
+		k.Press_HereTo_Start();
+		Thread.sleep(10000);
+		k.FirstName("Awdesh");
+		Thread.sleep(1000);
+		k.LastName("Jain");
+		Thread.sleep(1000);
+		k.CHECK_IN();
+		Thread.sleep(10000);
 	}
 }

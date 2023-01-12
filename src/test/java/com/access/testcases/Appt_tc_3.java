@@ -1,8 +1,10 @@
 package com.access.testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -18,7 +20,7 @@ import com.access.pageobject.loginpage;
 public class Appt_tc_3 extends BaseClass
 {
 
-    //----------------------EDIT PATEINT-------------------
+	//----------------------EDIT PATEINT-------------------
 
 	public void Appointments() throws Exception
 	{
@@ -29,18 +31,17 @@ public class Appt_tc_3 extends BaseClass
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-		driver.manage().deleteAllCookies();
-		try {
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
 		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
@@ -50,9 +51,9 @@ public class Appt_tc_3 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("yadav");
+		addp.lname("Sing");
 		//User Enter FirstName
-		addp.fname("sumitraji");
+		addp.fname("Surjeet");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -71,15 +72,33 @@ public class Appt_tc_3 extends BaseClass
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
-        addp.Clip_Comment("Nill");
+		addp.Clip_Comment("Routine checkup");
 		addp.sendSmsMessages();
-		addp.sendEmailMessages();
+		//addp.sendEmailMessages();
 		addp.Clip_Addpatient();
 		Thread.sleep(10000);
 		//---------------APPOINTMENT PAGE----------------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
+		Thread.sleep(30000);
+		//--------------------------ADVANCE SEARCH BUTTON------------------------------
+		WebElement AdvanceSearch = driver.findElement(By.xpath("//button[contains(text(),'Advanced Search')]"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", AdvanceSearch);
+		Thread.sleep(1000);
+		ap.Advance_Lastname("Sing");
+		ap.Advance_Firstname("Surjeet");
+		ap.Advance_Initial("Thomson");
 		Thread.sleep(3000);
+		ap.Advance_Phone("9878900912");
+		ap.Advance_Email("user_test@mailinator.com");
+		ap.Advance_DOB("01031993");
+		Thread.sleep(3000);
+		ap.Advance_Mrn("");
+		//------------------------------------SEARCH BUTTON------------------------------
+		ap.Searchbtn();
+		Thread.sleep(30000);
+		ap.Patient_Displayed();
 		//----------------THREE DOT---------------------------------------
 		ap.ThreeDot();
 		Thread.sleep(10000);
@@ -87,8 +106,9 @@ public class Appt_tc_3 extends BaseClass
 		WebElement SetConfirmed = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'CONFIRMED'\"]"));
 		String CONFIRMED_Excepted = "CONFIRMED";
 		Assert.assertEquals(SetConfirmed.getText(), CONFIRMED_Excepted);
-		System.out.println("CONFIRMED_STATUS IS DISPLAY - ASSERT PASSED");
+		System.out.println("Confirmed Status displayed - Passed");
 		Thread.sleep(10000);
+		ap.Patient_Appointment_Displayed();
 		//----------------THREE DOT---------------------------------------
 		ap.ThreeDot();
 		Thread.sleep(3000);
@@ -103,13 +123,20 @@ public class Appt_tc_3 extends BaseClass
 		Thread.sleep(3000);
 		ap.EditSave();
 		Thread.sleep(10000);
+		ap.Patient_Appointment_Displayed();
 		//-------------------Navigate to the Patient on Reg Card------------------------
 		r.clickRegistrationPage();
-		Thread.sleep(1000);
-		r.search("yadav", "sumitraji");
-		Thread.sleep(1000);
-		
-		
+		Thread.sleep(30000);
+		r.search("Mahajan", "Surjeet");
+		Thread.sleep(20000);
+		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
+		Thread.sleep(10000);
+		System.out.println(list.size());
+		list.get(0);
+		Thread.sleep(10000);
+
+
+
 
 	}
 }

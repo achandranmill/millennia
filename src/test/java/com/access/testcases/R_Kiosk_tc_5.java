@@ -11,7 +11,7 @@ import com.access.pageobject.loginpage;
 public class R_Kiosk_tc_5 extends BaseClass
 
 {
-	
+
 	public void Kiosk() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -20,9 +20,19 @@ public class R_Kiosk_tc_5 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
@@ -50,13 +60,13 @@ public class R_Kiosk_tc_5 extends BaseClass
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(10000);
-		//addp.Clip_Seeing();
-		//Thread.sleep(1000);
-		//addp.Clip_Thoms();
+		addp.Clip_Seeing();
+		Thread.sleep(1000);
+		addp.Clip_Thoms();
 		Thread.sleep(3000);
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
+		addp.Clip_Comment("Routine checkup");
+		addp.Clip_Reason("only checkup");
+		addp.Clip_Copay("10000");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		Thread.sleep(20000);

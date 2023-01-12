@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class UserProfile_tc_07 extends BaseClass
 {
-	
+
 	@Test
 	public void Profile() throws InterruptedException 
 	{
@@ -22,17 +22,27 @@ public class UserProfile_tc_07 extends BaseClass
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		Thread.sleep(5000);
 		ad.admprofile();
 		Thread.sleep(5000);
 		com.access.pageobject.Profile pf=new com.access.pageobject.Profile(driver);
 		pf.useraccountsetting();
 		Thread.sleep(5000);
-		
-		
+
+
 	}
 
 }

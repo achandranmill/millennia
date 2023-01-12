@@ -15,7 +15,7 @@ public class Dep_PatList_tc_9 extends BaseClass
 {
 
 	//To verify that admin user able to click on Patient Lists link and Click on Appointments tab and Check box Functions working properly 
-	
+
 	public void departments() throws InterruptedException 
 	{
 		loginpage lp=new loginpage(driver);
@@ -24,15 +24,23 @@ public class Dep_PatList_tc_9 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-//		pd.LocationPopup("Florida");
 		Thread.sleep(3000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -68,24 +76,24 @@ public class Dep_PatList_tc_9 extends BaseClass
 		dept.returntoaccess();
 		Thread.sleep(2000);
 		Appointments ap=new Appointments(driver);
-        ap.linkAppointment();
-        Thread.sleep(5000);
-        ap.Configurelist();
-        Thread.sleep(2000);
-        ap.EditListColumns();
-        Thread.sleep(2000);
-        ap.Columns_Defaultsset();
-        Thread.sleep(5000);
-        ap.AppointDATE();
-        Thread.sleep(2000);
-        ap.AppointDATE1("20220301");
-        Thread.sleep(2000);
-        ap.AppointDATE2("20220430");
-        Thread.sleep(2000);
-        ap.AppointDATEAPPLY();
-        Thread.sleep(10000);
-        
-        
-		
-}
+		ap.linkAppointment();
+		Thread.sleep(5000);
+		ap.Configurelist();
+		Thread.sleep(2000);
+		ap.EditListColumns();
+		Thread.sleep(2000);
+		ap.Columns_Defaultsset();
+		Thread.sleep(5000);
+		ap.AppointDATE();
+		Thread.sleep(2000);
+		ap.AppointDATE1("20220301");
+		Thread.sleep(2000);
+		ap.AppointDATE2("20220430");
+		Thread.sleep(2000);
+		ap.AppointDATEAPPLY();
+		Thread.sleep(10000);
+
+
+
+	}
 }

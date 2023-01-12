@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.access.pageobject.AdmUser;
 import com.access.pageobject.Kiosk;
 import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
@@ -25,10 +26,20 @@ public class R_Kiosk_tc_14 extends BaseClass
 		lp.setPassword(password);
 		lp.clickSubmit();
 		Thread.sleep(10000);
-		//AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
+		ad.userlocation();
+		Thread.sleep(5000);
+		ad.okbutton();
+		 System.out.println("User location is present");
+	    }
+	    catch(Exception e) 
+	    {
+	    System.out.println("User location is not present");
+	    		
+	    }
+	   //-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -104,11 +115,11 @@ public class R_Kiosk_tc_14 extends BaseClass
 		Thread.sleep(10000);
 		WebElement Search_Again = driver.findElement(By.xpath("//button[contains(text(),'Search Again')]"));
 		Assert.assertEquals(true, Search_Again.isDisplayed());
-		System.out.println("Search Again is Displayed - Assert PASS");
+		System.out.println("Search Again button Displayed");
 		Thread.sleep(1000);
 		WebElement New_Appointment = driver.findElement(By.xpath("//button[contains(text(),'New Appointment')]"));
 		Assert.assertEquals(true, New_Appointment.isDisplayed());
-		System.out.println("New Appointment is Displayed - Assert Pass");
+		System.out.println("New Appointment button Displayed");
 		Thread.sleep(10000);
 		k.Search_Again();
 		Thread.sleep(10000);
@@ -130,11 +141,11 @@ public class R_Kiosk_tc_14 extends BaseClass
 		Thread.sleep(10000);
 		WebElement Search_Again2 = driver.findElement(By.xpath("//button[contains(text(),'Search Again')]"));
 		Assert.assertEquals(true, Search_Again2.isDisplayed());
-		System.out.println("Search Again is Displayed - Assert PASS");
+		System.out.println("Search Again button displayed");
 		Thread.sleep(1000);
 		WebElement New_Appointment2 = driver.findElement(By.xpath("//button[contains(text(),'New Appointment')]"));
 		Assert.assertEquals(true, New_Appointment2.isDisplayed());
-		System.out.println("New Appointment is Displayed - Assert Pass");
+		System.out.println("New Appointment button displayed");
 		Thread.sleep(10000);
 		k.New_Appointment();
 		Thread.sleep(1000);

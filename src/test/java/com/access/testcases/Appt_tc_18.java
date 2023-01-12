@@ -18,7 +18,7 @@ public class Appt_tc_18 extends BaseClass
 
 {
 	//---------------------------------Confirm / Unconfirm Appointment -------------------
-	
+
 	public void Appointments() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -30,17 +30,17 @@ public class Appt_tc_18 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		System.out.println("USER LOCATION IS PRESENT");
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
-		//-----------------------REGISTRATION PAGE-----------------------
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -49,7 +49,7 @@ public class Appt_tc_18 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("chandke");
+		addp.lname("Chandke");
 		//User Enter FirstName
 		addp.fname("Umesh");
 		//User Enter MiddleName
@@ -64,29 +64,54 @@ public class Appt_tc_18 extends BaseClass
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Location();
 		Thread.sleep(2000);
+		addp.Clip_Seeing();
+		addp.Clip_Thoms();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
-        addp.Clip_Comment("Nill");
+		addp.Clip_Comment("Routine checkup");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.Clip_Addpatient();
 		Thread.sleep(10000);
-        //--------------------------APPOINTMENT PAGE-------------------------
-        Appointments ap=new Appointments(driver);
+		//--------------------------APPOINTMENT PAGE-------------------------
+		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(10000);
-		ap.ThreeDot();
+		//-------------------------------CONFIGURE LIST---------------------
+		ap.Configurelist();
+		Thread.sleep(10000);
+		ap.EditStatusFilter();
 		Thread.sleep(2000);
+		WebElement SelectAll = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		if(SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(2000);
+		ap.StatusSave();
+		Thread.sleep(10000);
+		ap.SearchLastName("Chandke");
+		ap.SearchButton();
+		Thread.sleep(5000);
+		ap.Patient_Displayed();
+
 		//--------------------------THREE DOT ------------------------------
+		ap.ThreeDot();
+		Thread.sleep(10000);
 		ap.ThreDotSetConfirmed();
 		Thread.sleep(5000);
-		WebElement UNCONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'CONFIRMED'\"]"));
-		String UNCONFIRM_EXPECTED = "UNCONFIRMED";
-		Assert.assertEquals(UNCONFIRM_PATIENT.getText(), UNCONFIRM_EXPECTED);
-		System.out.println("CONFIRMED_STATUS IS DISPLAYED---PASSED");
+		WebElement CONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'CONFIRMED'\"]"));
+		String CONFIRM_EXPECTED = "CONFIRMED";
+		Assert.assertEquals(CONFIRM_PATIENT.getText(), CONFIRM_EXPECTED);
+		System.out.println("Confirmed status displayed");
 		Thread.sleep(10000);
-		
+		ap.Patient_Displayed();
+
 	}
 }

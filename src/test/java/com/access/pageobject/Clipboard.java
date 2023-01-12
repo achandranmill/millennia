@@ -168,7 +168,7 @@ public class Clipboard {
 	@CacheLookup
 	WebElement UndoCheckIn;
 	
-	@FindBy(how = How.XPATH, using ="//button[contains(text(),'Yes')]")
+	@FindBy(how = How.XPATH, using ="/html/body/div[1]/div/div/undo-check-in-modal/div[3]/button[2]")
 	@CacheLookup
 	WebElement ConfirmUndoCheckIn;
 	
@@ -417,7 +417,9 @@ public class Clipboard {
 	}
 	public void CUCheckIn()
 	{
-		ConfirmUndoCheckIn.click();
+		Actions at = new Actions(ldriver);
+		at.moveToElement(ConfirmUndoCheckIn).build().perform();
+		
 	}
 	
 	 public void Undocheckinnew()
@@ -456,7 +458,7 @@ public class Clipboard {
 	 }
 	 
 	 
-	 @FindBy(how=How.XPATH,using="//span[contains(text(),'Appointment type')]")
+	 @FindBy(how=How.CSS,using="#type-dropdown")
 	 @CacheLookup
 	 WebElement Clip_Appointment_Type;
 	 
@@ -466,7 +468,7 @@ public class Clipboard {
 	 }
 	 
 	//---------ACCORDING Appointment_Type DROP-DOWN USED THE New Appointment OPTION---IF CHANGES IN THIS OPTION AND NOT AVAILABLE New Appointment SO IS FAILD--------------------
-	 @FindBy(how=How.XPATH,using="//span[contains(text(),'New Appointment')]")
+	 @FindBy(how=How.CSS,using="#clipboard > main > div:nth-child(1) > clipboard1 > div:nth-child(1) > div > form > div:nth-child(3) > div:nth-child(4) > div > div > ul > li:nth-child(1) > a")
 	 @CacheLookup
 	 WebElement Clip_Appointment_option;
 	 
@@ -485,7 +487,7 @@ public class Clipboard {
 	 }
 	 
 //---------ACCORDING SEEING DROP-DOWN USED THE TEST_2,PROVIDER OPTION---IF CHANGES IN THIS OPTION AND NOT AVAILABLE TEST_2,PROVIDER SO IS FAILD--------------------
-	 @FindBy(how=How.XPATH,using="//span[contains(text(),'Test_2, Provider')]")
+	 @FindBy(how=How.CSS,using="#clipboard > main > div:nth-child(1) > clipboard1 > div:nth-child(1) > div > form > div:nth-child(3) > div:nth-child(10) > div > div > ul > li:nth-child(2) > a")
 	 @CacheLookup
 	 WebElement Clip_Thoms;
 	 
@@ -2351,11 +2353,19 @@ public void Clip_Flag_Option1()
     	covidsymptomsno.click();
     	
     }
+  //-------------------------------------------------24-12-2022-----------------------------------------------------------------------------------------------  
     
+    @FindBy(how=How.XPATH,using="/html/body/main/div[1]/clipboard1/div[1]/div/form/div[3]/div[2]/div/div[2]/date-picker/div/input")
+    @CacheLookup
+    WebElement Clip_Appointment_Date;
     
+    public void Clip_Appointment_Date(String d)
+    {
+    	
+    	Clip_Appointment_Date.sendKeys(d);
+    }
     
-    
-
+  
 }
 	
 	

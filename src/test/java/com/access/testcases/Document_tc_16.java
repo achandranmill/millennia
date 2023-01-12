@@ -17,7 +17,7 @@ public class Document_tc_16 extends BaseClass
 
 {
 
-	
+
 	public void Document() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -26,9 +26,19 @@ public class Document_tc_16 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
@@ -63,8 +73,8 @@ public class Document_tc_16 extends BaseClass
 		addp.Clip_Flag();
 		addp.clipflag1();
 		addp.Clip_Comment("Nill");
-	   //addp.Clip_Reason("only checkup");
-        //addp.Clip_Copay("10000");
+		//addp.Clip_Reason("only checkup");
+		//addp.Clip_Copay("10000");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.Clip_LinkConnectAccount();
@@ -74,36 +84,36 @@ public class Document_tc_16 extends BaseClass
 		addp.Clip_Addpatient();
 		Thread.sleep(10000);
 		addp.Clip_Checkin();
-		 Thread.sleep(10000);
-		 addp.Alert_ok();
-		 Thread.sleep(2000);
-		 addp.lname("s");
-		 Thread.sleep(10000);
+		Thread.sleep(10000);
+		addp.Alert_ok();
+		Thread.sleep(2000);
+		addp.lname("s");
+		Thread.sleep(10000);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
 		r.search("patidar", "rajendra");
 		Thread.sleep(10000);
-			List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
-			System.out.println(list.size());
-			
-			for(int i=0;i<list.size();i++)
+		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
+		System.out.println(list.size());
+
+		for(int i=0;i<list.size();i++)
+		{
+			String listitem=list.get(i).getText();
+			if(listitem.contains("patidar rajendra"))
 			{
-				String listitem=list.get(i).getText();
-				if(listitem.contains("patidar rajendra"))
-				{
-					list.get(i).click();
-					break;
-				}
+				list.get(i).click();
+				break;
 			}
-			
-			WebElement rajendra = driver.findElement(By.xpath("//span[contains(text(),'patidar, rajendra')]"));
-			String ExpectedText = "patidar, rajendra";
-			Assert.assertEquals(ExpectedText, rajendra.getText());
-			System.out.println("rajendra text is a expected – Assert passed");
-			Thread.sleep(5000);
-			
-		 
-	
+		}
+
+		WebElement rajendra = driver.findElement(By.xpath("//span[contains(text(),'patidar, rajendra')]"));
+		String ExpectedText = "patidar, rajendra";
+		Assert.assertEquals(ExpectedText, rajendra.getText());
+		System.out.println(" Test case Passed");
+		Thread.sleep(5000);
+
+
+
 	}
-	
+
 }

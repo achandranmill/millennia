@@ -15,8 +15,8 @@ import com.access.pageobject.loginpage;
 public class Appt_tc_14 extends BaseClass
 
 {
-	
-    //-------------------Message History-----------------------------------
+
+	//-------------------Message History-----------------------------------
 	public void Appointments() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -28,23 +28,23 @@ public class Appt_tc_14 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
+
 		//-----------------------REGISTRATION PAGE-----------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		//---------------------APPOINTMENT PAGE-------------------------
-        Appointments ap=new Appointments(driver);
+		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(3000);
 		//------------------DATE RANGE----------------------------------

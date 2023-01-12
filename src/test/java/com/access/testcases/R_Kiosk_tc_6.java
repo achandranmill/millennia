@@ -13,7 +13,7 @@ import com.access.pageobject.*;
 public class R_Kiosk_tc_6 extends BaseClass
 
 {
-	
+
 	public void Kiosk() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -21,15 +21,25 @@ public class R_Kiosk_tc_6 extends BaseClass
 		lp.setPassword(password);
 		lp.clickSubmit();
 		Thread.sleep(10000);
-		//AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-//		pd.LocationPopup("Florida");
+		//		pd.LocationPopup("Florida");
 		Thread.sleep(10000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -68,13 +78,13 @@ public class R_Kiosk_tc_6 extends BaseClass
 		Thread.sleep(10000);
 		k.Kiosk_PagetVerification_title("please verify the below information is correct");
 		Thread.sleep(1000);
-	    k.Kiosk_PagetVerification();
-	    Thread.sleep(1000);
+		k.Kiosk_PagetVerification();
+		Thread.sleep(1000);
 		k.Kiosk_pagename_VerificationfirstName();
 		Thread.sleep(1000);
 		k.Kiosk_pagename_VerificationlastName();
 		Thread.sleep(1000);
-        k.Kiosk_Pagename_Add();
+		k.Kiosk_Pagename_Add();
 		Thread.sleep(10000);
 		k.Kiosk_SearchAppointmentFlow();
 		Thread.sleep(1000);
@@ -101,7 +111,7 @@ public class R_Kiosk_tc_6 extends BaseClass
 		Thread.sleep(10000);
 		k.Kiosk_ExistingAppointment_Addpage();
 		Thread.sleep(10000);
-		k.Kiosk_ExistingAppointmen_Pagename("please Complete the Field");
+		k.Kiosk_ExistingAppointmen_Pagename("Please Complete the Field");
 		Thread.sleep(10000);
 		k.Kiosk_ExistingAppointmen_PageType();
 		Thread.sleep(1000);
@@ -125,7 +135,7 @@ public class R_Kiosk_tc_6 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk_ExistingAppointment_Addpage();
 		Thread.sleep(10000);
-		k.Kiosk_ExistingAppointmen_verification_page("please verify the below information is correct");
+		k.Kiosk_ExistingAppointmen_verification_page("Please verify the below information is correct");
 		Thread.sleep(10000);
 		k.Kiosk_ExistingAppointmen_PageVerification();
 		Thread.sleep(1000);
@@ -135,13 +145,13 @@ public class R_Kiosk_tc_6 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk_ExistingAppointmen_PageVerification_Add();
 		Thread.sleep(10000);
-		
-		
-		
-		
-		
-		
-		
 
-}
+
+
+
+
+
+
+
+	}
 }

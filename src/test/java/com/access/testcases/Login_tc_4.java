@@ -31,6 +31,6 @@ public class Login_tc_4 extends BaseClass
 		lp.setPassword("");
 		lp.clickSubmit();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+
 	}
 }

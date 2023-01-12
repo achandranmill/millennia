@@ -2,6 +2,9 @@ package com.access.testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -23,9 +26,19 @@ public class Massm_tc_3   extends BaseClass
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -39,8 +52,14 @@ public class Massm_tc_3   extends BaseClass
 		m.Date2("2022-09-18");
 		m.Btn_Apply();
 		Thread.sleep(5000);
-		m.MessageHistory();
-		Thread.sleep(3000);
-		m.MessageHistoryCancel();
+		WebElement Select =driver.findElement(By.xpath("//*[@id=\"messages\"]"));
+		JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].scrollIntoView();", Select);
+		m.Select_Message();
+		m.Select_Message_option1();
+		m.Send_Message_Patient();
+		Thread.sleep(5000);
+		m.Message_History_print();
+		
 	}
 }

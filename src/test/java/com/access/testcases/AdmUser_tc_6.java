@@ -21,12 +21,21 @@ public class AdmUser_tc_6 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+
 		AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
-		Thread.sleep(5000);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		ad.admprofile();
 		Thread.sleep(5000);
 		ad.admlink();
@@ -35,7 +44,7 @@ public class AdmUser_tc_6 extends BaseClass
 		Thread.sleep(5000);
 		ad.cancelbtn();
 		Thread.sleep(5000);
-		
+
 	}
 
 }

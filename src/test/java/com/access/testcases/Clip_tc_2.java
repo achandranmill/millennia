@@ -28,9 +28,19 @@ public class Clip_tc_2 extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -40,42 +50,50 @@ public class Clip_tc_2 extends BaseClass {
 		//User Enter lastName
 		addp.lname("Robin");
 		//User Enter FirstName
-		addp.fname("john");
+		addp.fname("John");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
 		addp.DOB("01031993");
 		//User Enter PhoneNumber
-		addp.pnumber(".");
+		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(1000);
-		driver.findElement(By.id("email")).sendKeys("john"+ randomInt +"@mailinator.com");
+		addp.textemail("john@gmail.com");
+		addp.Gender("Male");
+		addp.SSN("4444");
+		addp.appointmentContactNumber("9876540998");
+		addp.mrn("123456");
+		addp.appointmentContactName("6778889990");
 		//User Enter Appointment Time
-		addp.Time("0830");
-		addp.searchdep("imenso");
-		addp.Fillterprovider();
-
-		Thread.sleep(3000);
-		addp.provider();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		addp.copay("60");
+		Thread.sleep(2000);
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
+		Thread.sleep(2000);
+		addp.Clip_AppointTime("0900");
+		addp.Clip_Appointment_Date("20221226");
+		Thread.sleep(2000);
+		addp.Clip_Appointment_Type();
+		Thread.sleep(1000);
+		addp.Clip_Appointment_option();
+		Thread.sleep(1000);
+		addp.Clip_Seeing();
+		Thread.sleep(1000);
+		addp.Clip_Thoms();
+		Thread.sleep(2000);
 		addp.Flag1();
 		Thread.sleep(2000);
 		addp.FlagSelect();
 		Thread.sleep(2000);
-		addp.comments("Please Call Before Visting");
 		addp.reason("Routine Checkup");
-		addp.Appointment();
-		Thread.sleep(3000);
-
-		addp.copay("60");
-		addp.custom1("Hello Test");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
-		addp.printAccessPass();
-		addp.addcheckin();	
-		
+		addp.connect();
+		addp.relation();
+		addp.newClearButton();	
+
 	}}
 
 

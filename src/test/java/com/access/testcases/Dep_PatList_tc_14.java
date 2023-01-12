@@ -24,16 +24,24 @@ public class Dep_PatList_tc_14 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
+		try
+		{
 		ad.userlocation();
 		Thread.sleep(5000);
 		ad.okbutton();
-		Thread.sleep(5000);
+		 System.out.println("User location is present");
+	    }
+	    catch(Exception e) 
+	    {
+	    System.out.println("User location is not present");
+	    		
+	    }
+       //-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-//		pd.LocationPopup("Florida");
-		Thread.sleep(3000);
+        Thread.sleep(3000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
 		pd.Admin();

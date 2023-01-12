@@ -11,7 +11,7 @@ import com.access.pageobject.loginpage;
 public class R_provider_tc_8 extends BaseClass
 
 {
-	
+
 	public void Provider() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -20,14 +20,23 @@ public class R_provider_tc_8 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-		//pd.LocationPopup("Florida");
 		Thread.sleep(3000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -41,7 +50,7 @@ public class R_provider_tc_8 extends BaseClass
 		Thread.sleep(3000);
 		pd.MiddleName("kumar");
 		Thread.sleep(3000);
-		pd.LastName("mahajan");
+		pd.LastName("Mahajan");
 		Thread.sleep(3000);
 		pd.Credentials("MD");
 		Thread.sleep(3000);
@@ -59,11 +68,11 @@ public class R_provider_tc_8 extends BaseClass
 		Thread.sleep(5000);
 		pd.Published();
 		Thread.sleep(2000);
-		pd.NationalProviderIdentifier_NPI("gg");
+		pd.NationalProviderIdentifier_NPI("123456");
 		Thread.sleep(2000);
-		pd.TaxpayerIdentificationNumber_TIN("FGH");
+		pd.TaxpayerIdentificationNumber_TIN("123456");
 		Thread.sleep(2000);
-		pd.FHIRProvider_ID("fgg");
+		pd.FHIRProvider_ID("123456");
 		Thread.sleep(2000);
 		pd.Departments();
 		Thread.sleep(2000);
@@ -76,7 +85,7 @@ public class R_provider_tc_8 extends BaseClass
 		Thread.sleep(2000);
 		pd.AddSchedule();
 		Thread.sleep(2000);
-		pd.NewScheduleTitle("New test");
+		pd.NewScheduleTitle("Schedule8");
 		Thread.sleep(2000);
 		pd.StartDate("27072022");
 		Thread.sleep(2000);
@@ -116,9 +125,9 @@ public class R_provider_tc_8 extends BaseClass
 		Thread.sleep(2000);
 		pd.Provider_MatchingSave();
 		Thread.sleep(10000);
-		
-		
-		
+
+
+
 	}
 
 }

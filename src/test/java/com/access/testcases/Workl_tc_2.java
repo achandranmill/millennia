@@ -25,30 +25,31 @@ public class Workl_tc_2  extends BaseClass
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-	    try
-	    {
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
-	    }
-	    catch(Exception e) 
-	    {
-	    	System.out.println("USER LOCATION IS Not PRESENT");
-	    		
-	    }
-	    //-----------------REGISTRATION PAGE ------------------------------
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			Thread.sleep(5000);
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-        WorkListPage w = new WorkListPage(driver);
+		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
 		Thread.sleep(10000);
-	    w.SortBy();
-	    Thread.sleep(10000);
-	    w.OneName();
-	    Thread.sleep(1000);
-	   
+		w.SortBy();
+		w.SortBy_Option_Display();
+		Thread.sleep(10000);
+		w.OneName();
+		Thread.sleep(1000);
+
 	}
 }

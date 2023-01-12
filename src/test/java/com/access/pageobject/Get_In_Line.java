@@ -991,6 +991,42 @@ public class Get_In_Line
 		My_Events.click();
 	}
 	
+	@FindBy(how=How.ID,using="cohort-reg-button")
+	@CacheLookup
+	WebElement I_Want_To;
+	
+	public void I_Want_To()
+	{
+		I_Want_To.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//a[contains(text(),'Cancel this appointment')]")
+	@CacheLookup
+	WebElement Cancel_This_Appointment;
+	
+	public void Cancel_This_Appointment()
+	{
+		Cancel_This_Appointment.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Cancel Appointment')]")
+	@CacheLookup
+	WebElement Cancel_Appointment;
+	
+	public void Cancel_Appointment()
+	{
+		Cancel_Appointment.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Yes, cancel appointment.')]")
+	@CacheLookup
+	WebElement Yes_Cancel_Appointment;
+	
+	public void Yes_Cancel_Appointment()
+	{
+		Yes_Cancel_Appointment.click();
+	}
+//--------------------------------------------------	
 	@FindBy(how=How.XPATH,using="/html/body/main/my-events/section/div/div[1]/div/ul/li[4]/div/label/input")
 	@CacheLookup
 	WebElement Include_past_events;
@@ -1140,6 +1176,16 @@ public class Get_In_Line
 	public void Guest_Get_in_Line()
 	{
 		Guest_Get_in_Line.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"getInLine\"]/div[1]/div/span")
+	@CacheLookup
+	WebElement Registration_Message;
+	
+	public void Registration_Message()
+	{
+		String act = Registration_Message.getText();
+		System.out.println(act);
 	}
 	
 	 //----------------------------------------------- My Conversations ----- --------------------------

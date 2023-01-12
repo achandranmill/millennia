@@ -26,21 +26,29 @@ public class Clip_tc_1 extends BaseClass
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
 
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
 		addp.lname("Robin");
 		//User Enter FirstName
-		addp.fname("john");
+		addp.fname("John");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -50,36 +58,52 @@ public class Clip_tc_1 extends BaseClass
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("john@gmail.com");
-		addp.Gender("male");
-		addp.SSN("ww");
+		addp.Gender("Male");
+		addp.SSN("4444");
 		addp.appointmentContactNumber("9876540998");
-		addp.mrn("tt");
+		addp.mrn("123456");
 		addp.appointmentContactName("6778889990");
-
 		//User Enter Appointment Time
-
 		Thread.sleep(2000);
 		addp.copay("60");
 		Thread.sleep(2000);
-		addp.searchdep("imenso");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
-		addp.Fillterprovider();
+		addp.Clip_AppointTime("0900");
+		addp.Clip_Appointment_Date("20221226");
 		Thread.sleep(2000);
-		addp.provider();
+		addp.Clip_Appointment_Type();
+		Thread.sleep(1000);
+		addp.Clip_Appointment_option();
+		Thread.sleep(1000);
+		addp.Clip_Seeing();
+		Thread.sleep(1000);
+		addp.Clip_Thoms();
 		Thread.sleep(2000);
 		addp.Flag1();
 		Thread.sleep(2000);
 		addp.FlagSelect();
 		Thread.sleep(2000);
 		addp.reason("Routine Checkup");
-		Thread.sleep(2000);
-		addp.Time("0830");
-		addp.Date("04072022");
-    	Thread.sleep(2000);
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
-		addp.printAccessPass();
 		addp.connect();
 		addp.relation();
-		addp.addcheckin();
+		try
+		{
+			addp.addcheckin();
+			Thread.sleep(5000);
+			addp.Alert_ok();
+			System.out.println(" Combine \"Add Patient\" and \"Check In\" Buttons");
+		}
+		catch(Exception e)
+		{
+			System.out.println(" Not combine \"Add Patient\" and \"Check In\" Buttons");
+			addp.Clip_Addpatient();
+			addp.Clip_Checkin();
+			addp.Alert_ok();
+
+		}
+
 	}}

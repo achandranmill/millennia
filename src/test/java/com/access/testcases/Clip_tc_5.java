@@ -34,28 +34,28 @@ public class Clip_tc_5  extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		System.out.println("USER LOCATION IS PRESENT");
-	}
-	catch(Exception e) 
-	{
-		System.out.println("USER LOCATION IS Not PRESENT");
-		
-	}
-	//-----------------REGISTRATION PAGE ------------------------------
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-    //-----------------CLIP BOARD PAGE---------------------------------
+		//-----------------CLIP BOARD PAGE---------------------------------
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
 		addp.lname("Robin");
 		//User Enter FirstName
-		addp.fname("john");
+		addp.fname("John");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -74,7 +74,7 @@ public class Clip_tc_5  extends BaseClass
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
-		addp.Clip_Comment("Nill");
+		addp.Clip_Comment("Routine checkup");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.Clip_LinkConnectAccount();
@@ -88,9 +88,9 @@ public class Clip_tc_5  extends BaseClass
 		Thread.sleep(1000);
 		addp.Alert_ok();
 		Thread.sleep(10000);
-	  //Verify new appointment appears on "My Events" when logging into Connect portal 
+		//Verify new appointment appears on "My Events" when logging into Connect portal 
 		driver.get("https://connect-stage-a.jellyfishhealth.com:443/inline?d=Imenso.sandbox-staging");
-	  //----------------GET-IN-LINE (CONNECT PORTAL)--------------------------------
+		//----------------GET-IN-LINE (CONNECT PORTAL)--------------------------------
 		Get_In_Line of = new Get_In_Line(driver);
 		of.Sing_in();
 		Thread.sleep(1000);
@@ -100,14 +100,14 @@ public class Clip_tc_5  extends BaseClass
 		Thread.sleep(1000);
 		of.Sign_Submit();
 		Thread.sleep(15000);
-	//------------------MY EVENT PAGE----------------------------------------------------
+		//------------------MY EVENT PAGE----------------------------------------------------
 		of.My_Events();
 		Thread.sleep(10000);
 		WebElement Link_Connect_Self = driver.findElement(By.xpath("//h2[contains(text(),'Robin, john')]"));
-		String Expected = "Robin, john";
+		String Expected = "Robin, John";
 		Assert.assertEquals(Link_Connect_Self.getText(), Expected);
-		System.out.println(" Robin patient's Appointment is Displayed on Connect portal - Assert PASSED");
+		System.out.println("  Patient's Appointment displayed on Connect portal - Assert Passed");
 		Thread.sleep(1000);
-		
+
 	}
 }

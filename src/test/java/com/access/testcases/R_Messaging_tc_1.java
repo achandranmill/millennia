@@ -22,10 +22,20 @@ public class R_Messaging_tc_1 extends BaseClass
 		lp.setPassword(password);
 		lp.clickSubmit();
 		Thread.sleep(3000);
-		//AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -58,12 +68,12 @@ public class R_Messaging_tc_1 extends BaseClass
 		Thread.sleep(2000);
 		addp.Clip_Flag_Option();
 		Thread.sleep(2000);
-	//	addp.Clip_Seeing();
-	//	Thread.sleep(2000);
-	//	addp.Clip_Thoms();
+		//	addp.Clip_Seeing();
+		//	Thread.sleep(2000);
+		//	addp.Clip_Thoms();
 		addp.Clip_Comment("only checkup");
-	//	addp.Clip_Reason("only checkup ");
-	//	addp.Clip_Copay("10000");
+		//	addp.Clip_Reason("only checkup ");
+		//	addp.Clip_Copay("10000");
 		Thread.sleep(2000);
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
@@ -78,13 +88,13 @@ public class R_Messaging_tc_1 extends BaseClass
 		ap.linkAppointment();
 		ap.SearchLastName("Patil");
 		Thread.sleep(10000);
-	WebElement patil = driver.findElement(By.xpath("//span[contains(text(),'Patil, Rajesh')]"));
-	Assert.assertEquals(true, patil.isDisplayed());
-	System.out.println("RAJESH PATIL IS Displayed- Assert Passed");
-	WebElement Checked = driver.findElement(By.xpath("//span[contains(text(),'CHECKED-IN')]"));
-	Assert.assertEquals(true, Checked.isDisplayed());
-	System.out.println("Checked in Is Displayed-Assert Passed");
-	
-	
-}
+		WebElement patil = driver.findElement(By.xpath("//span[contains(text(),'Patil, Rajesh')]"));
+		Assert.assertEquals(true, patil.isDisplayed());
+		System.out.println("RAJESH PATIL IS Displayed- Assert Passed");
+		WebElement Checked = driver.findElement(By.xpath("//span[contains(text(),'CHECKED-IN')]"));
+		Assert.assertEquals(true, Checked.isDisplayed());
+		System.out.println("Checked in Is Displayed-Assert Passed");
+
+
+	}
 }

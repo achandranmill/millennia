@@ -27,10 +27,19 @@ public class Forms_tc_16 extends BaseClass
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		Clipboard clip=new Clipboard(driver);
 		Thread.sleep(5000);
 		clip.clkregistrationlink();
@@ -87,8 +96,8 @@ public class Forms_tc_16 extends BaseClass
 		Thread.sleep(5000);
 		clip.printbutton1();
 		Thread.sleep(5000);
-		
-		
-		
+
+
+
 	}
 }

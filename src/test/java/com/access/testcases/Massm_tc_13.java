@@ -26,10 +26,20 @@ public class Massm_tc_13 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		//AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
@@ -60,11 +70,11 @@ public class Massm_tc_13 extends BaseClass
 		Thread.sleep(1000);
 		addp.Clip_Thoms();
 		Thread.sleep(3000);
-		//addp.Clip_Flag();
-        // addp.Clip_Flag_Option();
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
+		addp.Clip_Flag();
+		addp.Clip_Flag_Option();
+		addp.Clip_Comment("Routine checkup");
+		addp.Clip_Reason("only checkup");
+		addp.Clip_Copay("10000");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
 		addp.Clip_Addpatient();
@@ -79,13 +89,22 @@ public class Massm_tc_13 extends BaseClass
 		Thread.sleep(10000);
 		ab.EditStatusFilter();
 		Thread.sleep(10000);
-		ab.Status_SelectAll();
-		Thread.sleep(10000);
+		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model=\"$ctrl.checkAllStatusCheck\"]"));
+		if(!SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+			
+			System.out.println("SelctAll checkbox selected");
+		}
+		Thread.sleep(2000);
 		ab.StatusSave();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		WebElement Checkin = driver.findElement(By.xpath("//span[contains(text(),'CHECKED-IN')]"));
 		Assert.assertEquals(true, Checkin.isDisplayed());
-		System.out.println("Checked-in Status is Displayed- Assert Passed");
-	
-}
+		System.out.println("Checked-in Status displayed");
+
+	}
 }

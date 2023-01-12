@@ -11,7 +11,7 @@ import com.access.pageobject.AdmUser;
 
 public class AdmUser_tc_7 extends BaseClass
 {
-     //Validate if invalid password entered as per password criteria then password field not accepts it	
+	//Validate if invalid password entered as per password criteria then password field not accepts it	
 	@Test
 	public void AdmUser() throws InterruptedException 
 	{
@@ -21,12 +21,21 @@ public class AdmUser_tc_7 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+
 		AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
-		Thread.sleep(5000);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		ad.admprofile();
 		Thread.sleep(5000);
 		ad.admlink();
@@ -47,8 +56,8 @@ public class AdmUser_tc_7 extends BaseClass
 		Thread.sleep(3000);
 		ad.userpswd("Jackgates@1");
 		Thread.sleep(3000);
-		
-		
+
+
 	}
 
 }

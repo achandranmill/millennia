@@ -1,6 +1,17 @@
 package com.access.testcases;
 
+import static org.testng.Assert.assertTrue;
+
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,6 +20,8 @@ import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.Document;
+import com.access.pageobject.Get_In_Line;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
@@ -16,108 +29,41 @@ import com.access.pageobject.loginpage;
 public class Document_tc_6 extends BaseClass
 
 {
-	
+
+
+
 	public void Document() throws Exception
 	{
-		loginpage lp=new loginpage(driver);
-		lp.setUserName(email);
-		lp.setPassword(password);
-		lp.clickSubmit();
+		driver.get("https://connect-stage-a.jellyfishhealth.com:443/inline?d=Imenso.sandbox-staging");
+		//----------------GET-IN-LINE (CONNECT PORTAL)--------------------------------
+		Get_In_Line of = new Get_In_Line(driver);
+		of.Sing_in();
+		Thread.sleep(1000);
+		of.Sign_Email("albert@gmail.com");
+		Thread.sleep(1000);
+		of.Sign_Password("A@lbert123");
+		Thread.sleep(1000);
+		of.Sign_Submit();
+		Thread.sleep(15000);
+		of.My_Documents();
 		Thread.sleep(10000);
-		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		RegtPage r=new RegtPage(driver);
-		r.Registration();
-		Thread.sleep(3000);
+		Document d  =  new Document(driver);
+		d.Print();
+		/*Set<String>handles=driver.getWindowHandles();
+		Iterator<String>it=handles.iterator();
+		String PWD = it.next();
+		String CWID = it.next();
+		driver.switchTo().window(PWD);
+		String url =driver.getCurrentUrl();
+		System.out.println("pdf tab url:"+url);*/
+		String url = driver.getCurrentUrl();
+		URL pdfurl = new URL(url);
+		URLConnection urlconnection = pdfurl.openConnection();
+		urlconnection.addRequestProperty("User-Agent", "Chrome");
+		InputStream ip     = urlconnection.getInputStream();
+		BufferedInputStream bf = new BufferedInputStream(ip);
+		
 
-		Clipboard addp=new Clipboard(driver);
-		addp.LinkclickBoard();
-		Thread.sleep(5000);
-		//User Enter lastName
-		addp.lname("Ravi");
-		//User Enter FirstName
-		addp.fname("Mishra");
-		//User Enter MiddleName
-		addp.mname("kumar");
-		//User Enter Birthdate
-		addp.DOB("01091999");
-		//User Enter PhoneNumber
-		addp.pnumber("7777777777");
-		Thread.sleep(2000);
-		//User Enter Email
-		addp.textemail("mishra@gmail.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_Type();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_option();
-		//Thread.sleep(10000);
-		//addp.Clip_Seeing();
-		//Thread.sleep(1000);
-		//addp.Clip_Thoms();
-		Thread.sleep(3000);
-		addp.Clip_Flag();
-		addp.Clip_Flag_Option();
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
-		addp.sendSmsMessages();
-		addp.sendEmailMessages();
-		Thread.sleep(20000);
-		addp.Clip_Addpatient();
-		Thread.sleep(10000);
-		addp.Clip_Checkin();
-		 Thread.sleep(10000);
-		 addp.Alert_ok();
-		 Thread.sleep(2000);
-		 addp.lname("s");
-		 Thread.sleep(10000);
-		r.Registration();
-		Thread.sleep(10000);
-		r.search("Mishra", "ravi");
-		Thread.sleep(30000);
-		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
-		System.out.println(list.size());
-		
-		for(int i=0;i<list.size();i++)
-		{
-			String listitem=list.get(i).getText();
-			if(listitem.contains("Mishra ravi"))
-			{
-				list.get(i).click();
-				break;
-			}
-		}
-		Thread.sleep(10000);
-		r.FormsOnDemand();
-		Thread.sleep(10000);
-		r.FormsOnDemand_Select();
-		r.FormsOnDemand_Select_checkAll();
-		r.Appointment_Type();
-		r.Appointment_Type_CheckAll();
-		r.Forms_on_Demand_send();
-		Thread.sleep(20000);
-		r.Document();
-		Thread.sleep(10000);
-		r.COVIDScreeningForm();
-		Thread.sleep(5000);
-		r.COVID_19SymptomsPresent();
-		//r.COVID_DoyouhaveCOVID19();
-		r.COVID_Doyouhavedifficultybreathing();
-		r.COVID_Haveyouhadanycranberries();
-		r.COVID_images1();
-		//r.COVID_Whenwasthelasttimeyouleftthecountry();
-		r.COVID_images2();
-		r.COVID_save();
-		Thread.sleep(20000);
-		r.Doc_Print();
-		Thread.sleep(2000);
-		
-		
-		
-		
+
 	}	
 }

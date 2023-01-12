@@ -26,10 +26,20 @@ public class Massm_tc_15 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		//AdmUser ad=new AdmUser(driver);
-		//ad.userlocation();
-		//Thread.sleep(5000);
-		//ad.okbutton();
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
@@ -50,7 +60,17 @@ public class Massm_tc_15 extends BaseClass
 		Thread.sleep(10000);
 		m.StatusFilter();
 		Thread.sleep(10000);
-		m.StatusFilterSelect();
+		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model=\"$ctrl.checkAllStatusCheck\"]"));
+		if(!SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+			
+			System.out.println("SelctAll checkbox selected");
+		}
+		Thread.sleep(2000);
 		m.StatusFilterSave();
 		Thread.sleep(10000);
 		m.LastName("Bell");
@@ -61,11 +81,11 @@ public class Massm_tc_15 extends BaseClass
 		Thread.sleep(10000);
 		WebElement Bell_Hari = driver.findElement(By.xpath("//td[contains(text(),'Bell, Hari')]"));
 		Assert.assertEquals(true, Bell_Hari.isDisplayed());
-		System.out.println("BELL HARI PATIENT IS DISPLAYED - ASSERT PASSED");
+		System.out.println("Patient displayed ");
 		Thread.sleep(1000);
 		WebElement Bell_Hari_Confirmed = driver.findElement(By.xpath("//span[contains(text(),'CONFIRMED')]"));
 		Assert.assertEquals(true, Bell_Hari_Confirmed.isDisplayed());
-		System.out.println("BELL HARI PATIENT STATUS CONFIRMED IS DISPLAYED--Asser PASSED");
+		System.out.println("Patient Confirmed status displayed");
 		Thread.sleep(1000);
 		m.LastName("patil");
 		Thread.sleep(1000);
@@ -75,11 +95,11 @@ public class Massm_tc_15 extends BaseClass
 		Thread.sleep(10000);
 		WebElement Rakesh = driver.findElement(By.xpath("//td[contains(text(),'Patil, Rakesh')]"));
 		Assert.assertEquals(true, Rakesh.isDisplayed());
-		System.out.println("Rakesh PATIENT IS DISPLAYED - ASSERT PASSED");
+		System.out.println("Patient displayed");
 		Thread.sleep(1000);
 		WebElement Rakesh_Cancel = driver.findElement(By.xpath("//span[contains(text(),'CANCELLED')]"));
 		Assert.assertEquals(true, Rakesh_Cancel.isDisplayed());
-		System.out.println("Rakesh PATIENT STATUS Cancelled IS DISPLAYED--Asser PASSED");
+		System.out.println(" Patient Cancelled status displayed");
 		Thread.sleep(1000);
 		m.LastName("Kohli");
 		Thread.sleep(1000);
@@ -89,14 +109,14 @@ public class Massm_tc_15 extends BaseClass
 		Thread.sleep(10000);
 		WebElement Virat = driver.findElement(By.xpath("//td[contains(text(),'Kohli, Virat')]"));
 		Assert.assertEquals(true, Virat.isDisplayed());
-		System.out.println("Virat PATIENT STATUS Cancelled IS DISPLAYED--Asser PASSED");
+		System.out.println(" Patient Cancelled displayed");
 		Thread.sleep(1000);
 		WebElement Virat_CHECKEDIN = driver.findElement(By.xpath("//span[contains(text(),'CHECKED-IN')]"));
 		Assert.assertEquals(true, Virat_CHECKEDIN.isDisplayed());
-		System.out.println("Virat PATIENT STATUS _CHECKED-IN IS DISPLAYED--Asser PASSED");
+		System.out.println("Patient Checked in displayed");
 		Thread.sleep(1000);
-		
-	
-	
-}
+
+
+
+	}
 }

@@ -26,22 +26,22 @@ public class Appt_tc_12 extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
 		}
 		catch(Exception e) 
 		{
-			System.out.println("USER LOCATION IS PRESENT");
-			
+			System.out.println("User location is not present");
+
 		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		//-----------------------REGISTRATION PAGE-----------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-        //---------------------APPOINTMENT PAGE-------------------------
+		//---------------------APPOINTMENT PAGE-------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(3000);
@@ -58,15 +58,15 @@ public class Appt_tc_12 extends BaseClass
 		Thread.sleep(3000);
 		ap.Conversations();
 		Thread.sleep(3000);
-		ap.StartMessage("hi");
+		ap.StartMessage("Hi");
 		Thread.sleep(3000);
 		ap.SendMessage();
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 		ap.Paneltitle();
 		Thread.sleep(5000);
 		ap.Reply();
 		Thread.sleep(2000);
-		ap.MessageReply("hi");
+		ap.MessageReply("Hellow");
 		Thread.sleep(2000);
 		ap.ReplyHere();
 

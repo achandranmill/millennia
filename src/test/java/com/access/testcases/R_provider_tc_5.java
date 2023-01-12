@@ -1,4 +1,4 @@
-  package com.access.testcases;
+package com.access.testcases;
 
 import org.testng.annotations.Test;
 
@@ -11,7 +11,7 @@ import com.access.pageobject.loginpage;
 public class R_provider_tc_5 extends BaseClass
 
 {
-	
+
 
 	public void Provider() throws Exception
 	{
@@ -21,15 +21,23 @@ public class R_provider_tc_5 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);  
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-		
 		Provider pd = new Provider(driver);
-		//pd.LocationPopup("Florida");
 		Thread.sleep(3000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -40,10 +48,10 @@ public class R_provider_tc_5 extends BaseClass
 		pd.EditProvider();
 		Thread.sleep(2000);
 		pd.EditSchedule();
-	//	Thread.sleep(10000);
-	//	pd.EditADDSchedule();
+		//	Thread.sleep(10000);
+		//	pd.EditADDSchedule();
 		Thread.sleep(2000);
-		pd.EditScheduleTitle("new check up");
+		pd.EditScheduleTitle("Schedule5");
 		Thread.sleep(2000);
 		pd.EditStartDate("22072022");
 		Thread.sleep(2000);

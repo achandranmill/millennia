@@ -25,9 +25,19 @@ public class Document_tc_18 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(10000);
 		AdmUser ad=new AdmUser(driver);
+		try
+		{
 		ad.userlocation();
 		Thread.sleep(5000);
 		ad.okbutton();
+		 System.out.println("User location is present");
+	    }
+	    catch(Exception e) 
+	    {
+	    System.out.println("User location is not present");
+	    		
+	    }
+       //-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.Registration();
 		Thread.sleep(3000);
@@ -99,7 +109,7 @@ public class Document_tc_18 extends BaseClass
 			WebElement ActualText = driver.findElement(By.xpath("/html/body/main/div[1]/registration/section/article/header/div/h1/span"));
 			String ExpectedText = "chouhan, Golu";
 			Assert.assertEquals(ActualText.getText(), ExpectedText);
-			System.out.println("golu text is a expected – Assert passed");
+			System.out.println("Test case Passed");
 			Thread.sleep(5000);
 			
 		 

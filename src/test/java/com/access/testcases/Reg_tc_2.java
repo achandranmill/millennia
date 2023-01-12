@@ -26,32 +26,34 @@ public class Reg_tc_2  extends BaseClass
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
-    	}
-    	catch(Exception e) 
-    	{
-    		System.out.println("USER LOCATION IS Not PRESENT");
-    		
-    	}
-    	//-----------------REGISTRATION PAGE ------------------------------
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
+		r.Headline_Message();
+		Thread.sleep(2000);
 		r.HOLD();
 		Thread.sleep(10000);
+		WebElement message = driver.findElement(By.xpath("/html/body/div[2]/div/span"));
 		try
 		{
-		r.Hold_Patient_Message();
+			r.Hold_Patient_Message();
 		}
 		catch(Exception e)
 		{
-			System.out.println("Hold Message is not Display");
+			System.out.println("Hold Message not displayed");
 		}
-		
+
 		Thread.sleep(10000);
 		r.Holdlist();
 		Thread.sleep(10000);
@@ -59,12 +61,12 @@ public class Reg_tc_2  extends BaseClass
 		Thread.sleep(10000);
 		try
 		{
-		r.Remove_Hodlist_Message();
+			r.Remove_Hodlist_Message();
 		}
 		catch(Exception e)
 		{
-			System.out.println("Remove hold lis Message is not Display");
+			System.out.println("Remove hold list Message not displayed");
 		}
-		
+
 	}
 }

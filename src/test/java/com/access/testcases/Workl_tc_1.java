@@ -25,25 +25,25 @@ public class Workl_tc_1 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  AdmUser ad=new AdmUser(driver);
-	        try
-	        {
+		AdmUser ad=new AdmUser(driver);
+		try
+		{
 			ad.userlocation();
 			Thread.sleep(5000);
 			ad.okbutton();
 			Thread.sleep(5000);
-			System.out.println("USER LOCATION IS PRESENT");
-	    	}
-	    	catch(Exception e) 
-	    	{
-	    		System.out.println("USER LOCATION IS Not PRESENT");
-	    		
-	    	}
-	    	//-----------------REGISTRATION PAGE ------------------------------
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(5000);
-        WorkListPage w = new WorkListPage(driver);
+		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
 		w.Configure();
 		Thread.sleep(3000);
@@ -63,7 +63,7 @@ public class Workl_tc_1 extends BaseClass
 		Thread.sleep(10000);
 		Clipboard c =new Clipboard(driver);
 		c.LinkclickBoard();
-        UserTestPage u =new UserTestPage(driver);
+		UserTestPage u =new UserTestPage(driver);
 		u.linkUserTest();
 		u.Logout();
 		Thread.sleep(10000);
@@ -71,7 +71,7 @@ public class Workl_tc_1 extends BaseClass
 		driver.get(baseURL);
 		Thread.sleep(10000);
 		//User Check Successful login on valid email and password
-        k.Login_email("user_test@mailinator.com");
+		k.Login_email("user_test@mailinator.com");
 		Thread.sleep(10000);
 		k.Login_password("Random@123456789");
 		Thread.sleep(10000);
@@ -79,50 +79,50 @@ public class Workl_tc_1 extends BaseClass
 		Thread.sleep(20000);
 		try
 		{
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
-		System.out.println("USER LOCATION IS PRESENT");
-    	}
-    	catch(Exception e) 
-    	{
-    		System.out.println("USER LOCATION IS Not PRESENT");
-    		
-    	}
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			Thread.sleep(5000);
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
 		//-----------------REGISTRATION PAGE ------------------------------
-	   try
-	   {
-		   r.clickRegistrationPage();
-		    Thread.sleep(50000); 
-		   System.out.println("Registration page is click");
-	   }
-	   catch(Exception e)
-	   {
-		   System.out.println("Registration page is Not Click");
-	   }
-	   
+		try
+		{
+			r.clickRegistrationPage();
+			Thread.sleep(50000); 
+			System.out.println("Registration page  clicked");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Registration page not clicked");
+		}
+
 		w.Worklisttab2();
-	    Thread.sleep(10000);
-	    w.ConfigureList2();
+		Thread.sleep(10000);
+		w.ConfigureList2();
 		Thread.sleep(10000);
 		w.Edit_Department2();
 		Thread.sleep(10000);
-	   boolean Testing1 = driver.findElement(By.cssSelector("#worklist > div.modal.fade.ng-scope.ng-isolate-scope.in > div > div > location-filter > div.modal-body > div > div:nth-child(2) > div:nth-child(4) > label > input[type=checkbox]")).isSelected();
-	   Assert.assertTrue(Testing1, "Testing Department is Not Selected(After login is Not Save)");
-	   Thread.sleep(5000);
-	   w.Edit_Department_btn();
-	   Thread.sleep(10000);
-	   w.ConfigureList2();
-	   Thread.sleep(10000);
-	   w.Edit_Seeing2();
-	   Thread.sleep(5000);
-	   boolean  Provider_checkBox_1  =  driver.findElement(By.cssSelector("#worklist > div.modal.fade.ng-scope.ng-isolate-scope.in > div > div > seeing-filter > div.modal-body > div:nth-child(4) > label > input[type=checkbox]")).isSelected();
-	   Assert.assertTrue(Provider_checkBox_1, "Provider_checkBox_1 is Not Selected(After login is Not Save)");
-	   Thread.sleep(3000);
-	   
-		
-		
-		
+		boolean Testing1 = driver.findElement(By.cssSelector("#worklist > div.modal.fade.ng-scope.ng-isolate-scope.in > div > div > location-filter > div.modal-body > div > div:nth-child(2) > div:nth-child(4) > label > input[type=checkbox]")).isSelected();
+		Assert.assertTrue(Testing1, "  After login selected department not saved");
+		Thread.sleep(5000);
+		w.Edit_Department_btn();
+		Thread.sleep(10000);
+		w.ConfigureList2();
+		Thread.sleep(10000);
+		w.Edit_Seeing2();
+		Thread.sleep(5000);
+		boolean  Provider_checkBox_1  =  driver.findElement(By.cssSelector("#worklist > div.modal.fade.ng-scope.ng-isolate-scope.in > div > div > seeing-filter > div.modal-body > div:nth-child(4) > label > input[type=checkbox]")).isSelected();
+		Assert.assertTrue(Provider_checkBox_1, " After login selected checkbox not saved)");
+		Thread.sleep(3000);
+
+
+
+
 	}
 }

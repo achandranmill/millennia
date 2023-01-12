@@ -16,7 +16,7 @@ import com.access.pageobject.loginpage;
 public class Document_tc_19 extends BaseClass
 
 {
-	
+
 	public void Document() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -25,9 +25,19 @@ public class Document_tc_19 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
@@ -75,7 +85,7 @@ public class Document_tc_19 extends BaseClass
 		r.search("mahajan", "rohan");
 		List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody"));
 		System.out.println(list.size());
-		
+
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
@@ -100,16 +110,16 @@ public class Document_tc_19 extends BaseClass
 		WebElement INcomplete = driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul/li[1]/a/div"));
 		String ExpectedText = "INCOMPLETE";
 		Assert.assertEquals(ExpectedText, INcomplete.getText());
-		System.out.println("INCOMPLETE text is a expected – Assert passed");
+		System.out.println("Test case Passed");
 		Thread.sleep(10000);
 		r.Back_to_registration();
 		Thread.sleep(10000);
-		 WebElement Waittime = driver.findElement(By.xpath("/html/body/main/div[1]/registration/section/article/section[1]/article[2]/div[2]/p"));
-			String Expectedwait = "STATUS: Waiting";
-			Assert.assertEquals(Expectedwait, Waittime.getText());
-			System.out.println("Status Wait time text is a expected – Assert passed");
-		
-		
+		WebElement Waittime = driver.findElement(By.xpath("/html/body/main/div[1]/registration/section/article/section[1]/article[2]/div[2]/p"));
+		String Expectedwait = "STATUS: Waiting";
+		Assert.assertEquals(Expectedwait, Waittime.getText());
+		System.out.println("Test case Passed");
+
+
 	}
 
 

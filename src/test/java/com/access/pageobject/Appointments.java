@@ -40,7 +40,7 @@ public class Appointments
 	@CacheLookup
 	WebElement SearchButton;
 	
-	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/appointments/section/div[1]/div[1]/div/div[1]/span/button[2]")
+	@FindBy(how=How.CSS,using="#appointments > div.row.header-buttons > div:nth-child(1) > div > div:nth-child(1) > span > button:nth-child(2)")
 	@CacheLookup
 	WebElement AdvanceSearch;
 	
@@ -77,7 +77,7 @@ public class Appointments
 	@CacheLookup
 	WebElement Searchbtn;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div[1]/div/div[2]/button")
+	@FindBy(how=How.XPATH,using="//button[@class=\"btn btn-default dropdown-toggle\" and @data-toggle=\"dropdown\"]")
 	@CacheLookup
 	WebElement Configurelist;
 	
@@ -85,7 +85,7 @@ public class Appointments
 	@CacheLookup
 	WebElement  EditDepartFillter;
 	
-	@FindBy(how=How.XPATH,using="//input[starts-with(@id,\"9b0eb0a4-edc5-40c9-ae10-7d19ed0e7f25\")]")
+	@FindBy(how=How.CSS,using="#appointments > div.modal.ng-scope.ng-isolate-scope.in > div > div > department-filter > div.modal-body > div > div:nth-child(1) > label > input")
 	@CacheLookup
 	WebElement DepartFillterSelect;
 	
@@ -105,7 +105,7 @@ public class Appointments
 	@CacheLookup
 	WebElement CloseBtnSeeing;
 	
-	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/appointments/section/div[1]/div[1]/div/div[2]/ul/li[4]/a")
+	@FindBy(how=How.XPATH,using="//a[contains(text(),'Edit List Columns')]")
 	@CacheLookup
 	WebElement EditListColumns;
 	
@@ -166,7 +166,7 @@ public class Appointments
 	@CacheLookup
 	WebElement EditFlag;
 	
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[1]/patient-details/form/div[1]/div[9]/jfh-patient-flags/div/div/div[2]/ul/li[2]/a")
+	@FindBy(how=How.XPATH,using="//*[@id=\"patientFlags\"]/div/div[2]/ul/li[1]/a")
 	@CacheLookup
 	WebElement EditFlag1;
 	
@@ -218,7 +218,7 @@ public class Appointments
 	@CacheLookup
 	WebElement StatusSave;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[2]/div/table/tbody/tr[1]/td[23]/div/ul/li[4]/a")
+	@FindBy(how=How.XPATH,using="//a[contains(text(),'Set to Unconfirmed')]")
 	@CacheLookup
 	WebElement ThreDotSetUnconfirmed;
 	
@@ -389,7 +389,7 @@ public class Appointments
 	@CacheLookup
 	WebElement FormsCancel;
 	
-	@FindBy(how=How.ID,using="appointment-type-chooser")
+	@FindBy(how=How.CSS,using="#appointment-type-chooser")
 	@CacheLookup
 	WebElement AppointmentType;
 	
@@ -460,7 +460,7 @@ public class Appointments
 		Conversations.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div/div[1]/textarea")
+	@FindBy(how=How.CSS,using="#appointments > div.modal.ng-scope.ng-isolate-scope.in > div > div > patient-details-modal > div.modal-body.ng-scope > div > div.tab-pane.active > patient-conversations > div > div.data-container > div > div > div:nth-child(2) > textarea")
 	@CacheLookup
 	WebElement StartMessage;
 	
@@ -469,7 +469,7 @@ public class Appointments
 		StartMessage.sendKeys(m);
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div/div[2]/button")
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Send Message')]")
 	@CacheLookup
 	WebElement SendMessage;
 	
@@ -478,7 +478,7 @@ public class Appointments
 		SendMessage.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div[2]/uib-accordion/div/div/div[1]")
+	@FindBy(how=How.ID,using="accordiongroup-7609-7527-tab")
 	@CacheLookup
 	WebElement Paneltitle;
 	
@@ -487,7 +487,7 @@ public class Appointments
 		Paneltitle.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div[2]/uib-accordion/div/div/div[2]/div/div/div[1]/div[3]/span")
+	@FindBy(how=How.CSS,using="#accordiongroup-7609-7527-panel > div > div > div.thread-padding > div.reply-btn > span")
 	@CacheLookup
 	WebElement Reply;
 	
@@ -496,7 +496,7 @@ public class Appointments
 		Reply.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div[2]/uib-accordion/div/div/div[2]/div/div/div[1]/div[3]/div/div[1]/textarea")
+	@FindBy(how=How.CSS,using="#accordiongroup-7609-7527-panel > div > div > div.thread-padding > div.reply-btn > div > div:nth-child(1) > textarea")
 	@CacheLookup
 	WebElement MessageReply;
 	
@@ -504,7 +504,7 @@ public class Appointments
 	{
 		MessageReply.sendKeys(rp);
 	}
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[3]/patient-conversations/div/div[2]/div/div[2]/uib-accordion/div/div/div[2]/div/div/div[1]/div[3]/div/div[2]/button[2]")
+	@FindBy(how=How.CSS,using="#accordiongroup-7609-7527-panel > div > div > div.thread-padding > div.reply-btn > div > div.text-right > button.btn.btn-primary.ng-scope")
 	@CacheLookup
 	WebElement ReplyHere;
 	
@@ -784,7 +784,15 @@ public class Appointments
 	
 	public void DepartFillterSelect()
 	{
-		DepartFillterSelect.click();
+		if(DepartFillterSelect.isSelected())
+		{
+			System.out.println("Selecte All check box allready selected");
+		}
+		else
+		{
+			DepartFillterSelect.click();
+			System.out.println("Selecte All check box not selected");
+		}
 	}
 	
 	public void EditDepartFillter() 
@@ -1293,15 +1301,106 @@ public class Appointments
 			
 		}
 	}
+//-------------------------------------23-12-2022------------------------------------------------------------------------------------------------------	
+	@FindBy(how=How.CSS,using="#appointments > div.row.header-buttons > div:nth-child(1) > div > div.form-group.dropdown.open > ul")
+	@CacheLookup
+	WebElement Configure_Displayed;
 	
+	public void Configure_Displayed()
+	{
+		String act = Configure_Displayed.getText();
+		System.out.println("Configure list" +act);
+	}
 	
+	@FindBy(how=How.CSS,using="#appointments > div:nth-child(2)")
+	@CacheLookup
+	WebElement Patient_Appointment_Displayed;
 	
+	public void Patient_Appointment_Displayed()
+	{
+		String act = Patient_Appointment_Displayed.getText();
+		System.out.println(act);
+	}
 	
+	@FindBy(how=How.CSS,using="#appointments > div.modal.ng-scope.ng-isolate-scope.in > div > div > patient-details-modal > div.modal-header > button")
+	@CacheLookup
+	WebElement Edit_Appointment_Close;
 	
+	public void Edit_Appointment_Close()
+	{
+		Edit_Appointment_Close.click();
+	}
 	
+	@FindBy(how=How.CSS,using="#patient-lists-component > div > div > div.tab-pane.ng-scope.active > div > table > tbody > tr:nth-child(9) > td:nth-child(2) > input")
+	@CacheLookup
+	WebElement Coloums_FormsComplete;
 	
-	
+	public void Coloums_FormsComplete()
+	{
+		if(Coloums_FormsComplete.isSelected())
+		{
+			System.out.println("Forms complete is Selected");
+		}
+		else
+		{
+			Coloums_FormsComplete.click();
+		}
+	}
+//---------------------------------------------24-12-2022---------------------------------------------------------------------------------------	
 
+	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/appointments/section/div[2]/div/table")
+	@CacheLookup
+	WebElement Patient_Displayed;
+	
+	public void Patient_Displayed()
+	{
+		String act = Patient_Displayed.getText();
+		System.out.println(act);
+	}
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Yes')]")
+	@CacheLookup
+	WebElement ThreeDot_Cancel_Yes;
+	
+	public void ThreeDot_Cancel_Yes()
+	{
+		ThreeDot_Cancel_Yes.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Cancel Appointment')]")
+	@CacheLookup
+	WebElement Edit_Appointmen_Cancel_btn;
+	
+	public void Edit_Appointmen_Cancel_btn()
+	{
+		Edit_Appointmen_Cancel_btn.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Yes')]")
+	@CacheLookup
+	WebElement Edit_Appointmen_Cancel_Yes;
+	
+	public void Edit_Appointmen_Cancel_Yes()
+	{
+		Edit_Appointmen_Cancel_Yes.click();
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul")
+	@CacheLookup
+	WebElement Forms_Display;
+	
+	public void Forms_Display()
+	{
+		String act = Forms_Display.getText();
+		System.out.println(act);
+	}
+	
+	
+	
+	
+	
+	
+	
 }
 
 

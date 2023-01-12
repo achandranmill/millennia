@@ -15,7 +15,7 @@ public class Dep_PatPriority_tc_2 extends BaseClass
 
 	public void departments() throws InterruptedException 
 	{
-		
+
 
 		loginpage lp=new loginpage(driver);
 		lp.setUserName(email);
@@ -23,15 +23,23 @@ public class Dep_PatPriority_tc_2 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		Thread.sleep(5000);
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-	//	pd.LocationPopup("Florida");
 		Thread.sleep(3000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -44,8 +52,8 @@ public class Dep_PatPriority_tc_2 extends BaseClass
 		Thread.sleep(2000);
 		dept.PatientPriority_AddOption();
 		Thread.sleep(2000);
-	
-	
+
+
 	}
-	
+
 }

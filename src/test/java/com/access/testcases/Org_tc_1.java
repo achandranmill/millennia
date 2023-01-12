@@ -1,4 +1,4 @@
- package com.access.testcases;
+package com.access.testcases;
 
 import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
@@ -23,14 +23,23 @@ public class Org_tc_1 extends BaseClass
 		lp.clickSubmit();
 		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
+		try
+		{
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
-	//	pd.LocationPopup("Florida");
 		Thread.sleep(3000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -41,24 +50,24 @@ public class Org_tc_1 extends BaseClass
 		Thread.sleep(3000);
 		og.Details();
 		Thread.sleep(3000);
-		og.DetailsName("software");
+		og.DetailsName("Software");
 		Thread.sleep(3000);
-		og.DetailsshortName("sof");
+		og.DetailsshortName("Sof");
 		Thread.sleep(2000);
 		og.DetailsphoneNumber("9999999999");
 		Thread.sleep(2000);
-		og.DetailsstreetLine1("123,abc");
+		og.DetailsstreetLine1("Street line 1");
 		Thread.sleep(2000);
-		og.DetailsstreetLine2("23.cd");
-	    Thread.sleep(2000);
-	    og.Detailscity("Goa");
-	    Thread.sleep(3000);
-	    og.Detailsstate("Goa");
-	    Thread.sleep(2000);
-	    og.Detailszipcode("45372");
-	    Thread.sleep(2000);
-	    og.DetailssaveButton();
-	
-	
-}
+		og.DetailsstreetLine2("Street line 2");
+		Thread.sleep(2000);
+		og.Detailscity("Goa");
+		Thread.sleep(3000);
+		og.Detailsstate("Goa");
+		Thread.sleep(2000);
+		og.Detailszipcode("45372");
+		Thread.sleep(2000);
+		og.DetailssaveButton();
+
+
+	}
 }

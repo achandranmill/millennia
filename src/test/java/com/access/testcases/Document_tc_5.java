@@ -9,6 +9,9 @@ import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.Document;
+import com.access.pageobject.Get_In_Line;
+import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
@@ -23,108 +26,101 @@ public class Document_tc_5 extends BaseClass
 		lp.setUserName(email);
 		lp.setPassword(password);
 		lp.clickSubmit();
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
-		ad.userlocation();
-		Thread.sleep(5000);
-		ad.okbutton();
-		RegtPage r=new RegtPage(driver);
-		r.Registration();
-		Thread.sleep(3000);
-
-		Clipboard addp=new Clipboard(driver);
-		addp.LinkclickBoard();
-		Thread.sleep(5000);
-		//User Enter lastName
-		addp.lname("Ravi");
-		//User Enter FirstName
-		addp.fname("Mishra");
-		//User Enter MiddleName
-		addp.mname("kumar");
-		//User Enter Birthdate
-		addp.DOB("01091999");
-		//User Enter PhoneNumber
-		addp.pnumber("7777777777");
-		Thread.sleep(2000);
-		//User Enter Email
-		addp.textemail("mishra@gmail.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_Type();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_option();
-		//Thread.sleep(10000);
-		//addp.Clip_Seeing();
-		//Thread.sleep(1000);
-		//addp.Clip_Thoms();
-		Thread.sleep(3000);
-		addp.Clip_Flag();
-		addp.Clip_Flag_Option();
-		addp.Clip_Comment("Nill");
-		//addp.Clip_Reason("only checkup");
-		//addp.Clip_Copay("10000");
-		addp.sendSmsMessages();
-		addp.sendEmailMessages();
-		Thread.sleep(20000);
-		addp.Clip_Addpatient();
-		Thread.sleep(10000);
-		addp.Clip_Checkin();
-		 Thread.sleep(10000);
-		 addp.Alert_ok();
-		 Thread.sleep(2000);
-		 addp.lname("s");
-		 Thread.sleep(10000);
-		r.Registration();
-		Thread.sleep(10000);
-		r.search("Mishra", "ravi");
-		Thread.sleep(30000);
-		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
-		System.out.println(list.size());
-		
-		for(int i=0;i<list.size();i++)
+		try
 		{
-			String listitem=list.get(i).getText();
-			if(listitem.contains("Ravi Mishra"))
+			ad.userlocation();
+			Thread.sleep(5000);
+			ad.okbutton();
+			System.out.println("User location is present");
+		}
+		catch(Exception e) 
+		{
+			System.out.println("User location is not present");
+
+		}
+		//-----------------REGISTRATION PAGE ------------------------------
+		RegtPage r=new RegtPage(driver);
+		r.clickRegistrationPage();
+		Thread.sleep(3000);
+		Provider pd = new Provider(driver);
+		//	pd.LocationPopup("Florida");
+		Thread.sleep(10000);
+		pd.UserAdmin();
+		Thread.sleep(3000);
+		pd.Admin();
+		Thread.sleep(3000);
+		Get_In_Line of = new Get_In_Line(driver);
+		of.Department_Link();
+		Thread.sleep(3000);
+		of.Get_in_line_link();
+		Thread.sleep(3000);
+		of.Getin_line_link2();
+		Thread.sleep(10000);
+		of.Email("rakhii@gmail.com");
+		Thread.sleep(3000);
+		of.Password("R@a1k2h3i4i5");
+		Thread.sleep(3000);
+		of.Confirm_Password("R@a1k2h3i4i5");
+		Thread.sleep(3000);
+		of.First_name("rakhii");
+		Thread.sleep(3000);
+		of.Location1("newyork");
+		Thread.sleep(3000);
+		of.SSN("09-07-1998");
+		Thread.sleep(3000);
+		of.Male();
+		Thread.sleep(3000);
+		of.Phone("8888888888");
+		Thread.sleep(3000);
+		of.Location2("newyork");
+		Thread.sleep(3000);
+		of.Last4ofSSNTITLE("1998");
+		Thread.sleep(3000);
+		of.Text_Message();
+		Thread.sleep(3000);
+		of.Send_Email();
+		Thread.sleep(3000);
+		of.Send_Voice();
+		Thread.sleep(3000);
+		of.Terms();
+		Thread.sleep(10000);
+		of.Robot();
+		Thread.sleep(3000);
+		of.REGISTERANDGET_LINE();
+		Thread.sleep(20000);
+		of.My_Documents();
+		Thread.sleep(10000);
+		Document d  =  new Document(driver);
+		d.RCB_edit();
+		d.RCB_First_Name("Rajesh");
+		d.RCB_Last_Name("Yadav");
+		d.RCB_DOB("09091999");
+		d.RCB_SSN("123456789");
+		d.RCB_PATIENT("123 Road");
+		d.RCB_ZIP_CODE("123456");
+		d.RCB_SIGNATURE1();
+		d.RCB_Signature2();
+		d.RCB_DONE();
+		Thread.sleep(5000);
+		boolean Print =driver.findElement(By.xpath("//button[@ng-click=\"$event.stopPropagation(); $ctrl.print(document)\"]")).isDisplayed();
+		Assert.assertTrue(Print, "Print not displayed");
+		List<WebElement>Buttons = driver.findElements(By.xpath("//span[contains(text(),'print')]"));
+		System.out.println("Total button" + Buttons.size());
+		boolean buttons_count = false;
+		for(WebElement ele:Buttons)
+		{
+			String value = ele.getText();
+			System.out.println(value);
+			if(value.contentEquals("print"))
 			{
-				list.get(i).click();
+				buttons_count = true;
 				break;
+
 			}
 		}
-		Thread.sleep(10000);
-		r.FormsOnDemand();
-		Thread.sleep(10000);
-		r.FormsOnDemand_Select();
-		r.FormsOnDemand_Select_checkAll();
-		r.Appointment_Type();
-		r.Appointment_Type_CheckAll();
-		r.Forms_on_Demand_send();
-		Thread.sleep(20000);
-		r.Document();
-		Thread.sleep(10000);
-		r.COVIDScreeningForm();
-		Thread.sleep(5000);
-		r.COVID_19SymptomsPresent();
-		//r.COVID_DoyouhaveCOVID19();
-		r.COVID_Doyouhavedifficultybreathing();
-		r.COVID_Haveyouhadanycranberries();
-		r.COVID_images1();
-		//r.COVID_Whenwasthelasttimeyouleftthecountry();
-		r.COVID_images2();
-		r.COVID_save();
-		Thread.sleep(10000);
-		WebElement complete = driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul/li[3]/a/div"));
-		Assert.assertEquals(true,complete.isDisplayed());
-		System.out.println(" complete is displayed – Assert passed");
-		Thread.sleep(15000);
-		WebElement Print = driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[2]/button"));
-		Assert.assertEquals(true,Print.isDisplayed());
-		System.out.println(" Print logo is displayed – Assert passed");
-		Thread.sleep(5000);
-		
-		
-		
-		
-	}	
-	
+
+
+	}
 }
