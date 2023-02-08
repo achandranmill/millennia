@@ -57,9 +57,7 @@ public class Massm_tc_17 extends BaseClass
 		Thread.sleep(3000);
 		r.Attributes();
 		Thread.sleep(15000);
-		List<WebElement>Free_text = driver.findElements(By.id("editButton"));
-		System.out.println(Free_text.size());
-		Free_text.get(50).click();
+		driver.findElement(By.xpath("//*[contains(text(),'ORGANIZATION_UNIT_ENABLE_SMS_FREE_TEXT')]/following-sibling::td//button")).click();
 		Thread.sleep(5000);
 		r.Attributes_Value("true");
 		r.Attribute_Save();
@@ -77,11 +75,13 @@ public class Massm_tc_17 extends BaseClass
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
 		js.executeScript("arguments[0].scrollIntoView();", Select);
 		m.Select_Message();
+		Thread.sleep(5000);
 		m.Select_Message_option1();
+		Thread.sleep(5000);
 		boolean Message_Edit = driver.findElement(By.id("mass-message")).isEnabled();
-		Assert.assertTrue(Message_Edit);
+		Assert.assertTrue(Message_Edit,"Message_Edit is disabled");
 		m.Message_to_Send("Hello");
-		
+
 
 	}
 }

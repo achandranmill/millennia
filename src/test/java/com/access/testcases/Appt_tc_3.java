@@ -51,9 +51,9 @@ public class Appt_tc_3 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Sing");
+		addp.lname("Ward");
 		//User Enter FirstName
-		addp.fname("Surjeet");
+		addp.fname("Kathie");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -62,7 +62,7 @@ public class Appt_tc_3 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("user_test@mailinator.com");
+		addp.textemail("ward@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -86,12 +86,12 @@ public class Appt_tc_3 extends BaseClass
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AdvanceSearch);
 		Thread.sleep(1000);
-		ap.Advance_Lastname("Sing");
-		ap.Advance_Firstname("Surjeet");
+		ap.Advance_Lastname("Ward");
+		ap.Advance_Firstname("Kathie");
 		ap.Advance_Initial("Thomson");
 		Thread.sleep(3000);
 		ap.Advance_Phone("9878900912");
-		ap.Advance_Email("user_test@mailinator.com");
+		ap.Advance_Email("ward@mailinator.com");
 		ap.Advance_DOB("01031993");
 		Thread.sleep(3000);
 		ap.Advance_Mrn("");
@@ -114,11 +114,11 @@ public class Appt_tc_3 extends BaseClass
 		Thread.sleep(3000);
 		ap.EditAppointment();
 		Thread.sleep(3000);
-		ap.EditEmail(" deany120@gmail.com ");
+		ap.EditEmail(" eli@gmail.com ");
 		ap.EditDob("06111999");
 		Thread.sleep(3000);
 		ap.EditFlag();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		ap.EditFlag1();
 		Thread.sleep(3000);
 		ap.EditSave();
@@ -127,12 +127,20 @@ public class Appt_tc_3 extends BaseClass
 		//-------------------Navigate to the Patient on Reg Card------------------------
 		r.clickRegistrationPage();
 		Thread.sleep(30000);
-		r.search("Mahajan", "Surjeet");
+		r.search("Ward", "Kathie");
 		Thread.sleep(20000);
 		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
 		Thread.sleep(10000);
 		System.out.println(list.size());
-		list.get(0);
+		for(int i=0;i<list.size();i++)
+		{
+			String listitem = list.get(i).getText();
+			if(listitem.matches("Ward ,Kathie" ))
+			{
+				list.get(i).click();
+				break;
+			}
+		}
 		Thread.sleep(10000);
 
 

@@ -48,9 +48,9 @@ public class Appt_tc_19 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Dodwe");
+		addp.lname("Shaw");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Janet");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -59,7 +59,7 @@ public class Appt_tc_19 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("Umesh@mailinator.com");
+		addp.textemail("shaw@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -77,7 +77,24 @@ public class Appt_tc_19 extends BaseClass
 		//--------------------------APPOINTMENT PAGE-------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
-		ap.SearchLastName("Dodwe");
+		Thread.sleep(10000);
+		ap.Configurelist();
+		Thread.sleep(5000);
+		ap.EditStatusFilter();
+		Thread.sleep(2000);
+		WebElement SelectAll = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		if(!SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(2000);
+		ap.StatusSave();
+		Thread.sleep(10000);
+		ap.SearchLastName("Shaw");
 		ap.SearchButton();
 		Thread.sleep(15000);
 		ap.ThreeDot();

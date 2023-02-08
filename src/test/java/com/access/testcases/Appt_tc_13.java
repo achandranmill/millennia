@@ -48,7 +48,7 @@ public class Appt_tc_13 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Yadav");
+		addp.lname("Dudhe");
 		//User Enter FirstName
 		addp.fname("Sumitraji");
 		//User Enter MiddleName
@@ -97,7 +97,7 @@ public class Appt_tc_13 extends BaseClass
 		}
 		ap.ColumnsSaveChange();
 		Thread.sleep(5000);
-		ap.SearchLastName("Yadav");
+		ap.SearchLastName("Dudhe");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Appointment_Displayed();
@@ -125,7 +125,7 @@ public class Appt_tc_13 extends BaseClass
 		r.RCB_Signature2();
 		Thread.sleep(3000);
 		r.RCB_save();
-		Thread.sleep(15000);
+		Thread.sleep(25000);
 		WebElement complete = driver.findElement(By.xpath("//span[contains(text(),'COMPLETE')]"));
 		String ExpectedText = "COMPLETE";
 		Assert.assertEquals(ExpectedText, complete.getText());

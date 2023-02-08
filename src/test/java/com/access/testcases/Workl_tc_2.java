@@ -46,6 +46,7 @@ public class Workl_tc_2  extends BaseClass
 		w.worklist();
 		Thread.sleep(10000);
 		w.SortBy();
+		Thread.sleep(10000);
 		w.SortBy_Option_Display();
 		Thread.sleep(10000);
 		w.OneName();

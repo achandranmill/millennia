@@ -57,14 +57,14 @@ public class Workl_tc_3  extends BaseClass
 
 		}
 		w.BtnClose();
-		Thread.sleep(10000);
+		
+		//driver.navigate().refresh();
+		Thread.sleep(50000);
 		try
 		{
 			boolean Waiting = driver.findElement(By.xpath("//span[contains(text(),'Waiting')]")).isDisplayed();
-
-			System.out.println("Waiting patient displayed");
-
-		}
+			Assert.assertFalse(Waiting, "Waiting patient displayed -TestCase Failed");
+        }
 		catch(Exception e)
 		{
 			System.out.println("Waiting patient not displayed");

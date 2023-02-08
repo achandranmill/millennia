@@ -1,8 +1,13 @@
 package com.access.testcases;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -16,9 +21,9 @@ import com.access.pageobject.loginpage;
 @Test
 public class Clip_tc_3 extends BaseClass
 {
-	public void Clipboard() throws InterruptedException, IOException
+	public void Clipboard() throws InterruptedException, IOException, AWTException
 	{
-		
+
 		//User Check Successful login on valid email and password
 		loginpage lp= new loginpage(driver);
 		lp.setUserName(email);
@@ -43,23 +48,23 @@ public class Clip_tc_3 extends BaseClass
 
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Patel");
+		addp.lname("Ward");
 		//User Enter FirstName
-		addp.fname("Ashok");
+		addp.fname("Luna");
 		//User Enter MiddleName
-		addp.mname("Kumar");
+		addp.mname("Lee");
 		//User Enter Birthdate
 		addp.DOB("01031993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("user_test@mailinator.com");
+		addp.textemail("bryant@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -84,24 +89,24 @@ public class Clip_tc_3 extends BaseClass
 		addp.Alert_ok();
 		Thread.sleep(5000);
 		r.Registration();
-		Thread.sleep(10000);
-		r.search("Patel", "Ashok");
-		Thread.sleep(5000);
-		List<WebElement>Search = driver.findElements(By.xpath("//table[@class=\"table table-striped\"]//tbody"));
-		System.out.println(Search.size());
-		Search.get(0);
-		Thread.sleep(5000);
+		Thread.sleep(30000);
+		r.search("Ward", "Luna");
+		Thread.sleep(20000);
+		WebElement search_it=driver.findElement(By.linkText("Ward Luna"));
+		JavascriptExecutor j = (JavascriptExecutor) driver;
+		j.executeScript("arguments[0].click();", search_it);
+		Thread.sleep(20000);
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
 		Thread.sleep(10000);
-		w.Searchl("Patel");
-		w.Searchf("Ashok");
-		Thread.sleep(5000);
-		List<WebElement>W_Search = driver.findElements(By.xpath("//table[@class=\\\"table table-striped\\\"]//tbody"));
-		System.out.println(W_Search.size());
-		W_Search.get(0);
-		
-
+		w.Searchworklist();
+		w.Searchl("Ward");
+		w.Searchf("Luna");
+		Thread.sleep(20000);
+		WebElement search_it1=driver.findElement(By.linkText("Ward Luna"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", search_it1);
+		Thread.sleep(20000);
 	}	
 }
 

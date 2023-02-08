@@ -1,4 +1,4 @@
-package com.access.testcases;
+ package com.access.testcases;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -49,7 +49,7 @@ public class Appt_tc_4 extends BaseClass
 		//-------------------APPOINTMENT PAGE------------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
-		Thread.sleep(10000);
+		Thread.sleep(30000);
 		ap.AppointDATE();
 		ap.AppointDATE1("2022-03-01");
 		ap.AppointDATE2("2022-04-06");
@@ -75,6 +75,27 @@ public class Appt_tc_4 extends BaseClass
 		Remove_Depart.click();
 		Thread.sleep(3000);
 		ap.Departmentsavechange();
+		Thread.sleep(5000);
+		ap.Patient_Displayed();
+		Thread.sleep(5000);
+		ap.Configurelist();
+		Thread.sleep(5000);
+		WebElement Edit_Department= driver.findElement(By.cssSelector("#appointments > div.row.header-buttons > div:nth-child(1) > div > div.form-group.dropdown.open > ul > li:nth-child(1) > a"));
+		Thread.sleep(2000);
+		Edit_Department.click();
+		Thread.sleep(2000);
+		WebElement SelectAll2 = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/department-filter/div[2]/div/div[1]/label/input"));
+		if(!SelectAll2.isSelected())
+		{
+			SelectAll2.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(5000);
+		WebElement Depart_Save = driver.findElement(By.cssSelector("#appointments > div.modal.ng-scope.ng-isolate-scope.in > div > div > department-filter > div.modal-footer > button.btn.btn-primary"));
+		Depart_Save.click();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
 		Thread.sleep(5000);
@@ -137,19 +158,19 @@ public class Appt_tc_4 extends BaseClass
 		ap.Configurelist();
 		Thread.sleep(5000);
 		ap.EditDepartFillter();
-		WebElement SelectAll2 = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/department-filter/div[2]/div/div[1]/label/input"));
+		WebElement SelectAll3 = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/department-filter/div[2]/div/div[1]/label/input"));
 
-		if(!SelectAll2.isSelected())
+		if(!SelectAll3.isSelected())
 		{
-			SelectAll2.click();
+			SelectAll3.click();
 		}
 		else
 		{
 
 		}
 		Thread.sleep(3000);
-		WebElement Depart_Save = driver.findElement(By.cssSelector("#appointments > div.modal.ng-scope.ng-isolate-scope.in > div > div > department-filter > div.modal-footer > button.btn.btn-primary"));
-		Depart_Save.click();
+		WebElement Depart_Save1 = driver.findElement(By.cssSelector("#appointments > div.modal.ng-scope.ng-isolate-scope.in > div > div > department-filter > div.modal-footer > button.btn.btn-primary"));
+		Depart_Save1.click();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
 		ap.Configurelist();

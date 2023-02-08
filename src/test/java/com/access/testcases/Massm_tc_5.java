@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -47,9 +48,9 @@ public class Massm_tc_5  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("sathe");
+		addp.lname("Andy");
 		//User Enter FirstName
-		addp.fname("priya");
+		addp.fname("Leo");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -58,7 +59,7 @@ public class Massm_tc_5  extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sathe@mailinator.com");
+		addp.textemail("leo@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -90,28 +91,34 @@ public class Massm_tc_5  extends BaseClass
 	    m.SeeingFilter();
 	    Thread.sleep(3000);
 	    WebElement Seeing_SelectAll = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/seeing-filter/div[2]/div[1]/label/input"));
-	    if(!Seeing_SelectAll.isSelected())
+	    if(Seeing_SelectAll.isSelected())
 	    {
-	    	System.out.println("SelectAll checkbox not selected");
+	    	Seeing_SelectAll.click();
 	    }
 	    else
 	    {
-	    	Seeing_SelectAll.click();
-	    	System.out.println("SelectAll checkbox selected");
+	    
 	    }
-		WebElement Provider = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/seeing-filter/div[2]/div[13]/label/input"));
-		if(Provider.isSelected())
+		WebElement Provider = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/seeing-filter/div[2]/div[23]/label/input"));
+		if(!Provider.isSelected())
 		{
-			System.out.println("Provider checkbox selected");
+			Provider.click();
 		}
 		else
 		{
-			Provider.click();
-			System.out.println("Provider checkbox not selected");
+			
 		}
 		Thread.sleep(3000);
 		m.SeeingCancel();
 		Thread.sleep(3000);
+		m.LastName("Andy");
+		m.FirstName("Leo");
+		m.Search1();
+		Thread.sleep(10000);
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Andy, Leo')]"));
+		String Excepted = "Andy, Leo";
+		Assert.assertEquals(Patient.getText(), Excepted);
+		System.out.println("Test case - Passed");
 		m.Eligible_print();
 	
 	}

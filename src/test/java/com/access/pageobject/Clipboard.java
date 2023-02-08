@@ -168,7 +168,7 @@ public class Clipboard {
 	@CacheLookup
 	WebElement UndoCheckIn;
 	
-	@FindBy(how = How.XPATH, using ="/html/body/div[1]/div/div/undo-check-in-modal/div[3]/button[2]")
+	@FindBy(how = How.XPATH, using ="//button[contains(text(),'Yes')]")
 	@CacheLookup
 	WebElement ConfirmUndoCheckIn;
 	
@@ -227,7 +227,7 @@ public class Clipboard {
 	@CacheLookup
 	WebElement Date;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/main/div[1]/clipboard1/div[2]/div[1]/div")
+	@FindBy(how=How.XPATH,using="//button[contains(text(),'Undo Check In')]")
 	 @CacheLookup
 	 WebElement Undocheckin;
 	
@@ -417,10 +417,19 @@ public class Clipboard {
 	}
 	public void CUCheckIn()
 	{
-		Actions at = new Actions(ldriver);
-		at.moveToElement(ConfirmUndoCheckIn).build().perform();
 		
+		ConfirmUndoCheckIn.click();
 	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"clipboard\"]/main/div[1]/clipboard1/div[2]/div[1]/div/table[2]/tbody/tr/td[5]")
+	@CacheLookup
+	WebElement U_check;
+	
+	public void U_check()
+	{
+		U_check.click();
+	}
+	
 	
 	 public void Undocheckinnew()
 	 {
@@ -468,7 +477,7 @@ public class Clipboard {
 	 }
 	 
 	//---------ACCORDING Appointment_Type DROP-DOWN USED THE New Appointment OPTION---IF CHANGES IN THIS OPTION AND NOT AVAILABLE New Appointment SO IS FAILD--------------------
-	 @FindBy(how=How.CSS,using="#clipboard > main > div:nth-child(1) > clipboard1 > div:nth-child(1) > div > form > div:nth-child(3) > div:nth-child(4) > div > div > ul > li:nth-child(1) > a")
+	 @FindBy(how=How.CSS,using="#clipboard > main > div:nth-child(1) > clipboard1 > div:nth-child(1) > div > form > div:nth-child(3) > div:nth-child(6) > div > div > ul > li:nth-child(1) > a")
 	 @CacheLookup
 	 WebElement Clip_Appointment_option;
 	 
@@ -487,7 +496,7 @@ public class Clipboard {
 	 }
 	 
 //---------ACCORDING SEEING DROP-DOWN USED THE TEST_2,PROVIDER OPTION---IF CHANGES IN THIS OPTION AND NOT AVAILABLE TEST_2,PROVIDER SO IS FAILD--------------------
-	 @FindBy(how=How.CSS,using="#clipboard > main > div:nth-child(1) > clipboard1 > div:nth-child(1) > div > form > div:nth-child(3) > div:nth-child(10) > div > div > ul > li:nth-child(2) > a")
+	 @FindBy(how=How.CSS,using="#clipboard > main > div:nth-child(1) > clipboard1 > div:nth-child(1) > div > form > div:nth-child(3) > div:nth-child(5) > div > div > ul > li:nth-child(2) > a")
 	 @CacheLookup
 	 WebElement Clip_Thoms;
 	 
@@ -2361,7 +2370,8 @@ public void Clip_Flag_Option1()
     
     public void Clip_Appointment_Date(String d)
     {
-    	
+    	Clip_Appointment_Date.click();
+    	Clip_Appointment_Date.clear();
     	Clip_Appointment_Date.sendKeys(d);
     }
     

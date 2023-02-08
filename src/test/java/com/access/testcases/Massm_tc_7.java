@@ -48,9 +48,9 @@ public class Massm_tc_7  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Yadav");
+		addp.lname("Tracy");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Sam");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -59,7 +59,7 @@ public class Massm_tc_7  extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sathe@mailinator.com");
+		addp.textemail("tracy@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -102,17 +102,22 @@ public class Massm_tc_7  extends BaseClass
 		Thread.sleep(3000);
 		m.StatusFilterSave();
 		Thread.sleep(10000);
-		/*m.FirstName("Priya");
-		m.LastName("Sathe");
+		m.FirstName("Sam");
+		m.LastName("Tracy");
 		m.Search1();
-		Thread.sleep(20000);*/
+		Thread.sleep(20000);
 	    m.Eligible_print();
 	    Thread.sleep(10000);
-		WebElement e = driver.findElement(By.xpath("//*[@id=\"directory\"]/table/tbody/tr[1]/td[4]/div[1]/span"));
+		WebElement e = driver.findElement(By.cssSelector("#directory > table > tbody > tr:nth-child(1) > td.text-right > div:nth-child(1) > span"));
+		Thread.sleep(5000);
 		String back_color = e.getCssValue("background-color");
+		Thread.sleep(5000);
 		System.out.println(back_color);
+		Thread.sleep(5000);
 		String hex_back_color = Color.fromString(back_color).asHex();
+		Thread.sleep(5000);
 		System.out.println(hex_back_color);
+		Thread.sleep(5000);
 		if(hex_back_color.equals("#3c763d"))
 		{
 			System.out.println("Test case passed");
@@ -122,11 +127,16 @@ public class Massm_tc_7  extends BaseClass
 			System.out.println("Test case failed");
 		}
 		Thread.sleep(10000);
-		WebElement e1 = driver.findElement(By.xpath("//*[@id=\"directory\"]/table/tbody/tr[1]/td[4]/div[2]/span"));
+		WebElement e1 = driver.findElement(By.cssSelector("#directory > table > tbody > tr:nth-child(1) > td.text-right > div:nth-child(2) > span"));
+		Thread.sleep(5000);
 		String back_color1 = e.getCssValue("background-color");
+		Thread.sleep(5000);
 		System.out.println(back_color1);
+		Thread.sleep(5000);
 		String hex_back_color1 = Color.fromString(back_color1).asHex();
+		Thread.sleep(5000);
 		System.out.println(hex_back_color1);
+		Thread.sleep(5000);
 		if(hex_back_color1.equals("#E74C3C"))
 		{
 			System.out.println("Test case passed");

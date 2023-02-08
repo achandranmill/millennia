@@ -48,9 +48,9 @@ public class Appt_tc_17 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Mahveer");
+		addp.lname("Bell3");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Aroan");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -59,7 +59,7 @@ public class Appt_tc_17 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("Umesh@mailinator.com");
+		addp.textemail("bell@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Location();
 		Thread.sleep(2000);
@@ -78,7 +78,7 @@ public class Appt_tc_17 extends BaseClass
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(15000);
-		
+
 		//-------------------------------CONFIGURE LIST---------------------
 		ap.Configurelist();
 		Thread.sleep(10000);
@@ -91,21 +91,43 @@ public class Appt_tc_17 extends BaseClass
 		}
 		else
 		{
-			
+
 		}
 		Thread.sleep(2000);
-		ap.StatusUnconfirmed();
+		WebElement Unconfirmed = driver.findElement(By.xpath("//*[@id=\"Unconfirmed\"]"));
+		if(!Unconfirmed.isSelected())
+		{
+			Unconfirmed.click();
+		}
+		else
+		{
+
+		}
+		WebElement confirmed = driver.findElement(By.xpath("//*[@id=\"Confirmed\"]"));
+		if(!confirmed.isSelected())
+		{
+			confirmed.click();
+		}
+		else
+		{
+
+		}
 		Thread.sleep(2000);
 		ap.StatusSave();
 		Thread.sleep(10000);
-		ap.SearchLastName("Mahveer");
+		ap.SearchLastName("Bell3");
 		ap.SearchButton();
 		Thread.sleep(15000);
+		ap.Patient_Displayed();
+		ap.ThreeDot();
+		ap.ThreDotSetConfirmed();
+		Thread.sleep(10000);
+		ap.Patient_Displayed();
+		ap.ThreeDot();
+		ap.ThreDotSetUnconfirmed();
 		WebElement UNCONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'UNCONFIRMED'\"]"));
 		String UNCONFIRM_EXPECTED = "UNCONFIRMED";
 		Assert.assertEquals(UNCONFIRM_PATIENT.getText(), UNCONFIRM_EXPECTED);
-		System.out.println("Unconfirmed status is displayed---Passed");
-		Thread.sleep(10000);
 		ap.Patient_Displayed();
 
 	}

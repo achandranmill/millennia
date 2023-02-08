@@ -48,9 +48,9 @@ public class Appt_tc_15 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Chandke");
+		addp.lname("Ward2");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Carlos");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -59,7 +59,7 @@ public class Appt_tc_15 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("Umesh@mailinator.com");
+		addp.textemail("carlos@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Location();
 		Thread.sleep(2000);
@@ -78,7 +78,41 @@ public class Appt_tc_15 extends BaseClass
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(15000);
-		ap.SearchLastName("Chandke");
+		ap.Configurelist();
+		Thread.sleep(10000);
+		ap.EditStatusFilter();
+		Thread.sleep(3000);
+		WebElement SelectAll = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		if(SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+
+		}
+		WebElement Unconfirmed = driver.findElement(By.xpath("//*[@id=\"Unconfirmed\"]"));
+		if(!Unconfirmed.isSelected())
+		{
+			Unconfirmed.click();
+		}
+		else
+		{
+			
+		}
+		WebElement confirmed = driver.findElement(By.xpath("//*[@id=\"Confirmed\"]"));
+		if(!confirmed.isSelected())
+		{
+			confirmed.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(2000);
+		ap.StatusSave();
+	    Thread.sleep(10000);
+		ap.SearchLastName("Ward2");
 		ap.SearchButton();
 		Thread.sleep(15000);
 		WebElement UNCONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'UNCONFIRMED'\"]"));

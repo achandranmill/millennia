@@ -47,9 +47,9 @@ public class Massm_tc_11 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("sathe");
+		addp.lname("Shirlay");
 		//User Enter FirstName
-		addp.fname("priya");
+		addp.fname("Ken");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -58,7 +58,7 @@ public class Massm_tc_11 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sathe@mailinator.com");
+		addp.textemail("Ken@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -102,7 +102,7 @@ public class Massm_tc_11 extends BaseClass
 		}
 		else
 		{
-			System.out.println("Confirm checkbox not selected");
+			
 		}
 		Thread.sleep(2000);
 		WebElement Unconfirmed = driver.findElement(By.id("Unconfirmed"));
@@ -112,7 +112,7 @@ public class Massm_tc_11 extends BaseClass
 		}
 		else
 		{
-			System.out.println("Unconfirmed checkbox not selected");
+			
 		}
 		Thread.sleep(5000);
 		ab.StatusSave();

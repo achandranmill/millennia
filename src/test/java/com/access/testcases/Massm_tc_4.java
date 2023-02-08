@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -49,7 +50,7 @@ public class Massm_tc_4  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Robin");
+		addp.lname("Andy");
 		//User Enter FirstName
 		addp.fname("John");
 		//User Enter MiddleName
@@ -61,7 +62,7 @@ public class Massm_tc_4  extends BaseClass
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("user_test@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		//addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -90,30 +91,53 @@ public class Massm_tc_4  extends BaseClass
 		m.MassMessaging();
 		Thread.sleep(10000);
 		m.DepartmentFilter();
+		Thread.sleep(5000);
 		WebElement Select_All = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/department-filter/div[2]/div/div[1]/label/input"));
-		if(!Select_All.isSelected())
-		{
-			System.out.println("SelecteAll checkbox Not selected");
-		}
-		else
+		if(Select_All.isSelected())
 		{
 			Select_All.click();
-			System.out.println("SelecteAll checkbox selected");
-		}
-		WebElement Imenso = driver.findElement(By.xpath("//*[@id=\"30ddf032-541b-4add-8a0a-1ca090d5260c\"]"));
-		if(Imenso.isSelected())
-		{
-			System.out.println("Imenso department checkbox selected");
 		}
 		else
 		{
+			
+		}
+		Thread.sleep(5000);
+		WebElement Imenso = driver.findElement(By.id("30ddf032-541b-4add-8a0a-1ca090d5260c"));
+		if(!Imenso.isSelected())
+		{
 			Imenso.click();
-			System.out.println("Imenso department checkbox not selected");
+			
+		}
+		else
+		{
+			
+			System.out.println("Imenso department checkbox selected");
 		}
 		m.DepartmentSave();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		m.StatusFilter();
+		WebElement SelectAll=driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		if(!SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(5000);
+		m.StatusFilterSave();
+		Thread.sleep(5000);
+		m.LastName("Andy");
+		m.FirstName("John");
+		m.Search1();
+		Thread.sleep(10000);
 		m.Eligible_print();
 		Thread.sleep(3000);
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Andy, John')]"));
+		String Excepted = "Andy, John";
+		Assert.assertEquals(Patient.getText(), Excepted);
+		System.out.println("Test case - Passed");
 		
 		
 	}

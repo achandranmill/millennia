@@ -1385,7 +1385,7 @@ public class Appointments
 		Edit_Appointmen_Cancel_Yes.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul")
+	@FindBy(how=How.XPATH,using="//div[@ng-class=\"$ctrl.setModalBodyClass()\"]")
 	@CacheLookup
 	WebElement Forms_Display;
 	
@@ -1395,10 +1395,36 @@ public class Appointments
 		System.out.println(act);
 	}
 	
+	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul")
+	@CacheLookup
+	WebElement Forms_option;
+	
+	public void Forms_option()
+	{
+		String act = Forms_option.getText();
+		System.out.println(act);
+	}
+	
+	@FindBy(how=How.CSS,using="#appointments > div.modal.ng-scope.ng-isolate-scope.in > div > div > patient-details-modal > div.modal-body.ng-scope.tab-documents")
+	@CacheLookup
+	WebElement Forms_Display2;
+	
+	public void Forms_Display2()
+	{
+		String act = Forms_Display2.getText();
+		System.out.println(act);
+	}
 	
 	
+	@FindBy(how=How.CSS,using="#appointments > div.modal.ng-scope.ng-isolate-scope.in > div > div > patient-details-modal > div.modal-body.ng-scope.tab-documents > div > div.tab-pane.active > jfh-patient-forms > div > div.col-xs-4.documents-list > ul")
+	@CacheLookup
+	WebElement Forms_option1;
 	
-	
+	public void Forms_option1()
+	{
+		String act = Forms_option1.getText();
+		System.out.println(act);
+	}
 	
 	
 }

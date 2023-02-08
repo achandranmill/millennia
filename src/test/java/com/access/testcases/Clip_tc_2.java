@@ -1,6 +1,8 @@
 package com.access.testcases;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
@@ -92,7 +94,29 @@ public class Clip_tc_2 extends BaseClass {
 		addp.sendEmailMessages();
 		addp.connect();
 		addp.relation();
-		addp.newClearButton();	
+		try
+		{
+			addp.addcheckin();
+			Thread.sleep(5000);
+			addp.Alert_ok();
+			System.out.println(" Combine \"Add Patient\" and \"Check In\" Buttons");
+		}
+		catch(Exception e)
+		{
+			System.out.println(" Not combine \"Add Patient\" and \"Check In\" Buttons");
+			addp.Clip_Addpatient();
+			addp.Clip_Checkin();
+			addp.Alert_ok();
+
+		}
+
+		addp.newClearButton();
+		Thread.sleep(10000);
+		addp.fname("John");
+		Thread.sleep(10000);
+		WebElement name = driver.findElement(By.xpath("//span[contains(text(),'9-John Thomson Robin')]"));
+		String name1 = "9-John Thomson Robin";
+		Assert.assertEquals(name.getText(), name1);
 
 	}}
 

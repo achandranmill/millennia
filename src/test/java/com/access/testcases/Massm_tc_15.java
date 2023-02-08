@@ -109,7 +109,7 @@ public class Massm_tc_15 extends BaseClass
 		Thread.sleep(10000);
 		WebElement Virat = driver.findElement(By.xpath("//td[contains(text(),'Kohli, Virat')]"));
 		Assert.assertEquals(true, Virat.isDisplayed());
-		System.out.println(" Patient Cancelled displayed");
+		System.out.println(" Patient displayed");
 		Thread.sleep(1000);
 		WebElement Virat_CHECKEDIN = driver.findElement(By.xpath("//span[contains(text(),'CHECKED-IN')]"));
 		Assert.assertEquals(true, Virat_CHECKEDIN.isDisplayed());

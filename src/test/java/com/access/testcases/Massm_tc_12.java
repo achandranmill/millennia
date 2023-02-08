@@ -47,9 +47,9 @@ public class Massm_tc_12 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("dudhe");
+		addp.lname("Nina");
 		//User Enter FirstName
-		addp.fname("rakesh");
+		addp.fname("Sara");
 		//User Enter MiddleName
 		addp.mname("kumar");
 		//User Enter Birthdate
@@ -58,7 +58,7 @@ public class Massm_tc_12 extends BaseClass
 		addp.pnumber("7777777777");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("rakesh@gmail.com");
+		addp.textemail("Sara@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Location();
 		Thread.sleep(2000);
@@ -70,10 +70,8 @@ public class Massm_tc_12 extends BaseClass
 		Thread.sleep(1000);
 		addp.Clip_Thoms();
 		Thread.sleep(3000);
-		addp.Clip_Flag();
-		 addp.Clip_Flag_Option();
-		addp.Clip_Comment("Routine checkup");
-		addp.Clip_Reason("only checkup");
+        addp.Clip_Comment("Routine checkup");
+		//addp.Clip_Reason("only checkup");
 		addp.Clip_Copay("10000");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
@@ -101,6 +99,9 @@ public class Massm_tc_12 extends BaseClass
 		Thread.sleep(2000);
 		ab.StatusSave();
 		Thread.sleep(10000);
+		ab.SearchLastName("Nina");
+		ab.SearchButton();
+		Thread.sleep(5000);
 		ab.ThreeDot();
 		Thread.sleep(10000);
 		ab.ThreeDotCancel();

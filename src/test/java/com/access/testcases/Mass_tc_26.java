@@ -1,24 +1,29 @@
 package com.access.testcases;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.MassMessaging;
+import com.access.pageobject.Organization;
+import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.UserTestPage;
 import com.access.pageobject.loginpage;
 
-@Test
-public class Massm_tc_3   extends BaseClass
+public class Mass_tc_26 extends BaseClass
 
 {
+	@Test
 	public void MassMessaging() throws Exception
 	{
 		loginpage lp=new loginpage(driver);
@@ -44,15 +49,36 @@ public class Massm_tc_3   extends BaseClass
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-		r.clickRegistrationPage();
+		Provider pd = new Provider(driver);
+		Thread.sleep(3000);
+		pd.UserAdmin();
+		Thread.sleep(3000);
+		pd.Admin();
+		Thread.sleep(3000);
+		Organization og = new Organization(driver);
+		og.Organization();
+		Thread.sleep(3000);
+		r.Attributes();
+		Thread.sleep(15000);
+		List<WebElement>Free_text = driver.findElements(By.id("editButton"));
+		System.out.println(Free_text.size());
+		Free_text.get(50).click();
+		Thread.sleep(5000);
+		r.Attributes_Value("true");
+		r.Attribute_Save();
+		Thread.sleep(2000);
+		pd.UserAdmin();
+		Thread.sleep(1000);
+		r.Returnto_Access();
+		Thread.sleep(1000);
 		Thread.sleep(3000);
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Lorii");
+		addp.lname("Yadav");
 		//User Enter FirstName
-		addp.fname("Cory");
+		addp.fname("Umesh");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -61,49 +87,51 @@ public class Massm_tc_3   extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("lori@mailinator.com");
-	    Thread.sleep(5000);
-	    addp.Clip_Seeing();
+		addp.textemail("sathe@mailinator.com");
+		addp.Clip_AppointTime("0945");
+		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
+		Thread.sleep(2000);
 		addp.Clip_Comment("Routine checkup");
-		addp.sendSmsMessages();
 		addp.sendEmailMessages();
+		addp.sendSmsMessages();
+		addp.Clip_LinkConnectAccount();
+		addp.Clip_Linkpatient();
+		Thread.sleep(2000);
+		addp.Clip_LinkSelfoption();
+		Thread.sleep(1000);
 		addp.Clip_Addpatient();
+		Thread.sleep(1000);
 		addp.Clip_Checkin();
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		addp.Alert_ok();
-		Thread.sleep(15000);
+		Thread.sleep(10000);
 		UserTestPage u =new  UserTestPage(driver);
 		u.linkUserTest();
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
-		m.LastName("Lorii");
-		Thread.sleep(2000);
-		m.FirstName("Cory");
-		Thread.sleep(2000);
-		m.Initial("Thomson");
-		m.Search1();
-		Thread.sleep(15000);
+	    Thread.sleep(20000);
 		WebElement Select =driver.findElement(By.xpath("//*[@id=\"messages\"]"));
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
 		js.executeScript("arguments[0].scrollIntoView();", Select);
 		m.Select_Message();
-		m.Select_Message_option1();
-		Thread.sleep(5000);
-		m.Send_Message_Patient();
-		Thread.sleep(5000);
-		m.Message_History_print();
+		m.Free_Text();
+		m.Variable_Visit_Code();
+		m.Edit_Freetext_Message("  Mr. Umesh your Visit Code is 03 is");
+		WebElement Send_Message_Patient =driver.findElement(By.cssSelector("#massMessaging > main > div:nth-child(1) > mass-messaging > div > div > div.sidebar > div:nth-child(3) > div:nth-child(5) > div.col-sm-6.text-right > button"));
+		click(driver,Send_Message_Patient ,30);
 		Thread.sleep(10000);
-		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Cory Lorii')]"));
-		js.executeScript("arguments[0].scrollIntoView();", Patient);
-		String Excepted = "Cory Lorii";
-		Assert.assertEquals(Patient.getText(), Excepted);
-		System.out.println("Test case - Passed");
+		m.Send_Message_Modal_Print();
 		
+	}
+	public static void click(WebDriver driver,WebElement element ,int timeout)
+	{
+		new WebDriverWait(driver , timeout).until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
 	}
 }

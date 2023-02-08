@@ -57,9 +57,7 @@ public class Massm_tc_20 extends BaseClass
 		Thread.sleep(3000);
 		r.Attributes();
 		Thread.sleep(15000);
-		List<WebElement>Free_text = driver.findElements(By.id("editButton"));
-		System.out.println(Free_text.size());
-		Free_text.get(50).click();
+		driver.findElement(By.xpath("//*[contains(text(),'ORGANIZATION_UNIT_ENABLE_SMS_FREE_TEXT')]/following-sibling::td//button")).click();
 		Thread.sleep(5000);
 		r.Attributes_Value("true");
 		r.Attribute_Save();
@@ -82,7 +80,7 @@ public class Massm_tc_20 extends BaseClass
 		m.Edit_Freetext_Message(" Good afternoon, Mr. Sathe How are you?");
 		m.Send_Message_Patient();
 		Thread.sleep(10000);
-		m.Send_Message_Modal_Print();
+		m.Message_History_print();
 		
 	}
 }

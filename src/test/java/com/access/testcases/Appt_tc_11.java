@@ -47,9 +47,9 @@ public class Appt_tc_11 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Rajpal");
+		addp.lname("Gomez");
 		//User Enter FirstName
-		addp.fname("Sourabh");
+		addp.fname("Gemma");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -81,9 +81,9 @@ public class Appt_tc_11 extends BaseClass
 		//-----------------APPOINTMENT PAGE-------------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
-		Thread.sleep(3000);
+		Thread.sleep(15000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Rajpal");
+		ap.SearchLastName("Gomez");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
@@ -94,6 +94,8 @@ public class Appt_tc_11 extends BaseClass
 		Thread.sleep(5000);
 		WebElement Forms = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/ul/li[2]/a"));
 		Forms.click();
+		Thread.sleep(20000);
+		ap.Forms_option();
 		ap.Forms_Display();
 		WebElement Patient = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/ul/li[1]/a"));
 		Patient.click();
@@ -104,9 +106,15 @@ public class Appt_tc_11 extends BaseClass
 		Thread.sleep(3000);
 		ap.AppointmentTypeSave();
 		Thread.sleep(15000);
-		WebElement Forms1 = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/ul/li[2]/a"));
-		Forms1.click();
-		ap.Forms_Display();
+		ap.ThreeDot();
+		Thread.sleep(5000);
+		ap.ThreeDotForms();
+		Thread.sleep(5000);
+		ap.Forms_option1();
+		Thread.sleep(5000);
+		ap.Forms_Display2();
+		
+		
 		
 
 

@@ -38,7 +38,7 @@ public class MassMessaging
 		MessageHistory.click();
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"massMessaging\"]/div[1]/div/div/mass-messaging-history/section")
+	@FindBy(how=How.XPATH,using="//div[@class=\"modal-content\"]")
 	@CacheLookup
 	WebElement Message_History_print;
 

@@ -47,9 +47,9 @@ public class Appt_tc_9 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter FirstName
-		addp.fname("Rajesh");
+		addp.fname("Shane");
 		//User Enter lastName
-		addp.lname("Madhav");
+		addp.lname("Evans");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -58,7 +58,7 @@ public class Appt_tc_9 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sindhee@mailinator.com");
+		addp.textemail("shane@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -93,7 +93,7 @@ public class Appt_tc_9 extends BaseClass
 		Thread.sleep(2000);
 		ap.StatusSave();
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Madhav");
+		ap.SearchLastName("Evans");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();

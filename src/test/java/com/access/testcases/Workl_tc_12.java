@@ -65,10 +65,10 @@ public class Workl_tc_12 extends BaseClass
 		}
 		Thread.sleep(3000);
 		w.SaveChanges();
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		List<WebElement>Goto_patient = driver.findElements(By.xpath("//button[contains(text(),'Go to Patient Details')]"));
 		System.out.println(Goto_patient.size());
-		Goto_patient.get(0);
+		Goto_patient.get(1);
 		Thread.sleep(5000);
 		w.Forms();
 		Thread.sleep(5000);

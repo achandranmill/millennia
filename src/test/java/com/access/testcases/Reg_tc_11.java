@@ -116,7 +116,7 @@ public class Reg_tc_11 extends BaseClass
 		of.Sign_Password("Random@123456789");
 		Thread.sleep(1000);
 		of.Sign_Submit();
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		of.My_Documents();
 		
 

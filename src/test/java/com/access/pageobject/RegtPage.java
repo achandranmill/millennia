@@ -281,7 +281,7 @@ public class RegtPage
 		System.out.println("Hold Patient Message is: "+act);
 	}
 
-	@FindBy(how=How.XPATH,using="")
+	@FindBy(how=How.CSS,using="#registration > div.modal.center-modal-backdrop.fade.ng-scope.ng-isolate-scope.in > div > div > patient-hold-list > div.modal-body > table > tbody > tr:nth-child(1) > td:nth-child(1)")
 	@CacheLookup
 	WebElement Remove_HoldList;
 

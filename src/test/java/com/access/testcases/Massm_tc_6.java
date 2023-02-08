@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -45,9 +46,9 @@ public class Massm_tc_6  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("sathe");
+		addp.lname("Leo");
 		//User Enter FirstName
-		addp.fname("priya");
+		addp.fname("Andy");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -56,7 +57,7 @@ public class Massm_tc_6  extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sathe@mailinator.com");
+		addp.textemail("anyd@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -119,6 +120,16 @@ public class Massm_tc_6  extends BaseClass
 		Thread.sleep(3000);
 	    m.StatusFilterSave();
 		Thread.sleep(3000);
+		m.LastName("Leo");
+		m.FirstName("Andy");
+		m.Search1();
+		Thread.sleep(10000);
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Leo, Andy')]"));
+		String Excepted = "Leo, Andy";
+		Assert.assertEquals(Patient.getText(), Excepted);
+		System.out.println("Test case - Passed");
+		WebElement UNCONFIRMED_Status = driver.findElement(By.xpath("//span[contains(text(),'UNCONFIRMED')]"));
+		Assert.assertTrue(UNCONFIRMED_Status.isDisplayed(), "UNCONFIRMED status not displayed");
 		m.Eligible_print();
 		
 	}

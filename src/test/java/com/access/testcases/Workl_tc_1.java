@@ -45,6 +45,7 @@ public class Workl_tc_1 extends BaseClass
 		Thread.sleep(5000);
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
+		Thread.sleep(10000);
 		w.Configure();
 		Thread.sleep(3000);
 		w.Department();

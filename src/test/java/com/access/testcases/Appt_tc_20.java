@@ -2,6 +2,9 @@ package com.access.testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -43,9 +46,9 @@ public class Appt_tc_20 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Yogi");
+		addp.lname("Lorie");
 		//User Enter FirstName
-		addp.fname("Palkesh");
+		addp.fname("Cory");
 		//User Enter MiddleName
 		addp.mname("Kumar");
 		//User Enter Birthdate
@@ -54,11 +57,11 @@ public class Appt_tc_20 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("Umesh@mailinator.com");
+		addp.textemail("cory@mailinator.com");
 		addp.Clip_AppointTime("0945");
 
 		//-------Select Date Range > Include today through next week > Apply------------------------
-		addp.Clip_Appointment_Date("01012023");
+		addp.Clip_Appointment_Date("02062023");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -81,10 +84,41 @@ public class Appt_tc_20 extends BaseClass
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(3000);
+		Thread.sleep(10000);
+		//-------------------------------CONFIGURE LIST---------------------
+		ap.Configurelist();
+		Thread.sleep(10000);
+		ap.EditStatusFilter();
+		Thread.sleep(2000);
+		WebElement SelectAll = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		if(!SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(2000);
+		ap.StatusSave();
+		Thread.sleep(10000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Yogi");
+		ap.AppointDATE();
+		Thread.sleep(2000);
+		ap.AppointDATE1("2023-01-31");
+		Thread.sleep(2000);
+		ap.AppointDATE2("2023-02-06");
+		Thread.sleep(2000);
+		ap.AppointDATEAPPLY();
+		Thread.sleep(10000);
+		ap.Patient_Displayed();
+		ap.SearchLastName("Lorie");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
+		boolean patient = driver.findElement(By.xpath("//span[contains(text(),'Lorie, Cory')]")).isDisplayed();
+		Assert.assertTrue(patient, "Lorie, Cory patient not displayed --TestCase Failed");
+		System.out.println("Lorie, Cory patient displayed --TestCase Passed");
+        
 	}
 }

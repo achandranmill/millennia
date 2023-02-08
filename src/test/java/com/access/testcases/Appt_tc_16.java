@@ -50,9 +50,9 @@ public class Appt_tc_16 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Kulkarni");
+		addp.lname("Ward");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Carlos");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -61,7 +61,7 @@ public class Appt_tc_16 extends BaseClass
 		addp.pnumber("9878900913");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("Umesh@mailinator.com");
+		addp.textemail("carlos@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Location();
 		Thread.sleep(2000);
@@ -80,32 +80,7 @@ public class Appt_tc_16 extends BaseClass
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(10000);
-		//---------------------Advance Search-------------------------------
-		WebElement AdvanceSearch = driver.findElement(By.xpath("//button[contains(text(),'Advanced Search')]"));
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", AdvanceSearch);
-		Thread.sleep(1000);
-		ap.Advance_Lastname("Kulkarni");
-		ap.Advance_Firstname("Umesh");
-		ap.Advance_Initial("Thomson");
-		Thread.sleep(3000);
-		ap.Advance_Phone("9878900913");
-		ap.Advance_Email("Umesh@mailinator.com");
-		ap.Advance_DOB("01031999");
-		Thread.sleep(3000);
-		ap.Advance_Mrn("");
-		//------------------------------------SEARCH BUTTON------------------------------
-		ap.Searchbtn();
-		Thread.sleep(20000);
-		WebElement UNCONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'UNCONFIRMED'\"]"));
-		String UNCONFIRM_EXPECTED = "UNCONFIRMED";
-		Assert.assertEquals(UNCONFIRM_PATIENT.getText(), UNCONFIRM_EXPECTED);
-		System.out.println("Unconfirmed status displayed---Passed");
-		Thread.sleep(5000);
-		ap.ThreeDot();
-		ap.ThreDotSetConfirmed();
 		//----------------------CONFIGURE LIST-----------------------------
-		Thread.sleep(10000);
 		ap.Configurelist();
 		Thread.sleep(10000);
 		ap.EditStatusFilter();
@@ -119,12 +94,55 @@ public class Appt_tc_16 extends BaseClass
 		{
 
 		}
-		Thread.sleep(2000);
-		ap.StatusConfirmed();
+		WebElement Unconfirmed = driver.findElement(By.xpath("//*[@id=\"Unconfirmed\"]"));
+		if(!Unconfirmed.isSelected())
+		{
+			Unconfirmed.click();
+		}
+		else
+		{
+
+		}
+		WebElement confirmed = driver.findElement(By.xpath("//*[@id=\"Confirmed\"]"));
+		if(!confirmed.isSelected())
+		{
+			confirmed.click();
+		}
+		else
+		{
+
+		}
 		Thread.sleep(2000);
 		ap.StatusSave();
 		Thread.sleep(10000);
 		ap.Patient_Appointment_Displayed();
+		//---------------------Advance Search-------------------------------
+		WebElement AdvanceSearch = driver.findElement(By.xpath("//button[contains(text(),'Advanced Search')]"));
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", AdvanceSearch);
+		Thread.sleep(1000);
+		ap.Advance_Lastname("Ward");
+		ap.Advance_Firstname("Carlos");
+		ap.Advance_Initial("Thomson");
+		Thread.sleep(3000);
+		ap.Advance_Phone("9878900913");
+		ap.Advance_Email("carlos@mailinator.com");
+		ap.Advance_DOB("01031999");
+		Thread.sleep(3000);
+		ap.Advance_Mrn("");
+		//------------------------------------SEARCH BUTTON------------------------------
+		ap.Searchbtn();
+		Thread.sleep(20000);
+		ap.ThreeDot();
+		ap.ThreDotSetConfirmed();
+		Thread.sleep(5000);
+		ap.Patient_Appointment_Displayed();
+		WebElement CONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'CONFIRMED'\"]"));
+		String CONFIRM_EXPECTED = "CONFIRMED";
+		Assert.assertEquals(CONFIRM_PATIENT.getText(), CONFIRM_EXPECTED);
+		System.out.println("Confirmed status displayed---Passed");
+
+
 
 	}
 

@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -48,9 +49,9 @@ public class Appt_tc_6 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Maratha");
+		addp.lname("Lorii");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Cory");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -59,10 +60,11 @@ public class Appt_tc_6 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("Umesh@mailinator.com");
+		addp.textemail("lori@mailinator.com");
 		addp.Clip_AppointTime("0945");
+		Thread.sleep(5000);
 		//-------------Appointment three days in advance ----------------------
-		addp.Clip_Appointment_Date("12282022");
+		addp.Clip_Appointment_Date("02032023");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -81,24 +83,33 @@ public class Appt_tc_6 extends BaseClass
 		//-----------------APPOINTMENT PAGE-------------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
-		Thread.sleep(3000);
+		Thread.sleep(20000);
 		//--------------------------ADVANCE SEARCH BUTTON------------------------------
 		WebElement AdvanceSearch = driver.findElement(By.xpath("//button[contains(text(),'Advanced Search')]"));
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AdvanceSearch);
 		Thread.sleep(1000);
-		ap.Advance_Lastname("Maratha");
-		ap.Advance_Firstname("Umesh");
+		ap.Advance_Lastname("Lorii");
+		ap.Advance_Firstname("Cory");
 		ap.Advance_Initial("Thomson");
 		Thread.sleep(3000);
 		ap.Advance_Phone("9878900912");
-		ap.Advance_Email("Umesh@mailinator.com");
+		ap.Advance_Email("lori@mailinator.com");
 		ap.Advance_DOB("01031993");
 		Thread.sleep(3000);
 		ap.Advance_Mrn("");
 		//------------------------------------SEARCH BUTTON------------------------------
 		ap.Searchbtn();
 		Thread.sleep(20000);
+		try
+		{
+		boolean patient= driver.findElement(By.xpath("//span[contains(text(),'Lorii, Cory')]")).isDisplayed();
+		Assert.assertTrue(patient, "Patient displayed-TestCase Failed");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Lorii Cory patient not displayed-TestCase Passed");
+		}
 		ap.Patient_Displayed();
 	}
 }

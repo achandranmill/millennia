@@ -43,9 +43,9 @@ public class Massm_tc_1  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Rajput");
+		addp.lname("Green");
 		//User Enter FirstName
-		addp.fname("Praveen");
+		addp.fname("Isabel");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -53,9 +53,11 @@ public class Massm_tc_1  extends BaseClass
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
+		WebElement MRN=driver.findElement(By.id("mrn"));
+		MRN.sendKeys("000024");
 		//User Enter Email
-		addp.textemail("praveen@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.textemail("Green@mailinator.com");
+		//addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -83,24 +85,24 @@ public class Massm_tc_1  extends BaseClass
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
 		Thread.sleep(10000);
-		m.LastName("Rajput");
+		m.LastName("Green");
 		Thread.sleep(2000);
-		m.FirstName("Praveen");
+		m.FirstName("Isabel");
 		Thread.sleep(2000);
 		m.Initial("Thomson");
 		Thread.sleep(2000);
 		m.PhoneNumber("9878900912");
 		Thread.sleep(2000);
-		m.Email("praveen@mailinator.com");
+		m.Email("Green@mailinator.com");
 		Thread.sleep(2000);
 		m.DOB("01031993");
 		Thread.sleep(2000);
 		m.MRN("000024");
 		Thread.sleep(2000);
 		m.Search1();
-		Thread.sleep(15000);
-		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Rajput, Praveen')]"));
-		String Excepted = "Rajput, Praveen";
+		Thread.sleep(40000);
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Green, Isabel')]"));
+		String Excepted = "Green, Isabel";
 		Assert.assertEquals(Patient.getText(), Excepted);
 		System.out.println("Test case - Passed");
 	}

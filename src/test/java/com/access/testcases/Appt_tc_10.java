@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -49,9 +50,9 @@ public class Appt_tc_10 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter FirstName
-		addp.fname("Rajesh");
+		addp.fname("Gemma");
 		//User Enter lastName
-		addp.lname("Sindhee");
+		addp.lname("Rivera");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -60,7 +61,7 @@ public class Appt_tc_10 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sindhee@mailinator.com");
+		addp.textemail("rivera@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -79,11 +80,11 @@ public class Appt_tc_10 extends BaseClass
 		addp.Clip_Checkin();
 		Thread.sleep(5000);
 		addp.Alert_ok();
-		Thread.sleep(15000);
+		Thread.sleep(10000);
 		//-----------------APPOINTMENT PAGE-------------------------------
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
-		Thread.sleep(3000);
+		Thread.sleep(15000);
 		ap.Configurelist();
 		ap.EditListColumns();
 		WebElement Appt_Type = driver.findElement(By.xpath("//*[@id=\"patient-lists-component\"]/div/div/div[2]/div/table/tbody/tr[11]/td[2]/input"));
@@ -107,7 +108,7 @@ public class Appt_tc_10 extends BaseClass
 		ap.ColumnsSaveChange();
 		Thread.sleep(5000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Sindhee");
+		ap.SearchLastName("Rivera");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
@@ -126,12 +127,12 @@ public class Appt_tc_10 extends BaseClass
 		ap.Patient_Displayed();
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
-		w.Searchl("Sindhee");
-		w.Searchf("Rajesh");
-		List<WebElement>Appt_type = driver.findElements(By.xpath("//*[@id=\"worklist\"]/div[1]/div/div/search-modal/div[2]/div[2]/table"));
-        System.out.println(Appt_type.size());
-        Appt_type.get(0);
-        Thread.sleep(10000);
+		Thread.sleep(30000);
+		WebElement Patient_Rivera = driver.findElement(By.xpath("//span[contains(text(),'rivera@mailinator.com')]"));
+		String Actual = "rivera@mailinator.com";
+		Assert.assertEquals(Patient_Rivera.getText(), Actual);
+		
+		
         
 
 

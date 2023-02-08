@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -46,19 +47,30 @@ public class Workl_tc_7  extends BaseClass
 		Thread.sleep(3000);
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
-		Thread.sleep(15000);
-		List<WebElement>WorkList_print = driver.findElements(By.xpath("//*[@id=\"worklist\"]/main/div[1]/worklist/div/div[2]/table"));
-		for(WebElement ele:WorkList_print)
+		Thread.sleep(30000);
+		driver.findElement(By.xpath("//*span[contains(text(),']/following-sibling::td//send-to-button")).click();
+		Thread.sleep(5000);
+		WebElement Reg = driver.findElement(By.xpath("//li[@ng-click=\\\"$ctrl.sendToAction(node, patient)\\\"]//a[contains(text(),'Registration')]"));
+		if(Reg.isDisplayed())
 		{
-			String value = ele.getText();
-			System.out.println(value);
+			Reg.click();
 		}
-		List<WebElement>Sendto = driver.findElements(By.xpath("//button[@id=\"send-to-button\"]"));
-		System.out.println(Sendto.size());
-		Sendto.get(1);
-		Thread.sleep(10000);
-		//w.Sendto_print();
-		w.Discharge2();
+		else
+		{
+			
+		}
+		List<WebElement>New = driver.findElements(By.xpath("//a[contains(text(),'New')]"));
+		System.out.println(New.size());
+		New.get(1);
+		Thread.sleep(5000);
+		WebElement New_Status = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.activeNodeLabelMap[patient.currentQueueId].type=='PHASE'\" ][contains(text(),'New')]"));
+		String New1 = "New";
+		Assert.assertEquals(New_Status.getText(), New1);
+		
+		Thread.sleep(5000);
+		List<WebElement>Discharge = driver.findElements(By.xpath("//a[contains(text(),'Discharge')]"));
+		System.out.println(Discharge.size());
+		Discharge.get(2);
 		Thread.sleep(3000);
 		w.DischargeViwe();
 		Thread.sleep(10000);

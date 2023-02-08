@@ -54,7 +54,7 @@ public class R_provider_tc_6 extends BaseClass
 		Thread.sleep(3000);
 		pd.Credentials("MD");
 		Thread.sleep(3000);
-		pd.EmailAddress("rakesh@gmail.com");
+		pd.EmailAddress("rakesh1234@gmail.com");
 		Thread.sleep(3000);
 		pd.PhoneNumber("7689504321");
 		Thread.sleep(3000);

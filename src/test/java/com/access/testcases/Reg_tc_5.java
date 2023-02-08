@@ -47,9 +47,9 @@ public class Reg_tc_5 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Robin");
+		addp.lname("Robinn");
 		//User Enter FirstName
-		addp.fname("John");
+		addp.fname("Johnn");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -71,8 +71,7 @@ public class Reg_tc_5 extends BaseClass
 		addp.clipdepartmenttype();
 		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
-		addp.Clip_AppointTime("0900");
-		addp.Clip_Appointment_Date("20221226");
+		//addp.Clip_AppointTime("0900");
 		Thread.sleep(2000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(1000);
@@ -95,14 +94,17 @@ public class Reg_tc_5 extends BaseClass
 		Thread.sleep(1000);
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
-		r.search("Robin", "John");
+		r.search("Robinn", "Johnn");
+		Thread.sleep(5000);
+		//WebElement patient = driver.findElement(By.linkText(""))
 		List<WebElement> list = driver.findElements(By.xpath("//tr[@ng-repeat=\"patient in $ctrl.patientList | filter: { displayString: displayStringFilter, lastName: lastNameFilter, firstName: firstNameFilter} | limitTo: 6\"]"));
 		System.out.println(list.size());
+		
 
 		for(int i=0;i<list.size();i++)
 		{
 			String listitem=list.get(i).getText();
-			if(listitem.contains("Robin John"))
+			if(listitem.contains("Robinn Johnn"))
 			{
 				list.get(i).click();
 				break;
@@ -113,9 +115,10 @@ public class Reg_tc_5 extends BaseClass
 		r.SendTo();
 		Thread.sleep(3000);
 		r.Dish();
+		Thread.sleep(5000);
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		w.DischargeViwe();
 		Thread.sleep(10000);
 		List<WebElement>AllDischarge=driver.findElements(By.xpath("//div[contains(@class,'col-sm-12 table-response')]"));
@@ -124,7 +127,7 @@ public class Reg_tc_5 extends BaseClass
 		{
 			WebElement Element=AllDischarge.get(i);
 			String value=Element.getText();
-			if(value.contains("John"))
+			if(value.contains("Johnn"))
 			{
 				dataStatus=true;
 				break;

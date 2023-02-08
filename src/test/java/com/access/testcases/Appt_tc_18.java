@@ -49,9 +49,9 @@ public class Appt_tc_18 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Chandke");
+		addp.lname("Murphy");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Phoebe");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -60,7 +60,7 @@ public class Appt_tc_18 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("Umesh@mailinator.com");
+		addp.textemail("murphy@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Location();
 		Thread.sleep(2000);
@@ -85,7 +85,7 @@ public class Appt_tc_18 extends BaseClass
 		ap.EditStatusFilter();
 		Thread.sleep(2000);
 		WebElement SelectAll = driver.findElement(By.xpath("//*[@id=\"appointments\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
-		if(SelectAll.isSelected())
+		if(!SelectAll.isSelected())
 		{
 			SelectAll.click();
 		}
@@ -96,7 +96,7 @@ public class Appt_tc_18 extends BaseClass
 		Thread.sleep(2000);
 		ap.StatusSave();
 		Thread.sleep(10000);
-		ap.SearchLastName("Chandke");
+		ap.SearchLastName("Murphy");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();

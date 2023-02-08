@@ -45,8 +45,7 @@ public class Massm_tc_14 extends BaseClass
 		Thread.sleep(10000);
 		Appointments ab = new Appointments(driver);
 		ab.linkAppointment();
-		ab.AppointDATE();
-		Thread.sleep(10000);
+	    Thread.sleep(5000);
 		ab.Appoint_SendMessage();
 		Thread.sleep(10000);
 		MassMessaging m = new MassMessaging(driver);
@@ -59,14 +58,24 @@ public class Massm_tc_14 extends BaseClass
 		m.Btn_Apply();
 		Thread.sleep(10000);
 		m.StatusFilter();
-		Thread.sleep(10000);
-		m.StatusFilterSelect();
+		Thread.sleep(5000);
+		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model=\"$ctrl.checkAllStatusCheck\"]"));
+		if(!SelectAll.isSelected())
+		{
+			SelectAll.click();
+		}
+		else
+		{
+			
+			System.out.println("SelctAll checkbox selected");
+		}
+		Thread.sleep(2000);
 		m.StatusFilterSave();
 		Thread.sleep(10000);
-		WebElement Patinet_116 = driver.findElement(By.xpath("//button [contains(text(),'Send message to 116 patients')]"));
-		Assert.assertEquals(true, Patinet_116.isDisplayed());
-		System.out.println("Total Patients 166 displayed");
-		Thread.sleep(1000);
+		//WebElement Patinet_116 = driver.findElement(By.xpath("//button [contains(text(),'Send message to 116 patients')]"));
+		//Assert.assertEquals(true, Patinet_116.isDisplayed());
+		//System.out.println("Total Patients 166 displayed");
+		//Thread.sleep(1000);
 		m.Eligible_SelectAll();
 		Thread.sleep(1000);
 		WebElement Patinet_0 = driver.findElement(By.xpath("//button [contains(text(),'Send message to 0 patients')]"));

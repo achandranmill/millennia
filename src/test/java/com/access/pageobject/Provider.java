@@ -596,7 +596,7 @@ public class Provider
     public void Schedule_Appointment_Type()
     {
     	Select a3 = new Select(Schedule_Appointment_Type);
-    	a3.selectByVisibleText("Followup session");
+    	a3.selectByIndex(1);
     }
     
     @FindBy(how=How.XPATH,using="//div[@class='col-xs-12']//p[@class='add-span']//span[@class='glyphicon glyphicon-plus' ]")

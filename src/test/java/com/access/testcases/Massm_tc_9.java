@@ -54,7 +54,7 @@ public class Massm_tc_9  extends BaseClass
 		System.out.println("Message History button displayed");
 		m.MessageHistory();
 		Thread.sleep(10000);
-		
+		m.Message_History_print();
 	
 }
 }

@@ -2,6 +2,7 @@ package com.access.testcases;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
@@ -48,32 +49,67 @@ public class Clip_tc_4 extends BaseClass
 		Clipboard addp=new Clipboard(driver);
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
-		addp.lname("Robin");
-		addp.fname("John");
+		//User Enter lastName
+		addp.lname("Cox");
+		//User Enter FirstName
+		addp.fname("Scott");
+		//User Enter MiddleName
+		addp.mname("Lee");
+		//User Enter Birthdate
+		addp.DOB("01031993");
+		//User Enter PhoneNumber
+		addp.pnumber("9878900912");
+		Thread.sleep(2000);
+		//User Enter Email
+		addp.textemail("bryant@mailinator.com");
+		addp.Clip_AppointTime("0945");
+		addp.Clip_Seeing();
+		Thread.sleep(2000);
+		addp.Clip_Thoms();
+		Thread.sleep(1000);
+		addp.Clip_Appointment_Type();
+		Thread.sleep(2000);
+		addp.Clip_Appointment_option();
+		Thread.sleep(2000);
+		addp.Clip_Comment("Routine checkup");
+		addp.sendSmsMessages();
+		addp.sendEmailMessages();
+		addp.Clip_LinkConnectAccount();
+		addp.Clip_Linkpatient();
+		Thread.sleep(2000);
+		addp.Clip_LinkSelfoption();
+		Thread.sleep(1000);
+		addp.Clip_Addpatient();
+		Thread.sleep(1000);
+		addp.Clip_Checkin();
+		Thread.sleep(1000);
+		addp.Alert_ok();
+		Thread.sleep(5000);
+		addp.lname("Cox");
+		addp.fname("Scott");
+		Thread.sleep(5000);
+		addp.U_check();
 		Thread.sleep(5000);
 		addp.Undocheckinnew();
 		Thread.sleep(5000);
-		addp.UCheckIn();
+		addp.CUCheckIn();
 		Thread.sleep(10000);
 		r.Registration();
+		Thread.sleep(10000);
+		r.search("Cox", "Scott");
 		Thread.sleep(20000);
-		r.search("Robin", "John");
-		Thread.sleep(5000);
-		List<WebElement>Search = driver.findElements(By.xpath("//table[@class=\"table table-striped\"]//tbody"));
-		System.out.println(Search.size());
-		Search.get(0);
-		Thread.sleep(5000);
+		WebElement search_it=driver.findElement(By.linkText("Cox Scott"));
+		JavascriptExecutor j = (JavascriptExecutor) driver;
+		j.executeScript("arguments[0].click();", search_it);
+		Thread.sleep(20000);
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
 		Thread.sleep(10000);
-		w.Searchl("Robin");
-		w.Searchf("John");
-		Thread.sleep(5000);
-		List<WebElement>W_Search = driver.findElements(By.xpath("//table[@class=\\\"table table-striped\\\"]//tbody"));
-		System.out.println(W_Search.size());
-		W_Search.get(0);
+		w.Searchworklist();
+		w.Searchl("Cox");
+		w.Searchf("Scott");
+		Thread.sleep(20000);
 		
-
 
 	}
 }
