@@ -24,7 +24,8 @@
            <class name="com.access.testcases.Workl_tc_7"/> 
             <class name="com.access.testcases.Workl_tc_8"/> 
            <class name="com.access.testcases.Workl_tc_10"/> 
-           <class name="com.access.testcases.Workl_tc_11"/> 
+           <class name="com.access.testcases.Workl_tc_11"/>
+           <class name="com.access.testcases.Appt_tc_13"/> 
             <class name="com.access.testcases.Workl_tc_12"/> 
            <class name="com.access.testcases.Workl_tc_13"/> 
              <class name="com.access.testcases.Appt_tc_1"/> 
