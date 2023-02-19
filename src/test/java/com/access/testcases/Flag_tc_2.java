@@ -1,5 +1,9 @@
 package com.access.testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -56,7 +60,7 @@ public class Flag_tc_2 extends BaseClass
 		Thread.sleep(5000);
 		og.Cropimage();
 		Thread.sleep(3000);
-		og.FlagLabel("appoint");
+		og.FlagLabel("Anglican Communion");
 		Thread.sleep(2000);
 		og.Persistent();
 		Thread.sleep(3000);
@@ -67,8 +71,8 @@ public class Flag_tc_2 extends BaseClass
 		Thread.sleep(2000);
 		dept.Dep_Flag();
 		Thread.sleep(20000);
-		dept.Dep_Flag_Assigned();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@class=\"card\" ]//h3[contains(text(),'Anglican Communion')]")).click();
+        Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
 		dept.Dep_Flag_ReturnAccess();
@@ -77,34 +81,33 @@ public class Flag_tc_2 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("mahajan");
+		addp.lname("Ellii");
 		//User Enter FirstName
-		addp.fname("Rakesh");
+		addp.fname("Nina");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031999");
+		addp.DOB("01-03-1999");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("john@gmail.com");
 		Thread.sleep(2000);
-		addp.Clip_AppointTime("0930");
-		addp.Clip_Location();
+		addp.Clip_AppointTime("09:30");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
+		addp.Clip_Seeing();
 		Thread.sleep(2000);
-		addp.Clip_Location_option();
+		addp.Clip_Thoms();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Flag();
 		Thread.sleep(2000);
-		addp.Clip_Flag_Option();
-		Thread.sleep(2000);
-		addp.Clip_Seeing();
-		Thread.sleep(2000);
-		addp.Clip_Thoms();
+		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),'Anglican Communion')]")).click();
+        Thread.sleep(2000);
 		addp.Clip_Comment("Routine checkup");
 		//		addp.Clip_Reason("only checkup ");
 		//		addp.Clip_Copay("10000");
@@ -120,8 +123,20 @@ public class Flag_tc_2 extends BaseClass
 		Appointments Click =new Appointments(driver);
 		Click.linkAppointment();
 		Thread.sleep(3000);
-		Click.SearchLastName("mahajan");
+		Click.SearchLastName("Ellii");
+		Thread.sleep(5000);
 		Click.SearchButton();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
+		Click.ThreeDot();
+		Thread.sleep(5000);
+		Click.EditAppointment();
+		Thread.sleep(5000);
+		WebElement Flag =driver.findElement(By.xpath("//div[@id=\"patientFlags\"]"));
+		JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].scrollIntoView();", Flag);
+		Thread.sleep(5000);
+		boolean Appt_Flag =driver.findElement(By.xpath("//img[@title=\"Anglican Communion\"]")).isDisplayed();
+		Assert.assertTrue(Appt_Flag);
+		
 	}
 }

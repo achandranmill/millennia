@@ -56,14 +56,15 @@ public class Appt_tc_16 extends BaseClass
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031999");
+		addp.DOB("01-03-1999");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900913");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("carlos@mailinator.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
+		addp.Clip_AppointTime("09:45");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
 		addp.Clip_Seeing();
 		addp.Clip_Thoms();

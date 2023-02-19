@@ -84,7 +84,7 @@ public class R_Kiosk_tc_17 extends BaseClass
 		//User Check Successful login on valid email and password
 		k.Login_email("user_test@mailinator.com");
 		Thread.sleep(10000);
-		k.Login_password("Imenso@test123");
+		k.Login_password("Random@123456789");
 		Thread.sleep(10000);
 		k.Login_submit();
 		Thread.sleep(10000);

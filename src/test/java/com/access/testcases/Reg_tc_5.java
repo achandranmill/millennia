@@ -97,21 +97,8 @@ public class Reg_tc_5 extends BaseClass
 		r.search("Robinn", "Johnn");
 		Thread.sleep(5000);
 		//WebElement patient = driver.findElement(By.linkText(""))
-		List<WebElement> list = driver.findElements(By.xpath("//tr[@ng-repeat=\"patient in $ctrl.patientList | filter: { displayString: displayStringFilter, lastName: lastNameFilter, firstName: firstNameFilter} | limitTo: 6\"]"));
-		System.out.println(list.size());
-		
-
-		for(int i=0;i<list.size();i++)
-		{
-			String listitem=list.get(i).getText();
-			if(listitem.contains("Robinn Johnn"))
-			{
-				list.get(i).click();
-				break;
-
-			}
-		}
-		Thread.sleep(5000);
+		driver.findElement(By.linkText("Robinn Johnn")).click();
+	    Thread.sleep(5000);
 		r.SendTo();
 		Thread.sleep(3000);
 		r.Dish();

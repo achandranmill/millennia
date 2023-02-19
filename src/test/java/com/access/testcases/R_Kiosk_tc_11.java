@@ -48,47 +48,30 @@ public class R_Kiosk_tc_11 extends BaseClass
 		Thread.sleep(3000);
 		Kiosk k = new Kiosk(driver);
 		k.Department_Link();
-		Thread.sleep(1000);
 		k.Kiosk();
-		Thread.sleep(1000);
-		k.Kiosk_AddNewAppointmentFlow();
-		Thread.sleep(10000);
-		k.Kiosk_AddPage();
-		Thread.sleep(10000);
-		k.Kiosk_PageName("please Complete the Field");
-		Thread.sleep(1000);
-		k.Kiosk_Pagetype();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_Addmore();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_FieldFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_fieldSizeFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("First Name");
-		k.Kiosk_AddMore();
-		k.Kiosk_Pagename_FieldLastName();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_fieldSizeLN();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("Last Name");
-		Thread.sleep(1000);
-		k.Kiosk_Add();
-		Thread.sleep(20000);
-		k.Kiosk_AddPage();
-		Thread.sleep(10000);
-		k.Kiosk_PagetVerification_title("please verify the below information is correct");
-		Thread.sleep(1000);
-		k.Kiosk_PagetVerification();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_VerificationfirstName();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_VerificationlastName();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Add();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
+	    WebElement Search_Flow=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		if(!Search_Flow.isSelected())
+		{
+			Search_Flow.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
+		WebElement Search_skip=driver.findElement(By.xpath("//input[@id=\"skip-results\"]"));
+		if(Search_skip.isSelected())
+		{
+			Search_skip.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
 		k.Kiosk_Savebutton();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
 		Thread.sleep(10000);
 		k.Press_HereTo_Start();

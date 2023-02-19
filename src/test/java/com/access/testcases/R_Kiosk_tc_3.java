@@ -1,5 +1,8 @@
 package com.access.testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -34,11 +37,12 @@ public class R_Kiosk_tc_3 extends BaseClass
 			System.out.println("User location is not present");
 
 		}
-		//-----------------REGISTRATION PAGE ------------------------------		
+		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
-		r.Registration();
+		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		Provider pd = new Provider(driver);
+		//		pd.LocationPopup("Florida");
 		Thread.sleep(10000);
 		pd.UserAdmin();
 		Thread.sleep(3000);
@@ -48,20 +52,41 @@ public class R_Kiosk_tc_3 extends BaseClass
 		k.Department_Link();
 		Thread.sleep(1000);
 		k.Kiosk();
-		Thread.sleep(10000);
-		k.Kiosk_Skip();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
+		WebElement Search_Flow=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		if(!Search_Flow.isSelected())
+		{
+			Search_Flow.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
+		WebElement Search_skip=driver.findElement(By.xpath("//input[@id=\"skip-results\"]"));
+		if(!Search_Flow.isSelected())
+		{
+			Search_Flow.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
 		k.Kiosk_Savebutton();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		k.Press_HereTo_Start();
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		k.FirstName("Awdesh");
-		Thread.sleep(1000);
-		k.LastName("Jain");
-		Thread.sleep(1000);
-		k.CHECK_IN();
-		Thread.sleep(10000);
+	    k.LastName("jain");
+	    k.Search();
+	    Thread.sleep(3000);
+	    WebElement Patien_Found=driver.findElement(By.xpath("//h1[contains(text(),'jain, Awdesh')]"));
+	    String Excepted="jain, Awdesh";
+	    Assert.assertEquals(Patien_Found.getText(), Excepted);
+	    k.CHECK_IN();
+	    
 	}
 }

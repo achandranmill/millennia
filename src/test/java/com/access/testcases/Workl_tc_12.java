@@ -68,8 +68,8 @@ public class Workl_tc_12 extends BaseClass
 		Thread.sleep(15000);
 		List<WebElement>Goto_patient = driver.findElements(By.xpath("//button[contains(text(),'Go to Patient Details')]"));
 		System.out.println(Goto_patient.size());
-		Goto_patient.get(1);
-		Thread.sleep(5000);
+		Goto_patient.get(6).click();
+		Thread.sleep(15000);
 		w.Forms();
 		Thread.sleep(5000);
 		try
@@ -80,8 +80,8 @@ public class Workl_tc_12 extends BaseClass
 		{
 			System.out.println("Rcb Form");
 		}
-		r.RCB_FirstName("Umesh");
-		r.RCB_LastName("chandke");
+		r.RCB_FirstName("Ken");
+		r.RCB_LastName("Perry");
 		r.RCB_Dob("09081994");
 		Thread.sleep(3000);
 		r.RCB_Ssn("777777777");

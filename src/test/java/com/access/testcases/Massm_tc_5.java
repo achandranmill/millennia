@@ -48,22 +48,24 @@ public class Massm_tc_5  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Andy");
+		addp.lname("Andye");
 		//User Enter FirstName
 		addp.fname("Leo");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("leo@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(1000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -111,12 +113,12 @@ public class Massm_tc_5  extends BaseClass
 		Thread.sleep(3000);
 		m.SeeingCancel();
 		Thread.sleep(3000);
-		m.LastName("Andy");
+		m.LastName("Andye");
 		m.FirstName("Leo");
 		m.Search1();
 		Thread.sleep(10000);
-		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Andy, Leo')]"));
-		String Excepted = "Andy, Leo";
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Andye, Leo')]"));
+		String Excepted = "Andye, Leo";
 		Assert.assertEquals(Patient.getText(), Excepted);
 		System.out.println("Test case - Passed");
 		m.Eligible_print();

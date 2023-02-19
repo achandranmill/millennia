@@ -59,6 +59,8 @@ public class Reg_tc_11 extends BaseClass
 		//User Enter Email
 		addp.textemail("user_test@mailinator.com");
 		addp.Clip_AppointTime("0945");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -80,19 +82,7 @@ public class Reg_tc_11 extends BaseClass
 		r.clickRegistrationPage();
 		Thread.sleep(10000);
 		r.search("Robin", "John");
-		List<WebElement> list = driver.findElements(By.xpath("//tr[@ng-repeat=\"patient in $ctrl.patientList | filter: { displayString: displayStringFilter, lastName: lastNameFilter, firstName: firstNameFilter} | limitTo: 6\"]"));
-		System.out.println(list.size());
-
-		for(int i=0;i<list.size();i++)
-		{
-			String listitem=list.get(i).getText();
-			if(listitem.contains("Robin John"))
-			{
-				list.get(i).click();
-				break;
-
-			}
-		}
+		driver.findElement(By.linkText("Robin John")).click();
 		r.FormsOnDemand();
 		Thread.sleep(10000);
 		r.Appointment_Type();

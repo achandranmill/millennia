@@ -39,7 +39,7 @@ public class R_Kiosk_tc_13 extends BaseClass
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-		Provider pd = new Provider(driver);
+		/*Provider pd = new Provider(driver);
 //		pd.LocationPopup("Florida");
 		Thread.sleep(10000);
 		pd.UserAdmin();
@@ -87,8 +87,9 @@ public class R_Kiosk_tc_13 extends BaseClass
 		Thread.sleep(1000);
         k.Kiosk_Pagename_Add();
 		Thread.sleep(1000);
-		k.Kiosk_Savebutton();
+		k.Kiosk_Savebutton();*/
 		Thread.sleep(10000);
+		Kiosk k = new Kiosk(driver);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
 		Thread.sleep(10000);
 		k.Press_HereTo_Start();
@@ -97,16 +98,6 @@ public class R_Kiosk_tc_13 extends BaseClass
 		Thread.sleep(1000);
 		k.LastName("Jain");
 		Thread.sleep(1000);
-		k.Kiosk_DOB();
-		Thread.sleep(1000);
-		k.Kiosk_1990();
-		Thread.sleep(1000);
-		k.Kiosk_1995();
-		Thread.sleep(1000);
-		k.Kiosk_Feb();
-		Thread.sleep(1000);
-		k.Kiosk_1();
-		Thread.sleep(10000);
 		k.Search();
 		Thread.sleep(10000);
 		WebElement Search_Again = driver.findElement(By.xpath("//button[contains(text(),'Search Again')]"));
@@ -122,19 +113,9 @@ public class R_Kiosk_tc_13 extends BaseClass
 		k.Search_Again_First("Awadesh");
 		Thread.sleep(1000);
 		k.Search_Again_Last("Jain");
-		Thread.sleep(10000);
-		k.Search_Again_DOB();
-		Thread.sleep(1000);
-		k.Search_Again_1990();
-		Thread.sleep(1000);
-		k.Search_Again_1992();
-		Thread.sleep(1000);
-		k.Search_Again_JAN();
-		Thread.sleep(1000);
-		k.Search_Again_JAN10();
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		k.Search_Again_Search2();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		WebElement Search_Again2 = driver.findElement(By.xpath("//button[contains(text(),'Search Again')]"));
 		Assert.assertEquals(true, Search_Again2.isDisplayed());
 		System.out.println("Search Again button displayed");

@@ -56,7 +56,7 @@ public class Clip_tc_2 extends BaseClass {
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
@@ -74,8 +74,8 @@ public class Clip_tc_2 extends BaseClass {
 		addp.clipdepartmenttype();
 		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
-		addp.Clip_AppointTime("0900");
-		addp.Clip_Appointment_Date("20221226");
+		addp.Clip_AppointTime("09:00");
+		addp.Clip_Appointment_Date("02-16-2023");
 		Thread.sleep(2000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(1000);

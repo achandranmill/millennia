@@ -56,13 +56,14 @@ public class Clip_tc_4 extends BaseClass
 		//User Enter MiddleName
 		addp.mname("Lee");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("bryant@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		Thread.sleep(2000);
+		addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -98,16 +99,16 @@ public class Clip_tc_4 extends BaseClass
 		Thread.sleep(10000);
 		r.search("Cox", "Scott");
 		Thread.sleep(20000);
-		WebElement search_it=driver.findElement(By.linkText("Cox Scott"));
-		JavascriptExecutor j = (JavascriptExecutor) driver;
-		j.executeScript("arguments[0].click();", search_it);
-		Thread.sleep(20000);
+		driver.findElement(By.linkText("Cox Scott")).click();
+		Thread.sleep(10000);
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
 		Thread.sleep(10000);
 		w.Searchworklist();
 		w.Searchl("Cox");
 		w.Searchf("Scott");
+		Thread.sleep(10000);
+		driver.findElement(By.linkText("Cox Scott")).click();
 		Thread.sleep(20000);
 		
 

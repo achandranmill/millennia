@@ -52,23 +52,22 @@ public class Appt_tc_2 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter FirstName
-		addp.fname("Rajesh");
+		addp.fname("Justin");
 		//User Enter lastName
-		addp.lname("Sindhee");
+		addp.lname("Lucas");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sindhee@mailinator.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Seeing();
-		Thread.sleep(2000);
-		addp.Clip_Thoms();
-		Thread.sleep(2000);
+		addp.textemail("Lucas@mailinator.com");
+		addp.Clip_AppointTime("09:45");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
+	    Thread.sleep(2000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
@@ -92,20 +91,20 @@ public class Appt_tc_2 extends BaseClass
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AdvanceSearch);
 		Thread.sleep(1000);
-		ap.Advance_Lastname("Sindhee");
-		ap.Advance_Firstname("Rajesh");
+		ap.Advance_Lastname("Lucas");
+		ap.Advance_Firstname("Justin");
 		ap.Advance_Initial("Thomson");
 		Thread.sleep(3000);
 		ap.Advance_Phone("9878900912");
-		ap.Advance_Email("sindhee@mailinator.com");
+		ap.Advance_Email("Lucas@mailinator.com");
 		ap.Advance_DOB("01031993");
 		Thread.sleep(3000);
 		ap.Advance_Mrn("");
 		//------------------------------------SEARCH BUTTON------------------------------
 		ap.Searchbtn();
 		Thread.sleep(20000);
-		WebElement Patinet_Display = driver.findElement(By.xpath("//span[contains(text(),'Sindhee, Rajesh')]"));
-		String Expexted = "Sindhee, Rajesh";
+		WebElement Patinet_Display = driver.findElement(By.xpath("//span[contains(text(),'Lucas, Justin')]"));
+		String Expexted = "Lucas, Justin";
 		Assert.assertEquals(Patinet_Display.getText(), Expexted);
 		System.out.println("On Advance Search Patient displayed- PASSED");
 		Thread.sleep(10000);

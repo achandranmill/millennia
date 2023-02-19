@@ -51,13 +51,13 @@ public class Massm_tc_16 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Leo");
+		addp.lname("Lee");
 		//User Enter FirstName
-		addp.fname("Baker");
+		addp.fname("Bakerr");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
@@ -67,6 +67,8 @@ public class Massm_tc_16 extends BaseClass
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(1000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -91,8 +93,8 @@ public class Massm_tc_16 extends BaseClass
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
 		Thread.sleep(10000);
-		m.LastName("Leo");
-		m.FirstName("Baker");
+		m.LastName("Lee");
+		m.FirstName("Bakerr");
 		m.Search1();
 		Thread.sleep(15000);
 		WebElement Select =driver.findElement(By.xpath("//*[@id=\"cancel\"]"));
@@ -125,29 +127,20 @@ public class Massm_tc_16 extends BaseClass
 		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model=\"$ctrl.checkAllStatusCheck\"]"));
 		if(!SelectAll.isSelected())
 		{
-			System.out.println("SelctAll checkbox not selected");
+			SelectAll.click();
 		}
 		else
 		{
 
-			SelectAll.click();
+			
 		}
 		Thread.sleep(2000);
-		WebElement Cancelled = driver.findElement(By.id("Cancelled"));
-		if(!Cancelled.isSelected())
-		{
-			Cancelled.click();
-		}
-		else
-		{
-			System.out.println("Cancelled checkbox not selected");
-		}
 		ab.StatusSave();
 		Thread.sleep(5000);
-		ab.SearchLastName("Leo");
+		ab.SearchLastName("Lee");
 		ab.SearchButton();
 		Thread.sleep(10000);
-		WebElement Cancelled_Patient = driver.findElement(By.xpath("//span[contains(text(),'Leo, Baker')]"));
+		WebElement Cancelled_Patient = driver.findElement(By.xpath("//span[contains(text(),'Lee, Bakerr')]"));
 		Assert.assertTrue(Cancelled_Patient.isDisplayed(), "Patient not displayed");
 		WebElement Cancelled_Status = driver.findElement(By.xpath("//span[contains(text(),'CANCELLED')]"));
 		Assert.assertTrue(Cancelled_Status.isDisplayed(), "Cancelled status not displayed");

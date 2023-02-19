@@ -2,6 +2,7 @@ package com.access.testcases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -60,7 +61,7 @@ public class Flag_tc_3 extends BaseClass
 		Thread.sleep(5000);
 		og.Cropimage();
 		Thread.sleep(3000);
-		og.FlagLabel("covisit12");
+		og.FlagLabel("Westminster Abbey");
 		Thread.sleep(2000);
 		og.Persistent();
 		Thread.sleep(3000);
@@ -70,9 +71,9 @@ public class Flag_tc_3 extends BaseClass
 		dept.departmentlink();
 		Thread.sleep(5000);
 		dept.Dep_Flag();
-		Thread.sleep(30000);
-		dept.Dep_Flag_Assigned();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//div[@class=\"disabled-container\"]//h3[contains(text(),'Westminster Abbey')]")).click();
+        Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
 		dept.Dep_Flag_ReturnAccess();
@@ -81,31 +82,30 @@ public class Flag_tc_3 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("gayke");
+		addp.lname("Long");
 		//User Enter FirstName
-		addp.fname("Rakesh");
+		addp.fname("Ken");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031999");
+		addp.DOB("01-03-1999");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("john@gmail.com");
+		addp.textemail("ken@gmail.com");
 		Thread.sleep(2000);
-		addp.Clip_AppointTime("0930");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Location_option();
+		addp.Clip_AppointTime("09:30");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Flag();
 		Thread.sleep(5000);
-		addp.Clip_Flag_Option();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),'Westminster Abbey')]")).click();
+        Thread.sleep(2000);
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();

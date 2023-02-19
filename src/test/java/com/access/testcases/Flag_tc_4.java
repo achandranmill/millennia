@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -60,7 +61,7 @@ public class Flag_tc_4 extends BaseClass
 		Thread.sleep(5000);
 		og.Cropimage();
 		Thread.sleep(3000);
-		og.FlagLabel("dlj");
+		og.FlagLabel("Exeter Cathedral");
 		Thread.sleep(2000);
 		og.AddNewFlag();
 		Thread.sleep(2000);
@@ -69,8 +70,8 @@ public class Flag_tc_4 extends BaseClass
 		Thread.sleep(5000);
 		dept.Dep_Flag();
 		Thread.sleep(20000);
-		dept.Dep_Flag_Assigned();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@class=\"disabled-container\"]//h3[contains(text(),'Exeter Cathedral')]")).click();
+        Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
 		dept.Dep_Flag_ReturnAccess();
@@ -79,9 +80,9 @@ public class Flag_tc_4 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Patil");
+		addp.lname("Kyle");
 		//User Enter FirstName
-		addp.fname("Rajesh");
+		addp.fname("Monica");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -93,17 +94,16 @@ public class Flag_tc_4 extends BaseClass
 		addp.textemail("john@gmail.com");
 		Thread.sleep(2000);
 		addp.Clip_AppointTime("0930");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Location_option();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Flag();
 		Thread.sleep(2000);
-		addp.Clip_Flag_Option1();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),'Exeter Cathedral')]")).click();
+        Thread.sleep(2000);
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -124,25 +124,13 @@ public class Flag_tc_4 extends BaseClass
 		Thread.sleep(10000);
 		r.Registration();
 		Thread.sleep(5000);
-		r.search("patil", "Rajesh");
+		r.search("Kyle", "Monica");
 		Thread.sleep(10000);
-		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
-		System.out.println(list.size());
-
-		for(int i=0;i<list.size();i++)
-		{
-			String listitem=list.get(i).getText();
-			Thread.sleep(10000);
-			if(listitem.contains("patil Rakesh"))
-			{
-				list.get(i).click();
-				break;
-			}
-		}
-
-		Thread.sleep(10000);
-		r.FLAGS1();
-		Thread.sleep(10000);
+		driver.findElement(By.linkText("Kyle Monica")).click();
+        Thread.sleep(10000);
+        boolean man_flag = driver.findElement(By.xpath("//img[@title=\"Exeter Cathedral\"]")).isDisplayed();
+		Assert.assertTrue(man_flag);
+		
 
 	}
 }

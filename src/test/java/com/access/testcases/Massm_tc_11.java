@@ -53,16 +53,18 @@ public class Massm_tc_11 extends BaseClass
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("Ken@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(1000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -116,7 +118,7 @@ public class Massm_tc_11 extends BaseClass
 		}
 		Thread.sleep(5000);
 		ab.StatusSave();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		ab.ThreeDot();
 		Thread.sleep(10000);
 		ab.ThreDotSetConfirmed();

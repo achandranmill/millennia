@@ -50,13 +50,13 @@ public class Massm_tc_4  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Andy");
+		addp.lname("Andyy");
 		//User Enter FirstName
-		addp.fname("John");
+		addp.fname("Johnn");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
@@ -66,6 +66,8 @@ public class Massm_tc_4  extends BaseClass
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(1000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -128,14 +130,14 @@ public class Massm_tc_4  extends BaseClass
 		Thread.sleep(5000);
 		m.StatusFilterSave();
 		Thread.sleep(5000);
-		m.LastName("Andy");
-		m.FirstName("John");
+		m.LastName("Andyy");
+		m.FirstName("Johnn");
 		m.Search1();
 		Thread.sleep(10000);
 		m.Eligible_print();
 		Thread.sleep(3000);
-		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Andy, John')]"));
-		String Excepted = "Andy, John";
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Andyy, Johnn')]"));
+		String Excepted = "Andyy, Johnn";
 		Assert.assertEquals(Patient.getText(), Excepted);
 		System.out.println("Test case - Passed");
 		

@@ -58,13 +58,17 @@ public class Massm_tc_19 extends BaseClass
 		Thread.sleep(3000);
 		r.Attributes();
 		Thread.sleep(15000);
-		List<WebElement>Free_text = driver.findElements(By.id("editButton"));
-		System.out.println(Free_text.size());
-		Free_text.get(50).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[contains(text(),'ORGANIZATION_UNIT_CANNED_MESSAGE_')]/following-sibling::td//button")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//button[contains(text(),'Save Attribute')]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[contains(text(),'ORGANIZATION_UNIT_ENABLE_SMS_FREE_TEXT')]/following-sibling::td//button")).click();
 		Thread.sleep(5000);
 		r.Attributes_Value("true");
+		Thread.sleep(3000);
 		r.Attribute_Save();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		pd.UserAdmin();
 		Thread.sleep(1000);
 		r.Returnto_Access();
@@ -75,14 +79,17 @@ public class Massm_tc_19 extends BaseClass
 		m.MassMessaging();
 		Thread.sleep(5000);
 		WebElement Select =driver.findElement(By.xpath("//*[@id=\"messages\"]"));
-		JavascriptExecutor js = (JavascriptExecutor)driver; 
-		js.executeScript("arguments[0].scrollIntoView();", Select);
+		JavascriptExecutor js1 = (JavascriptExecutor)driver; 
+		js1.executeScript("arguments[0].scrollIntoView();", Select);
 		m.Select_Message();
+		Thread.sleep(5000);
 		m.Select_Message_option1();
+		Thread.sleep(5000);
 		boolean Message_Edit = driver.findElement(By.id("mass-message")).isEnabled();
 		Assert.assertTrue(Message_Edit);
+		Thread.sleep(5000);
 		m.Message_to_Send("Hello");
-		
+
 
 	}
 

@@ -447,7 +447,7 @@ public class Kiosk
 		Kiosk_Required.click();
 	}
 
-	@FindBy(how=How.XPATH,using="//a[contains(text(),'Add more')]")
+	@FindBy(how=How.XPATH,using="//a[@class=\"btn btn-default\"]")
 	@CacheLookup
 	WebElement Kiosk_AddMore;
 
@@ -521,7 +521,7 @@ public class Kiosk
 	}
 
 
-	@FindBy(how=How.ID,using="add-new-patient-add-page")
+	@FindBy(how=How.XPATH,using="//a[@id='add-new-patient-add-page']")
 	@CacheLookup
 	WebElement Kiosk_AddPage;
 
@@ -561,7 +561,7 @@ public class Kiosk
 	}
 
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[2]/div/div/div[1]/div[1]/select")
+	@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[2]/div/div/div[1]/div[1]/select")
 	@CacheLookup
 	WebElement Kiosk_Pagename_Fieldtype;
 
@@ -571,7 +571,8 @@ public class Kiosk
 		av.selectByVisibleText("First Name");
 	}
 
-	@FindBy(how=How.NAME,using="fieldSize")
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepage0\"]")
 	@CacheLookup
 	WebElement Kiosk_Pagename_fieldSize;
 
@@ -592,9 +593,39 @@ public class Kiosk
 		Select fs = new Select(Kiosk_Pagename_fieldSize);
 		fs.selectByVisibleText("4");
 	}
-
 	
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[3]/div/div/div[1]/div[1]/select")
+	@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[4]/div/div/div[1]/div[1]/select")
+	@CacheLookup
+	WebElement DOB_Wizard;
+
+	public void DOB_Wizard()
+	{
+		Select Dob=new Select(DOB_Wizard);
+		Dob.selectByVisibleText("Date Of Birth Wizard");		
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepage2\"]")
+	@CacheLookup
+	WebElement Dob_fieldSizeA;
+	
+	public void Dob_fieldSizeA()
+	{
+		Select fs = new Select(Dob_fieldSizeA);
+		fs.selectByVisibleText("4");
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[4]/div/div/div[1]/div[3]/input")
+	@CacheLookup
+	WebElement Dob_Wizard;
+	
+	public void Dob_Wizard(String d)
+	{
+		Dob_Wizard.click();
+		Dob_Wizard.clear();
+		Dob_Wizard.sendKeys(d);
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[3]/div/div/div[1]/div[1]/select")
 	@CacheLookup
 	WebElement Kiosk_Pagename_FieldLastName;
 	
@@ -603,26 +634,41 @@ public class Kiosk
 		Select av = new Select(Kiosk_Pagename_FieldLastName);
 		av.selectByVisibleText("Last Name");
 	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepage1\"]")
+	@CacheLookup
+	WebElement Kiosk_Pagename_fieldSizeLN;
 
 	public void Kiosk_Pagename_fieldSizeLN()
 	{
-		Select fs = new Select(Kiosk_Pagename_fieldSize);
+		Select fs = new Select(Kiosk_Pagename_fieldSizeLN);
 		fs.selectByVisibleText("4");
 	}
 
 	
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[2]/div/div/div[1]/div[3]/input")
+	@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[2]/div/div/div[1]/div[3]/input")
 	@CacheLookup
-	WebElement Kiosk_Pagename_Title;
+	WebElement Kiosk_Pagename_First_Title;
 
-	public void Kiosk_Pagename_Title(String pt)
+	public void Kiosk_Pagename_First_Title(String pt)
 	{
-		Kiosk_Pagename_Title.click();
-		Kiosk_Pagename_Title.clear();
-		Kiosk_Pagename_Title.sendKeys(pt);
+		Kiosk_Pagename_First_Title.click();
+		Kiosk_Pagename_First_Title.clear();
+		Kiosk_Pagename_First_Title.sendKeys(pt);
 	}
 
+
+	@FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/div[1]/div/div/kiosk-page-builder/div[2]/div/field-builder/div/div[3]/div/div/div[1]/div[3]/input")
+	@CacheLookup
+	WebElement Kiosk_Pagename_Last_Title;
+
+	public void Kiosk_Pagename_Last_Title(String pt)
+	{
+		Kiosk_Pagename_Last_Title.click();
+		Kiosk_Pagename_Last_Title.clear();
+		Kiosk_Pagename_Last_Title.sendKeys(pt);
+	}
 
 
 
@@ -691,6 +737,7 @@ public class Kiosk
 	}
 
 
+	
 
 	@FindBy(how=How.ID,using="lastName")
 	@CacheLookup
@@ -724,6 +771,20 @@ public class Kiosk
 		}
 	}
 
+	@FindBy(how=How.XPATH,using="//input[@id=\"dob\"]")
+	@CacheLookup
+	WebElement Kiosk_pagename_VerificationDob;
+	
+	public void Kiosk_pagename_VerificationDob()
+	{
+		if(!Kiosk_pagename_VerificationDob.isSelected()) {
+			JavascriptExecutor vs = (JavascriptExecutor)ldriver;
+			vs.executeScript("arguments[0].click", Kiosk_pagename_VerificationDob);
+			if(!Kiosk_pagename_VerificationDob.isSelected()) {
+				Kiosk_pagename_VerificationDob.click();
+			}
+		}
+	}
 
 	@FindBy(how=How.XPATH,using="//button[contains(text(),'Add')]")
 	@CacheLookup

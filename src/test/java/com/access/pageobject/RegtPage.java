@@ -1070,7 +1070,7 @@ public class RegtPage
 	}
 
 
-	@FindBy(how=How.XPATH,using="//a//span[contains(text(),'RBC Report')]")
+	@FindBy(how=How.XPATH,using="//li//a//span[contains(text(),'RCB Report')]")
 	@CacheLookup
 	WebElement RCB_Report;
 
@@ -1079,7 +1079,7 @@ public class RegtPage
 		RCB_Report.click();
 	}
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[1]/div/div/div/input")
+	@FindBy(how=How.XPATH,using="//input[@name=\"First Name_formly_3_input_0_0, search\"  or @id=\"formly_3_input_0_0\"] ")
 	@CacheLookup
 	WebElement RCB_FirstName;
 
@@ -1089,7 +1089,7 @@ public class RegtPage
 		RCB_FirstName.sendKeys(s);
 	}
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[2]/div/div/div/input")
+	@FindBy(how=How.XPATH,using="//input[@name=\"Last Name_formly_3_input_1_1, search\"  or @id=\"formly_3_input_1_1\"] ")
 	@CacheLookup
 	WebElement RCB_LastName;
 
@@ -1099,7 +1099,7 @@ public class RegtPage
 		RCB_LastName.sendKeys(l);
 	}
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[3]/div/div/div/div/input")
+	@FindBy(how=How.CSS,using="#formly_3_date_2_2")
 	@CacheLookup
 	WebElement RCB_Dob;
 
@@ -1110,7 +1110,7 @@ public class RegtPage
 	}
 
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[4]/div/div[1]/div/div/input")
+	@FindBy(how=How.XPATH,using="//input[@id='formly_3_full_ssn_3_3']")
 	@CacheLookup
 	WebElement RCB_Ssn;
 
@@ -1121,7 +1121,7 @@ public class RegtPage
 	}
 
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[5]/div/div[1]/div/input")
+	@FindBy(how=How.XPATH,using="//input[@id='formly_3_streetAddress_4_4']")
 	@CacheLookup
 	WebElement RCB_PatientStreetAddress;
 
@@ -1132,7 +1132,7 @@ public class RegtPage
 	}
 
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[3]/div[2]/form/form-render/div/ng-form/div[6]/div/div[1]/div/input")
+	@FindBy(how=How.XPATH,using="//input[@id='formly_3_postalCode_5_5']")
 	@CacheLookup
 	WebElement RCB_ZipCode;
 
@@ -1171,7 +1171,7 @@ public class RegtPage
 	}
 
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/patient-details-modal/div[3]/span/button")
+	@FindBy(how=How.XPATH,using="//span[contains(text(),'Save Form')]")
 	@CacheLookup
 	WebElement RCB_save;
 

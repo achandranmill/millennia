@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -46,21 +47,52 @@ public class Massm_tc_10 extends BaseClass
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
+		Provider pd = new Provider(driver);
+		Thread.sleep(3000);
+		pd.UserAdmin();
+		Thread.sleep(3000);
+		pd.Admin();
+		Thread.sleep(3000);
+		Organization og = new Organization(driver);
+		og.Organization();
+		Thread.sleep(3000);
+		r.Attributes();
+		Thread.sleep(15000);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[contains(text(),'ORGANIZATION_UNIT_CANNED_MESSAGE_')]/following-sibling::td//button")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//button[contains(text(),'Save Attribute')]")).click();
+		Thread.sleep(3000);
+		Thread.sleep(1000);
+		pd.UserAdmin();
+		Thread.sleep(1000);
+		r.Returnto_Access();
+		Thread.sleep(1000);
 		UserTestPage u =new  UserTestPage(driver);
 		u.linkUserTest();
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
-		m.Date();
-		Thread.sleep(3000);
-		m.Date1("2022-08-01");
-		m.Date2("2022-09-18");
-		m.Btn_Apply();
 		Thread.sleep(5000);
 		WebElement Select =driver.findElement(By.xpath("//*[@id=\"messages\"]"));
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
 		js.executeScript("arguments[0].scrollIntoView();", Select);
 		m.Select_Message();
+		Thread.sleep(5000);
+		boolean Canned_Message=driver.findElement(By.xpath("//a[contains(text(),'Hello it is canned message')]")).isDisplayed();
+		Assert.assertTrue(Canned_Message);
+		Thread.sleep(3000);
+		boolean Canned_Message1=driver.findElement(By.xpath("//a[contains(text(),'Hello it is canned message')]")).isEnabled();
+		Assert.assertTrue(Canned_Message1);
+		Thread.sleep(3000);
 		m.Select_Message_option1();
+		Thread.sleep(3000);
+		boolean Message_Previwe=driver.findElement(By.xpath("//div[@class=\"col-sm-12\"] //h4[contains(text(),'Message Preview')]")).isDisplayed();
+		Assert.assertTrue(Message_Previwe);
+		Thread.sleep(3000);
+		boolean Canned_Message_displayed=driver.findElement(By.xpath("//div//div[contains(text(),'Hello it is canned message ')]")).isDisplayed();
+		Assert.assertTrue(Canned_Message_displayed);
+		
+		
 
 	}
 }

@@ -5,6 +5,9 @@ import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.*;
@@ -50,8 +53,19 @@ public class R_Kiosk_tc_6 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk();
 		Thread.sleep(1000);
-		k.Kiosk_AddNewAppointmentFlow();
-		Thread.sleep(10000);
+		WebElement Add_New_Appoint=driver.findElement(By.xpath("//input[@id=\"enable-add-new-patient\"]"));
+		if(!Add_New_Appoint.isSelected())
+		{
+			Add_New_Appoint.click();
+		}
+		else
+		{
+
+		}
+		//WebElement Add_page=driver.findElement(By.xpath("//a[@id='add-new-patient-add-page']"));
+		//JavascriptExecutor js=(JavascriptExecutor)driver;
+		//js.executeScript("arguments[0].scrollIntoView();", Add_page);
+		Thread.sleep(15000);
 		k.Kiosk_AddPage();
 		Thread.sleep(10000);
 		k.Kiosk_PageName("please Complete the Field");
@@ -61,17 +75,27 @@ public class R_Kiosk_tc_6 extends BaseClass
 		k.Kiosk_pagename_Addmore();
 		Thread.sleep(1000);
 		k.Kiosk_Pagename_FieldFirst();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		k.Kiosk_Pagename_fieldSizeFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("First Name");
+		Thread.sleep(3000);
+		k.Kiosk_Pagename_First_Title("First Name");
+		Thread.sleep(3000);
 		k.Kiosk_AddMore();
+		Thread.sleep(3000);
 		k.Kiosk_Pagename_FieldLastName();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		k.Kiosk_Pagename_fieldSizeLN();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("Last Name");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		k.Kiosk_Pagename_Last_Title("Last Name");
+		Thread.sleep(3000);
+		k.Kiosk_AddMore();
+		Thread.sleep(3000);
+		k.DOB_Wizard();
+		Thread.sleep(3000);
+		k.Dob_fieldSizeA();
+		Thread.sleep(3000);
+		k.Dob_Wizard("Dob Wizard");
+		Thread.sleep(3000);
 		k.Kiosk_Add();
 		Thread.sleep(20000);
 		k.Kiosk_AddPage();
@@ -86,29 +110,16 @@ public class R_Kiosk_tc_6 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk_Pagename_Add();
 		Thread.sleep(10000);
-		k.Kiosk_SearchAppointmentFlow();
+		WebElement Search_checkbox=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		if(!Search_checkbox.isSelected())
+		{
+			Search_checkbox.click();
+		}
+		else
+		{
+
+		}
 		Thread.sleep(1000);
-		k.Kiosk_searchpageconfigurebutton();
-		Thread.sleep(2000);
-		k.Kiosk_welcomemessageinput("Please Search the Appointment");
-		Thread.sleep(1000);
-		//k.Kiosk_AddMore();
-		Thread.sleep(1000);
-		k.Kiosk_FieldTypeFirstName();
-		Thread.sleep(1000);
-		k.Kiosk_fieldSize();
-		Thread.sleep(1000);
-		k.Kiosk_FieldTitle("First_Name");
-		Thread.sleep(1000);
-		//k.Kiosk_AddMore();
-		Thread.sleep(1000);
-		k.Kiosk_FieldTypeLastName();
-		Thread.sleep(1000);
-		k.Kiosk_FieldTitle("Last_Name");
-		k.Kiosk_fieldSize();
-		Thread.sleep(1000);
-		k.Kiosk_Done();
-		Thread.sleep(10000);
 		k.Kiosk_ExistingAppointment_Addpage();
 		Thread.sleep(10000);
 		k.Kiosk_ExistingAppointmen_Pagename("Please Complete the Field");
@@ -132,7 +143,7 @@ public class R_Kiosk_tc_6 extends BaseClass
 		k.Kiosk_ExistingAppointme_FieldTitle("Last Name");
 		Thread.sleep(1000);
 		k.Kiosk_ExistingAppointme_ADD();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		k.Kiosk_ExistingAppointment_Addpage();
 		Thread.sleep(10000);
 		k.Kiosk_ExistingAppointmen_verification_page("Please verify the below information is correct");
@@ -145,6 +156,11 @@ public class R_Kiosk_tc_6 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk_ExistingAppointmen_PageVerification_Add();
 		Thread.sleep(10000);
+		WebElement Save_button=driver.findElement(By.xpath("//*[@id=\"kiosk-config-save-button\"]"));
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();", Save_button);
+		Thread.sleep(10000);
+		k.Kiosk_Savebutton();
 
 
 

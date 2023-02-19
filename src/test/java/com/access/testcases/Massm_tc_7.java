@@ -54,16 +54,18 @@ public class Massm_tc_7  extends BaseClass
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("tracy@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(1000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -108,9 +110,10 @@ public class Massm_tc_7  extends BaseClass
 		Thread.sleep(20000);
 	    m.Eligible_print();
 	    Thread.sleep(10000);
-		WebElement e = driver.findElement(By.cssSelector("#directory > table > tbody > tr:nth-child(1) > td.text-right > div:nth-child(1) > span"));
+	    String expected="#3c763d";
+		WebElement e = driver.findElement(By.xpath("//span[@class=\"glyphicon glyphicon-ok text-success ng-scope\"]"));
 		Thread.sleep(5000);
-		String back_color = e.getCssValue("background-color");
+		String back_color = e.getCssValue("color");
 		Thread.sleep(5000);
 		System.out.println(back_color);
 		Thread.sleep(5000);
@@ -118,18 +121,12 @@ public class Massm_tc_7  extends BaseClass
 		Thread.sleep(5000);
 		System.out.println(hex_back_color);
 		Thread.sleep(5000);
-		if(hex_back_color.equals("#3c763d"))
-		{
-			System.out.println("Test case passed");
-		}
-		else
-		{
-			System.out.println("Test case failed");
-		}
+		Assert.assertEquals(hex_back_color, expected);
 		Thread.sleep(10000);
-		WebElement e1 = driver.findElement(By.cssSelector("#directory > table > tbody > tr:nth-child(1) > td.text-right > div:nth-child(2) > span"));
+		String expected1 = "#e74c3c";
+		WebElement e1 = driver.findElement(By.xpath("//span[@class=\"glyphicon glyphicon-remove text-danger ng-scope\"]"));
 		Thread.sleep(5000);
-		String back_color1 = e.getCssValue("background-color");
+		String back_color1 = e1.getCssValue("color");
 		Thread.sleep(5000);
 		System.out.println(back_color1);
 		Thread.sleep(5000);
@@ -137,13 +134,6 @@ public class Massm_tc_7  extends BaseClass
 		Thread.sleep(5000);
 		System.out.println(hex_back_color1);
 		Thread.sleep(5000);
-		if(hex_back_color1.equals("#E74C3C"))
-		{
-			System.out.println("Test case passed");
-		}
-		else
-		{
-			System.out.println("Test case failed");
-		}
+		Assert.assertEquals(hex_back_color1, expected1);
 	}
 }

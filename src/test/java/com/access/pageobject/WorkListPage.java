@@ -88,19 +88,19 @@ public class WorkListPage
 	@CacheLookup
 	WebElement EditDepartment;
 
-	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/location-filter/div[2]/div/div[2]/div[3]/label/input")
+	@FindBy(how=How.XPATH,using="//input[@ng-click='$ctrl.updateDepartmentSelection(department)']")
 	@CacheLookup
 	WebElement Testing1;
 
 	public void Testing1()
 	{
 		if(!Testing1.isSelected())
-		{
+				{
 			Testing1.click();
-
-		}
-		else {
-
+				}
+		else
+		{
+			
 		}
 	}
 

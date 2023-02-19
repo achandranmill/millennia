@@ -60,15 +60,15 @@ public class Appt_tc_8 extends BaseClass
 		Thread.sleep(20000);
 		//of.Getin_Next();
 		//Thread.sleep(10000);
-		of.Email("ram123@gmail.com");
+		of.Email("ell@gmail.com");
 		Thread.sleep(3000);
 		of.Password("R@am1234");
 		Thread.sleep(3000);
 		of.Confirm_Password("R@am1234");
 		Thread.sleep(3000);
-		of.First_name("Ram");
+		of.First_name("Justin");
 		Thread.sleep(3000);
-		of.Location1("Yadav");
+		of.Location1("Ell");
 		Thread.sleep(3000);
 		of.SSN("09-07-1998");
 		Thread.sleep(3000);

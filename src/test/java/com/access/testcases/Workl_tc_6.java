@@ -56,13 +56,13 @@ public class Workl_tc_6 extends BaseClass
 		//User Enter MiddleName
 		addp.mname("Kumar");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("simmons@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -92,9 +92,7 @@ public class Workl_tc_6 extends BaseClass
 		Thread.sleep(3000);
 		w.worklistN("Simmons", "Conner");
 		Thread.sleep(10000);
-		WebElement search_it1=driver.findElement(By.linkText("Simmons Conner"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", search_it1);
+		driver.findElement(By.linkText("Simmons Conner")).click();
 		Thread.sleep(20000);
 		WebElement work_reg = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.current.patient\"]"));
 		String Actual = "Simmons, Conner";

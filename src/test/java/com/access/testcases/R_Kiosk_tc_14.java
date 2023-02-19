@@ -54,43 +54,37 @@ public class R_Kiosk_tc_14 extends BaseClass
 		k.Department_Link();
 		Thread.sleep(1000);
 		k.Kiosk();
-		Thread.sleep(1000);
-		k.Kiosk_AddNewAppointmentFlow();
 		Thread.sleep(10000);
-		k.Kiosk_AddPage();
-		Thread.sleep(10000);
-		k.Kiosk_PageName("please Complete the Field");
-		Thread.sleep(1000);
-		k.Kiosk_Pagetype();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_Addmore();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_FieldFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_fieldSizeFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("First Name");
-		k.Kiosk_AddMore();
-		k.Kiosk_Pagename_FieldLastName();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_fieldSizeLN();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("Last Name");
-		Thread.sleep(1000);
-		k.Kiosk_Add();
-		Thread.sleep(20000);
-		k.Kiosk_AddPage();
-		Thread.sleep(10000);
-		k.Kiosk_PagetVerification_title("please verify the below information is correct");
-		Thread.sleep(1000);
-		k.Kiosk_PagetVerification();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_VerificationfirstName();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_VerificationlastName();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Add();
-		Thread.sleep(1000);
+		driver.manage().deleteAllCookies();
+		Thread.sleep(3000);  WebElement Search_Flow=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		if(!Search_Flow.isSelected())
+		{
+			Search_Flow.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
+		WebElement Search_skip=driver.findElement(By.xpath("//input[@id=\"skip-results\"]"));
+		if(Search_skip.isSelected())
+		{
+			Search_skip.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
+		WebElement Add_new_Appointment=driver.findElement(By.xpath("//input[@id=\"enable-add-new-patient\"]"));
+		if(!Add_new_Appointment.isSelected())
+		{
+			Add_new_Appointment.click();
+		}
+		else
+		{
+			
+		}
 		k.Kiosk_Savebutton();
 		Thread.sleep(10000);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
@@ -101,16 +95,6 @@ public class R_Kiosk_tc_14 extends BaseClass
 		Thread.sleep(1000);
 		k.LastName("Jain");
 		Thread.sleep(1000);
-		k.Kiosk_DOB();
-		Thread.sleep(1000);
-		k.Kiosk_1990();
-		Thread.sleep(1000);
-		k.Kiosk_1995();
-		Thread.sleep(1000);
-		k.Kiosk_Feb();
-		Thread.sleep(1000);
-		k.Kiosk_1();
-		Thread.sleep(10000);
 		k.Search();
 		Thread.sleep(10000);
 		WebElement Search_Again = driver.findElement(By.xpath("//button[contains(text(),'Search Again')]"));
@@ -126,17 +110,7 @@ public class R_Kiosk_tc_14 extends BaseClass
 		k.Search_Again_First("Awadesh");
 		Thread.sleep(1000);
 		k.Search_Again_Last("Jain");
-		Thread.sleep(10000);
-		k.Search_Again_DOB();
-		Thread.sleep(1000);
-		k.Search_Again_1990();
-		Thread.sleep(1000);
-		k.Search_Again_1992();
-		Thread.sleep(1000);
-		k.Search_Again_JAN();
-		Thread.sleep(1000);
-		k.Search_Again_JAN10();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		k.Search_Again_Search2();
 		Thread.sleep(10000);
 		WebElement Search_Again2 = driver.findElement(By.xpath("//button[contains(text(),'Search Again')]"));
@@ -156,12 +130,11 @@ public class R_Kiosk_tc_14 extends BaseClass
 		//User Check Successful login on valid email and password
 		k.Login_email("user_test@mailinator.com");
 		Thread.sleep(10000);
-		k.Login_password("Imenso@test123");
+		k.Login_password("Random@123456789");
 		Thread.sleep(10000);
 		k.Login_submit();
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		r.clickRegistrationPage();
 		Thread.sleep(5000);
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
@@ -169,19 +142,8 @@ public class R_Kiosk_tc_14 extends BaseClass
 		w.Searchworklist();
 		w.Searchl("jain");
 		w.Searchf("Awdesh");
-		List<WebElement>list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
-		System.out.println(list.size());
-
-		for(int i=0;i<list.size();i++)
-		{
-			String listitem=list.get(i).getText();
-			if(listitem.contains("jain Awdesh"))
-			{
-				list.get(i).click();
-				break;
-			}
-		}
-		Thread.sleep(10000);
+		driver.findElement(By.linkText("jain Awdesh")).click();
+		Thread.sleep(15000);
 
 
 
