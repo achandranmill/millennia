@@ -47,7 +47,7 @@ public class Appt_tc_11 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Gomez");
+		addp.lname("Gomezz");
 		//User Enter FirstName
 		addp.fname("Gemma");
 		//User Enter MiddleName
@@ -82,7 +82,7 @@ public class Appt_tc_11 extends BaseClass
 		ap.linkAppointment();
 		Thread.sleep(15000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Gomez");
+		ap.SearchLastName("Gomezz");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();

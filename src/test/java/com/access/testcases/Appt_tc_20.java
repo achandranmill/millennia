@@ -46,7 +46,7 @@ public class Appt_tc_20 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Lorie");
+		addp.lname("Lori");
 		//User Enter FirstName
 		addp.fname("Cory");
 		//User Enter MiddleName
@@ -111,13 +111,13 @@ public class Appt_tc_20 extends BaseClass
 		ap.AppointDATEAPPLY();
 		Thread.sleep(10000);
 		ap.Patient_Displayed();
-		ap.SearchLastName("Lorie");
+		ap.SearchLastName("Lori");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
-		boolean patient = driver.findElement(By.xpath("//span[contains(text(),'Lorie, Cory')]")).isDisplayed();
-		Assert.assertTrue(patient, "Lorie, Cory patient not displayed --TestCase Failed");
-		System.out.println("Lorie, Cory patient displayed --TestCase Passed");
+		boolean patient = driver.findElement(By.xpath("//span[contains(text(),'Lori, Cory')]")).isDisplayed();
+		Assert.assertTrue(patient, "Lori, Cory patient not displayed --TestCase Failed");
+		System.out.println("Lori, Cory patient displayed --TestCase Passed");
         
 	}
 }

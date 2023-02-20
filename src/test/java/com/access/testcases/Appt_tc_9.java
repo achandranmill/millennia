@@ -49,7 +49,7 @@ public class Appt_tc_9 extends BaseClass
 		//User Enter FirstName
 		addp.fname("Shane");
 		//User Enter lastName
-		addp.lname("Evans");
+		addp.lname("Evanss");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -95,7 +95,7 @@ public class Appt_tc_9 extends BaseClass
 		Thread.sleep(2000);
 		ap.StatusSave();
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Evans");
+		ap.SearchLastName("Evanss");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();

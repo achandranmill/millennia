@@ -82,7 +82,7 @@ public class Workl_tc_12 extends BaseClass
 		}
 		r.RCB_FirstName("Ken");
 		r.RCB_LastName("Perry");
-		r.RCB_Dob("09081994");
+		r.RCB_Dob("09-08-1994");
 		Thread.sleep(3000);
 		r.RCB_Ssn("777777777");
 		Thread.sleep(3000);

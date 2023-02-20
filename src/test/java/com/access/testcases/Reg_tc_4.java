@@ -46,7 +46,7 @@ public class Reg_tc_4 extends BaseClass
 		r.clickredit("Carol", "Perry", "Ell");
 		Thread.sleep(3000);
 		r.Editdate();
-		r.txtdate("03122022");
+		r.txtdate("03-12-2022");
 		Thread.sleep(3000);
 		r.txtEditAPPTTIME("09:45");
 		r.AMPM();

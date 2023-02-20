@@ -47,7 +47,7 @@ public class Massm_tc_11 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Shirlay");
+		addp.lname("Shirlayy");
 		//User Enter FirstName
 		addp.fname("Ken");
 		//User Enter MiddleName

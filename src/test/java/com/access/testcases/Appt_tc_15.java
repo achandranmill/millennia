@@ -48,7 +48,7 @@ public class Appt_tc_15 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Ward2");
+		addp.lname("Wardd");
 		//User Enter FirstName
 		addp.fname("Carlos");
 		//User Enter MiddleName
@@ -113,7 +113,7 @@ public class Appt_tc_15 extends BaseClass
 		Thread.sleep(2000);
 		ap.StatusSave();
 	    Thread.sleep(10000);
-		ap.SearchLastName("Ward2");
+		ap.SearchLastName("Wardd");
 		ap.SearchButton();
 		Thread.sleep(15000);
 		WebElement UNCONFIRM_PATIENT = driver.findElement(By.xpath("//span[@ng-if=\"$ctrl.patient.apptStatus == 'UNCONFIRMED'\"]"));

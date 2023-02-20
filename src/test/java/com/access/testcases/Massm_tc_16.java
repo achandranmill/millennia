@@ -51,7 +51,7 @@ public class Massm_tc_16 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Lee");
+		addp.lname("Leee");
 		//User Enter FirstName
 		addp.fname("Bakerr");
 		//User Enter MiddleName
@@ -63,7 +63,7 @@ public class Massm_tc_16 extends BaseClass
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("Leo@mailinator.com");
-		//addp.Clip_AppointTime("0945");
+		//addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -93,7 +93,7 @@ public class Massm_tc_16 extends BaseClass
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
 		Thread.sleep(10000);
-		m.LastName("Lee");
+		m.LastName("Leee");
 		m.FirstName("Bakerr");
 		m.Search1();
 		Thread.sleep(15000);
@@ -137,10 +137,10 @@ public class Massm_tc_16 extends BaseClass
 		Thread.sleep(2000);
 		ab.StatusSave();
 		Thread.sleep(5000);
-		ab.SearchLastName("Lee");
+		ab.SearchLastName("Leee");
 		ab.SearchButton();
 		Thread.sleep(10000);
-		WebElement Cancelled_Patient = driver.findElement(By.xpath("//span[contains(text(),'Lee, Bakerr')]"));
+		WebElement Cancelled_Patient = driver.findElement(By.xpath("//span[contains(text(),'Leee, Bakerr')]"));
 		Assert.assertTrue(Cancelled_Patient.isDisplayed(), "Patient not displayed");
 		WebElement Cancelled_Status = driver.findElement(By.xpath("//span[contains(text(),'CANCELLED')]"));
 		Assert.assertTrue(Cancelled_Status.isDisplayed(), "Cancelled status not displayed");

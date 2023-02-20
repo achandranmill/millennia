@@ -49,7 +49,7 @@ public class Appt_tc_18 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Murphy");
+		addp.lname("Murphyy");
 		//User Enter FirstName
 		addp.fname("Phoebe");
 		//User Enter MiddleName
@@ -97,7 +97,7 @@ public class Appt_tc_18 extends BaseClass
 		Thread.sleep(2000);
 		ap.StatusSave();
 		Thread.sleep(10000);
-		ap.SearchLastName("Murphy");
+		ap.SearchLastName("Murphyy");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();

@@ -64,7 +64,7 @@ public class Massm_tc_2  extends BaseClass
 		addp.Clip_AppointTime("09:45");
 		Thread.sleep(5000);
 		//-------------Appointment three days in advance --------Month-Day-Year--------------
-		addp.Clip_Appointment_Date("02-19-2023");
+		addp.Clip_Appointment_Date("02-23-2023");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -98,9 +98,9 @@ public class Massm_tc_2  extends BaseClass
 		Thread.sleep(5000);
 		ap.AppointDATE();
 		Thread.sleep(2000);
-		ap.AppointDATE1("2023-02-16");
+		ap.AppointDATE1("2023-02-20");
 		Thread.sleep(2000);
-		ap.AppointDATE2("2023-02-19");
+		ap.AppointDATE2("2023-02-23");
 		Thread.sleep(2000);
 		ap.AppointDATEAPPLY();
 		Thread.sleep(15000);

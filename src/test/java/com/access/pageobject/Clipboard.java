@@ -178,7 +178,7 @@ public class Clipboard {
 	@CacheLookup
 	WebElement LinkclickBoard;
 
-	@FindBy(how=How.XPATH,using="//input[@name=\"dob\"]")
+	@FindBy(how=How.XPATH,using="//input[@name='dob']")
 	@CacheLookup
 	WebElement DOB;
 

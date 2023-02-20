@@ -50,7 +50,7 @@ public class Appt_tc_16 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Ward");
+		addp.lname("Wardo");
 		//User Enter FirstName
 		addp.fname("Carlos");
 		//User Enter MiddleName
@@ -122,7 +122,7 @@ public class Appt_tc_16 extends BaseClass
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AdvanceSearch);
 		Thread.sleep(1000);
-		ap.Advance_Lastname("Ward");
+		ap.Advance_Lastname("Wardo");
 		ap.Advance_Firstname("Carlos");
 		ap.Advance_Initial("Thomson");
 		Thread.sleep(3000);

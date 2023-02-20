@@ -50,9 +50,9 @@ public class Massm_tc_3   extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Lorie");
+		addp.lname("Loriee");
 		//User Enter FirstName
-		addp.fname("Coryy");
+		addp.fname("Cory");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -84,9 +84,9 @@ public class Massm_tc_3   extends BaseClass
 		u.linkUserTest();
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
-		m.LastName("Lorie");
+		m.LastName("Loriee");
 		Thread.sleep(2000);
-		m.FirstName("Coryy");
+		m.FirstName("Cory");
 		Thread.sleep(2000);
 		m.Initial("Thomson");
 		m.Search1();
@@ -101,9 +101,9 @@ public class Massm_tc_3   extends BaseClass
 		Thread.sleep(5000);
 		m.Message_History_print();
 		Thread.sleep(10000);
-		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Cory Lorie')]"));
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Cory Loriee')]"));
 		js.executeScript("arguments[0].scrollIntoView();", Patient);
-		String Excepted = "Coryy Lorie";
+		String Excepted = "Cory Loriee";
 		Assert.assertEquals(Patient.getText(), Excepted);
 		System.out.println("Test case - Passed");
 		

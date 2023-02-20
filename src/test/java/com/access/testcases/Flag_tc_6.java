@@ -84,14 +84,14 @@ public class Flag_tc_6 extends BaseClass
 		//User Enter MiddleName
 		addp.mname("kumar");
 		//User Enter Birthdate
-		addp.DOB("01031999");
+		addp.DOB("01-03-1999");
 		//User Enter PhoneNumber
 		addp.pnumber("8888888888");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("john@gmail.com");
 		Thread.sleep(2000);
-		addp.Clip_AppointTime("0930");
+		addp.Clip_AppointTime("09:30");
 		addp.clipdepartmenttype();
 		addp.clipdeptmilleniaoption1();
 		addp.Clip_Appointment_Type();
