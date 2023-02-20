@@ -1,5 +1,7 @@
 package com.access.testcases;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -49,8 +51,19 @@ public class Flag_tc_7 extends BaseClass
 		dept.departmentlink();
 		Thread.sleep(5000);
 		dept.Dep_Flag();
-		Thread.sleep(20000);
-		dept.Dep_Flag_Assigned();
+		Thread.sleep(5000);
+		dept.Dep_Flag_File();
+		Thread.sleep(2000);
+		dept.Dep_File_Crop();
+		Thread.sleep(2000);
+		dept.Dep_File_lable("Diocese of Derby");
+		Thread.sleep(2000);
+		dept.Dep_File_persistent();
+		Thread.sleep(2000);
+		dept.Dep_File_Add();
+		Thread.sleep(5000);
+		boolean Dep_Flag = driver.findElement(By.xpath("//div[@class=\"enabled-container\"]//h3[contains(text(),'Assigned Flags')]//following::div//h3[contains(text(),' Diocese of Derby')]")).isDisplayed();
+		Assert.assertTrue(Dep_Flag);
 		Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
@@ -60,11 +73,11 @@ public class Flag_tc_7 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("mahile");
+		addp.lname("Perez");
 		//User Enter FirstName
-		addp.fname("Rajesh");
+		addp.fname("Cole");
 		//User Enter MiddleName
-		addp.mname("kumar");
+		addp.mname("Ell");
 		//User Enter Birthdate
 		addp.DOB("01031999");
 		//User Enter PhoneNumber
@@ -82,8 +95,9 @@ public class Flag_tc_7 extends BaseClass
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Flag();
-		Thread.sleep(2000);
-		addp.Clip_Flag_Option();
+		Thread.sleep(5000);
+		boolean Enabled_Flag=driver.findElement(By.xpath("//span[contains(text(),' Diocese of Derby')]")).isDisplayed();
+		Assert.assertTrue(Enabled_Flag);
 		Thread.sleep(2000);
 	}
 }

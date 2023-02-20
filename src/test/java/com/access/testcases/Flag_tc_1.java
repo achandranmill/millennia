@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -61,7 +62,7 @@ public class Flag_tc_1 extends BaseClass
 		Thread.sleep(5000);
 		og.Cropimage();
 		Thread.sleep(3000);
-		og.FlagLabel("covisit");
+		og.FlagLabel("Flag of England");
 		Thread.sleep(2000);
 		og.Persistent();
 		Thread.sleep(3000);
@@ -72,7 +73,7 @@ public class Flag_tc_1 extends BaseClass
 		Thread.sleep(5000);
 		dept.Dep_Flag();
 		Thread.sleep(2000);
-		dept.Dep_Flag_Assigned();
+		driver.findElement(By.xpath("//div[@class=\"disabled-container\"]//h3[contains(text(),'Flag of England')]")).click();
 		Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
@@ -82,34 +83,34 @@ public class Flag_tc_1 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Patil");
+		addp.lname("Long");
 		//User Enter FirstName
-		addp.fname("Rakesh");
+		addp.fname("Cindy");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031999");
+		addp.DOB("01-03-1999");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("john@gmail.com");
 		Thread.sleep(2000);
-		addp.Clip_AppointTime("0930");
-		addp.Clip_Location();
+		addp.Clip_AppointTime("09:30");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
+		addp.Clip_Seeing();
 		Thread.sleep(2000);
-		addp.Clip_Location_option();
+		addp.Clip_Thoms();
+		Thread.sleep(5000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Flag();
 		Thread.sleep(2000);
-		addp.Clip_Flag_Option();
+		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),'Flag of England')]")).click();
 		Thread.sleep(2000);
-		addp.Clip_Seeing();
-		Thread.sleep(2000);
-		addp.Clip_Thoms();
 		addp.Clip_Comment("Routine checkup");
 		//	addp.Clip_Reason("only checkup ");
 		//	addp.Clip_Copay("10000");
@@ -124,24 +125,12 @@ public class Flag_tc_1 extends BaseClass
 		RegtPage r1=new RegtPage(driver);
 		r1.Registration();
 		Thread.sleep(3000);
-		r1.search("patil", "Rakesh");
+		r1.search("Long", "Cindy");
 		Thread.sleep(20000);
-		List<WebElement> list = driver.findElements(By.xpath("//tbody//tr[@class='ng-scope']//td/descendant::a[@class='ng-binding']"));
-		System.out.println(list.size());
-
-		for(int i=0;i<list.size();i++)
-		{
-			String listitem=list.get(i).getText();
-			Thread.sleep(10000);
-			if(listitem.contains("patil Rakesh"))
-			{
-				list.get(i).click();
-				break;
-			}
-		}
-
-		Thread.sleep(10000);
-		r1.FLAGS();
+		driver.findElement(By.linkText("Long Cindy")).click();
+		Thread.sleep(15000);
+		boolean man_flag = driver.findElement(By.xpath("//img[@title=\"Flag of England\"]")).isDisplayed();
+		Assert.assertTrue(man_flag);
 
 
 

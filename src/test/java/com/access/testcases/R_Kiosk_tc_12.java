@@ -39,7 +39,7 @@ public class R_Kiosk_tc_12 extends BaseClass
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-		Provider pd = new Provider(driver);
+		/*Provider pd = new Provider(driver);
 		//pd.LocationPopup("Florida");
 		Thread.sleep(10000);
 		pd.UserAdmin();
@@ -87,8 +87,9 @@ public class R_Kiosk_tc_12 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk_Pagename_Add();
 		Thread.sleep(1000);
-		k.Kiosk_Savebutton();
+		k.Kiosk_Savebutton();*/
 		Thread.sleep(10000);
+		Kiosk k = new Kiosk(driver);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
 		Thread.sleep(10000);
 		k.Press_HereTo_Start();

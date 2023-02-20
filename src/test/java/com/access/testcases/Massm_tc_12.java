@@ -53,14 +53,15 @@ public class Massm_tc_12 extends BaseClass
 		//User Enter MiddleName
 		addp.mname("kumar");
 		//User Enter Birthdate
-		addp.DOB("01091999");
+		addp.DOB("01-09-1999");
 		//User Enter PhoneNumber
 		addp.pnumber("7777777777");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("Sara@mailinator.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
+		addp.Clip_AppointTime("09:45");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);

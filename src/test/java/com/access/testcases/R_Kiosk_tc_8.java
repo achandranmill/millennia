@@ -1,5 +1,7 @@
 package com.access.testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -49,42 +51,54 @@ public class R_Kiosk_tc_8 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk();
 		Thread.sleep(1000);
-		k.Kiosk_AddNewAppointmentFlow();
+		driver.manage().deleteAllCookies();
+		Thread.sleep(3000);
+		WebElement Add_New_Appoint=driver.findElement(By.xpath("//input[@id=\"enable-add-new-patient\"]"));
+		if(!Add_New_Appoint.isSelected())
+		{
+			Add_New_Appoint.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
+		WebElement Search_checkbox=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		if(!Search_checkbox.isSelected())
+		{
+			Search_checkbox.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(1000);
+		WebElement Search_Skip=driver.findElement(By.xpath("//input[@id='skip-results']"));
+		if(!Search_Skip.isSelected())
+		{
+			Search_Skip.click();
+		}
+		Thread.sleep(1000);
+		Thread.sleep(5000);
+		k.Kiosk_configuration();
+		Thread.sleep(3000);
+		k.Kiosk_WelcomeScreenMessage("Welcome to Imenso");
+		Thread.sleep(3000);
+		k.Kiosk_SearchButtonText("Press Here To Start");
+		Thread.sleep(3000);
+		WebElement Allow_New_Appointment=driver.findElement(By.xpath("//input[@id=\"allow-appointment\"]"));
+		if(Allow_New_Appointment.isSelected())
+		{
+			Allow_New_Appointment.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
+		k.Kiosk_Donebutton();
 		Thread.sleep(10000);
-		k.Kiosk_AddPage();
-		Thread.sleep(10000);
-		k.Kiosk_PageName("Please Complete the Field");
-		Thread.sleep(1000);
-		k.Kiosk_Pagetype();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_Addmore();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_FieldFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_fieldSizeFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("First Name");
-		k.Kiosk_AddMore();
-		k.Kiosk_Pagename_FieldLastName();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_fieldSizeLN();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("Last Name");
-		Thread.sleep(1000);
-		k.Kiosk_Add();
-		Thread.sleep(20000);
-		k.Kiosk_AddPage();
-		Thread.sleep(10000);
-		k.Kiosk_PagetVerification_title("Please verify the below information is correct");
-		Thread.sleep(1000);
-		k.Kiosk_PagetVerification();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_VerificationfirstName();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_VerificationlastName();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Add();
-		Thread.sleep(10000);
+		k.Kiosk_Savebutton();
 
 	}
 }

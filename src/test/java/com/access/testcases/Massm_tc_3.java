@@ -50,13 +50,13 @@ public class Massm_tc_3   extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Lorii");
+		addp.lname("Loriee");
 		//User Enter FirstName
 		addp.fname("Cory");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
@@ -66,6 +66,8 @@ public class Massm_tc_3   extends BaseClass
 	    addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -82,7 +84,7 @@ public class Massm_tc_3   extends BaseClass
 		u.linkUserTest();
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
-		m.LastName("Lorii");
+		m.LastName("Loriee");
 		Thread.sleep(2000);
 		m.FirstName("Cory");
 		Thread.sleep(2000);
@@ -99,9 +101,9 @@ public class Massm_tc_3   extends BaseClass
 		Thread.sleep(5000);
 		m.Message_History_print();
 		Thread.sleep(10000);
-		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Cory Lorii')]"));
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Cory Loriee')]"));
 		js.executeScript("arguments[0].scrollIntoView();", Patient);
-		String Excepted = "Cory Lorii";
+		String Excepted = "Cory Loriee";
 		Assert.assertEquals(Patient.getText(), Excepted);
 		System.out.println("Test case - Passed");
 		

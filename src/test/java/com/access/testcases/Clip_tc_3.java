@@ -91,11 +91,9 @@ public class Clip_tc_3 extends BaseClass
 		r.Registration();
 		Thread.sleep(30000);
 		r.search("Ward", "Luna");
-		Thread.sleep(20000);
-		WebElement search_it=driver.findElement(By.linkText("Ward Luna"));
-		JavascriptExecutor j = (JavascriptExecutor) driver;
-		j.executeScript("arguments[0].click();", search_it);
-		Thread.sleep(20000);
+		Thread.sleep(10000);
+		driver.findElement(By.linkText("Ward Luna")).click();
+	    Thread.sleep(10000);
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
 		Thread.sleep(10000);
@@ -103,10 +101,8 @@ public class Clip_tc_3 extends BaseClass
 		w.Searchl("Ward");
 		w.Searchf("Luna");
 		Thread.sleep(20000);
-		WebElement search_it1=driver.findElement(By.linkText("Ward Luna"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", search_it1);
-		Thread.sleep(20000);
+		driver.findElement(By.linkText("Ward Luna")).click();
+		Thread.sleep(15000);
 	}	
 }
 

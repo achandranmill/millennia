@@ -43,55 +43,7 @@ public class R_Kiosk_tc_10 extends BaseClass
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-		Provider pd = new Provider(driver);
-//		pd.LocationPopup("Florida");
-		Thread.sleep(10000);
-		pd.UserAdmin();
-		Thread.sleep(3000);
-		pd.Admin();
-		Thread.sleep(3000);
 		Kiosk k = new Kiosk(driver);
-		k.Department_Link();
-		Thread.sleep(1000);
-		k.Kiosk();
-		Thread.sleep(1000);
-		k.Kiosk_AddNewAppointmentFlow();
-		Thread.sleep(10000);
-		k.Kiosk_AddPage();
-		Thread.sleep(10000);
-		k.Kiosk_PageName("please Complete the Field");
-		Thread.sleep(1000);
-		k.Kiosk_Pagetype();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_Addmore();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_FieldFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_fieldSizeFirst();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("First Name");
-		k.Kiosk_AddMore();
-		k.Kiosk_Pagename_FieldLastName();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_fieldSizeLN();
-		Thread.sleep(1000);
-		k.Kiosk_Pagename_Title("Last Name");
-		Thread.sleep(1000);
-		k.Kiosk_Add();
-		Thread.sleep(20000);
-		k.Kiosk_AddPage();
-		Thread.sleep(10000);
-		k.Kiosk_PagetVerification_title("please verify the below information is correct");
-		Thread.sleep(1000);
-	    k.Kiosk_PagetVerification();
-	    Thread.sleep(1000);
-		k.Kiosk_pagename_VerificationfirstName();
-		Thread.sleep(1000);
-		k.Kiosk_pagename_VerificationlastName();
-		Thread.sleep(1000);
-        k.Kiosk_Pagename_Add();
-		Thread.sleep(1000);
-		k.Kiosk_Savebutton();
 		Thread.sleep(10000);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
 		Thread.sleep(10000);
@@ -115,7 +67,7 @@ public class R_Kiosk_tc_10 extends BaseClass
 		//User Check Successful login on valid email and password
         k.Login_email("user_test@mailinator.com");
 		Thread.sleep(10000);
-		k.Login_password("Imenso@test123");
+		k.Login_password("Random@123456789");
 		Thread.sleep(10000);
 		k.Login_submit();
 		Thread.sleep(10000);
@@ -128,19 +80,8 @@ public class R_Kiosk_tc_10 extends BaseClass
 		w.Searchworklist();
 		w.Searchl("jain");
 		w.Searchf("Awdesh");
-		//List<WebElement>list= driver.findElement(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody"));
-		//System.out.println(list.size());
-		
-		//for(int i=0;i<list.size();i++)
-		//{
-		//	String listitem=list.get(i).getText();
-		//if(listitem.matches("jain , Awdesh"));
-		//{
-		//	list.get(i).click();
-		//	break;
-		//}
-		//}
-		Thread.sleep(10000);
+		Thread.sleep(5000);
+		driver.findElement(By.linkText("jain Awdesh")).click();
 		
 		
 

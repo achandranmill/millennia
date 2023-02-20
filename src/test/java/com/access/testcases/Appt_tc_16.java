@@ -50,20 +50,21 @@ public class Appt_tc_16 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Ward");
+		addp.lname("Wardo");
 		//User Enter FirstName
 		addp.fname("Carlos");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031999");
+		addp.DOB("01-03-1999");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900913");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("carlos@mailinator.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
+		addp.Clip_AppointTime("09:45");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
 		addp.Clip_Seeing();
 		addp.Clip_Thoms();
@@ -121,7 +122,7 @@ public class Appt_tc_16 extends BaseClass
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", AdvanceSearch);
 		Thread.sleep(1000);
-		ap.Advance_Lastname("Ward");
+		ap.Advance_Lastname("Wardo");
 		ap.Advance_Firstname("Carlos");
 		ap.Advance_Initial("Thomson");
 		Thread.sleep(3000);

@@ -73,9 +73,9 @@ public class Massm_tc_27 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Yadav");
+		addp.lname("Perry");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Carol");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -84,7 +84,7 @@ public class Massm_tc_27 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sathe@mailinator.com");
+		addp.textemail("Carol@mailinator.com");
 		addp.Clip_AppointTime("0945");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -119,7 +119,7 @@ public class Massm_tc_27 extends BaseClass
 		m.Select_Message();
 		m.Free_Text();
 		m.Variable_Visit_Code();
-		m.Edit_Freetext_Message("  Mr. Umesh your Visit Code is 03 ");
+		m.Edit_Freetext_Message("  Mr. Carol your Visit Code is 03 ");
 		m.Send_Message_Patient();
 		Thread.sleep(10000);
 		m.Send_Message_Modal_Print();

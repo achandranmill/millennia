@@ -25,13 +25,16 @@ public class Provider
 		PageFactory.initElements(new AjaxElementLocatorFactory(rdriver,20), this);
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"addProvider\"]/main/div[1]/add-edit-provider/section/div/div/div[2]/span")
+	@FindBy(how=How.XPATH,using="//span[@role=\"button\" or  @class=\"btn-link\"]")
 	@CacheLookup
 	WebElement BackProvider;
 
 	public void BackProvider()
 	{
+		//JavascriptExecutor js=(JavascriptExecutor)ldriver;
+		//js.executeScript("arguments[0].click, BackProvider");
 		BackProvider.click();
+		
 	}
 
 	@FindBy(how=How.XPATH,using="//*[@id=\"userLocation\"]")
@@ -340,7 +343,7 @@ public class Provider
 		ProviderSearch.click();
 	}
 
-	@FindBy(how=How.XPATH,using=" /html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[1]/provider-details/section/form/div[2]/div/div[1]/div/ul/li/a")
+	@FindBy(how=How.XPATH,using="//a[@ng-click=\"$ctrl.setDisclosure(option)\"]//span[contains(text(),'Published')]")
 	@CacheLookup
 	WebElement Published;
 
@@ -553,7 +556,7 @@ public class Provider
 		EndDate.sendKeys(D2);
 	}
 	
-	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[1]/select")
+	@FindBy(how=How.XPATH,using="//select[@name=\"department_gtQon_0\"]")
     @CacheLookup
     WebElement  Schedule_Department;
 	
@@ -565,7 +568,7 @@ public class Provider
 	}
     
     
-    @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[2]/select")
+    @FindBy(how=How.XPATH,using="//select[@name=\"location_gtQon_0\"]")
     @CacheLookup
     WebElement Schedule_Location;
     
@@ -576,16 +579,25 @@ public class Provider
     }
     
     
-    @FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[3]/div[3]/select")
+    @FindBy(how=How.ID,using="appt-types-select")
     @CacheLookup
     WebElement Schedule_Appointment_Type;
     
     
     public void Schedule_Appointment_Type1()
     {
-    	Select a = new Select(Schedule_Appointment_Type);
-    	a.selectByVisibleText( "Appointment 1");
+    	Schedule_Appointment_Type.click();
     }
+    
+    @FindBy(how=How.XPATH,using="//a[@ng-click=\"$ctrl.setAllApptTypes(schedule)\"]")
+    @CacheLookup
+    WebElement Add_All_Appointment;
+    
+    public void Add_All_Appointment()
+    {
+    	Add_All_Appointment.click();
+    }
+    
     
     public void Schedule_Appointment_Type_Followup()
     {
@@ -599,7 +611,7 @@ public class Provider
     	a3.selectByIndex(1);
     }
     
-    @FindBy(how=How.XPATH,using="//div[@class='col-xs-12']//p[@class='add-span']//span[@class='glyphicon glyphicon-plus' ]")
+    @FindBy(how=How.XPATH,using="//ul[@class=\"list-unstyled week-day-spans\"]//li//div//strong[contains(text(),'Monday')]//following::div//p[@class=\"add-span\"]//span")
 	@CacheLookup
 	WebElement Monday;
 
@@ -840,7 +852,7 @@ public class Provider
 	}
 
 
-	@FindBy(how=How.XPATH,using="/html/body/main/div[1]/add-edit-provider/section/div/div/div[3]/div/div[2]/provider-schedule/section/form/div[1]/uib-accordion/div/div/div[2]/div/div[4]/ul/li[2]/div[2]/div/div/p")
+	@FindBy(how=How.XPATH,using="//ul[@class=\"list-unstyled week-day-spans\"]//li//div//strong[contains(text(),'Tuesday')]//following::div//p[@class=\"add-span\"]//span")
 	@CacheLookup
 	WebElement Tuesday;
 
@@ -2045,7 +2057,24 @@ WebElement Provider_MatchingAlgo;
 	 Edit_Matching_cancel.click();
  }
  
+ @FindBy(how=How.XPATH,using="//input[@placeholder='Find Providers']")
+ @CacheLookup
+ WebElement Find_Provider;
  
+ public void Find_Provider(String h)
+ {
+	 Find_Provider.click();
+	 Find_Provider.sendKeys(h);
+ }
+ 
+ @FindBy(how=How.XPATH,using="//button[normalize-space()='Search']")
+ @CacheLookup
+ WebElement Search_Provider_btn;
+ 
+ public void Search_Provider_btn()
+ {
+	 Search_Provider_btn.click();
+ }
  
 }
 

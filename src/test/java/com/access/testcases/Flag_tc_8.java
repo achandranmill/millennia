@@ -57,12 +57,20 @@ public class Flag_tc_8 extends BaseClass
 		Thread.sleep(5000);
 		dept.Dep_File_Crop();
 		Thread.sleep(5000);
-		dept.Dep_File_lable("Label1");
-		Thread.sleep(10000);
-		//dept.Dep_File_persistent();
-		dept.Dep_File_Add();
-		dept.Dep_File_disabled();
+		dept.Dep_File_lable("Diocese of Ely");
 		Thread.sleep(2000);
+		dept.Dep_File_persistent();
+		Thread.sleep(2000);
+		dept.Dep_File_Add();
+		Thread.sleep(5000);
+		boolean Dep_Flag = driver.findElement(By.xpath("//div[@class=\"enabled-container\"]//h3[contains(text(),'Assigned Flags')]//following::div//h3[contains(text(),'Diocese of Ely')]")).isDisplayed();
+		Assert.assertTrue(Dep_Flag);
+		Thread.sleep(2000);
+		WebElement Disabled_Flag = driver.findElement(By.xpath("//div[@class=\"enabled-container\"]//h3[contains(text(),'Assigned Flags')]//following::div//h3[contains(text(),'Diocese of Ely')]"));
+		Disabled_Flag.click();
+		Thread.sleep(5000);
+		boolean Dep_Flag1 = driver.findElement(By.xpath("//div[@class=\"disabled-container\"]//h3[contains(text(),'Unassigned Flags')]//following::div[@class=\"well\"]//h3[contains(text(),'Diocese of Ely')]")).isDisplayed();
+		Assert.assertTrue(Dep_Flag1);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
 		dept.Dep_Flag_ReturnAccess();
@@ -71,11 +79,11 @@ public class Flag_tc_8 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("mahile");
+		addp.lname("Perez");
 		//User Enter FirstName
-		addp.fname("Rajesh");
+		addp.fname("Cole");
 		//User Enter MiddleName
-		addp.mname("kumar");
+		addp.mname("Ell");
 		//User Enter Birthdate
 		addp.DOB("01031999");
 		//User Enter PhoneNumber
@@ -94,16 +102,16 @@ public class Flag_tc_8 extends BaseClass
 		Thread.sleep(2000);
 		addp.Clip_Flag();
 		Thread.sleep(10000);
-		boolean tiger = driver.findElement(By.xpath(" //span[contains(text(),'Label1')]")).isEnabled();
-		if(tiger)
+		try
 		{
-			System.out.println("Enabled");
+		boolean tiger = driver.findElement(By.xpath(" //span[contains(text(),'Diocese of Ely')]")).isDisplayed();
+		Assert.assertFalse(tiger);
 		}
-
-		else 
+		catch(Exception e)
 		{
-			System.out.println("Disabled");
+			System.out.println("Flag is disables--Testcase Passed");
 		}
+		
 
 
 

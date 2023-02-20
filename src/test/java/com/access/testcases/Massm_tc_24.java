@@ -74,9 +74,9 @@ public class Massm_tc_24 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Yadav");
+		addp.lname("Ell");
 		//User Enter FirstName
-		addp.fname("Umesh");
+		addp.fname("Jose");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -120,7 +120,7 @@ public class Massm_tc_24 extends BaseClass
 		m.Select_Message();
 		m.Free_Text();
 		m.Variable_Appointment_Date();
-		m.Edit_Freetext_Message("  Mr. Umesh your Appointment Date 03/02/2023 is confirm");
+		m.Edit_Freetext_Message("  Mr.Jose your Appointment Date 03/02/2023 is confirm");
 		m.Send_Message_Patient();
 		Thread.sleep(10000);
 		m.Send_Message_Modal_Print();

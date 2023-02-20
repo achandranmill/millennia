@@ -53,19 +53,19 @@ public class Appt_tc_1 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter FirstName
-		addp.fname("Rakesh");
+		addp.fname("David");
 		//User Enter lastName
-		addp.lname("Bundel");
+		addp.lname("Miles");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("sindhee@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.textemail("Miles@mailinator.com");
+		addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -76,6 +76,8 @@ public class Appt_tc_1 extends BaseClass
 		Thread.sleep(2000);
 		addp.Clip_Seeing();
 		addp.Clip_Thoms();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		addp.Clip_Comment("Routine checkup");
 		addp.sendSmsMessages();
 		addp.sendEmailMessages();
@@ -89,13 +91,13 @@ public class Appt_tc_1 extends BaseClass
 		ap.linkAppointment();
 		Thread.sleep(10000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Bundel");
+		ap.SearchLastName("Miles");
 		ap.SearchButton();
 		Thread.sleep(30000);
 		ap.Patient_Displayed();
 		Thread.sleep(5000);
-		WebElement Patient_Display = driver.findElement(By.xpath("//span[contains(text(),'Bundel, Rakesh')]"));
-		String Expected_Patient = "Bundel, Rakesh";
+		WebElement Patient_Display = driver.findElement(By.xpath("//span[contains(text(),'Miles, David')]"));
+		String Expected_Patient = "Miles, David";
 		Assert.assertEquals(Patient_Display.getText(), Expected_Patient);
 		System.out.println(" On Search Patient displayed- Passed");
 

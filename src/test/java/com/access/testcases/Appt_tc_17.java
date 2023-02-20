@@ -48,20 +48,21 @@ public class Appt_tc_17 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Bell3");
+		addp.lname("Bell");
 		//User Enter FirstName
 		addp.fname("Aroan");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("bell@mailinator.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
+		addp.Clip_AppointTime("09:45");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
 		addp.Clip_Seeing();
 		addp.Clip_Thoms();
@@ -115,7 +116,7 @@ public class Appt_tc_17 extends BaseClass
 		Thread.sleep(2000);
 		ap.StatusSave();
 		Thread.sleep(10000);
-		ap.SearchLastName("Bell3");
+		ap.SearchLastName("Bell");
 		ap.SearchButton();
 		Thread.sleep(15000);
 		ap.Patient_Displayed();

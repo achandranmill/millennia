@@ -48,27 +48,29 @@ public class Appt_tc_13 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Dudhe");
+		addp.lname("Gemma");
 		//User Enter FirstName
-		addp.fname("Sumitraji");
+		addp.fname("Rivera");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("user_test@mailinator.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
+		addp.textemail("Rivera@mailinator.com");
+		addp.Clip_AppointTime("09:45");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(5000);
-		addp.Clip_Appointment_option();
+		driver.findElement(By.xpath("//li//a//span[contains(text(),'Visit')]")).click();
+		//addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Comment("Routine checkup");
 		addp.sendSmsMessages();
@@ -97,7 +99,7 @@ public class Appt_tc_13 extends BaseClass
 		}
 		ap.ColumnsSaveChange();
 		Thread.sleep(5000);
-		ap.SearchLastName("Dudhe");
+		ap.SearchLastName("Gemma");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Appointment_Displayed();
@@ -113,13 +115,14 @@ public class Appt_tc_13 extends BaseClass
 		{
 			System.out.println("Rcb Form");
 		}
-		r.RCB_FirstName("Umesh");
-		r.RCB_LastName("chandke");
+		Thread.sleep(3000);
+		r.RCB_FirstName("Rivera");
+		r.RCB_LastName("Gemma");
 		r.RCB_Dob("09081994");
 		Thread.sleep(3000);
 		r.RCB_Ssn("777777777");
 		Thread.sleep(3000);
-		r.RCB_PatientStreetAddress("india");
+		r.RCB_PatientStreetAddress("New York");
 		r.RCB_ZipCode("451010");
 		r.RCB_Signature();
 		r.RCB_Signature2();

@@ -46,25 +46,24 @@ public class Appt_tc_20 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Lorie");
+		addp.lname("Lori");
 		//User Enter FirstName
 		addp.fname("Cory");
 		//User Enter MiddleName
-		addp.mname("Kumar");
+		addp.mname("Ell");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("cory@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.Clip_AppointTime("09:45");
 
 		//-------Select Date Range > Include today through next week > Apply------------------------
-		addp.Clip_Appointment_Date("02062023");
-		addp.Clip_Seeing();
-		Thread.sleep(2000);
-		addp.Clip_Thoms();
+		addp.Clip_Appointment_Date("02-22-2023");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -105,20 +104,20 @@ public class Appt_tc_20 extends BaseClass
 		//-----------------DATE RANGE------------------------------------
 		ap.AppointDATE();
 		Thread.sleep(2000);
-		ap.AppointDATE1("2023-01-31");
+		ap.AppointDATE1("2023-02-15");
 		Thread.sleep(2000);
-		ap.AppointDATE2("2023-02-06");
+		ap.AppointDATE2("2023-02-22");
 		Thread.sleep(2000);
 		ap.AppointDATEAPPLY();
 		Thread.sleep(10000);
 		ap.Patient_Displayed();
-		ap.SearchLastName("Lorie");
+		ap.SearchLastName("Lori");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
-		boolean patient = driver.findElement(By.xpath("//span[contains(text(),'Lorie, Cory')]")).isDisplayed();
-		Assert.assertTrue(patient, "Lorie, Cory patient not displayed --TestCase Failed");
-		System.out.println("Lorie, Cory patient displayed --TestCase Passed");
+		boolean patient = driver.findElement(By.xpath("//span[contains(text(),'Lori, Cory')]")).isDisplayed();
+		Assert.assertTrue(patient, "Lori, Cory patient not displayed --TestCase Failed");
+		System.out.println("Lori, Cory patient displayed --TestCase Passed");
         
 	}
 }

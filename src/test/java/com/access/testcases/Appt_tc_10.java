@@ -52,20 +52,19 @@ public class Appt_tc_10 extends BaseClass
 		//User Enter FirstName
 		addp.fname("Gemma");
 		//User Enter lastName
-		addp.lname("Rivera");
+		addp.lname("Riveraa");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("rivera@mailinator.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Seeing();
-		Thread.sleep(2000);
-		addp.Clip_Thoms();
+		addp.textemail("Gemma@mailinator.com");
+		addp.Clip_AppointTime("09:45");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -108,7 +107,7 @@ public class Appt_tc_10 extends BaseClass
 		ap.ColumnsSaveChange();
 		Thread.sleep(5000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Rivera");
+		ap.SearchLastName("Riveraa");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
@@ -128,8 +127,8 @@ public class Appt_tc_10 extends BaseClass
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
 		Thread.sleep(30000);
-		WebElement Patient_Rivera = driver.findElement(By.xpath("//span[contains(text(),'rivera@mailinator.com')]"));
-		String Actual = "rivera@mailinator.com";
+		WebElement Patient_Rivera = driver.findElement(By.xpath("//span[contains(text(),'Gemma@mailinator.com')]"));
+		String Actual = "Gemma@mailinator.com";
 		Assert.assertEquals(Patient_Rivera.getText(), Actual);
 		
 		

@@ -49,22 +49,22 @@ public class Massm_tc_2  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Robin");
+		addp.lname("Robinn");
 		//User Enter FirstName
 		addp.fname("Cory");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("Lorie@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.Clip_AppointTime("09:45");
 		Thread.sleep(5000);
 		//-------------Appointment three days in advance --------Month-Day-Year--------------
-		addp.Clip_Appointment_Date("02052023");
+		addp.Clip_Appointment_Date("02-23-2023");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
@@ -98,14 +98,17 @@ public class Massm_tc_2  extends BaseClass
 		Thread.sleep(5000);
 		ap.AppointDATE();
 		Thread.sleep(2000);
-		ap.AppointDATE1("2023-02-05");
+		ap.AppointDATE1("2023-02-20");
 		Thread.sleep(2000);
-		ap.AppointDATE2("2023-02-05");
+		ap.AppointDATE2("2023-02-23");
 		Thread.sleep(2000);
 		ap.AppointDATEAPPLY();
 		Thread.sleep(15000);
-		WebElement Patient=driver.findElement(By.xpath("//span[contains(text(),'Robin, Cory')]"));
-		String Actual="Robin, Cory";
+		ap.SearchLastName("Robinn");
+		ap.SearchButton();
+		Thread.sleep(5000);
+		WebElement Patient=driver.findElement(By.xpath("//span[contains(text(),'Robinn, Cory')]"));
+		String Actual="Robinn, Cory";
 		Assert.assertEquals(Patient.getText(), Actual);
 		System.out.println("Future patient is displayed --Testcase Passed");
 		ap.Patient_Displayed();

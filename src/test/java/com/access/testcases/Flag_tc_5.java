@@ -1,5 +1,9 @@
 package com.access.testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -56,7 +60,7 @@ public class Flag_tc_5 extends BaseClass
 		Thread.sleep(5000);
 		og.Cropimage();
 		Thread.sleep(3000);
-		og.FlagLabel("dlj");
+		og.FlagLabel("Diocese of Bristol");
 		Thread.sleep(2000);
 		og.AddNewFlag();
 		Thread.sleep(2000);
@@ -64,8 +68,8 @@ public class Flag_tc_5 extends BaseClass
 		dept.departmentlink();
 		Thread.sleep(5000);
 		dept.Dep_Flag();
-		Thread.sleep(20000);
-		dept.Dep_Flag_Assigned();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[@class=\"disabled-container\"]//h3[contains(text(),'Diocese of Bristol')]")).click();
 		Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
@@ -75,30 +79,29 @@ public class Flag_tc_5 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("dudhe");
+		addp.lname("Foster");
 		//User Enter FirstName
-		addp.fname("Rajesh");
+		addp.fname("Daisy");
 		//User Enter MiddleName
-		addp.mname("kumar");
+		addp.mname("Ell");
 		//User Enter Birthdate
 		addp.DOB("01031999");
 		//User Enter PhoneNumber
 		addp.pnumber("8888888888");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("john@gmail.com");
+		addp.textemail("foster@gmail.com");
 		Thread.sleep(2000);
 		addp.Clip_AppointTime("0930");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Location_option();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Flag();
 		Thread.sleep(2000);
-		addp.Clip_Flag_Option();
+		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),'Diocese of Bristol')]")).click();
 		Thread.sleep(2000);
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
@@ -119,9 +122,20 @@ public class Flag_tc_5 extends BaseClass
 		Appointments Click =new Appointments(driver);
 		Click.linkAppointment();
 		Thread.sleep(10000);
-		Click.SearchLastName("dudhe");
+		Click.SearchLastName("Foster");
+		Thread.sleep(5000);
 		Click.SearchButton();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
+		Click.ThreeDot();
+		Thread.sleep(5000);
+		Click.EditAppointment();
+		Thread.sleep(5000);
+		WebElement Flag =driver.findElement(By.xpath("//div[@id=\"patientFlags\"]"));
+		JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].scrollIntoView();", Flag);
+		Thread.sleep(5000);
+		boolean Appt_Flag =driver.findElement(By.xpath("//img[@title=\"Diocese of Bristol\"]")).isDisplayed();
+		Assert.assertTrue(Appt_Flag);
 	}
 
 

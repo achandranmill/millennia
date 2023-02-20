@@ -5889,6 +5889,7 @@ public void PatientPriority_ResetDefault()
 	PatientPriority_ResetDefault.click();
 }
 
+//---------------------------------Flag -----------------------------------------------------------------------------------------------------------
 
 @FindBy(how=How.XPATH,using="//a[contains(text(),'Flags')]")
 @CacheLookup
@@ -5937,7 +5938,7 @@ public void Dep_File_Crop()
 	Dep_File_Crop.click();
 }
 
-@FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-departments/section/div/div[2]/flags/jfh-add-flag/form/div/div/div[2]/input")
+@FindBy(how=How.NAME,using="flag-label")
 @CacheLookup
 WebElement Dep_File_lable;
 
@@ -5947,7 +5948,7 @@ public void Dep_File_lable(String n)
 	Dep_File_lable.sendKeys(n);
 }
 
-@FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-departments/section/div/div[2]/flags/jfh-add-flag/form/div/div/div[3]/div/label/input")
+@FindBy(how=How.XPATH,using="//input[@type=\"Flag will always show for every visit\" or @title=\"Flag will always show for every visit\"]")
 @CacheLookup
 WebElement Dep_File_persistent;
 
@@ -5956,7 +5957,7 @@ public  void Dep_File_persistent()
 	Dep_File_persistent.click();
 }
 
-@FindBy(how=How.XPATH,using="/html/body/main/div[1]/admin-departments/section/div/div[2]/flags/jfh-add-flag/form/div/div/div[4]/button")
+@FindBy(how=How.XPATH,using="//button[@class=\"btn btn-primary ng-binding\"]")
 @CacheLookup
 WebElement Dep_File_Add;
 
@@ -8221,72 +8222,381 @@ public void Dep_Flag_ReturnAccess()
 
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//----------------------------------------ClipBoard-----Remove Field------------------14-Feb-2023---------------------------------------------------------------------------
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[4]/header/a[1]")
+    @CacheLookup
+    WebElement Middle_Name_Remove;
+    
+    public void Middle_Name_Remove()
+    {
+    	Middle_Name_Remove.click();
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[5]/header/a[1]")
+    @CacheLookup
+    WebElement Dob_Remove;
+    
+    public void Dob_Remove()
+    {
+    	Dob_Remove.click();
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[6]/header/a[1]")
+    @CacheLookup
+    WebElement Phone_Remove;
+    
+    public void Phone_Remove()
+    {
+    	Phone_Remove.click();
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[7]/header/a[1]")
+    @CacheLookup
+    WebElement Email_Remove;
+    
+    public void Email_Remove()
+    {
+    	Email_Remove.click();
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[8]/header/a[1]")
+    @CacheLookup
+    WebElement Additional_Phone_Number_Remove;
+    
+    public void Additional_Phone_Number_Remove()
+    {
+    	Additional_Phone_Number_Remove.click();
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[9]/header/a[1]")
+    @CacheLookup
+    WebElement Gender_Remove;
+    
+    public void Gender_Remove()
+    {
+    	Gender_Remove.click();
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[10]/header/a[1]")
+    @CacheLookup
+    WebElement SSN_Remove;
+    
+    public void SSN_Remove()
+    {
+    	SSN_Remove.click();
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[11]/header/a[1]")
+    @CacheLookup
+    WebElement MRN_Remove;
+    
+    public void MRN_Remove()
+    {
+    	MRN_Remove.click();
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[12]/header/a[1]")
+    @CacheLookup
+    WebElement Additional_Contact_Name_Remove;
+    
+    public void Additional_Contact_Name_Remove()
+    {
+    	Additional_Contact_Name_Remove.click();
+    }
+
+    //--------------------Clipboard Add and Reconfigure-------------------------------------------------------
+    
+    @FindBy(how=How.XPATH,using="//a[contains(text(),'Add more')]")
+    @CacheLookup
+    WebElement AddMore;
+    
+    public void AddMore()
+    {
+    	AddMore.click();
+    }
+    
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[4]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement Middle_Name_Select;
+    
+    public void Middle_Name_Select()
+    {
+    	Select a = new Select(Middle_Name_Select);
+    	a.selectByVisibleText("Middle Initial");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient2\"]")
+    @CacheLookup
+    WebElement Middle_Name_Size_Select;
+    
+    public void Middle_Name_Size_Select()
+    {
+    	Select d = new Select(Middle_Name_Size_Select);
+    	d.selectByVisibleText("2");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[4]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement Middle_Name_Field;
+    
+    public void Middle_Name_Field(String s)
+    {
+    	Middle_Name_Field.click();
+    	Middle_Name_Field.clear();
+    	Middle_Name_Field.sendKeys(s);
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[5]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement Dob_Select;
+    
+    public void Dob_Select()
+    {
+    	Select d = new Select(Dob_Select);
+    	d.selectByVisibleText("Date Of Birth");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient3\"]")
+    @CacheLookup
+    WebElement Dob_Field_Size;
+    
+    public void Dob_Field_Size()
+    {
+    	Select d = new Select(Dob_Field_Size);
+    	d.selectByVisibleText("2");
+    }
+    
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[5]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement Dob_Field_Name;
+    
+    public void Dob_Field_Name(String d)
+    {
+    	Dob_Field_Name.click();
+    	Dob_Field_Name.clear();
+    	Dob_Field_Name.sendKeys(d);
+    }
+    
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[6]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement Phone_Name_Select;
+    
+    public void Phone_Name_Select()
+    {
+    	Select p = new Select(Phone_Name_Select);
+    	p.selectByVisibleText("Cell Number");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient4\"]")
+    @CacheLookup
+    WebElement Phone_Name_Size_Select;
+    
+    public void Phone_Name_Size_Select()
+    {
+    	Select p = new Select(Phone_Name_Size_Select);
+    	p.selectByVisibleText("2");
+    	
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[6]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement Phone_Name_Field;
+    
+    public void Phone_Name_Field(String p)
+    {
+    	Phone_Name_Field.click();
+    	Phone_Name_Field.clear();
+    	Phone_Name_Field.sendKeys(p);
+    }
+    
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[7]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement Email_Name_Select;
+    
+    public void Email_Name_Select()
+    {
+    	Select e = new Select(Email_Name_Select);
+    	e.selectByVisibleText("Email");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient5\"]")
+    @CacheLookup
+    WebElement Email_Name_Size_Select;
+    
+    public void Email_Name_Size_Select()
+    {
+    	Select es = new Select(Email_Name_Size_Select);
+    	es.selectByVisibleText("3");
+    }
+    
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[7]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement Email_Name_Field;
+    
+    public void Email_Name_Field(String e)
+    {
+    	Email_Name_Field.click();
+    	Email_Name_Field.clear();
+    	Email_Name_Field.sendKeys(e);
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[8]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement Additional_Phone_Name_Select;
+    
+    public void Additional_Phone_Name_Select()
+    {
+    	Select Ap=new Select(Additional_Phone_Name_Select);
+    	Ap.selectByVisibleText("Additional Phone Number");
+    			
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient6\"]")
+    @CacheLookup
+    WebElement Additional_Phone_Size_Select;
+    
+    public void Additional_Phone_Size_Select()
+    {
+    	Select As = new Select(Additional_Phone_Size_Select);
+    	As.selectByVisibleText("2");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[8]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement Adiditional_Phone_Field;
+    
+    public void Adiditional_Phone_Field(String A)
+    {
+    	Adiditional_Phone_Field.click();
+    	Adiditional_Phone_Field.clear();
+    	Adiditional_Phone_Field.sendKeys(A);
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[9]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement Gender_Name_Select;
+    
+    public void Gender_Name_Select()
+    {
+    	Select G = new Select(Gender_Name_Select);
+    	G.selectByVisibleText("Gender");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient7\"]")
+    @CacheLookup
+    WebElement Gender_Name_Size_Select;
+    
+    public void Gender_Name_Size_Select()
+    {
+    	Select G = new Select(Gender_Name_Size_Select);
+    	G.selectByVisibleText("2");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[9]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement Gender_Name_Field;
+    
+    public void Gender_Name_Field(String g)
+    {
+    	Gender_Name_Field.click();
+    	Gender_Name_Field.clear();
+    	Gender_Name_Field.sendKeys(g);
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[10]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement SSN_Name_Select;
+    
+    public void SSN_Name_Select()
+    {
+    	Select S = new Select(SSN_Name_Select);
+    	S.selectByVisibleText("SSN");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient8\"]")
+    @CacheLookup
+    WebElement SSN_Name_Size_Select;
+    
+    public void SSN_Name_Size_Select()
+    {
+    	Select S = new Select(SSN_Name_Size_Select);
+    	S.selectByVisibleText("2");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[10]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement SSN_Name_Field;
+    
+    public void SSN_Name_Field(String S)
+    {
+    	SSN_Name_Field.click();
+    	SSN_Name_Field.clear();
+    	SSN_Name_Field.sendKeys(S);
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[11]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement MRN_Name_Select;
+    
+    public void MRN_Name_Select()
+    {
+    	Select M = new Select(MRN_Name_Select);
+    	M.selectByVisibleText("MRN");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient9\"]")
+    @CacheLookup
+    WebElement MRN_Name_Size_Select;
+    
+    public void MRN_Name_Size_Select()
+    {
+    	Select M = new Select(MRN_Name_Size_Select);
+    	M.selectByVisibleText("2");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[11]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement MRN_Name_Field;
+    
+    public void MRN_Name_Field(String m)
+    {
+    	MRN_Name_Field.click();
+    	MRN_Name_Field.clear();
+    	MRN_Name_Field.sendKeys(m);
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[12]/div/div/div[1]/div[1]/select")
+    @CacheLookup
+    WebElement Additional_Contact_Name_Select;
+    
+    public void Additional_Contact_Name_Select()
+    {
+    	Select A = new Select(Additional_Contact_Name_Select);
+    	A.selectByVisibleText("Additional Contact Name");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"fieldSizepatient10\"]")
+    @CacheLookup
+    WebElement Additional_Contact_Size_Select;
+    
+    public void Additional_Contact_Size_Select()
+    {
+    	Select A = new Select(Additional_Contact_Size_Select);
+    	A.selectByVisibleText("2");
+    }
+
+    @FindBy(how=How.XPATH,using="//*[@id=\"departments\"]/main/div[1]/admin-departments/section/div/div[2]/clipboard/section/field-builder[1]/div/div[12]/div/div/div[1]/div[3]/input")
+    @CacheLookup
+    WebElement Additional_Contact_Field;
+    
+    public void Additional_Contact_Field(String A)
+    {
+    	Additional_Contact_Field.click();
+    	Additional_Contact_Field.clear();
+    	Additional_Contact_Field.sendKeys(A);
+    }
 
 
 

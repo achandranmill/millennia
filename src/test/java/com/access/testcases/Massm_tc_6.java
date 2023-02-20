@@ -46,22 +46,24 @@ public class Massm_tc_6  extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Leo");
+		addp.lname("Leoo");
 		//User Enter FirstName
-		addp.fname("Andy");
+		addp.fname("Andyo");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("anyd@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		Thread.sleep(1000);
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
@@ -120,12 +122,12 @@ public class Massm_tc_6  extends BaseClass
 		Thread.sleep(3000);
 	    m.StatusFilterSave();
 		Thread.sleep(3000);
-		m.LastName("Leo");
-		m.FirstName("Andy");
+		m.LastName("Leoo");
+		m.FirstName("Andyo");
 		m.Search1();
-		Thread.sleep(10000);
-		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Leo, Andy')]"));
-		String Excepted = "Leo, Andy";
+		Thread.sleep(15000);
+		WebElement Patient = driver.findElement(By.xpath("//td[contains(text(),'Leoo, Andyo')]"));
+		String Excepted = "Leoo, Andyo";
 		Assert.assertEquals(Patient.getText(), Excepted);
 		System.out.println("Test case - Passed");
 		WebElement UNCONFIRMED_Status = driver.findElement(By.xpath("//span[contains(text(),'UNCONFIRMED')]"));

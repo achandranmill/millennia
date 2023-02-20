@@ -1,5 +1,6 @@
 package com.access.testcases;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -58,7 +59,7 @@ public class Flag_tc_6 extends BaseClass
 		Thread.sleep(5000);
 		og.Cropimage();
 		Thread.sleep(3000);
-		og.FlagLabel("dlj");
+		og.FlagLabel(" Diocese of Carlisle");
 		Thread.sleep(2000);
 		og.AddNewFlag();
 		Thread.sleep(2000);
@@ -67,8 +68,8 @@ public class Flag_tc_6 extends BaseClass
 		Thread.sleep(5000);
 		dept.Dep_Flag();
 		Thread.sleep(20000);
-		dept.Dep_Flag_Assigned();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@class=\"disabled-container\"]//h3[contains(text(),' Diocese of Carlisle')]")).click();
+        Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
 		dept.Dep_Flag_ReturnAccess();
@@ -91,17 +92,16 @@ public class Flag_tc_6 extends BaseClass
 		addp.textemail("john@gmail.com");
 		Thread.sleep(2000);
 		addp.Clip_AppointTime("0930");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Location_option();
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Flag();
 		Thread.sleep(3000);
-		addp.clipflagoption();
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),' Diocese of Carlisle')]")).click();
+        Thread.sleep(2000);
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();

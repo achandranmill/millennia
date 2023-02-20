@@ -109,7 +109,7 @@ public class Workl_tc_1 extends BaseClass
 		Thread.sleep(10000);
 		w.Edit_Department2();
 		Thread.sleep(10000);
-		boolean Testing1 = driver.findElement(By.cssSelector("#worklist > div.modal.fade.ng-scope.ng-isolate-scope.in > div > div > location-filter > div.modal-body > div > div:nth-child(2) > div:nth-child(4) > label > input[type=checkbox]")).isSelected();
+		boolean Testing1 = driver.findElement(By.cssSelector("#worklist > div.modal.fade.ng-scope.ng-isolate-scope.in > div > div > location-filter > div.modal-body > div > div:nth-child(2) > div.checkbox.ng-scope > label > input[type=checkbox]")).isSelected();
 		Assert.assertTrue(Testing1, "  After login selected department not saved");
 		Thread.sleep(5000);
 		w.Edit_Department_btn();

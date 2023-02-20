@@ -1,9 +1,14 @@
 package com.access.testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
 import com.access.pageobject.Clipboard;
+import com.access.pageobject.Kiosk;
+import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
@@ -34,45 +39,53 @@ public class R_Kiosk_tc_5 extends BaseClass
 		}
 		//-----------------REGISTRATION PAGE ------------------------------
 		RegtPage r=new RegtPage(driver);
-		r.Registration();
+		r.clickRegistrationPage();
 		Thread.sleep(3000);
-
-		Clipboard addp=new Clipboard(driver);
-		addp.LinkclickBoard();
-		Thread.sleep(5000);
-		//User Enter lastName
-		addp.lname("Mishra");
-		//User Enter FirstName
-		addp.fname("mohit");
-		//User Enter MiddleName
-		addp.mname("kumar");
-		//User Enter Birthdate
-		addp.DOB("01091999");
-		//User Enter PhoneNumber
-		addp.pnumber("7777777777");
-		Thread.sleep(2000);
-		//User Enter Email
-		addp.textemail("mishra@gmail.com");
-		addp.Clip_AppointTime("0945");
-		addp.Clip_Location();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_Type();
-		Thread.sleep(2000);
-		addp.Clip_Appointment_option();
+		Provider pd = new Provider(driver);
+		//		pd.LocationPopup("Florida");
 		Thread.sleep(10000);
-		addp.Clip_Seeing();
+		pd.UserAdmin();
+		Thread.sleep(3000);
+		pd.Admin();
+		Thread.sleep(3000);
+		Kiosk k = new Kiosk(driver);
+		k.Department_Link();
 		Thread.sleep(1000);
-		addp.Clip_Thoms();
+		k.Kiosk();
+		Thread.sleep(5000);
+		WebElement Search_Flow=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		if(!Search_Flow.isSelected())
+		{
+			Search_Flow.click();
+		}
+		else
+		{
+
+		}
 		Thread.sleep(3000);
-		addp.Clip_Comment("Routine checkup");
-		addp.Clip_Reason("only checkup");
-		addp.Clip_Copay("10000");
-		addp.sendSmsMessages();
-		addp.sendEmailMessages();
-		Thread.sleep(20000);
-		addp.Clip_Addpatient();
-		Thread.sleep(10000);
-		addp.patient_namefound();
-		Thread.sleep(10000);
+		WebElement Search_skip=driver.findElement(By.xpath("//input[@id=\"skip-results\"]"));
+		if(!Search_Flow.isSelected())
+		{
+			Search_Flow.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
+		k.Kiosk_Savebutton();
+		Thread.sleep(5000);
+		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
+		Thread.sleep(3000);
+		k.Press_HereTo_Start();
+		Thread.sleep(3000);
+		k.FirstName("Awdesh");
+	    k.LastName("jain");
+	    k.Search();
+	    Thread.sleep(3000);
+	    WebElement Patien_Found=driver.findElement(By.xpath("//h1[contains(text(),'jain, Awdesh')]"));
+	    String Excepted="jain, Awdesh";
+	    Assert.assertEquals(Patien_Found.getText(), Excepted);
+	    
 	}
 }

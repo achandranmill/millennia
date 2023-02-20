@@ -43,7 +43,7 @@ public class Reg_tc_4 extends BaseClass
 		RegtPage r=new RegtPage(driver);
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
-		r.clickredit("Rajput", "Praveen", "Kumar");
+		r.clickredit("Carol", "Perry", "Ell");
 		Thread.sleep(3000);
 		r.Editdate();
 		r.txtdate("03122022");
@@ -57,9 +57,9 @@ public class Reg_tc_4 extends BaseClass
 		Thread.sleep(3000);
 		r.Number("7896509874");
 		Thread.sleep(3000);
-		r.Email("ravi@gmail.com");
+		r.Email("ken@gmail.com");
 		Thread.sleep(3000);
-		r.contactname("Praveen");
+		r.contactname("Carol");
 		Thread.sleep(3000);
 		r.contactnumber("7777777777");
 		Thread.sleep(3000);
@@ -75,7 +75,7 @@ public class Reg_tc_4 extends BaseClass
 		Thread.sleep(1000);
 		r.NEXT();
 		Thread.sleep(5000);
-		WebElement Patient_Name = driver.findElement(By.xpath("//span[contains(text(),'Rajput, Praveen')]"));
+		WebElement Patient_Name = driver.findElement(By.xpath("//span[contains(text(),'Carol, Perry')]"));
 		Assert.assertTrue(Patient_Name.isDisplayed(), "Patient not displayed");
 		
 	}
