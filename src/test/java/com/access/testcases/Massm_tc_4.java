@@ -62,7 +62,7 @@ public class Massm_tc_4  extends BaseClass
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("user_test@mailinator.com");
-		//addp.Clip_AppointTime("0945");
+		//addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();

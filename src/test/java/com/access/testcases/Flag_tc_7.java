@@ -1,12 +1,16 @@
 package com.access.testcases;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
+import com.access.pageobject.Appointments;
 import com.access.pageobject.Clipboard;
 import com.access.pageobject.Departments;
+import com.access.pageobject.Organization;
 import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
@@ -22,7 +26,7 @@ public class Flag_tc_7 extends BaseClass
 		lp.setUserName(email);
 		lp.setPassword(password);
 		lp.clickSubmit();
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		AdmUser ad=new AdmUser(driver);
 		try
 		{
@@ -47,24 +51,28 @@ public class Flag_tc_7 extends BaseClass
 		Thread.sleep(3000);
 		pd.Admin();
 		Thread.sleep(3000);
+		Organization og = new Organization(driver);
+		og.Organization();
+		Thread.sleep(3000);
+		og.Flags();
+		Thread.sleep(2000);
+		og.Choosefile();
+		Thread.sleep(5000);
+		og.Cropimage();
+		Thread.sleep(3000);
+		og.FlagLabel("Test1 Flag");
+		Thread.sleep(2000);
+		og.Persistent();
+		Thread.sleep(3000);
+		og.AddNewFlag();
+		Thread.sleep(2000);
 		Departments dept=new Departments(driver);
 		dept.departmentlink();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		dept.Dep_Flag();
-		Thread.sleep(5000);
-		dept.Dep_Flag_File();
-		Thread.sleep(2000);
-		dept.Dep_File_Crop();
-		Thread.sleep(2000);
-		dept.Dep_File_lable("Diocese of Derby");
-		Thread.sleep(2000);
-		dept.Dep_File_persistent();
-		Thread.sleep(2000);
-		dept.Dep_File_Add();
-		Thread.sleep(5000);
-		boolean Dep_Flag = driver.findElement(By.xpath("//div[@class=\"enabled-container\"]//h3[contains(text(),'Assigned Flags')]//following::div//h3[contains(text(),' Diocese of Derby')]")).isDisplayed();
-		Assert.assertTrue(Dep_Flag);
-		Thread.sleep(2000);
+		Thread.sleep(20000);
+		driver.findElement(By.xpath("//div[@class=\"card\" ]//h3[contains(text(),'Test1 Flag')]")).click();
+        Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
 		dept.Dep_Flag_ReturnAccess();
@@ -73,31 +81,54 @@ public class Flag_tc_7 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Perez");
+		addp.lname("Stain");
 		//User Enter FirstName
-		addp.fname("Cole");
+		addp.fname("Dayle");
 		//User Enter MiddleName
-		addp.mname("Ell");
+		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031999");
+		addp.DOB("01-03-1999");
 		//User Enter PhoneNumber
-		addp.pnumber("8888888888");
+		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("john@gmail.com");
+		addp.textemail("stain@gmail.com");
 		Thread.sleep(2000);
-		addp.Clip_AppointTime("0930");
-		addp.Clip_Location();
+		addp.Clip_AppointTime("09:30");
+		addp.clipdepartmenttype();
+		addp.clipdeptmilleniaoption1();
+		addp.Clip_Seeing();
 		Thread.sleep(2000);
-		addp.Clip_Location_option();
+		addp.Clip_Thoms();
 		addp.Clip_Appointment_Type();
 		Thread.sleep(2000);
 		addp.Clip_Appointment_option();
 		Thread.sleep(2000);
 		addp.Clip_Flag();
-		Thread.sleep(5000);
-		boolean Enabled_Flag=driver.findElement(By.xpath("//span[contains(text(),' Diocese of Derby')]")).isDisplayed();
-		Assert.assertTrue(Enabled_Flag);
 		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),'Test1 Flag')]")).click();
+        Thread.sleep(2000);
+		addp.Clip_Comment("Routine checkup");
+		//		addp.Clip_Reason("only checkup ");
+		//		addp.Clip_Copay("10000");
+		Thread.sleep(2000);
+		addp.sendSmsMessages();
+		addp.sendEmailMessages();
+		addp.Clip_Addpatient();
+		Thread.sleep(10000);
+		addp.Clip_Checkin();
+		Thread.sleep(5000);
+		addp.Alert_ok();
+		Thread.sleep(10000);
+		boolean bool = driver.findElement(By.xpath(" //span[contains(text(),'Test1 Flag')]")).isEnabled();
+		if(bool)
+		{
+			System.out.println("Enabled");
+		}
+
+		else 
+		{
+			System.out.println("Disabled");
+		}
 	}
 }

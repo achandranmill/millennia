@@ -57,7 +57,7 @@ public class Massm_tc_1  extends BaseClass
 		MRN.sendKeys("000024");
 		//User Enter Email
 		addp.textemail("Green@mailinator.com");
-		//addp.Clip_AppointTime("0945");
+		//addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(2000);
 		addp.Clip_Thoms();

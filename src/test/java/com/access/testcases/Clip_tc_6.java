@@ -60,13 +60,13 @@ public class Clip_tc_6 extends BaseClass
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
-		addp.DOB("01031993");
+		addp.DOB("01-03-1993");
 		//User Enter PhoneNumber
 		addp.pnumber("7777777777");
 		Thread.sleep(2000);
 		//User Enter Email
 		addp.textemail("user_test@mailinator.com");
-		addp.Clip_AppointTime("0945");
+		addp.Clip_AppointTime("09:45");
 		addp.Clip_Seeing();
 		Thread.sleep(1000);
 		addp.Clip_Thoms();

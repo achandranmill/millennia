@@ -67,10 +67,10 @@ public class Flag_tc_9 extends BaseClass
 		boolean Flag_Add = driver.findElement(By.xpath("//div[@class=\"label-container ng-scope\"]//h3[contains(text(),'Diocese of Exeter')]")).isDisplayed();
 		Assert.assertTrue(Flag_Add);
 		Thread.sleep(2000);
-		boolean Flag_Edit =driver.findElement(By.xpath("//form[@name=\"$ctrl.imageForm\"]//h3[contains(text(),'Military Flag')]//following::div[@class=\"add-flag-button-container ng-scope\"]//button[@class=\"btn btn-default btn-block\"]")).isEnabled();
+		boolean Flag_Edit =driver.findElement(By.xpath("//form[@name=\"$ctrl.imageForm\"]//h3[contains(text(),'Diocese of Exeter')]//following::div[@class=\"add-flag-button-container ng-scope\"]//button[@class=\"btn btn-default btn-block\"]")).isEnabled();
 		Assert.assertTrue(Flag_Edit);
 		Thread.sleep(2000);
-		WebElement Edit_button=driver.findElement(By.xpath("//form[@name=\"$ctrl.imageForm\"]//h3[contains(text(),'Military Flag')]//following::div[@class=\"add-flag-button-container ng-scope\"]//button[@class=\"btn btn-default btn-block\"]"));
+		WebElement Edit_button=driver.findElement(By.xpath("//form[@name=\"$ctrl.imageForm\"]//h3[contains(text(),'Diocese of Exeter')]//following::div[@class=\"add-flag-button-container ng-scope\"]//button[@class=\"btn btn-default btn-block\"]"));
 		Edit_button.click();
 		WebElement Edit_Name = driver.findElement(By.id("$ctrl.name"));
 		Edit_Name.click();
