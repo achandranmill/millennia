@@ -410,7 +410,7 @@ public class MassMessaging
 
 	//-------------------------------------30-12-2022----------------------------------------------------------------------
 
-	@FindBy(how=How.ID,using="messages")
+	@FindBy(how=How.XPATH,using="//button[@id='messages']")
 	@CacheLookup
 	WebElement Select_Message;
 
@@ -447,7 +447,7 @@ public class MassMessaging
 		Send_Message_Patient.click();
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"nocontact\"]/table")
+	@FindBy(how=How.XPATH,using="//*[@id='nocontact']/table")
 	@CacheLookup
 	WebElement Ineligible_print;
 
@@ -457,7 +457,7 @@ public class MassMessaging
 		System.out.println(act);
 	}
 
-	@FindBy(how=How.XPATH,using="//*[@id=\"directory\"]/table")
+	@FindBy(how=How.XPATH,using="//*[@id='directory']/table")
 	@CacheLookup
 	WebElement Eligible_print;
 

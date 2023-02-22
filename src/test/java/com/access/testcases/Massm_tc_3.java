@@ -91,7 +91,7 @@ public class Massm_tc_3   extends BaseClass
 		m.Initial("Thomson");
 		m.Search1();
 		Thread.sleep(15000);
-		WebElement Select =driver.findElement(By.xpath("//*[@id=\"messages\"]"));
+		WebElement Select =driver.findElement(By.xpath("//button[@id='messages']"));
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
 		js.executeScript("arguments[0].scrollIntoView();", Select);
 		m.Select_Message();

@@ -71,14 +71,14 @@ public class R_Kiosk_tc_11 extends BaseClass
 		}
 		Thread.sleep(3000);
 		k.Kiosk_Savebutton();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
 		Thread.sleep(10000);
 		k.Press_HereTo_Start();
 		Thread.sleep(10000);
-		k.FirstName("Awdesh");
+		k.FirstName("Sam");
 		Thread.sleep(1000);
-		k.LastName("Jain");
+		k.LastName("Burns");
 		Thread.sleep(1000);
 		k.Search();
 		Thread.sleep(10000);

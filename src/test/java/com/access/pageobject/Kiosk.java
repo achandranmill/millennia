@@ -1381,6 +1381,139 @@ public class Kiosk
 		  Kiosk_10.click();
 	  }
 	  
+//----------------------------------------21-Feb-2023------------------------------------------------------------------	  
+	  
+	  @FindBy(how=How.XPATH,using="//button[@id='search-page-configure-button']")
+	  @CacheLookup
+	  WebElement Configure_search_Criteria;
+	  
+	  public void Configure_search_Criteria()
+	  {
+		  Configure_search_Criteria.click();
+	  }
+	  
+	  
+	  @FindBy(how=How.XPATH,using="//input[@id='welcome-message-input']")
+	  @CacheLookup
+	  WebElement Welcome_Message;
+	  
+	  public void Welcome_Message(String g)
+	  {
+		  Welcome_Message.click();
+		  Welcome_Message.sendKeys(g);
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="/html[1]/body[1]/div[1]/div[1]/div[1]/kiosk-search-config[1]/div[2]/field-builder[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/select[1]")
+	  @CacheLookup
+	  WebElement Search_First_Name;
+	  
+	  public void Search_First_Name()
+	  {
+		  Select AB=new Select(Search_First_Name);
+		  AB.selectByVisibleText("First Name");
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="//select[@id='fieldSizepage0']")
+	  @CacheLookup
+	  WebElement Search_FirstName_Size;
+	  
+	  public void Search_FirstName_Size()
+	  {
+		  Select ab=new Select(Search_FirstName_Size);
+		  ab.selectByVisibleText("3");
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="/html[1]/body[1]/div[1]/div[1]/div[1]/kiosk-search-config[1]/div[2]/field-builder[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/input[1]")
+	  @CacheLookup
+	  WebElement Search_FirstName_Field;
+	  
+	  public void Search_FirstName_Field(String s)
+	  {
+		  Search_FirstName_Field.click();
+		  Search_FirstName_Field.clear();
+		  Search_FirstName_Field.sendKeys(s);
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="//a[@class='btn btn-default']")
+	  @CacheLookup
+	  WebElement Search_Add_More;
+	  
+	  public void Search_Add_More()
+	  {
+		  Search_Add_More.click();
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="/html[1]/body[1]/div[1]/div[1]/div[1]/kiosk-search-config[1]/div[2]/field-builder[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/select[1]")
+	  @CacheLookup
+	  WebElement Search_LastName;
+	  
+	  public void Search_LastName()
+	  {
+		  Select ab=new Select(Search_LastName);
+		  ab.selectByVisibleText("Last Name");
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="//select[@id='fieldSizepage1']")
+	  @CacheLookup
+	  WebElement Search_LastName_Size;
+	  
+	  public void Search_LastName_Size()
+	  {
+		  Select ab=new Select(Search_LastName_Size);
+		  ab.selectByVisibleText("3");
+	  }
+	  
+	  
+	  @FindBy(how=How.XPATH,using="/html[1]/body[1]/div[1]/div[1]/div[1]/kiosk-search-config[1]/div[2]/field-builder[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/input[1]")
+	  @CacheLookup
+	  WebElement Search_LastName_Field;
+	  
+	  public void Search_LastName_Field(String g)
+	  {
+		  Search_LastName_Field.click();
+		  Search_LastName_Field.clear();
+		  Search_LastName_Field.sendKeys(g);
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="/html[1]/body[1]/div[1]/div[1]/div[1]/kiosk-search-config[1]/div[2]/field-builder[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/select[1]")
+	  @CacheLookup
+	  WebElement Search_Dob;
+	  
+	  public void Search_Dob()
+	  {
+		  Select ab=new Select(Search_Dob);
+		  ab.selectByVisibleText("Date Of Birth Wizard");
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="//select[@id='fieldSizepage2']")
+	  @CacheLookup
+	  WebElement Search_Dob_Size;
+	  
+	  public void Search_Dob_Size()
+	  {
+		  Select ab=new Select(Search_Dob_Size);
+		  ab.selectByVisibleText("4");
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="/html[1]/body[1]/div[1]/div[1]/div[1]/kiosk-search-config[1]/div[2]/field-builder[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[3]/input[1]")
+	  @CacheLookup
+	  WebElement Search_Dob_Field;
+	  
+	  public void Search_Dob_Field(String s)
+	  {
+		  Search_Dob_Field.click();
+		  Search_Dob_Field.clear();
+		  Search_Dob_Field.sendKeys(s);
+	  }
+	  
+	  @FindBy(how=How.XPATH,using="//button[normalize-space()='Done']")
+	  @CacheLookup
+	  WebElement Search_Done;
+	  
+	  public void Search_Done()
+	  {
+		  Search_Done.click();
+	  }
 	  
 	  
 	  
@@ -1388,13 +1521,6 @@ public class Kiosk
 	  
 	  
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	    
 	}    
 	
 

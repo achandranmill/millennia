@@ -92,7 +92,7 @@ public class Massm_tc_7  extends BaseClass
 		Thread.sleep(3000);
 		m.StatusFilter();
 		Thread.sleep(3000);
-		WebElement Select = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		WebElement Select = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllStatusCheck']"));
 		if(Select.isSelected())
 		{
 			System.out.println("SelectAll checkbox selected");

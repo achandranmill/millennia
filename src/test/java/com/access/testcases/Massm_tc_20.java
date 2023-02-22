@@ -71,7 +71,7 @@ public class Massm_tc_20 extends BaseClass
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
 		Thread.sleep(10000);
-		WebElement Select =driver.findElement(By.xpath("//*[@id=\"messages\"]"));
+		WebElement Select =driver.findElement(By.xpath("//button[@id='messages']"));
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
 		js.executeScript("arguments[0].scrollIntoView();", Select);
 		m.Select_Message();

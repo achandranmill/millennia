@@ -64,9 +64,9 @@ public class R_Kiosk_tc_3 extends BaseClass
 		}
 		Thread.sleep(3000);
 		WebElement Search_skip=driver.findElement(By.xpath("//input[@id=\"skip-results\"]"));
-		if(!Search_Flow.isSelected())
+		if(!Search_skip.isSelected())
 		{
-			Search_Flow.click();
+			Search_skip.click();
 		}
 		else
 		{

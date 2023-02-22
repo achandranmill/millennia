@@ -85,7 +85,7 @@ public class Massm_tc_6  extends BaseClass
 		m.MassMessaging();
 		m.StatusFilter();
 		Thread.sleep(3000);
-		WebElement SelectAll = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllStatusCheck']"));
 		if(SelectAll.isSelected())
 		{
 			SelectAll.click();
@@ -96,7 +96,8 @@ public class Massm_tc_6  extends BaseClass
 			
 			System.out.println("Status selectall checkbox selected");
 		}
-		WebElement Unconfirmed = driver.findElement(By.xpath("//*[@id=\"Unconfirmed\"]"));
+		Thread.sleep(3000);
+		WebElement Unconfirmed = driver.findElement(By.xpath("//*[@id='Unconfirmed']"));
 		if(!Unconfirmed.isSelected())
 		{
 			Unconfirmed.click();
@@ -108,7 +109,7 @@ public class Massm_tc_6  extends BaseClass
 			System.out.println("Unconfirmed checkbox not selected");
 		}
 		Thread.sleep(3000);
-		WebElement Confirmed = driver.findElement(By.xpath("//*[@id=\"Confirmed\"]"));
+		WebElement Confirmed = driver.findElement(By.xpath("//*[@id='Confirmed']"));
 		if(!Confirmed.isSelected())
 		{
 			Confirmed.click();

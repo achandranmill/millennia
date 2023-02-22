@@ -75,7 +75,7 @@ public class R_Kiosk_tc_14 extends BaseClass
 		{
 
 		}
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		WebElement Add_new_Appointment=driver.findElement(By.xpath("//input[@id=\"enable-add-new-patient\"]"));
 		if(!Add_new_Appointment.isSelected())
 		{
@@ -91,9 +91,9 @@ public class R_Kiosk_tc_14 extends BaseClass
 		Thread.sleep(10000);
 		k.Press_HereTo_Start();
 		Thread.sleep(10000);
-		k.FirstName("Awdesh");
+		k.FirstName("Sam");
 		Thread.sleep(1000);
-		k.LastName("Jain");
+		k.LastName("Burns");
 		Thread.sleep(1000);
 		k.Search();
 		Thread.sleep(10000);
@@ -107,9 +107,9 @@ public class R_Kiosk_tc_14 extends BaseClass
 		Thread.sleep(10000);
 		k.Search_Again();
 		Thread.sleep(10000);
-		k.Search_Again_First("Awadesh");
+		k.Search_Again_First("Sam");
 		Thread.sleep(1000);
-		k.Search_Again_Last("Jain");
+		k.Search_Again_Last("Burns");
 		Thread.sleep(5000);
 		k.Search_Again_Search2();
 		Thread.sleep(10000);
@@ -140,9 +140,9 @@ public class R_Kiosk_tc_14 extends BaseClass
 		w.worklist();
 		Thread.sleep(20000);
 		w.Searchworklist();
-		w.Searchl("jain");
-		w.Searchf("Awdesh");
-		driver.findElement(By.linkText("jain Awdesh")).click();
+		w.Searchl("Burns");
+		w.Searchf("Sam");
+		driver.findElement(By.linkText("Burns Sam")).click();
 		Thread.sleep(15000);
 
 

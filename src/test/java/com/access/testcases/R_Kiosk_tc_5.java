@@ -53,7 +53,7 @@ public class R_Kiosk_tc_5 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk();
 		Thread.sleep(5000);
-		WebElement Search_Flow=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		WebElement Search_Flow=driver.findElement(By.xpath("//input[@id='search-appointment']"));
 		if(!Search_Flow.isSelected())
 		{
 			Search_Flow.click();
@@ -63,16 +63,46 @@ public class R_Kiosk_tc_5 extends BaseClass
 
 		}
 		Thread.sleep(3000);
-		WebElement Search_skip=driver.findElement(By.xpath("//input[@id=\"skip-results\"]"));
-		if(!Search_Flow.isSelected())
+		WebElement Search_skip=driver.findElement(By.xpath("//input[@id='skip-results']"));
+		if(!Search_skip.isSelected())
 		{
-			Search_Flow.click();
+			Search_skip.click();
 		}
 		else
 		{
 
 		}
 		Thread.sleep(3000);
+		k.Configure_search_Criteria();
+		Thread.sleep(2000);
+		k.Welcome_Message("Patient Search");
+		Thread.sleep(2000);
+		k.Search_Add_More();
+		Thread.sleep(2000);
+		k.Search_First_Name();
+		Thread.sleep(1000);
+		k.Search_FirstName_Size();
+		Thread.sleep(1000);
+		k.Search_FirstName_Field("First Name");
+		Thread.sleep(1000);
+		Thread.sleep(1000);
+		k.Search_Add_More();
+		Thread.sleep(2000);
+		k.Search_LastName();
+		Thread.sleep(1000);
+		k.Search_LastName_Size();
+		Thread.sleep(1000);
+		k.Search_LastName_Field("Last Name");
+		Thread.sleep(1000);
+		k.Search_Add_More();
+		Thread.sleep(2000);
+		k.Search_Dob();
+		Thread.sleep(1000);
+		k.Search_Dob_Size();
+		Thread.sleep(1000);
+		k.Search_Dob_Field("DOB");
+		Thread.sleep(1000);
+		k.Search_Done();
 		k.Kiosk_Savebutton();
 		Thread.sleep(5000);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");

@@ -36,11 +36,11 @@ public class Massm_tc_10 extends BaseClass
 			ad.userlocation();
 			Thread.sleep(5000);
 			ad.okbutton();
-			System.out.println("User location is present");
+			
 		}
 		catch(Exception e) 
 		{
-			System.out.println("User location is not present");
+		     ad.userlocation1();
 
 		}
 		//-----------------REGISTRATION PAGE ------------------------------
@@ -73,7 +73,7 @@ public class Massm_tc_10 extends BaseClass
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
 		Thread.sleep(5000);
-		WebElement Select =driver.findElement(By.xpath("//*[@id=\"messages\"]"));
+		WebElement Select =driver.findElement(By.xpath("//button[@id='messages']"));
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
 		js.executeScript("arguments[0].scrollIntoView();", Select);
 		m.Select_Message();
@@ -86,7 +86,7 @@ public class Massm_tc_10 extends BaseClass
 		Thread.sleep(3000);
 		m.Select_Message_option1();
 		Thread.sleep(3000);
-		boolean Message_Previwe=driver.findElement(By.xpath("//div[@class=\"col-sm-12\"] //h4[contains(text(),'Message Preview')]")).isDisplayed();
+		boolean Message_Previwe=driver.findElement(By.xpath("//div[@class='col-sm-12'] //h4[contains(text(),'Message Preview')]")).isDisplayed();
 		Assert.assertTrue(Message_Previwe);
 		Thread.sleep(3000);
 		boolean Canned_Message_displayed=driver.findElement(By.xpath("//div//div[contains(text(),'Hello it is canned message ')]")).isDisplayed();

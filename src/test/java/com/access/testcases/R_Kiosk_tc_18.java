@@ -47,9 +47,9 @@ public class R_Kiosk_tc_18 extends BaseClass
 		Kiosk k = new Kiosk(driver);
 		k.Press_HereTo_Start();
 		Thread.sleep(10000);
-		k.FirstName("Awdesh");
+		k.FirstName("Leo");
 		Thread.sleep(1000);
-		k.LastName("Jain");
+		k.LastName("Shaw");
 		Thread.sleep(1000);
 		WebElement DOB_FORMAT = driver.findElement(By.xpath("//span[contains(text(),'mm/dd/yyyy')]"));
 		String Expected = "mm/dd/yyyy";
@@ -75,8 +75,8 @@ public class R_Kiosk_tc_18 extends BaseClass
 		Thread.sleep(1000);
 		k.CHECK_IN();
 		Thread.sleep(10000);
-		WebElement CHECK_IN_Appointment = driver.findElement(By.xpath("//h1[contains(text(),'Jain, Awdesh')]"));
-		String Expected_Appointment = "Jain, Awdesh";
+		WebElement CHECK_IN_Appointment = driver.findElement(By.xpath("//h1[contains(text(),'Shaw, Leo')]"));
+		String Expected_Appointment = "Shaw, Leo";
 		Assert.assertEquals(CHECK_IN_Appointment.getText(), Expected_Appointment);
 		System.out.println("  Patient displayed");
 		Thread.sleep(10000);
@@ -86,7 +86,7 @@ public class R_Kiosk_tc_18 extends BaseClass
 		//User Check Successful login on valid email and password
 		k.Login_email("user_test@mailinator.com");
 		Thread.sleep(10000);
-		k.Login_password("Imenso@test123");
+		k.Login_password("Random@123456789");
 		Thread.sleep(10000);
 		k.Login_submit();
 		Thread.sleep(10000);
@@ -97,8 +97,11 @@ public class R_Kiosk_tc_18 extends BaseClass
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(10000);
-		WebElement CHECK_IN_Appointment1 = driver.findElement(By.xpath("//span[contains(text(),'Jain, Awdesh')]"));
-		String Expected_Appointment1 = "Jain, Awdesh";
+		ap.SearchLastName("Shaw");
+		ap.SearchButton();
+		Thread.sleep(10000);
+		WebElement CHECK_IN_Appointment1 = driver.findElement(By.xpath("//span[contains(text(),'Shaw, Leo')]"));
+		String Expected_Appointment1 = "Shaw, Leo";
 		Assert.assertEquals(CHECK_IN_Appointment1.getText(), Expected_Appointment1);
 		System.out.println(" Patient displayed");
 		Thread.sleep(10000);

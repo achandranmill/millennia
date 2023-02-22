@@ -46,9 +46,9 @@ public class R_Kiosk_tc_17 extends BaseClass
 		Kiosk k = new Kiosk(driver);
 		k.Press_HereTo_Start();
 		Thread.sleep(10000);
-		k.FirstName("Awdesh");
+		k.FirstName("Bell");
 		Thread.sleep(1000);
-		k.LastName("Jain");
+		k.LastName("Lee");
 		Thread.sleep(1000);
 		WebElement DOB_FORMAT = driver.findElement(By.xpath("//span[contains(text(),'mm/dd/yyyy')]"));
 		String Expected = "mm/dd/yyyy";
@@ -74,8 +74,8 @@ public class R_Kiosk_tc_17 extends BaseClass
 		Thread.sleep(1000);
 		k.CHECK_IN();
 		Thread.sleep(10000);
-		WebElement CHECK_IN_Appointment = driver.findElement(By.xpath("//h1[contains(text(),'Jain, Awdesh')]"));
-		String Expected_Appointment = "Jain, Awdesh";
+		WebElement CHECK_IN_Appointment = driver.findElement(By.xpath("//h1[contains(text(),'Lee, Bell')]"));
+		String Expected_Appointment = "Lee, Bell";
 		Assert.assertEquals(CHECK_IN.getText(), Expected_CHECK_IN);
 		System.out.println("  Patient is displayed - Passed");
 		Thread.sleep(10000);
@@ -95,8 +95,11 @@ public class R_Kiosk_tc_17 extends BaseClass
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
 		Thread.sleep(10000);
-		WebElement CHECK_IN_Appointment1 = driver.findElement(By.xpath("//span[contains(text(),'Jain, Awdesh')]"));
-		String Expected_Appointment1 = "Jain, Awdesh";
+		ap.SearchLastName("Lee");
+		ap.SearchButton();
+		Thread.sleep(10000);
+		WebElement CHECK_IN_Appointment1 = driver.findElement(By.xpath("//span[contains(text(),'Lee, Bell')]"));
+		String Expected_Appointment1 = "Lee, Bell";
 		Assert.assertEquals(CHECK_IN_Appointment1.getText(), Expected_Appointment1);
 		System.out.println("  Patient is displayed - Passed");
 		Thread.sleep(10000);
