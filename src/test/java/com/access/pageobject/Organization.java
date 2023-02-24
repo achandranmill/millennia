@@ -521,7 +521,7 @@ public class Organization
 		Robot rb=new Robot();
 		rb.delay(2000);
 		//copy to clipboard
-		StringSelection ss= new StringSelection("C:\\Users\\ATM\\Downloads\\sherry.jpg");
+		StringSelection ss= new StringSelection("/Image Folder/FlagTest.jpg");
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
 		//paste operation in clipboard
