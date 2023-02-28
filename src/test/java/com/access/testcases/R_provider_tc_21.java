@@ -50,14 +50,14 @@ public class R_provider_tc_21 extends BaseClass
 		Thread.sleep(5000);
 		try
 		{
-		driver.findElement(By.xpath("//button[@ng-show=\"closeable\"  or @ng-click=\"close({$event: $event})\"]")).click();
+		driver.findElement(By.xpath("//button[@ng-show='closeable'  or @ng-click='close({$event: $event})']")).click();
 		}
 		catch(Exception e)
 		{
 			
 		}
 		Thread.sleep(2000);
-		WebElement Unpublish=driver.findElement(By.xpath("//input[@type=\"checkbox\"  or  @ng-click=\"$ctrl.filterUnpublishedProviders()\"]"));
+		WebElement Unpublish=driver.findElement(By.xpath("//input[@type='checkbox'  or  @ng-click='$ctrl.filterUnpublishedProviders()']"));
 		if(!Unpublish.isSelected())
 		{
 			Unpublish.click();
@@ -66,11 +66,11 @@ public class R_provider_tc_21 extends BaseClass
 		{
 
 		}
-		Thread.sleep(2000);
-		pd.Find_Provider("Dr.Ricardo");
+		Thread.sleep(10000);
+		pd.Find_Provider("Dr.Eli");
 		Thread.sleep(2000);
 		pd.Search_Provider_btn();
-		driver.findElement(By.xpath("//tr[@ng-repeat=\"provider in $ctrl.paginatedProviders\"]//td[contains(text(),'Dr.Ricardo Aaron')]//following::td//button[@class=\"btn btn-link pull-right\"]")).click();
+		driver.findElement(By.xpath("//tr[@ng-repeat='provider in $ctrl.paginatedProviders']//td[contains(text(),'Dr.Eli Anderson')]//following::td//button[@class='btn btn-link pull-right']")).click();
         Thread.sleep(10000);
         pd.ProviderSearch();
         Thread.sleep(2000);
@@ -78,10 +78,10 @@ public class R_provider_tc_21 extends BaseClass
         Thread.sleep(2000);
         pd.Provider_Save();
         Thread.sleep(10000);
-        boolean Provider_Update=driver.findElement(By.xpath("//span[contains(text(),'Provider: aaron@mailinator.com has been updated.')]")).isDisplayed();
+        boolean Provider_Update=driver.findElement(By.xpath("//span[contains(text(),'Provider: anderson@mailinator.com has been updated.')]")).isDisplayed();
         Assert.assertTrue(Provider_Update);
         Thread.sleep(3000);
-        List<WebElement>Details_tab=driver.findElements(By.xpath("//div[@class=\"row\"  or @style=\"margin-top: 15px;\"]"));
+        List<WebElement>Details_tab=driver.findElements(By.xpath("//div[@class='row'  or @style='margin-top: 15px;']"));
         for(WebElement ele:Details_tab)
         {
         	String Value=ele.getText();

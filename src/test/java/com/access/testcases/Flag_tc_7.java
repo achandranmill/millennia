@@ -60,7 +60,7 @@ public class Flag_tc_7 extends BaseClass
 		Thread.sleep(5000);
 		og.Cropimage();
 		Thread.sleep(3000);
-		og.FlagLabel("Test1 Flag");
+		og.FlagLabel("Test22 Flag");
 		Thread.sleep(2000);
 		og.Persistent();
 		Thread.sleep(3000);
@@ -71,7 +71,7 @@ public class Flag_tc_7 extends BaseClass
 		Thread.sleep(2000);
 		dept.Dep_Flag();
 		Thread.sleep(20000);
-		driver.findElement(By.xpath("//div[@class=\"card\" ]//h3[contains(text(),'Test1 Flag')]")).click();
+		driver.findElement(By.xpath("//div[@class=\"card\" ]//h3[contains(text(),'Test22 Flag')]")).click();
         Thread.sleep(2000);
 		dept.Dep_Flag_Adminuser();
 		Thread.sleep(10000);
@@ -106,7 +106,7 @@ public class Flag_tc_7 extends BaseClass
 		Thread.sleep(2000);
 		addp.Clip_Flag();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),'Test1 Flag')]")).click();
+		driver.findElement(By.xpath("//a[@ng-click=\"$ctrl.addFlag(flag)\"]//span[contains(text(),'Test22 Flag')]")).click();
         Thread.sleep(2000);
 		addp.Clip_Comment("Routine checkup");
 		//		addp.Clip_Reason("only checkup ");
@@ -120,7 +120,7 @@ public class Flag_tc_7 extends BaseClass
 		Thread.sleep(5000);
 		addp.Alert_ok();
 		Thread.sleep(10000);
-		boolean bool = driver.findElement(By.xpath(" //span[contains(text(),'Test1 Flag')]")).isEnabled();
+		boolean bool = driver.findElement(By.xpath(" //span[contains(text(),'Test22 Flag')]")).isEnabled();
 		if(bool)
 		{
 			System.out.println("Enabled");

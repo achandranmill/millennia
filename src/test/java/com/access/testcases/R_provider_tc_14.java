@@ -47,15 +47,15 @@ public class R_provider_tc_14 extends BaseClass
 		pd.Admin();
 		Thread.sleep(3000);
 		pd.Provider();
-		Thread.sleep(5000);
+		Thread.sleep(15000);
 		boolean Add_Provider =driver.findElement(By.xpath("//button[contains(text(),'Add Provider')]")).isDisplayed();
 		Assert.assertTrue(Add_Provider);
 		pd.ADDProvider();
 		Thread.sleep(5000);
-		boolean Add_Provider_Page=driver.findElement(By.xpath("//div[@style=\"margin-top: 15px;\"]")).isDisplayed();
+		boolean Add_Provider_Page=driver.findElement(By.xpath("//div[@style='margin-top: 15px;']")).isDisplayed();
 		Assert.assertTrue(Add_Provider_Page);
 		Thread.sleep(2000);
-		List<WebElement>Add_Provider_page_print =driver.findElements(By.xpath("//div[@style=\"margin-top: 15px;\"]"));
+		List<WebElement>Add_Provider_page_print =driver.findElements(By.xpath("//div[@style='margin-top: 15px;']"));
 		Thread.sleep(5000);
 		for(WebElement ele:Add_Provider_page_print)
 		{

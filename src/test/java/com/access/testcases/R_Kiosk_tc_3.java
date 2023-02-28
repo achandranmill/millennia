@@ -53,7 +53,7 @@ public class R_Kiosk_tc_3 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk();
 		Thread.sleep(5000);
-		WebElement Search_Flow=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		WebElement Search_Flow=driver.findElement(By.xpath("//input[@id='search-appointment']"));
 		if(!Search_Flow.isSelected())
 		{
 			Search_Flow.click();
@@ -63,7 +63,7 @@ public class R_Kiosk_tc_3 extends BaseClass
 
 		}
 		Thread.sleep(3000);
-		WebElement Search_skip=driver.findElement(By.xpath("//input[@id=\"skip-results\"]"));
+		WebElement Search_skip=driver.findElement(By.xpath("//input[@id='skip-results']"));
 		if(!Search_skip.isSelected())
 		{
 			Search_skip.click();

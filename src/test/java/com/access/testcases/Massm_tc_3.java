@@ -84,16 +84,31 @@ public class Massm_tc_3   extends BaseClass
 		u.linkUserTest();
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
-		m.LastName("Loriee");
+		Thread.sleep(3000);
+		m.StatusFilter();
+		Thread.sleep(3000);
+		WebElement Select = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllStatusCheck']"));
+		if(Select.isSelected())
+		{
+			System.out.println("SelectAll checkbox selected");
+		}
+		else
+		{
+			Select.click();
+		}
+		Thread.sleep(3000);
+		m.StatusFilterSave();
+		Thread.sleep(10000);
+        m.LastName("Loriee");
 		Thread.sleep(2000);
 		m.FirstName("Cory");
 		Thread.sleep(2000);
 		m.Initial("Thomson");
 		m.Search1();
 		Thread.sleep(15000);
-		WebElement Select =driver.findElement(By.xpath("//button[@id='messages']"));
+		WebElement Select1 =driver.findElement(By.xpath("//button[@id='messages']"));
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
-		js.executeScript("arguments[0].scrollIntoView();", Select);
+		js.executeScript("arguments[0].scrollIntoView();", Select1);
 		m.Select_Message();
 		m.Select_Message_option1();
 		Thread.sleep(5000);

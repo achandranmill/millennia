@@ -85,6 +85,20 @@ public class Massm_tc_1  extends BaseClass
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
 		Thread.sleep(10000);
+		m.StatusFilter();
+		Thread.sleep(3000);
+		WebElement Select = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllStatusCheck']"));
+		if(Select.isSelected())
+		{
+			System.out.println("SelectAll checkbox selected");
+		}
+		else
+		{
+			Select.click();
+		}
+		Thread.sleep(3000);
+		m.StatusFilterSave();
+		Thread.sleep(10000);
 		m.LastName("Green");
 		Thread.sleep(2000);
 		m.FirstName("Isabel");

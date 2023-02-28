@@ -40,7 +40,7 @@ public class Massm_tc_10 extends BaseClass
 		}
 		catch(Exception e) 
 		{
-		     ad.userlocation1();
+		   //  ad.userlocation1();
 
 		}
 		//-----------------REGISTRATION PAGE ------------------------------

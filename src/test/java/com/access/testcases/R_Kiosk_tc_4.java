@@ -55,7 +55,25 @@ public class R_Kiosk_tc_4 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk();
 		Thread.sleep(10000);
-		k.Kiosk_Skip();
+		WebElement Search_Flow=driver.findElement(By.xpath("//input[@id='search-appointment']"));
+		if(!Search_Flow.isSelected())
+		{
+			Search_Flow.click();
+		}
+		else
+		{
+
+		}
+		Thread.sleep(3000);
+		WebElement Search_skip=driver.findElement(By.xpath("//input[@id='skip-results']"));
+		if(!Search_skip.isSelected())
+		{
+			Search_skip.click();
+		}
+		else
+		{
+
+		}
 		Thread.sleep(1000);
 		k.Kiosk_Savebutton();
 		Thread.sleep(10000);
@@ -69,13 +87,13 @@ public class R_Kiosk_tc_4 extends BaseClass
 		Thread.sleep(1000);
 		k.CHECK_IN();
 		Thread.sleep(10000);
-		//driver.get("https://access-staging-a.jellyfishhealth.com");
-		driver.get(baseURL);
+		driver.get("https://access-staging-a.jellyfishhealth.com");
+		//driver.get(baseURL);
 		Thread.sleep(10000);
 		//User Check Successful login on valid email and password
 		k.Login_email("user_test@mailinator.com");
 		Thread.sleep(10000);
-		k.Login_password("Imenso@test123");
+		k.Login_password("Random@123456789");
 		Thread.sleep(10000);
 		k.Login_submit();
 		Thread.sleep(10000);
@@ -86,18 +104,8 @@ public class R_Kiosk_tc_4 extends BaseClass
 		w.Searchworklist();
 		w.Searchl("jain");
 		w.Searchf("Awdesh");
-		//List<WebElement>list= driver.findElement(By.xpath("/html/body/div[1]/div/div/search-modal/div[2]/div[2]/table/tbody"));
-		//System.out.println(list.size());
-
-		//for(int i=0;i<list.size();i++)
-		//{
-		//	String listitem=list.get(i).getText();
-		//if(listitem.matches("jain , Awdesh"));
-		//{
-		//	list.get(i).click();
-		//	break;
-		//}
-		//}
+		Thread.sleep(5000);
+		driver.findElement(By.linkText("Jain Awdesh")).click();
 		Thread.sleep(10000);
 
 

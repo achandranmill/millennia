@@ -3,6 +3,7 @@ package com.access.testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -42,7 +43,7 @@ public class R_Kiosk_tc_17 extends BaseClass
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		Kiosk k = new Kiosk(driver);
 		k.Press_HereTo_Start();
 		Thread.sleep(10000);
@@ -94,7 +95,41 @@ public class R_Kiosk_tc_17 extends BaseClass
 		Thread.sleep(10000);
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
+		ap.Configurelist();
+		Thread.sleep(2000);
+		ap.EditListColumns();
+		Thread.sleep(5000);
+		WebElement Name1=driver.findElement(By.xpath("//td//input[@type='checkbox']//following::td[contains(text(),'Name')]"));
+        JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].scrollIntoView();", Name1);	
+		Thread.sleep(2000);
+		WebElement Name=driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-list/div[2]/patient-lists/section/div/div/div[2]/div/table/tbody/tr[12]/td[2]/input"));
+		if(!Name.isSelected())
+		{
+			Name.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(5000);
+		WebElement DOB1=driver.findElement(By.xpath("//td//input[@type='checkbox']//following::td[contains(text(),'DOB')]"));
+        JavascriptExecutor rs = (JavascriptExecutor)driver; 
+		rs.executeScript("arguments[0].scrollIntoView();", DOB1);
+		Thread.sleep(2000);
+		WebElement 	DOB=driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-list/div[2]/patient-lists/section/div/div/div[2]/div/table/tbody/tr[14]/td[2]/input"));
+		if(!DOB.isSelected())
+		{
+			DOB.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(3000);
+		ap.ColumnsSaveChange();
+		Thread.sleep(5000);
 		ap.SearchLastName("Lee");
 		ap.SearchButton();
 		Thread.sleep(10000);

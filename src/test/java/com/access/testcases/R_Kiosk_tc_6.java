@@ -5,9 +5,12 @@ import com.access.pageobject.Provider;
 import com.access.pageobject.RegtPage;
 import com.access.pageobject.loginpage;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.*;
@@ -52,8 +55,8 @@ public class R_Kiosk_tc_6 extends BaseClass
 		k.Department_Link();
 		Thread.sleep(1000);
 		k.Kiosk();
-		Thread.sleep(1000);
-		WebElement Add_New_Appoint=driver.findElement(By.xpath("//input[@id=\"enable-add-new-patient\"]"));
+		Thread.sleep(10000);
+		WebElement Add_New_Appoint=driver.findElement(By.xpath("//input[@id='enable-add-new-patient']"));
 		if(!Add_New_Appoint.isSelected())
 		{
 			Add_New_Appoint.click();
@@ -103,14 +106,14 @@ public class R_Kiosk_tc_6 extends BaseClass
 		k.Kiosk_PagetVerification_title("please verify the below information is correct");
 		Thread.sleep(1000);
 		k.Kiosk_PagetVerification();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		k.Kiosk_pagename_VerificationfirstName();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		k.Kiosk_pagename_VerificationlastName();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		k.Kiosk_Pagename_Add();
 		Thread.sleep(10000);
-		WebElement Search_checkbox=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		WebElement Search_checkbox=driver.findElement(By.xpath("//input[@id='search-appointment']"));
 		if(!Search_checkbox.isSelected())
 		{
 			Search_checkbox.click();
@@ -156,11 +159,40 @@ public class R_Kiosk_tc_6 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk_ExistingAppointmen_PageVerification_Add();
 		Thread.sleep(10000);
-		WebElement Save_button=driver.findElement(By.xpath("//*[@id=\"kiosk-config-save-button\"]"));
+		WebElement Save_button=driver.findElement(By.xpath("//*[@id='kiosk-config-save-button']"));
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView();", Save_button);
 		Thread.sleep(10000);
 		k.Kiosk_Savebutton();
+		Thread.sleep(10000);
+		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
+		Thread.sleep(20000);
+		driver.findElement(By.xpath("//button[@id='kiosk-new-button-right']")).click();
+		Thread.sleep(2000);
+		boolean Field = driver.findElement(By.xpath("//h1[contains(text(),'please Complete the Field')]")).isDisplayed();
+		Assert.assertTrue(Field);
+		Thread.sleep(2000);
+		boolean First_Name=driver.findElement(By.xpath("//label[contains(text(),'First Name')]")).isDisplayed();
+		Assert.assertTrue(First_Name);
+		Thread.sleep(2000);
+		boolean Last_Name=driver.findElement(By.xpath("//label[contains(text(),'Last Name')]")).isDisplayed();
+		Assert.assertTrue(Last_Name);
+		Thread.sleep(2000);
+		boolean Dob=driver.findElement(By.xpath("//label[contains(text(),'Dob Wizard')]")).isDisplayed();
+		Assert.assertTrue(Dob);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[contains(text(),'NEXT')]")).click();
+		Thread.sleep(2000);
+		boolean Verification_Field=driver.findElement(By.xpath("//h1[contains(text(),'please verify the below information is correct')]")).isDisplayed();
+		Assert.assertTrue(Verification_Field);
+		Thread.sleep(2000);
+		List<WebElement>print2=driver.findElements(By.xpath("//*[@id='kiosk.flow.page']/main"));
+		for(WebElement ele:print2)
+		{
+			String Value=ele.getText();
+			System.out.println(Value);
+		}
+		Thread.sleep(3000);
 
 
 

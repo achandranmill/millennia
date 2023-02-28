@@ -52,7 +52,7 @@ public class Appt_tc_10 extends BaseClass
 		//User Enter FirstName
 		addp.fname("Gemma");
 		//User Enter lastName
-		addp.lname("Riveraa");
+		addp.lname("Riveri");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -107,7 +107,7 @@ public class Appt_tc_10 extends BaseClass
 		ap.ColumnsSaveChange();
 		Thread.sleep(5000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Riveraa");
+		ap.SearchLastName("Riveri");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();
@@ -127,7 +127,7 @@ public class Appt_tc_10 extends BaseClass
 		WorkListPage w = new WorkListPage(driver);
 		w.worklist();
 		Thread.sleep(30000);
-		WebElement Patient_Rivera = driver.findElement(By.xpath("//span[contains(text(),'Gemma@mailinator.com')]"));
+	    WebElement Patient_Rivera = driver.findElement(By.xpath("//span[contains(text(),'Gemma@mailinator.com')]"));
 		String Actual = "Gemma@mailinator.com";
 		Assert.assertEquals(Patient_Rivera.getText(), Actual);
 		
