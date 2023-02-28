@@ -94,9 +94,9 @@ public class R_Kiosk_tc_12 extends BaseClass
 		Thread.sleep(10000);
 		k.Press_HereTo_Start();
 		Thread.sleep(10000);
-		k.FirstName("Awdesh");
+		k.FirstName("Sam");
 		Thread.sleep(1000);
-		k.LastName("Jain");
+		k.LastName("Burns");
 		Thread.sleep(1000);
 		k.Search();
 		Thread.sleep(10000);
@@ -110,9 +110,9 @@ public class R_Kiosk_tc_12 extends BaseClass
 		Thread.sleep(10000);
 		k.Search_Again();
 		Thread.sleep(10000);
-		k.Search_Again_First("Awadesh");
+		k.Search_Again_First("Sam");
 		Thread.sleep(1000);
-		k.Search_Again_Last("Jain");
+		k.Search_Again_Last("Burns");
 		Thread.sleep(1000);
 		k.Search_Again_Search2();
 		Thread.sleep(10000);

@@ -45,13 +45,13 @@ public class R_Kiosk_tc_9 extends BaseClass
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
 		Thread.sleep(10000);
 		k.Press_HereTo_Start();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		k.FirstName("Awdesh");
 		Thread.sleep(1000);
 		k.LastName("Jain");
 		Thread.sleep(1000);
 		k.Search();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		WebElement Expected = driver.findElement(By.xpath("//h1[contains(text(),'Jain, Awdesh')]"));
 		String Actual       = "Jain, Awdesh";
 		Assert.assertEquals(Actual, Expected.getText());

@@ -50,13 +50,21 @@ public class R_provider_tc_16 extends BaseClass
 		pd.Provider();
 		Thread.sleep(5000);
 		pd.ADDProvider();
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//button[@ng-show=\"closeable\"  or @ng-click=\"close({$event: $event})\"]")).click();
+		Thread.sleep(10000);
+		try
+		{
+		driver.findElement(By.xpath("//button[@ng-show='closeable'  or @ng-click='close({$event: $event})']")).click();
+		}
+		catch(Exception e)
+		{
+			
+		}
+		Thread.sleep(3000);
 		pd.FirstName("Dr.Mackenzie");
 		pd.LastName("Mackenzie");
 		pd.MiddleName("John");
 		pd.Credentials("MD");
-		pd.EmailAddress("Mackenzie@mailinator.com");
+		pd.EmailAddress("Mackenz@mailinator.com");
 		pd.PhoneNumber("8456666666");
 		pd.Gender();
 		pd.Male();
@@ -71,7 +79,7 @@ public class R_provider_tc_16 extends BaseClass
 		pd.DisplayName("Dr.Mackenzie");
 		pd.Provider_Save();
 		Thread.sleep(10000);
-		boolean Provider_Save_Mess=driver.findElement(By.xpath("//span[contains(text(),'Provider: mackenzie@mailinator.com has been created.')]")).isDisplayed();
+		boolean Provider_Save_Mess=driver.findElement(By.xpath("//span[contains(text(),'Provider: mackenz@mailinator.com has been created.')]")).isDisplayed();
 		Assert.assertTrue(Provider_Save_Mess);
 		Thread.sleep(2000);
 		Departments dept=new Departments(driver);

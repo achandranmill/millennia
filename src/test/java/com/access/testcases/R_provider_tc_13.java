@@ -47,10 +47,10 @@ public class R_provider_tc_13 extends BaseClass
 		pd.Admin();
 		Thread.sleep(3000);
 		pd.Provider();
-		Thread.sleep(10000);
-		List<WebElement>Current_Provider = driver.findElements(By.xpath("//table[@class=\"table table-striped table-shadow\"]"));
+		Thread.sleep(15000);
+		List<WebElement>Current_Provider = driver.findElements(By.xpath("//table[@class='table table-striped table-shadow']"));
 		System.out.println(Current_Provider.size());
-		Thread.sleep(5000);
+		Thread.sleep(15000);
 		for(WebElement ele:Current_Provider)
 		{
 			String Value =ele.getText();

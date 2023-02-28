@@ -90,7 +90,7 @@ public class Massm_tc_8   extends BaseClass
 		Thread.sleep(10000);
 		try
 		{
-			driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[2]/button")).click();
+			driver.findElement(By.xpath("//*[@id='massMessaging']/div[2]/button")).click();
 		}
 		catch(Exception e)
 		{
@@ -99,7 +99,7 @@ public class Massm_tc_8   extends BaseClass
 		Thread.sleep(3000);
 		m.StatusFilter();
 		Thread.sleep(2000);
-		WebElement Select = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/status-filter/div[2]/div/div[1]/label/input"));
+		WebElement Select = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllStatusCheck']"));
 		if(Select.isSelected())
 		{
 			System.out.println("SelectAll Selected");
@@ -121,7 +121,7 @@ public class Massm_tc_8   extends BaseClass
 		Thread.sleep(5000);
 		m.Ineligible_print();
 		String expected="#e74c3c";
-		WebElement e = driver.findElement(By.xpath("//span[@class=\"glyphicon glyphicon-remove text-danger ng-scope\"]"));
+		WebElement e = driver.findElement(By.xpath("//span[@class='glyphicon glyphicon-remove text-danger ng-scope']"));
 		Thread.sleep(5000);
 		String back_color = e.getCssValue("color");
 		Thread.sleep(5000);
@@ -134,7 +134,7 @@ public class Massm_tc_8   extends BaseClass
 		Assert.assertEquals(hex_back_color, expected);
 		Thread.sleep(10000);
 		String expected1 = "#e74c3c";
-		WebElement e1 = driver.findElement(By.xpath("//span[@class=\"glyphicon glyphicon-remove text-danger ng-scope\"]"));
+		WebElement e1 = driver.findElement(By.xpath("//span[@class='glyphicon glyphicon-remove text-danger ng-scope']"));
 		Thread.sleep(5000);
 		String back_color1 = e1.getCssValue("color");
 		Thread.sleep(5000);

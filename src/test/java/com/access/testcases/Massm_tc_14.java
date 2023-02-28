@@ -59,7 +59,7 @@ public class Massm_tc_14 extends BaseClass
 		Thread.sleep(10000);
 		m.StatusFilter();
 		Thread.sleep(5000);
-		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model=\"$ctrl.checkAllStatusCheck\"]"));
+		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllStatusCheck']"));
 		if(!SelectAll.isSelected())
 		{
 			SelectAll.click();

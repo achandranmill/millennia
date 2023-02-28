@@ -93,14 +93,29 @@ public class Massm_tc_16 extends BaseClass
 		MassMessaging m = new MassMessaging(driver);
 		m.MassMessaging();
 		Thread.sleep(10000);
+		m.StatusFilter();
+		Thread.sleep(3000);
+		WebElement Select = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllStatusCheck']"));
+		if(Select.isSelected())
+		{
+			System.out.println("SelectAll checkbox selected");
+		}
+		else
+		{
+			Select.click();
+		}
+		Thread.sleep(3000);
+		m.StatusFilterSave();
+		Thread.sleep(10000);
+
 		m.LastName("Leee");
 		m.FirstName("Bakerr");
 		m.Search1();
 		Thread.sleep(15000);
-		WebElement Select =driver.findElement(By.xpath("//*[@id=\"cancel\"]"));
+		WebElement Select1 =driver.findElement(By.xpath("//input[@id='cancel']"));
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
-		js.executeScript("arguments[0].scrollIntoView();", Select);
-		WebElement Cancel=driver.findElement(By.xpath("//input[@id=\"cancel\"]"));
+		js.executeScript("arguments[0].scrollIntoView();", Select1);
+		WebElement Cancel=driver.findElement(By.xpath("//input[@id='cancel']"));
 		if(!Cancel.isSelected())
 		{
 			Cancel.click();
@@ -124,7 +139,7 @@ public class Massm_tc_16 extends BaseClass
 		Thread.sleep(10000);
 		ab.EditStatusFilter();
 		Thread.sleep(10000);
-		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model=\"$ctrl.checkAllStatusCheck\"]"));
+		WebElement SelectAll = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllStatusCheck']"));
 		if(!SelectAll.isSelected())
 		{
 			SelectAll.click();

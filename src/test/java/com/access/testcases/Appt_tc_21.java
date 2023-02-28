@@ -46,9 +46,9 @@ public class Appt_tc_21 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Perezaa");
+		addp.lname("Tucker");
 		//User Enter FirstName
-		addp.fname("Mario");
+		addp.fname("Rose");
 		//User Enter MiddleName
 		addp.mname("Thomson");
 		//User Enter Birthdate
@@ -107,7 +107,7 @@ public class Appt_tc_21 extends BaseClass
 		ap.StatusSave();
 		Thread.sleep(5000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Perezaa");
+		ap.SearchLastName("Tucker");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();

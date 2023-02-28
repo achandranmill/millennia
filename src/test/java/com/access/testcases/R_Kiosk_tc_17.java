@@ -3,6 +3,7 @@ package com.access.testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -42,13 +43,13 @@ public class R_Kiosk_tc_17 extends BaseClass
 		r.clickRegistrationPage();
 		Thread.sleep(3000);
 		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		Kiosk k = new Kiosk(driver);
 		k.Press_HereTo_Start();
 		Thread.sleep(10000);
-		k.FirstName("Awdesh");
+		k.FirstName("Bell");
 		Thread.sleep(1000);
-		k.LastName("Jain");
+		k.LastName("Lee");
 		Thread.sleep(1000);
 		WebElement DOB_FORMAT = driver.findElement(By.xpath("//span[contains(text(),'mm/dd/yyyy')]"));
 		String Expected = "mm/dd/yyyy";
@@ -74,8 +75,8 @@ public class R_Kiosk_tc_17 extends BaseClass
 		Thread.sleep(1000);
 		k.CHECK_IN();
 		Thread.sleep(10000);
-		WebElement CHECK_IN_Appointment = driver.findElement(By.xpath("//h1[contains(text(),'Jain, Awdesh')]"));
-		String Expected_Appointment = "Jain, Awdesh";
+		WebElement CHECK_IN_Appointment = driver.findElement(By.xpath("//h1[contains(text(),'Lee, Bell')]"));
+		String Expected_Appointment = "Lee, Bell";
 		Assert.assertEquals(CHECK_IN.getText(), Expected_CHECK_IN);
 		System.out.println("  Patient is displayed - Passed");
 		Thread.sleep(10000);
@@ -94,9 +95,46 @@ public class R_Kiosk_tc_17 extends BaseClass
 		Thread.sleep(10000);
 		Appointments ap=new Appointments(driver);
 		ap.linkAppointment();
+		Thread.sleep(20000);
+		ap.Configurelist();
+		Thread.sleep(2000);
+		ap.EditListColumns();
+		Thread.sleep(5000);
+		WebElement Name1=driver.findElement(By.xpath("//td//input[@type='checkbox']//following::td[contains(text(),'Name')]"));
+        JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].scrollIntoView();", Name1);	
+		Thread.sleep(2000);
+		WebElement Name=driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-list/div[2]/patient-lists/section/div/div/div[2]/div/table/tbody/tr[12]/td[2]/input"));
+		if(!Name.isSelected())
+		{
+			Name.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(5000);
+		WebElement DOB1=driver.findElement(By.xpath("//td//input[@type='checkbox']//following::td[contains(text(),'DOB')]"));
+        JavascriptExecutor rs = (JavascriptExecutor)driver; 
+		rs.executeScript("arguments[0].scrollIntoView();", DOB1);
+		Thread.sleep(2000);
+		WebElement 	DOB=driver.findElement(By.xpath("/html/body/div[1]/div/div/patient-list/div[2]/patient-lists/section/div/div/div[2]/div/table/tbody/tr[14]/td[2]/input"));
+		if(!DOB.isSelected())
+		{
+			DOB.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(3000);
+		ap.ColumnsSaveChange();
+		Thread.sleep(5000);
+		ap.SearchLastName("Lee");
+		ap.SearchButton();
 		Thread.sleep(10000);
-		WebElement CHECK_IN_Appointment1 = driver.findElement(By.xpath("//span[contains(text(),'Jain, Awdesh')]"));
-		String Expected_Appointment1 = "Jain, Awdesh";
+		WebElement CHECK_IN_Appointment1 = driver.findElement(By.xpath("//span[contains(text(),'Lee, Bell')]"));
+		String Expected_Appointment1 = "Lee, Bell";
 		Assert.assertEquals(CHECK_IN_Appointment1.getText(), Expected_Appointment1);
 		System.out.println("  Patient is displayed - Passed");
 		Thread.sleep(10000);

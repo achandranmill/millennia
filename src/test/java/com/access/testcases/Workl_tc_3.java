@@ -3,6 +3,7 @@ package com.access.testcases;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -45,9 +46,28 @@ public class Workl_tc_3  extends BaseClass
 		w.worklist();
 		Thread.sleep(20000);
 		w.Configure();
+		Thread.sleep(1000);
+		w.EditListColumns();
+		Thread.sleep(10000);
+		WebElement Status =driver.findElement(By.cssSelector("#patient-lists-component > div > div > div.tab-pane.ng-scope.active > div:nth-child(2) > table > tbody > tr:nth-child(17) > td:nth-child(2) > input"));
+		JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].scrollIntoView();", Status);
+		Thread.sleep(2000);
+	    if(!Status.isSelected())
+		{
+			Status.click();
+		}
+		else
+		{
+			
+		}
+		Thread.sleep(2000);
+		w.SaveChanges();
+		Thread.sleep(5000);
+		w.Configure();
 		Thread.sleep(3000);
 		w.Department();
-		WebElement Remove_Waiting = driver.findElement(By.xpath("//*[@id=\"worklist\"]/div[1]/div/div/location-filter/div[2]/div/div[1]/div[6]/label/input"));
+		WebElement Remove_Waiting = driver.findElement(By.xpath("//*[@id='worklist']/div[1]/div/div/location-filter/div[2]/div/div[1]/div[6]/label/input"));
 		if(Remove_Waiting.isSelected())
 		{
 			Remove_Waiting.click();
@@ -60,7 +80,9 @@ public class Workl_tc_3  extends BaseClass
 		
 		//driver.navigate().refresh();
 		Thread.sleep(50000);
-		try
+		boolean Waiting = driver.findElement(By.xpath("//span[contains(text(),'Waiting')]")).isDisplayed();
+		Assert.assertFalse(Waiting, "Waiting patient displayed -TestCase Failed");
+	/*	try
 		{
 			boolean Waiting = driver.findElement(By.xpath("//span[contains(text(),'Waiting')]")).isDisplayed();
 			Assert.assertFalse(Waiting, "Waiting patient displayed -TestCase Failed");
@@ -68,13 +90,13 @@ public class Workl_tc_3  extends BaseClass
 		catch(Exception e)
 		{
 			System.out.println("Waiting patient not displayed");
-		}
+		}*/
 		Thread.sleep(10000);
 		w.Configure();
 		Thread.sleep(3000);
 		w.Department();
 		Thread.sleep(3000);
-		WebElement Add_Waiting = driver.findElement(By.xpath("//*[@id=\"worklist\"]/div[1]/div/div/location-filter/div[2]/div/div[1]/div[6]/label/input"));
+		WebElement Add_Waiting = driver.findElement(By.xpath("//*[@id='worklist']/div[1]/div/div/location-filter/div[2]/div/div[1]/div[6]/label/input"));
 		if(!Add_Waiting.isSelected())
 		{
 			Add_Waiting.click();
@@ -93,9 +115,11 @@ public class Workl_tc_3  extends BaseClass
 		{
 			System.out.println("Close button already clicked");
 		}
-		Thread.sleep(20000);
-		boolean Waiting1 = driver.findElement(By.xpath("//span[contains(text(),'Waiting')]")).isDisplayed();
-		Assert.assertTrue(Waiting1, "Waiting patient not displayed");
+		Thread.sleep(100000);
+		WebElement Actual = driver.findElement(By.xpath("//span[contains(text(),'Waiting')]"));
+		String Expected = "WAITING";
+		Thread.sleep(3000);
+		Assert.assertEquals(Actual.getText(), Expected);
        
 
 

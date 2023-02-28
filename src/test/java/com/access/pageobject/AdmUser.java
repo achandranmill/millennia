@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class AdmUser 
 {
@@ -33,6 +34,17 @@ public class AdmUser
 		//WebElement userlocation = ldriver.findElement(By.xpath("//*[@id=\"userLocation\"]"));  
 		//Select dropdown = new Select(userlocation); 
 		//dropdown.selectByIndex(1);
+	}
+	
+
+	@FindBy(how=How.XPATH,using="//select[@id='userLocation']")
+	@CacheLookup
+	WebElement userlocation1;
+	
+	public void userlocation1()
+	{
+		Select ab =new Select(userlocation1);
+		ab.selectByIndex(1);
 	}
 	
 	@FindBy(how=How.XPATH,using="/html/body/div[1]/div/div/user-location-modal/div[3]/button")

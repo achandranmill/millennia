@@ -92,7 +92,7 @@ public class Massm_tc_5  extends BaseClass
 		Thread.sleep(10000);
 	    m.SeeingFilter();
 	    Thread.sleep(3000);
-	    WebElement Seeing_SelectAll = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/seeing-filter/div[2]/div[1]/label/input"));
+	    WebElement Seeing_SelectAll = driver.findElement(By.xpath("//input[@ng-model='$ctrl.checkAllSeeingCheck']"));
 	    if(Seeing_SelectAll.isSelected())
 	    {
 	    	Seeing_SelectAll.click();
@@ -101,7 +101,8 @@ public class Massm_tc_5  extends BaseClass
 	    {
 	    
 	    }
-		WebElement Provider = driver.findElement(By.xpath("//*[@id=\"massMessaging\"]/div[1]/div/div/seeing-filter/div[2]/div[23]/label/input"));
+	    Thread.sleep(10000);
+		WebElement Provider = driver.findElement(By.xpath("//input[@ng-click='$ctrl.updateSeeingFilters(provider)']/following::span[contains(text(),'Test_2, Provider')]"));
 		if(!Provider.isSelected())
 		{
 			Provider.click();

@@ -133,19 +133,19 @@ public class Appointments
 	@CacheLookup
 	WebElement AppointDATE;
 	
-	@FindBy(how=How.XPATH,using="//input[starts-with(@name,\"daterangepicker_start\")]")
+	@FindBy(how=How.XPATH,using="//input[starts-with(@name,'daterangepicker_start')]")
 	@CacheLookup
 	WebElement AppointDATE1;
 	
-	@FindBy(how=How.XPATH,using="//input[starts-with(@name,\"daterangepicker_end\")]")
+	@FindBy(how=How.XPATH,using="//input[starts-with(@name,'daterangepicker_end')]")
 	@CacheLookup
 	WebElement AppointDATE2;
 	
-	@FindBy(how=How.XPATH,using="//button[starts-with(@class,\"applyBtn btn btn-sm btn-success\")]")
+	@FindBy(how=How.XPATH,using="//button[starts-with(@class,'applyBtn btn btn-sm btn-success')]")
 	@CacheLookup
 	WebElement AppointDATEAPPLY;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"single-button\"]")
+	@FindBy(how=How.XPATH,using="//*[@id='single-button']")
 	@CacheLookup
 	WebElement ThreeDot;
 	
@@ -202,19 +202,19 @@ public class Appointments
 	@CacheLookup
 	WebElement FormsComplete;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div[1]/div/div[2]/ul/li[3]/a")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div[1]/div/div[2]/ul/li[3]/a")
 	@CacheLookup
 	WebElement EditStatusFilter;
 	
-	@FindBy(how=How.XPATH,using="//input[starts-with(@id,\"Confirmed\")]")
+	@FindBy(how=How.XPATH,using="//input[starts-with(@id,'Confirmed')]")
 	@CacheLookup
 	WebElement StatusConfirmed;
 	
-	@FindBy(how=How.XPATH,using="//input[starts-with(@id,\"Unconfirmed\")]")
+	@FindBy(how=How.XPATH,using="//input[starts-with(@id,'Unconfirmed')]")
 	@CacheLookup
 	WebElement StatusUnconfirmed;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/status-filter/div[3]/button[2]")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/status-filter/div[3]/button[2]")
 	@CacheLookup
 	WebElement StatusSave;
 	
@@ -226,11 +226,11 @@ public class Appointments
 	@CacheLookup
 	WebElement ThreDotSetConfirmed;
 	
-	@FindBy(how=How.XPATH,using="//input[starts-with(@id,\"Connect Check-In\")]")
+	@FindBy(how=How.XPATH,using="//input[starts-with(@id,'Connect Check-In')]")
 	@CacheLookup
 	WebElement StatusConect;
 	
-	@FindBy(how=How.XPATH,using="//input[starts-with(@id,\"Cancelled\")]")
+	@FindBy(how=How.XPATH,using="//input[starts-with(@id,'Cancelled')]")
 	@CacheLookup
 	WebElement StatusCancelled;
 	
@@ -238,15 +238,15 @@ public class Appointments
 	@CacheLookup
 	WebElement ThreeDotCancel;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/confirm-modal/div[3]/div/button[1]")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/confirm-modal/div[3]/div/button[1]")
 	@CacheLookup
 	WebElement ThreeDotok;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[1]/div/div/div[3]/button")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[1]/div/div/div[3]/button")
 	@CacheLookup
 	WebElement TreeDotEditCancel;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/confirm-modal/div[3]/div/button[1]")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/confirm-modal/div[3]/div/button[1]")
 	@CacheLookup
 	WebElement ThreeDotEditYes;
 	
@@ -254,11 +254,11 @@ public class Appointments
 	@CacheLookup
 	WebElement ThreeDotForms;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[2]/div/button")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[2]/div/button")
 	@CacheLookup
 	WebElement FormsMakechange;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"formly_1_firstName_0_0\"]")
+	@FindBy(how=How.XPATH,using="//*[@id='formly_1_firstName_0_0']")
 	@CacheLookup
 	WebElement FormsFirstName;
 	
@@ -381,11 +381,11 @@ public class Appointments
 	}
 	
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[3]/span/button")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[3]/span/button")
 	@CacheLookup
 	WebElement FormsSave;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[3]/button[2]")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[3]/button[2]")
 	@CacheLookup
 	WebElement FormsCancel;
 	
@@ -393,11 +393,11 @@ public class Appointments
 	@CacheLookup
 	WebElement AppointmentType;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[1]/patient-details/form/div[3]/div[5]/div/div[2]/div/ul/li[5]/a")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[2]/div/div[1]/patient-details/form/div[3]/div[5]/div/div[2]/div/ul/li[5]/a")
 	@CacheLookup
 	WebElement Appointment1;
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[1]/patient-details/form/div[3]/div[5]/div/div[2]/div/ul/li[4]/a")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[2]/div/div[1]/patient-details/form/div[3]/div[5]/div/div[2]/div/ul/li[4]/a")
 	@CacheLookup
 	WebElement Visit;
 	public void Visit()
@@ -407,7 +407,7 @@ public class Appointments
 	}
 	
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/ul/li[4]/a")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/ul/li[4]/a")
 	@CacheLookup
 	WebElement MessageHistory;
 	
@@ -425,7 +425,7 @@ public class Appointments
 		CheckHistory.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[3]/button[3]")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[3]/button[3]")
 	@CacheLookup
 	WebElement HistorySaveChange;
 	
@@ -436,7 +436,7 @@ public class Appointments
 		
 	}
 	
-	@FindBy(how=How.XPATH,using="//div[starts-with(@role,\"alert\")]")
+	@FindBy(how=How.XPATH,using="//div[starts-with(@role,'alert')]")
 	@CacheLookup
 	WebElement HistorySaveChangeMessage;
 	
@@ -447,7 +447,7 @@ public class Appointments
 	
 	
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[3]/button[3]")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[3]/button[3]")
 	@CacheLookup
 	WebElement AppointmentTypeSave;
 	
@@ -1158,7 +1158,7 @@ public class Appointments
 		threedotclick.click();
 
 	}
-	@FindBy(how=How.XPATH,using="//div[@class=\"image-uploader well well-sm ng-scope\" ]//label[@for=\"file-6\"]")
+	@FindBy(how=How.XPATH,using="//div[@class='image-uploader well well-sm ng-scope' ]//label[@for=\"file-6\"]")
 	@CacheLookup
 	WebElement choosefile;
 	public void choosefile() throws AWTException, InterruptedException
@@ -1228,7 +1228,7 @@ public class Appointments
 		printbutton.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-list/div[3]/button[1]")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-list/div[3]/button[1]")
 	@CacheLookup
 	WebElement Columns_Defaultsset;
 	
@@ -1385,7 +1385,7 @@ public class Appointments
 		Edit_Appointmen_Cancel_Yes.click();
 	}
 	
-	@FindBy(how=How.XPATH,using="//div[@ng-class=\"$ctrl.setModalBodyClass()\"]")
+	@FindBy(how=How.XPATH,using="//div[@ng-class='$ctrl.setModalBodyClass()']")
 	@CacheLookup
 	WebElement Forms_Display;
 	
@@ -1395,7 +1395,7 @@ public class Appointments
 		System.out.println(act);
 	}
 	
-	@FindBy(how=How.XPATH,using="//*[@id=\"appointments\"]/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul")
+	@FindBy(how=How.XPATH,using="//*[@id='appointments']/div[1]/div/div/patient-details-modal/div[2]/div/div[2]/jfh-patient-forms/div/div[1]/ul")
 	@CacheLookup
 	WebElement Forms_option;
 	

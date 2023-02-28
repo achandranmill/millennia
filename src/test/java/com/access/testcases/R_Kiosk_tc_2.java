@@ -62,7 +62,7 @@ public class R_Kiosk_tc_2 extends BaseClass
 		Thread.sleep(10000);
         driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
 		Thread.sleep(10000);
-		driver.findElement(By.xpath("//button[@id=\"kiosk-new-button-right\"]")).click();
+		driver.findElement(By.xpath("//button[@id='kiosk-new-button-right']")).click();
 		Thread.sleep(5000);
 		k.FirstName("Awdesh");
 		Thread.sleep(1000);
@@ -71,9 +71,9 @@ public class R_Kiosk_tc_2 extends BaseClass
 		driver.findElement(By.xpath("//button[contains(text(),'NEXT')]")).click();
         Thread.sleep(3000);
 		k.CHECK_IN();
-		Thread.sleep(5000);
-		//driver.get("https://access-staging-a.jellyfishhealth.com");
-		driver.get(baseURL);
+		Thread.sleep(10000);
+		driver.get("https://access-staging-a.jellyfishhealth.com");
+		//driver.get(baseURL);
 		Thread.sleep(10000);
 		//User Check Successful login on valid email and password
         k.Login_email("user_test@mailinator.com");

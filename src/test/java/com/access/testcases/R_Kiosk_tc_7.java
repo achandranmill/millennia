@@ -55,7 +55,7 @@ public class R_Kiosk_tc_7 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk();
 		Thread.sleep(1000);
-		WebElement Add_New_Appoint=driver.findElement(By.xpath("//input[@id=\"enable-add-new-patient\"]"));
+		/*WebElement Add_New_Appoint=driver.findElement(By.xpath("//input[@id=\"enable-add-new-patient\"]"));
 		if(!Add_New_Appoint.isSelected())
 		{
 			Add_New_Appoint.click();
@@ -110,9 +110,9 @@ public class R_Kiosk_tc_7 extends BaseClass
 		Thread.sleep(1000);
 		k.Kiosk_pagename_VerificationlastName();
 		Thread.sleep(1000);
-		k.Kiosk_Pagename_Add();
+		k.Kiosk_Pagename_Add();*/
 		Thread.sleep(10000);
-		WebElement Search_checkbox=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		WebElement Search_checkbox=driver.findElement(By.xpath("//input[@id='search-appointment']"));
 		if(!Search_checkbox.isSelected())
 		{
 			Search_checkbox.click();
@@ -132,13 +132,13 @@ public class R_Kiosk_tc_7 extends BaseClass
 		Thread.sleep(10000);
         driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
 		Thread.sleep(10000);
-		driver.findElement(By.xpath("//button[@id=\"kiosk-new-button-right\"]")).click();
+		driver.findElement(By.xpath("//button[@id='kiosk-new-button-right']")).click();
 		Thread.sleep(5000);
 		k.FirstName("Awdesh");
 		Thread.sleep(1000);
 		k.LastName("Jain");
 		Thread.sleep(1000);
-		List<WebElement>print=driver.findElements(By.xpath("//*[@id=\"kiosk.flow.page\"]/main"));
+		List<WebElement>print=driver.findElements(By.xpath("//*[@id='kiosk.flow.page']/main"));
 		for(WebElement ele:print)
 		{
 			String Value=ele.getText();
@@ -147,7 +147,7 @@ public class R_Kiosk_tc_7 extends BaseClass
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//button[contains(text(),'NEXT')]")).click();
 		Thread.sleep(3000);
-		List<WebElement>print2=driver.findElements(By.xpath("//*[@id=\"kiosk.flow.page\"]/main"));
+		List<WebElement>print2=driver.findElements(By.xpath("//*[@id='kiosk.flow.page']/main"));
 		for(WebElement ele:print2)
 		{
 			String Value=ele.getText();

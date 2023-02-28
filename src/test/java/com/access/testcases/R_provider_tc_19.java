@@ -46,7 +46,7 @@ public class R_provider_tc_19 extends BaseClass
 		Thread.sleep(3000);
 		pd.Provider();
 		Thread.sleep(5000);
-		WebElement Unpublish=driver.findElement(By.xpath("//input[@type=\"checkbox\"  or  @ng-click=\"$ctrl.filterUnpublishedProviders()\"]"));
+		WebElement Unpublish=driver.findElement(By.xpath("//input[@type='checkbox'  or  @ng-click='$ctrl.filterUnpublishedProviders()']"));
 		if(!Unpublish.isSelected())
 		{
 			Unpublish.click();
@@ -59,7 +59,7 @@ public class R_provider_tc_19 extends BaseClass
 		pd.Find_Provider("Dr.Mackenzie");
 		Thread.sleep(2000);
 		pd.Search_Provider_btn();
-		driver.findElement(By.xpath("//tr[@ng-repeat=\"provider in $ctrl.paginatedProviders\"]//td[contains(text(),'Dr.Mackenzie Mackenzie')]//following::td//button[@class=\"btn btn-link pull-right\"]")).click();
+		driver.findElement(By.xpath("//tr[@ng-repeat='provider in $ctrl.paginatedProviders']//td[contains(text(),'Dr.Mackenzie Mackenzie')]//following::td//button[@class='btn btn-link pull-right']")).click();
         Thread.sleep(10000);
         pd.Schedule();
         Thread.sleep(3000);

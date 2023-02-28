@@ -47,7 +47,7 @@ public class Appt_tc_11 extends BaseClass
 		addp.LinkclickBoard();
 		Thread.sleep(5000);
 		//User Enter lastName
-		addp.lname("Gomezz");
+		addp.lname("Gomez");
 		//User Enter FirstName
 		addp.fname("Gemma");
 		//User Enter MiddleName
@@ -58,7 +58,7 @@ public class Appt_tc_11 extends BaseClass
 		addp.pnumber("9878900912");
 		Thread.sleep(2000);
 		//User Enter Email
-		addp.textemail("gandhi@mailinator.com");
+		addp.textemail("Gemma@mailinator.com");
 		addp.Clip_AppointTime("09:45");
 		addp.clipdepartmenttype();
 		addp.clipdeptmilleniaoption1();
@@ -82,7 +82,7 @@ public class Appt_tc_11 extends BaseClass
 		ap.linkAppointment();
 		Thread.sleep(15000);
 		//-----------------DATE RANGE------------------------------------
-		ap.SearchLastName("Gomezz");
+		ap.SearchLastName("Gomez");
 		ap.SearchButton();
 		Thread.sleep(5000);
 		ap.Patient_Displayed();

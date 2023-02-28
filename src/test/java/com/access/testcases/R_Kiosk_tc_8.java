@@ -2,6 +2,7 @@ package com.access.testcases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.access.pageobject.AdmUser;
@@ -53,7 +54,7 @@ public class R_Kiosk_tc_8 extends BaseClass
 		Thread.sleep(1000);
 		driver.manage().deleteAllCookies();
 		Thread.sleep(3000);
-		WebElement Add_New_Appoint=driver.findElement(By.xpath("//input[@id=\"enable-add-new-patient\"]"));
+		WebElement Add_New_Appoint=driver.findElement(By.xpath("//input[@id='enable-add-new-patient']"));
 		if(!Add_New_Appoint.isSelected())
 		{
 			Add_New_Appoint.click();
@@ -63,7 +64,7 @@ public class R_Kiosk_tc_8 extends BaseClass
 
 		}
 		Thread.sleep(3000);
-		WebElement Search_checkbox=driver.findElement(By.xpath("//input[@id=\"search-appointment\"]"));
+		WebElement Search_checkbox=driver.findElement(By.xpath("//input[@id='search-appointment']"));
 		if(!Search_checkbox.isSelected())
 		{
 			Search_checkbox.click();
@@ -72,13 +73,12 @@ public class R_Kiosk_tc_8 extends BaseClass
 		{
 
 		}
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		WebElement Search_Skip=driver.findElement(By.xpath("//input[@id='skip-results']"));
 		if(!Search_Skip.isSelected())
 		{
 			Search_Skip.click();
 		}
-		Thread.sleep(1000);
 		Thread.sleep(5000);
 		k.Kiosk_configuration();
 		Thread.sleep(3000);
@@ -86,7 +86,7 @@ public class R_Kiosk_tc_8 extends BaseClass
 		Thread.sleep(3000);
 		k.Kiosk_SearchButtonText("Press Here To Start");
 		Thread.sleep(3000);
-		WebElement Allow_New_Appointment=driver.findElement(By.xpath("//input[@id=\"allow-appointment\"]"));
+		WebElement Allow_New_Appointment=driver.findElement(By.xpath("//input[@id='allow-appointment']"));
 		if(Allow_New_Appointment.isSelected())
 		{
 			Allow_New_Appointment.click();
@@ -99,6 +99,20 @@ public class R_Kiosk_tc_8 extends BaseClass
 		k.Kiosk_Donebutton();
 		Thread.sleep(10000);
 		k.Kiosk_Savebutton();
+		driver.get("https://access-stage-a.jellyfishhealth.com/#/kiosk");
+		Thread.sleep(30000);
+		boolean Press_Here_to_Start=driver.findElement(By.xpath("//button[contains(text(),'Press Here To Start')]")).isDisplayed();
+		Assert.assertTrue(Press_Here_to_Start);
+		Thread.sleep(2000);
+		try
+		{
+		boolean New_Appointment=driver.findElement(By.xpath("//button[contains(text(),'New Appointment')]")).isDisplayed();
+		Assert.assertFalse(New_Appointment);
+		}
+		catch(Exception e)
+		{
+			
+		}
 
 	}
 }
